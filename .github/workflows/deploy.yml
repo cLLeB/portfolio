@@ -29,13 +29,16 @@ jobs:
     - name: Lint
       run: npm run lint
       
-    - name: Build
+    - name: Build for GitHub Pages
       run: npm run build
-      
+      env:
+        NODE_ENV: production
+        GITHUB_ACTIONS: true
+
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./out
-        cname: your-custom-domain.com  # Optional: replace with your custom domain
+        # cname: your-custom-domain.com  # Optional: replace with your custom domain
