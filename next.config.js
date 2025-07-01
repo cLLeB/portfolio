@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Explicitly disable static export
+  output: undefined,
+  trailingSlash: false,
   images: {
     domains: ['github.com', 'raw.githubusercontent.com'],
     unoptimized: true,
