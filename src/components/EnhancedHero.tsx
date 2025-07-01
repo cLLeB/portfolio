@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { ChevronDown, Github, Linkedin, Mail, Download, MapPin } from 'lucide-react'
 import Button from './ui/Button'
+import GlitchText from './GlitchText'
 
 const EnhancedHero = () => {
   const [currentRole, setCurrentRole] = useState(0)
@@ -159,7 +160,7 @@ const EnhancedHero = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Name Display */}
+        {/* Enhanced Name Display with Glitch Effect */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -175,14 +176,17 @@ const EnhancedHero = () => {
             >
               Hello, I'm
             </motion.span>
-            <motion.span
-              className="block gradient-text"
+            <motion.div
+              className="block"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              Caleb Kyere Boateng
-            </motion.span>
+              <GlitchText
+                text="Caleb Kyere Boateng"
+                className="gradient-text text-display-2xl md:text-display-xl font-bold"
+              />
+            </motion.div>
           </h1>
         </motion.div>
 
