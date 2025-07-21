@@ -3,9 +3,16 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/next",
+      "config": {
+        "distDir": ".next",
+        "includeFiles": ["public/**"]
+      }
     }
   ],
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
   "routes": [
     {
       "src": "/resume.pdf",

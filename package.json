@@ -8,7 +8,8 @@
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "vercel-build": "next build"
   },
   "vercel": {
     "framework": "nextjs"
