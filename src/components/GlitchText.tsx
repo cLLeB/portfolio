@@ -9,6 +9,7 @@ interface GlitchTextProps {
 }
 
 const GlitchText = ({ text, className = '' }: GlitchTextProps) => {
+  const [isMounted, setIsMounted] = useState(false)
   const [glitchText, setGlitchText] = useState(text)
   const [isGlitching, setIsGlitching] = useState(false)
   const [hasInitialGlitch, setHasInitialGlitch] = useState(false)
@@ -45,8 +46,11 @@ const GlitchText = ({ text, className = '' }: GlitchTextProps) => {
     }, 50)
   }, [text, isGlitching, glitchChars])
 
-  // Initial glitch effect on mount
+  // Set isMounted to true after component mounts (client-side only)
   useEffect(() => {
+    setIsMounted(true)
+    
+    // Initial glitch effect after mount
     if (!hasInitialGlitch) {
       const initialTimer = setTimeout(() => {
         triggerGlitch()
@@ -69,6 +73,11 @@ const GlitchText = ({ text, className = '' }: GlitchTextProps) => {
 
     return () => clearInterval(timer)
   }, [triggerGlitch, hasInitialGlitch])
+
+  // Render a simple span during SSR and hydration
+  if (!isMounted) {
+    return <span className={className}>{text}</span>
+  }
 
   return (
     <motion.span

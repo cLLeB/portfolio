@@ -1,27 +1,15 @@
-export const downloadResume = async () => {
+export const downloadResume = () => {
   try {
+    // Direct link to the resume in the public folder
+    const resumeUrl = '/resume.pdf';
+    
     // Create a temporary link element
-    const link = document.createElement('a')
-    
-    // Use the correct path based on the environment
-    const isProduction = process.env.NODE_ENV === 'production';
-    const basePath = isProduction ? '' : ''; // Add base path if needed
-    const resumeUrl = `${basePath}/resume/Caleb_Kyere_Boateng_Resume.pdf`
-    
-    // Try to fetch the resume
-    const response = await fetch(resumeUrl, { method: 'HEAD' });
-    
-    if (response.ok) {
-      // File exists, proceed with download
-      link.href = resumeUrl;
-      link.download = 'Caleb_Kyere_Boateng_Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      // File doesn't exist, show notification
-      showResumeNotification();
-    }
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'Caleb_Kyere_Boateng_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   } catch (error) {
     console.error('Error downloading resume:', error);
     showResumeNotification();
