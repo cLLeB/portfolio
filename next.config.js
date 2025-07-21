@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Enable static export for GitHub Pages, disable for Vercel
-  output: process.env.GITHUB_ACTIONS ? 'export' : undefined,
-  trailingSlash: process.env.GITHUB_ACTIONS ? true : false,
+  output: process.env.GITHUB_ACTIONS ? 'export' : 'standalone',
+  trailingSlash: true,
   basePath: process.env.GITHUB_ACTIONS ? '/portfolio' : '',
   assetPrefix: process.env.GITHUB_ACTIONS ? '/portfolio/' : '',
   images: {

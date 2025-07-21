@@ -1,30 +1,31 @@
-export const downloadResume = () => {
-  // Create a temporary link element
-  const link = document.createElement('a')
-  
-  // For now, we'll create a placeholder resume
-  // In a real scenario, you would host your actual resume PDF
-  const resumeUrl = '/resume/Caleb_Kyere_Boateng_Resume.pdf'
-  
-  // Check if the resume file exists, if not, show a message
-  fetch(resumeUrl, { method: 'HEAD' })
-    .then(response => {
-      if (response.ok) {
-        // File exists, proceed with download
-        link.href = resumeUrl
-        link.download = 'Caleb_Kyere_Boateng_Resume.pdf'
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-      } else {
-        // File doesn't exist, show notification
-        showResumeNotification()
-      }
-    })
-    .catch(() => {
-      // Error occurred, show notification
-      showResumeNotification()
-    })
+export const downloadResume = async () => {
+  try {
+    // Create a temporary link element
+    const link = document.createElement('a')
+    
+    // Use the correct path based on the environment
+    const isProduction = process.env.NODE_ENV === 'production';
+    const basePath = isProduction ? '' : ''; // Add base path if needed
+    const resumeUrl = `${basePath}/resume/Caleb_Kyere_Boateng_Resume.pdf`
+    
+    // Try to fetch the resume
+    const response = await fetch(resumeUrl, { method: 'HEAD' });
+    
+    if (response.ok) {
+      // File exists, proceed with download
+      link.href = resumeUrl;
+      link.download = 'Caleb_Kyere_Boateng_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // File doesn't exist, show notification
+      showResumeNotification();
+    }
+  } catch (error) {
+    console.error('Error downloading resume:', error);
+    showResumeNotification();
+  }
 }
 
 const showResumeNotification = () => {
