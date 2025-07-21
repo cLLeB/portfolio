@@ -12,7 +12,10 @@
     "vercel-build": "next build"
   },
   "vercel": {
-    "framework": "nextjs"
+    "buildCommand": "next build",
+    "outputDirectory": ".next",
+    "framework": "nextjs@14.2.30",
+    "installCommand": "npm install"
   },
   "dependencies": {
     "next": "^14.0.0",
