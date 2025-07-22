@@ -83,20 +83,20 @@ const Projects = () => {
       category: 'Web Application'
     },
     {
-      title: 'Task Management API',
-      description: 'RESTful API for task and project management with user authentication, role-based permissions, and real-time notifications. Features comprehensive CRUD operations and advanced filtering capabilities.',
-      technologies: ['Node.js', 'Express', 'MongoDB', 'JWT', 'Socket.io', 'Swagger'],
+      title: 'Distributed File System',
+      description: 'A high-performance, fault-tolerant distributed file storage system built with Go. Implements the Raft consensus algorithm for distributed coordination and provides enterprise-grade security and scalability.',
+      technologies: ['Go', 'Raft', 'Docker', 'Kubernetes', 'Prometheus', 'Grafana'],
       features: [
-        'User authentication and authorization',
-        'Real-time task updates',
-        'Advanced search and filtering',
-        'API documentation with Swagger',
-        'Email notification system'
+        'Distributed consensus with Raft algorithm',
+        'Multi-node replication and automatic failover',
+        'AES-256-GCM encryption at rest and in transit',
+        'JWT authentication and RBAC',
+        'Prometheus monitoring & Grafana dashboards'
       ],
       icon: Server,
-      github: 'https://github.com/cLLeB/task-management-api',
+      github: 'https://github.com/cLLeB/distributed-fs',
       demo: null,
-      category: 'Backend API'
+      category: 'Distributed Systems'
     }
   ]
 
@@ -135,7 +135,9 @@ const Projects = () => {
                 boxShadow: '0 25px 50px rgba(59, 130, 246, 0.3), 0 0 30px rgba(147, 51, 234, 0.2)'
               }}
               style={{
-                background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(30,41,59,0.4) 100%)'
+                background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(30,41,59,0.4) 100%)',
+                position: 'relative',
+                zIndex: 1
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -161,7 +163,8 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-300"
+                      className="p-2 rounded-lg bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-300 relative z-10"
+                      style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto' }}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
