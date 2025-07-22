@@ -6,23 +6,17 @@ import {
   Github,
   ExternalLink,
   Server,
-  Database,
-  Smartphone,
   Globe,
   Code,
   Shield,
   ChevronRight,
-  Star,
 } from "lucide-react";
-import { useState } from "react";
 
 const MobileProjectCards = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -119,7 +113,7 @@ const MobileProjectCards = () => {
     },
     {
       title: "Distributed File System",
-      shortTitle: "File System",
+      shortTitle: " Distributed File System",
       description:
         "A high-performance, fault-tolerant distributed file storage system built with Go. Implements the Raft consensus algorithm for distributed coordination and provides enterprise-grade security and scalability.",
       shortDesc:
@@ -281,72 +275,6 @@ const MobileProjectCards = () => {
                     </span>
                   )}
                 </div>
-
-                {/* Expandable Features */}
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: expandedCard === index ? "auto" : 0,
-                    opacity: expandedCard === index ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  {expandedCard === index && (
-                    <div className="pt-4 border-t border-gray-700/50">
-                      <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                        <Star size={14} className="text-yellow-400" />
-                        Key Features
-                      </h4>
-                      <ul className="space-y-2">
-                        {project.features.map((feature, featureIndex) => (
-                          <motion.li
-                            key={featureIndex}
-                            className="flex items-start text-sm text-gray-300"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: featureIndex * 0.1 }}
-                          >
-                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                            {feature}
-                          </motion.li>
-                        ))}
-                      </ul>
-
-                      {/* Additional Project Info */}
-                      <div className="mt-4 pt-3 border-t border-gray-700/30">
-                        <div className="flex flex-wrap gap-2">
-                          <span className="text-xs text-gray-400">
-                            Category:
-                          </span>
-                          <span className="text-xs text-blue-400 font-medium">
-                            {project.category}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-
-                {/* Expand Button */}
-                <motion.button
-                  onClick={() =>
-                    setExpandedCard(expandedCard === index ? null : index)
-                  }
-                  className="w-full mt-4 py-2 text-sm text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center justify-center gap-2"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>
-                    {expandedCard === index ? "Show Less" : "Show More"}
-                  </span>
-                  <motion.div
-                    animate={{ rotate: expandedCard === index ? 90 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronRight size={16} />
-                  </motion.div>
-                </motion.button>
               </div>
 
               {/* Hover Gradient Overlay */}
