@@ -217,10 +217,16 @@ const MobileProjectCards = () => {
                   </div>
 
                   <div className="flex space-x-2">
-                    <motion.a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <motion.button
+                      onClick={() => {
+                        if (project.href) {
+                          window.open(
+                            project.href,
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
+                        }
+                      }}
                       className="p-2 rounded-lg bg-gray-800/50 hover:bg-blue-600/50 transition-colors duration-300 group"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
@@ -230,7 +236,7 @@ const MobileProjectCards = () => {
                         size={16}
                         className="text-gray-400 group-hover:text-white transition-colors duration-300"
                       />
-                    </motion.a>
+                    </motion.button>
                     {project.demo && (
                       <motion.a
                         href={project.demo}
