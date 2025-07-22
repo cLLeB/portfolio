@@ -65,7 +65,7 @@ const MobileProjectCards = () => {
         "Interactive REPL environment",
       ],
       icon: Code,
-      github: "https://github.com/cLLeB/language-interpreter",
+      href: "https://github.com/cLLeB/language-interpreter",
       demo: null,
       category: "Programming Languages",
       color: "from-green-500 to-emerald-600",
@@ -88,7 +88,7 @@ const MobileProjectCards = () => {
         "Multi-signature wallet integration",
       ],
       icon: Shield,
-      github: "https://github.com/cLLeB/blockchain-voting",
+      href: "https://github.com/cLLeB/blockchain-voting",
       demo: null,
       category: "Blockchain",
       color: "from-purple-500 to-violet-600",
@@ -111,8 +111,8 @@ const MobileProjectCards = () => {
         "Bulk URL processing",
       ],
       icon: Globe,
-      github: "https://github.com/cLLeB/URL-shortening",
-      demo: "https://url-shortener-demo.vercel.app",
+      href: "https://github.com/cLLeB/URL-shortening",
+      demo: null,
       category: "Web Application",
       color: "from-blue-500 to-cyan-600",
       bgColor: "bg-blue-500/10",
@@ -140,7 +140,7 @@ const MobileProjectCards = () => {
         "Prometheus monitoring & Grafana dashboards",
       ],
       icon: Server,
-      github: "https://github.com/cLLeB/distributed-fs",
+      href: "https://github.com/cLLeB/distributed-fs",
       demo: null,
       category: "Distributed Systems",
       color: "from-orange-500 to-red-600",
@@ -218,18 +218,13 @@ const MobileProjectCards = () => {
 
                   <div className="flex space-x-2">
                     <motion.a
-                      href={project.github}
+                      href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-lg bg-gray-800/50 hover:bg-blue-600/50 transition-colors duration-300 group"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       title="View on GitHub"
-                      onClick={(e) => {
-                        if (!project.github) {
-                          e.preventDefault();
-                        }
-                      }}
                     >
                       <Github
                         size={16}
