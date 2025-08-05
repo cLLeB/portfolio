@@ -13,12 +13,13 @@ const TouchOptimizedSkills = () => {
 
   const [activeCategory, setActiveCategory] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
-    
     checkMobile()
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
@@ -49,81 +50,81 @@ const TouchOptimizedSkills = () => {
 
   const skillCategories = [
     {
-      title: 'Languages',
+      title: 'Programming Languages',
       icon: Code,
       color: 'from-green-500 to-emerald-600',
       skills: [
-        { name: 'JavaScript/TypeScript', level: 75 },
-        { name: 'Python', level: 80 },
-        { name: 'Java', level: 70 },
-        { name: 'C++', level: 65 },
-        { name: 'PHP', level: 60 },
-        { name: 'Solidity', level: 55 }
+        { name: 'JavaScript/TypeScript', level: 35 },
+        { name: 'Python', level: 31 },
+        { name: 'Java', level: 30 },
+        { name: 'C++', level: 35 },
+        { name: 'PHP', level: 28 },
+        { name: 'Solidity', level: 20 }
       ]
     },
     {
-      title: 'Frontend',
+      title: 'Frontend Technologies',
       icon: Smartphone,
       color: 'from-blue-500 to-cyan-600',
       skills: [
-        { name: 'React/Next.js', level: 75 },
-        { name: 'HTML5/CSS3', level: 85 },
-        { name: 'Tailwind CSS', level: 70 },
-        { name: 'Bootstrap', level: 75 },
-        { name: 'Framer Motion', level: 60 },
-        { name: 'React Native', level: 55 }
+        { name: 'React/Next.js', level: 45 },
+        { name: 'HTML5/CSS3', level: 40 },
+        { name: 'Tailwind CSS', level: 30 },
+        { name: 'Bootstrap', level: 20 },
+        { name: 'Framer Motion', level: 22 },
+        { name: 'React Native', level: 35 }
       ]
     },
     {
-      title: 'Backend',
+      title: 'Backend & APIs',
       icon: Server,
       color: 'from-purple-500 to-violet-600',
       skills: [
-        { name: 'Node.js/Express', level: 75 },
-        { name: 'RESTful APIs', level: 80 },
-        { name: 'FastAPI/Flask', level: 65 },
-        { name: 'GraphQL', level: 50 },
-        { name: 'Socket.io', level: 60 },
-        { name: 'JWT Auth', level: 70 }
+        { name: 'Node.js/Express', level: 42 },
+        { name: 'RESTful APIs', level: 30 },
+        { name: 'FastAPI/Flask', level: 24 },
+        { name: 'GraphQL', level: 15 },
+        { name: 'Socket.io', level: 11 },
+        { name: 'JWT Authentication', level: 24 }
       ]
     },
     {
-      title: 'Database',
+      title: 'Databases',
       icon: Database,
       color: 'from-orange-500 to-red-600',
       skills: [
-        { name: 'MongoDB', level: 70 },
-        { name: 'PostgreSQL', level: 65 },
-        { name: 'MySQL', level: 75 },
-        { name: 'Firebase', level: 60 },
-        { name: 'Redis', level: 55 },
-        { name: 'SQLite', level: 70 }
+        { name: 'MongoDB', level: 41 },
+        { name: 'PostgreSQL', level: 21 },
+        { name: 'MySQL', level: 20 },
+        { name: 'Firebase', level: 15 },
+        { name: 'Redis', level: 30 },
+        { name: 'SQLite', level: 30 }
       ]
     },
     {
-      title: 'DevOps',
+      title: 'DevOps & Cloud',
       icon: Cloud,
       color: 'from-cyan-500 to-blue-600',
       skills: [
-        { name: 'Git/GitHub', level: 85 },
-        { name: 'Docker', level: 60 },
-        { name: 'Linux', level: 70 },
-        { name: 'AWS Basics', level: 50 },
-        { name: 'CI/CD', level: 55 },
-        { name: 'Nginx', level: 45 }
+        { name: 'Git/GitHub', level: 45 },
+        { name: 'Docker', level: 35 },
+        { name: 'Linux', level: 48 },
+        { name: 'AWS Basics', level: 20 },
+        { name: 'CI/CD', level: 35 },
+        { name: 'Nginx', level: 25 }
       ]
     },
     {
-      title: 'Tools',
+      title: 'Tools & Others',
       icon: Settings,
       color: 'from-pink-500 to-rose-600',
       skills: [
-        { name: 'VS Code', level: 90 },
-        { name: 'Postman', level: 80 },
-        { name: 'Jest/Testing', level: 60 },
-        { name: 'Figma', level: 55 },
-        { name: 'ANTLR', level: 65 },
-        { name: 'Web3.js', level: 50 }
+        { name: 'VS Code', level: 55 },
+        { name: 'Postman', level: 32 },
+        { name: 'Jest/Testing', level: 22 },
+        { name: 'Figma', level: 48 },
+        { name: 'ANTLR', level: 23 },
+        { name: 'Web3.js', level: 15 }
       ]
     }
   ]
@@ -133,6 +134,8 @@ const TouchOptimizedSkills = () => {
     index: number,
     categoryColor: string 
   }) => {
+    // Make animation duration dynamic per bar for a more lively effect
+    const flowDuration = 3.5 + (index % 4) * 0.7; // 3.5s to 5.6s
     return (
       <motion.div
         className="mb-3 sm:mb-4"
@@ -158,19 +161,24 @@ const TouchOptimizedSkills = () => {
             {skill.level}%
           </span>
         </div>
-        <div className="w-full bg-gray-700/50 rounded-full h-2 sm:h-2.5 overflow-hidden">
+        <div className="w-full bg-gray-700/50 rounded-full h-2 sm:h-2.5 relative overflow-hidden">
+          {/* White flow animation overlay, always full width, only animates when in view */}
+          <motion.div
+            className="absolute inset-0 h-full pointer-events-none"
+            style={{ zIndex: 1 }}
+            animate={inView ? { x: ['-100%', '100%'] } : { x: '-100%' }}
+            transition={{ duration: flowDuration, repeat: inView ? Infinity : 0, ease: "linear" }}
+          >
+            <div className="w-full h-full bg-white/20 rounded-full" />
+          </motion.div>
+          {/* Filled bar */}
           <motion.div
             className={`bg-gradient-to-r ${categoryColor} h-full rounded-full relative`}
+            style={{ zIndex: 2, position: 'relative' }}
             initial={{ width: 0 }}
             animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
             transition={{ delay: index * 0.1 + 0.3, duration: 1, ease: "easeOut" }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-white/20"
-              animate={{ x: ['-100%', '100%'] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            />
-          </motion.div>
+          />
         </div>
       </motion.div>
     )
@@ -180,146 +188,148 @@ const TouchOptimizedSkills = () => {
     <section id="skills" className="py-12 sm:py-20 bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/20 to-purple-900/20"></div>
-      
-      <motion.div
-        ref={ref}
-        className="container mx-auto px-4 sm:px-6 relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 relative z-20">
-            <span className="drop-shadow-2xl">Skills &</span>{' '}
-            <span 
-              className="text-cyan-400 drop-shadow-2xl"
-              style={{
-                textShadow: '0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(34, 211, 238, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8)'
-              }}
-            >
-              Technologies
-            </span>
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
-            Technical expertise across various domains of software development.
-          </p>
-          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-        </motion.div>
 
-        {/* Mobile Tab Navigation */}
-        {isMobile && (
-          <motion.div variants={itemVariants} className="mb-8">
-            <div className="flex overflow-x-auto pb-4 space-x-2 scrollbar-hide">
-              {skillCategories.map((category, index) => (
+      {mounted && (
+        <motion.div
+          ref={ref}
+          className="container mx-auto px-4 sm:px-6 relative z-10"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 relative z-20">
+              <span className="drop-shadow-2xl">Skills &</span>{' '}
+              <span 
+                className="text-cyan-400 drop-shadow-2xl"
+                style={{
+                  textShadow: '0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(34, 211, 238, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8)'
+                }}
+              >
+                Technologies
+              </span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
+              Technical expertise across various domains of software development.
+            </p>
+            <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+          </motion.div>
+
+          {/* Mobile Tab Navigation */}
+          {isMobile && (
+            <motion.div variants={itemVariants} className="mb-8">
+              <div className="flex overflow-x-auto pb-4 space-x-2 scrollbar-hide">
+                {skillCategories.map((category, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setActiveCategory(index)}
+                    className={`flex-shrink-0 flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 ${
+                      activeCategory === index
+                        ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
+                        : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'
+                    }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <category.icon size={18} />
+                    <span className="font-medium whitespace-nowrap">{category.title}</span>
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Skills Grid */}
+          <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-6 sm:gap-8`}>
+            {(isMobile ? [skillCategories[activeCategory]] : skillCategories).map((category, categoryIndex) => (
+              <motion.div
+                key={isMobile ? `mobile-${activeCategory}` : categoryIndex}
+                variants={itemVariants}
+                className="bg-black/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-cyan-500/30 hover:border-blue-500/50 transition-all duration-300 relative z-10"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(15,23,42,0.6) 100%)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                }}
+                whileHover={{
+                  boxShadow: '0 12px 40px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.1)',
+                  y: -4
+                }}
+                layout={isMobile}
+              >
+                <div className="flex items-center mb-4 sm:mb-6">
+                  <motion.div 
+                    className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center mr-3 sm:mr-4`}
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <category.icon size={isMobile ? 20 : 24} className="text-white" />
+                  </motion.div>
+                  <h3 
+                    className="text-lg sm:text-xl font-bold text-white relative z-20"
+                    style={{
+                      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.3)'
+                    }}
+                  >
+                    {category.title}
+                  </h3>
+                </div>
+                
+                <div className="space-y-3 sm:space-y-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <ProgressBar 
+                      key={skillIndex} 
+                      skill={skill} 
+                      index={skillIndex} 
+                      categoryColor={category.color}
+                    />
+                  ))}
+                </div>
+
+                {/* Category Stats */}
+                <motion.div 
+                  className="mt-4 sm:mt-6 pt-4 border-t border-gray-700/50"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center space-x-2 text-gray-400">
+                      <TrendingUp size={14} />
+                      <span>Avg Level</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-cyan-300 font-mono">
+                        {Math.round(category.skills.reduce((acc, skill) => acc + skill.level, 0) / category.skills.length)}%
+                      </span>
+                      <Zap size={14} className="text-yellow-400" />
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile Navigation Dots */}
+          {isMobile && (
+            <motion.div 
+              variants={itemVariants}
+              className="flex justify-center space-x-2 mt-8"
+            >
+              {skillCategories.map((_, index) => (
                 <motion.button
                   key={index}
                   onClick={() => setActiveCategory(index)}
-                  className={`flex-shrink-0 flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 ${
-                    activeCategory === index
-                      ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                      : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    activeCategory === index ? 'bg-cyan-400 w-6' : 'bg-gray-600'
                   }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <category.icon size={18} />
-                  <span className="font-medium whitespace-nowrap">{category.title}</span>
-                </motion.button>
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
               ))}
-            </div>
-          </motion.div>
-        )}
-
-        {/* Skills Grid */}
-        <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-6 sm:gap-8`}>
-          {(isMobile ? [skillCategories[activeCategory]] : skillCategories).map((category, categoryIndex) => (
-            <motion.div
-              key={isMobile ? `mobile-${activeCategory}` : categoryIndex}
-              variants={itemVariants}
-              className="bg-black/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-cyan-500/30 hover:border-blue-500/50 transition-all duration-300 relative z-10"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(15,23,42,0.6) 100%)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
-              }}
-              whileHover={{
-                boxShadow: '0 12px 40px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.1)',
-                y: -4
-              }}
-              layout={isMobile}
-            >
-              <div className="flex items-center mb-4 sm:mb-6">
-                <motion.div 
-                  className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center mr-3 sm:mr-4`}
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <category.icon size={isMobile ? 20 : 24} className="text-white" />
-                </motion.div>
-                <h3 
-                  className="text-lg sm:text-xl font-bold text-white relative z-20"
-                  style={{
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.3)'
-                  }}
-                >
-                  {category.title}
-                </h3>
-              </div>
-              
-              <div className="space-y-3 sm:space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <ProgressBar 
-                    key={skillIndex} 
-                    skill={skill} 
-                    index={skillIndex} 
-                    categoryColor={category.color}
-                  />
-                ))}
-              </div>
-
-              {/* Category Stats */}
-              <motion.div 
-                className="mt-4 sm:mt-6 pt-4 border-t border-gray-700/50"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center space-x-2 text-gray-400">
-                    <TrendingUp size={14} />
-                    <span>Avg Level</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-cyan-300 font-mono">
-                      {Math.round(category.skills.reduce((acc, skill) => acc + skill.level, 0) / category.skills.length)}%
-                    </span>
-                    <Zap size={14} className="text-yellow-400" />
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
-          ))}
-        </div>
-
-        {/* Mobile Navigation Dots */}
-        {isMobile && (
-          <motion.div 
-            variants={itemVariants}
-            className="flex justify-center space-x-2 mt-8"
-          >
-            {skillCategories.map((_, index) => (
-              <motion.button
-                key={index}
-                onClick={() => setActiveCategory(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  activeCategory === index ? 'bg-cyan-400 w-6' : 'bg-gray-600'
-                }`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-              />
-            ))}
-          </motion.div>
-        )}
-      </motion.div>
+          )}
+        </motion.div>
+      )}
     </section>
   )
 }

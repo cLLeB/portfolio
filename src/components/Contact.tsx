@@ -79,6 +79,12 @@ const Contact = () => {
       href: 'tel:+233204185163'
     },
     {
+      icon: Phone,
+      title: 'Call',
+      value: '+233 53 727 0382',
+      href: 'tel:+233537270382'
+    },
+    {
       icon: MapPin,
       title: 'Location',
       value: 'Kumasi, Ghana',
@@ -109,6 +115,12 @@ const Contact = () => {
       icon: Phone,
       name: 'Phone',
       href: 'tel:+233204185163',
+      color: 'hover:text-purple-600'
+    },
+    {
+      icon: Phone,
+      name: 'Call',
+      href: 'tel:+233537270382',
       color: 'hover:text-purple-600'
     }
   ]

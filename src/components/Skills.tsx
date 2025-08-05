@@ -38,77 +38,79 @@ const Skills = () => {
       title: 'Programming Languages',
       icon: Code,
       skills: [
-        { name: 'JavaScript/TypeScript', level: 75 },
-        { name: 'Python', level: 80 },
-        { name: 'Java', level: 70 },
-        { name: 'C++', level: 65 },
-        { name: 'PHP', level: 60 },
-        { name: 'Solidity', level: 55 }
+        { name: 'JavaScript/TypeScript', level: 35 },
+        { name: 'Python', level: 31 },
+        { name: 'Java', level: 30 },
+        { name: 'C++', level: 35 },
+        { name: 'PHP', level: 28 },
+        { name: 'Solidity', level: 20 }
       ]
     },
     {
       title: 'Frontend Technologies',
       icon: Smartphone,
       skills: [
-        { name: 'React/Next.js', level: 75 },
-        { name: 'HTML5/CSS3', level: 85 },
-        { name: 'Tailwind CSS', level: 70 },
-        { name: 'Bootstrap', level: 75 },
-        { name: 'Framer Motion', level: 60 },
-        { name: 'React Native', level: 55 }
+        { name: 'React/Next.js', level: 45 },
+        { name: 'HTML5/CSS3', level: 40 },
+        { name: 'Tailwind CSS', level: 30 },
+        { name: 'Bootstrap', level: 20 },
+        { name: 'Framer Motion', level: 22 },
+        { name: 'React Native', level: 35 }
       ]
     },
     {
       title: 'Backend & APIs',
       icon: Server,
       skills: [
-        { name: 'Node.js/Express', level: 75 },
-        { name: 'RESTful APIs', level: 80 },
-        { name: 'FastAPI/Flask', level: 65 },
-        { name: 'GraphQL', level: 50 },
-        { name: 'Socket.io', level: 60 },
-        { name: 'JWT Authentication', level: 70 }
+        { name: 'Node.js/Express', level: 42 },
+        { name: 'RESTful APIs', level: 30 },
+        { name: 'FastAPI/Flask', level: 24 },
+        { name: 'GraphQL', level: 15 },
+        { name: 'Socket.io', level: 11 },
+        { name: 'JWT Authentication', level: 24 }
       ]
     },
     {
       title: 'Databases',
       icon: Database,
       skills: [
-        { name: 'MongoDB', level: 70 },
-        { name: 'PostgreSQL', level: 65 },
-        { name: 'MySQL', level: 75 },
-        { name: 'Firebase', level: 60 },
-        { name: 'Redis', level: 55 },
-        { name: 'SQLite', level: 70 }
+        { name: 'MongoDB', level: 41 },
+        { name: 'PostgreSQL', level: 21 },
+        { name: 'MySQL', level: 20 },
+        { name: 'Firebase', level: 15 },
+        { name: 'Redis', level: 30 },
+        { name: 'SQLite', level: 30 }
       ]
     },
     {
       title: 'DevOps & Cloud',
       icon: Cloud,
       skills: [
-        { name: 'Git/GitHub', level: 85 },
-        { name: 'Docker', level: 60 },
-        { name: 'Linux', level: 70 },
-        { name: 'AWS Basics', level: 50 },
-        { name: 'CI/CD', level: 55 },
-        { name: 'Nginx', level: 45 }
+        { name: 'Git/GitHub', level: 45 },
+        { name: 'Docker', level: 35 },
+        { name: 'Linux', level: 48 },
+        { name: 'AWS Basics', level: 20 },
+        { name: 'CI/CD', level: 35 },
+        { name: 'Nginx', level: 25 }
       ]
     },
     {
       title: 'Tools & Others',
       icon: Settings,
       skills: [
-        { name: 'VS Code', level: 90 },
-        { name: 'Postman', level: 80 },
-        { name: 'Jest/Testing', level: 60 },
-        { name: 'Figma', level: 55 },
-        { name: 'ANTLR', level: 65 },
-        { name: 'Web3.js', level: 50 }
+        { name: 'VS Code', level: 55 },
+        { name: 'Postman', level: 32 },
+        { name: 'Jest/Testing', level: 22 },
+        { name: 'Figma', level: 48 },
+        { name: 'ANTLR', level: 23 },
+        { name: 'Web3.js', level: 15 }
       ]
     }
   ]
 
   const ProgressBar = ({ skill, index }: { skill: { name: string; level: number }, index: number }) => {
+    // Make animation duration dynamic per bar for a more lively effect
+    const flowDuration = 3.5 + (index % 4) * 0.7; // 3.5s to 5.6s
     return (
       <motion.div
         className="mb-4"
@@ -134,9 +136,20 @@ const Skills = () => {
             {skill.level}%
           </span>
         </div>
-        <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2">
+        <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 relative overflow-hidden">
+          {/* White flow animation overlay, always full width, only animates when in view */}
+          <motion.div
+            className="absolute inset-0 h-full pointer-events-none"
+            style={{ zIndex: 1 }}
+            animate={inView ? { x: ['-100%', '100%'] } : { x: '-100%' }}
+            transition={{ duration: flowDuration, repeat: inView ? Infinity : 0, ease: "linear" }}
+          >
+            <div className="w-full h-full bg-white/20 rounded-full" />
+          </motion.div>
+          {/* Filled bar */}
           <motion.div
             className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
+            style={{ zIndex: 2, position: 'relative' }}
             initial={{ width: 0 }}
             animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
             transition={{ delay: index * 0.1 + 0.3, duration: 1, ease: "easeOut" }}
