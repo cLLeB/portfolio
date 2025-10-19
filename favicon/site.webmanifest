@@ -1,6 +1,7 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Caleb Kyere Boateng - Computer Science Student Portfolio",
+  "short_name": "CKB Portfolio",
+  "description": "Professional portfolio showcasing programming language design, blockchain technology, and software engineering expertise",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

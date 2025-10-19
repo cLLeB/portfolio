@@ -1,6 +1,7 @@
 {
-  "name": "Your Site Name",
-  "short_name": "Short Name",
+  "name": "Caleb Kyere Boateng - Computer Science Student Portfolio",
+  "short_name": "CKB Portfolio",
+  "description": "Professional portfolio showcasing programming language design, blockchain technology, and software engineering expertise",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
