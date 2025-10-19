@@ -41,8 +41,8 @@ const About = () => {
     },
     {
       icon: Server,
-      title: 'Blockchain Technology',
-      description: 'Exploring decentralized systems, smart contracts, and the future of distributed applications.'
+      title: 'Computer Networking',
+      description: 'Exploring networks, switches, routers, and cable infrastructure for robust connectivity.'
     },
     {
       icon: Database,

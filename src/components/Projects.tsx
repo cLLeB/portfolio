@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Github, ExternalLink, Server, Database, Smartphone, Globe, Code, Shield } from 'lucide-react'
+import { Github, ExternalLink, Server, Database, Smartphone, Globe2, Code, Shield, MessageCircle } from 'lucide-react'
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -51,20 +51,21 @@ const Projects = () => {
       category: 'Programming Languages'
     },
     {
-      title: 'Blockchain Voting System',
-      description: 'Decentralized voting platform built on blockchain technology ensuring transparency, immutability, and security. Features smart contracts for vote validation, real-time results, and comprehensive audit trails.',
-      technologies: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'MetaMask', 'IPFS'],
+      title: 'Ephemeral Chat',
+      description: 'A real-time anonymous chat application with self-destructing messages and instant room creation. Features WebSocket-based messaging, automatic cleanup, and cross-platform compatibility for secure, temporary communications.',
+      technologies: ['Node.js', 'Socket.io', 'React', 'WebSockets', 'MongoDB', 'Express'],
       features: [
-        'Smart contract-based vote validation',
-        'Immutable vote recording on blockchain',
-        'Real-time vote counting and results',
-        'Voter authentication and verification',
-        'Transparent audit trail system'
+        'Instant room creation with unique identifiers',
+        'Anonymous participation without accounts',
+        'Real-time messaging via WebSockets',
+        'Self-destructing messages after reading',
+        'Automatic room closure after inactivity',
+        'Cross-platform support (web, mobile, desktop)'
       ],
-      icon: Shield,
-      github: 'https://github.com/cLLeB/blockchain-voting-system',
-      demo: null,
-      category: 'Blockchain'
+      icon: MessageCircle,
+      github: 'https://github.com/cLLeB/ephemeral-chat',
+      demo: 'https://ephemeral-chat-7j66.onrender.com/',
+      category: 'Real-Time Application'
     },
     {
       title: 'URL Shortener Pro',
@@ -77,7 +78,7 @@ const Projects = () => {
         'User authentication & management',
         'Microservices architecture'
       ],
-      icon: Globe,
+      icon: Globe2,
       github: 'https://github.com/cLLeB/URL-shortening',
       demo: null,
       category: 'Web Application'
@@ -158,7 +159,7 @@ const Projects = () => {
                     </div>
                   </div>
                   
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-3" style={{ position: 'relative', zIndex: 20, pointerEvents: 'auto' }}>
                     <motion.a
                       href={project.github}
                       target="_blank"
@@ -176,6 +177,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-300"
+                        style={{ pointerEvents: 'auto' }}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                       >

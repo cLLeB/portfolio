@@ -10,6 +10,7 @@ import {
   Code,
   Shield,
   ChevronRight,
+  MessageCircle,
 } from "lucide-react";
 
 const MobileProjectCards = () => {
@@ -59,32 +60,32 @@ const MobileProjectCards = () => {
         "Interactive REPL environment",
       ],
       icon: Code,
-      href: "https://github.com/cLLeB/language-interpreter",
+      href: "https://github.com/cLLeB/custom-lang-interpreter",
       demo: null,
       category: "Programming Languages",
       color: "from-green-500 to-emerald-600",
       bgColor: "bg-green-500/10",
     },
     {
-      title: "Blockchain Voting System",
-      shortTitle: "Blockchain Voting",
+      title: "Ephemeral Chat",
+      shortTitle: "Ephemeral Chat",
       description:
-        "Decentralized voting platform built on blockchain technology ensuring transparency, immutability, and security with smart contracts.",
+        "A real-time anonymous chat application with self-destructing messages and instant room creation. Features WebSocket-based messaging, automatic cleanup, and cross-platform compatibility for secure, temporary communications.",
       shortDesc:
-        "Secure decentralized voting platform using blockchain technology.",
-      technologies: ["Solidity", "Web3.js", "React", "Ethereum"],
+        "Real-time anonymous chat with self-destructing messages and instant rooms.",
+      technologies: ["Node.js", "Socket.io", "React", "WebSockets", "MongoDB", "Express"],
       features: [
-        "Smart contract-based validation",
-        "Immutable vote recording",
-        "Real-time vote counting",
-        "Transparent audit trail",
-        "Voter authentication system",
-        "Multi-signature wallet integration",
+        "Instant room creation with unique identifiers",
+        "Anonymous participation without accounts",
+        "Real-time messaging via WebSockets",
+        "Self-destructing messages after reading",
+        "Automatic room closure after inactivity",
+        "Cross-platform support (web, mobile, desktop)",
       ],
-      icon: Shield,
-      href: "https://github.com/cLLeB/blockchain-voting",
-      demo: null,
-      category: "Blockchain",
+      icon: MessageCircle,
+      href: "https://github.com/cLLeB/ephemeral-chat",
+      demo: "https://ephemeral-chat-7j66.onrender.com/",
+      category: "Real-Time Application",
       color: "from-purple-500 to-violet-600",
       bgColor: "bg-purple-500/10",
     },
@@ -210,7 +211,7 @@ const MobileProjectCards = () => {
                     </div>
                   </div>
 
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2" style={{ position: 'relative', zIndex: 20, pointerEvents: 'auto' }}>
                     <motion.button
                       onClick={() => {
                         if (project.href) {
@@ -237,6 +238,7 @@ const MobileProjectCards = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg bg-gray-800/50 hover:bg-green-600/50 transition-colors duration-300 group"
+                        style={{ pointerEvents: 'auto' }}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         title="View Live Demo"

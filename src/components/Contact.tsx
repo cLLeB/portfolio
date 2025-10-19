@@ -74,15 +74,18 @@ const Contact = () => {
     },
     {
       icon: Phone,
-      title: 'Phone',
-      value: '+233 20 418 5163',
-      href: 'tel:+233204185163'
-    },
-    {
-      icon: Phone,
-      title: 'Call',
-      value: '+233 53 727 0382',
-      href: 'tel:+233537270382'
+      title: 'Phone or Call',
+      value: (
+        <div className="flex flex-row space-x-4">
+          <a href="tel:+233204185163" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">
+            +233 20 418 5163
+          </a>
+          <a href="tel:+233537270382" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">
+            +233 53 727 0382
+          </a>
+        </div>
+      ),
+      href: null
     },
     {
       icon: MapPin,
@@ -113,14 +116,8 @@ const Contact = () => {
     },
     {
       icon: Phone,
-      name: 'Phone',
+      name: 'Phone or Call',
       href: 'tel:+233204185163',
-      color: 'hover:text-purple-600'
-    },
-    {
-      icon: Phone,
-      name: 'Call',
-      href: 'tel:+233537270382',
       color: 'hover:text-purple-600'
     }
   ]
@@ -176,7 +173,7 @@ const Contact = () => {
               >
                 Whether you're looking for a dedicated intern, have a project in mind, or just want to
                 connect with a fellow developer, I'd love to hear from you. I'm particularly interested
-                in opportunities involving software development, blockchain technology, programming language
+                in opportunities involving software development, computer networking, programming language
                 design, and innovative technology solutions.
               </p>
             </div>

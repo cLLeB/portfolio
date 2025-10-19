@@ -7,10 +7,23 @@ import Button from './ui/Button'
 import GlitchText from './GlitchText'
 
 const EnhancedHero = () => {
+  const [orbStyles, setOrbStyles] = useState<{ width: string; height: string; left: string; top: string }[]>([])
   const [currentRole, setCurrentRole] = useState(0)
   const [displayText, setDisplayText] = useState('')
   const [isTyping, setIsTyping] = useState(true)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [particlePositions, setParticlePositions] = useState<{ left: string; top: string }[]>([])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
   
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], [0, 150])
@@ -62,6 +75,24 @@ const EnhancedHero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
+  useEffect(() => {
+    const styles = [...Array(6)].map((_, i) => ({
+      width: `${Math.random() * 300 + 100}px`,
+      height: `${Math.random() * 300 + 100}px`,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+    }))
+    setOrbStyles(styles)
+  }, [])
+
+  useEffect(() => {
+    const positions = [...Array(20)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+    }))
+    setParticlePositions(positions)
+  }, [])
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -88,16 +119,11 @@ const EnhancedHero = () => {
         </div>
 
         {/* Floating Orbs */}
-        {[...Array(6)].map((_, i) => (
+        {orbStyles.map((style, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl"
-            style={{
-              width: `${Math.random() * 300 + 100}px`,
-              height: `${Math.random() * 300 + 100}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
+            style={style}
             animate={{
               x: [0, Math.random() * 100 - 50],
               y: [0, Math.random() * 100 - 50],
@@ -113,13 +139,13 @@ const EnhancedHero = () => {
         ))}
 
         {/* Interactive Particles */}
-        {typeof window !== 'undefined' && [...Array(20)].map((_, i) => (
+        {typeof window !== 'undefined' && particlePositions.map((position, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-blue-400 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: position.left,
+              top: position.top,
             }}
             animate={{
               x: (mousePosition.x - (window?.innerWidth || 0) / 2) * 0.01,
@@ -215,7 +241,7 @@ const EnhancedHero = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             Passionate about creating innovative solutions through code. 
-            Specializing in full-stack development, blockchain technology, 
+            Specializing in full-stack development, computer networking, 
             and building user-centric applications that make a difference.
           </motion.p>
         </motion.div>

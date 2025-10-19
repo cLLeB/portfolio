@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Caleb Kyere Boateng | Computer Science Student Portfolio',
-  description: 'Computer Science student at KNUST specializing in programming language design, blockchain technology, and full-stack development. Seeking internship opportunities.',
-  keywords: ['Computer Science', 'Software Engineer', 'Blockchain', 'Programming Languages', 'Full Stack Developer', 'React', 'Node.js', 'Python', 'KNUST'],
+  description: 'Computer Science student at KNUST specializing in programming language design, computer networking, and full-stack development. Seeking internship opportunities.',
+  keywords: ['Computer Science', 'Software Engineer', 'Computer Networking', 'Programming Languages', 'Full Stack Developer', 'React', 'Node.js', 'Python', 'KNUST'],
   authors: [{ name: 'Caleb Kyere Boateng' }],
   creator: 'Caleb Kyere Boateng',
   publisher: 'Caleb Kyere Boateng',
@@ -16,15 +16,15 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://your-domain.com'),
+  metadataBase: new URL('https://portfolio-chi-nine-93.vercel.app/'),
   openGraph: {
     title: 'Caleb Kyere Boateng | Computer Science Student Portfolio',
-    description: 'Computer Science student at KNUST specializing in programming language design and blockchain technology.',
-    url: 'https://your-domain.com',
+    description: 'Computer Science student at KNUST specializing in programming language design and computer networking.',
+    url: 'https://portfolio-chi-nine-93.vercel.app/',
     siteName: 'Caleb Kyere Boateng Portfolio',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.jpeg',
         width: 1200,
         height: 630,
         alt: 'CS Portfolio Preview',
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Caleb Kyere Boateng | Computer Science Student Portfolio',
-    description: 'Computer Science student at KNUST specializing in programming language design and blockchain technology.',
-    images: ['/og-image.jpg'],
+    description: 'Computer Science student at KNUST specializing in programming language design and computer networking.',
+    images: ['/og-image.jpeg'],
   },
   robots: {
     index: true,
