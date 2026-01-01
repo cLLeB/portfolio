@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Menu, X, Home, User, Briefcase, Code, Mail, Zap } from 'lucide-react'
+import { Menu, X, Home, User, Briefcase, Code, Mail, Zap, Award, Clock, Folder } from 'lucide-react'
 
 const ResponsiveNavigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -24,7 +24,7 @@ const ResponsiveNavigation = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
       
-      const sections = ['hero', 'about', 'projects', 'skills', 'contact']
+      const sections = ['hero', 'about', 'experience', 'certifications', 'projects', 'skills', 'contact']
       const currentSection = sections.find(section => {
         const element = document.getElementById(section)
         if (element) {
@@ -54,7 +54,9 @@ const ResponsiveNavigation = () => {
   const navItems = [
     { id: 'hero', label: 'Home', icon: Home },
     { id: 'about', label: 'About', icon: User },
-    { id: 'projects', label: 'Projects', icon: Briefcase },
+    { id: 'experience', label: 'Experience', icon: Briefcase },
+    { id: 'certifications', label: 'Certifications', icon: Award },
+    { id: 'projects', label: 'Projects', icon: Folder },
     { id: 'skills', label: 'Skills', icon: Code },
     { id: 'contact', label: 'Contact', icon: Mail }
   ]

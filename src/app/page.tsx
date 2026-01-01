@@ -1,6 +1,8 @@
 import ResponsiveNavigation from '@/components/ResponsiveNavigation'
 import EnhancedHero from '@/components/EnhancedHero'
 import About from '@/components/About'
+import Experience from '@/components/Experience'
+import Certifications from '@/components/Certifications'
 import MobileProjectCards from '@/components/MobileProjectCards'
 import TouchOptimizedSkills from '@/components/TouchOptimizedSkills'
 import Contact from '@/components/Contact'
@@ -14,6 +16,8 @@ export default function Home() {
       <ResponsiveNavigation />
       <EnhancedHero />
       <About />
+      <Experience />
+      <Certifications />
       <MobileProjectCards />
       <TouchOptimizedSkills />
       <Contact />

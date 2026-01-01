@@ -47,7 +47,7 @@ const Projects = () => {
       ],
       icon: Code,
       github: 'https://github.com/cLLeB/custom-lang-interpreter',
-      demo: null,
+      demo: 'https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view',
       category: 'Programming Languages'
     },
     {
@@ -64,7 +64,7 @@ const Projects = () => {
       ],
       icon: MessageCircle,
       github: 'https://github.com/cLLeB/ephemeral-chat',
-      demo: 'https://ephemeral-chat-7j66.onrender.com/',
+      demo: 'https://chat.kyere.me',
       category: 'Real-Time Application'
     },
     {
@@ -84,20 +84,20 @@ const Projects = () => {
       category: 'Web Application'
     },
     {
-      title: 'Distributed File System',
-      description: 'A high-performance, fault-tolerant distributed file storage system built with Go. Implements the Raft consensus algorithm for distributed coordination and provides enterprise-grade security and scalability.',
-      technologies: ['Go', 'Raft', 'Docker', 'Kubernetes', 'Prometheus', 'Grafana'],
+      title: 'Looply - Food Delivery System (CodeFest \'25)',
+      description: 'Achieved 1st Runner-up position in the 2025 CodeFest competition organized by the KNUST Department of Computer Science. Served as the principal frontend developer, building a comprehensive food delivery mobile application using React Native and Bootstrap, inspired by Hubtel, and collaborated within a team to deliver a functional product prototype.',
+      technologies: ['React Native', 'Bootstrap', 'Mobile Development', 'UI/UX'],
       features: [
-        'Distributed consensus with Raft algorithm',
-        'Multi-node replication and automatic failover',
-        'AES-256-GCM encryption at rest and in transit',
-        'JWT authentication and RBAC',
-        'Prometheus monitoring & Grafana dashboards'
+        'Award-winning project (1st Runner-up)',
+        'Comprehensive food delivery interface',
+        'Real-time order tracking',
+        'User-friendly navigation',
+        'Team collaboration and rapid prototyping'
       ],
-      icon: Server,
-      github: 'https://github.com/cLLeB/distributed-fs',
-      demo: null,
-      category: 'Distributed Systems'
+      icon: Smartphone,
+      github: 'https://github.com/cLLeB/HubtelClone-Public',
+      demo: 'https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view',
+      category: 'Mobile Application'
     }
   ]
 
@@ -129,7 +129,7 @@ const Projects = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative bg-black/60 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/30 hover:border-purple-500/50 hover:shadow-2xl transition-all duration-500"
+              className="group relative bg-black/60 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/30 hover:border-purple-500/50 hover:shadow-2xl transition-all duration-500 project-card-while-hover"
               whileHover={{
                 y: -8,
                 scale: 1.02,
@@ -160,24 +160,26 @@ const Projects = () => {
                   </div>
                   
                   <div className="flex space-x-3" style={{ position: 'relative', zIndex: 20, pointerEvents: 'auto' }}>
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-300 relative z-10"
-                      style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto' }}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Github size={20} className="text-gray-600 dark:text-gray-400" />
-                    </motion.a>
+                    {project.github && (
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 sm:p-3 rounded-lg bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-300 relative z-10"
+                        style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto', touchAction: 'manipulation' }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Github size={20} className="text-gray-600 dark:text-gray-400" />
+                      </motion.a>
+                    )}
                     {project.demo && (
                       <motion.a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-300"
-                        style={{ pointerEvents: 'auto' }}
+                        className="p-2 sm:p-3 rounded-lg bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-300"
+                        style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                       >

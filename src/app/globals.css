@@ -306,3 +306,15 @@ a, button {
     perspective: 1000;
   }
 }
+
+/* Disable Framer Motion hover effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .motion-hover-disable * {
+    --framer-motion-hover: none !important;
+  }
+  .project-card-while-hover {
+    transform: none !important;
+    scale: 1 !important;
+    box-shadow: none !important;
+  }
+}

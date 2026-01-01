@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Code, Database, Server, Smartphone, Globe, Brain } from 'lucide-react'
+import { Code, Database, Server, Smartphone, Globe, Brain, Cloud } from 'lucide-react'
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -34,20 +34,20 @@ const About = () => {
   }
 
   const interests = [
+     {
+      icon: Server,
+      title: 'Computer Networking',
+      description: 'Exploring networks, switches, routers, and cable infrastructure for robust connectivity.'
+    },
     {
       icon: Code,
       title: 'Programming Languages',
       description: 'Fascinated by language design and implementation, from lexical analysis to interpreter development.'
     },
     {
-      icon: Server,
-      title: 'Computer Networking',
-      description: 'Exploring networks, switches, routers, and cable infrastructure for robust connectivity.'
-    },
-    {
-      icon: Database,
-      title: 'Full Stack Development',
-      description: 'Building complete web applications from database design to user interface implementation.'
+      icon: Cloud,
+      title: 'Cloud Networking & Security',
+      description: 'Securing cloud deployments and remote workflows through robust access controls and safe data transfer protocols.'
     },
     {
       icon: Globe,

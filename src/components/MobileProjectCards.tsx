@@ -11,13 +11,20 @@ import {
   Shield,
   ChevronRight,
   MessageCircle,
+  Smartphone,
 } from "lucide-react";
+import Image from 'next/image';
+import { useState } from 'react';
+import ImageModal from './ui/ImageModal';
 
 const MobileProjectCards = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedAlt, setSelectedAlt] = useState('');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -61,7 +68,7 @@ const MobileProjectCards = () => {
       ],
       icon: Code,
       href: "https://github.com/cLLeB/custom-lang-interpreter",
-      demo: null,
+      demo: "https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view",
       category: "Programming Languages",
       color: "from-green-500 to-emerald-600",
       bgColor: "bg-green-500/10",
@@ -84,7 +91,7 @@ const MobileProjectCards = () => {
       ],
       icon: MessageCircle,
       href: "https://github.com/cLLeB/ephemeral-chat",
-      demo: "https://ephemeral-chat-7j66.onrender.com/",
+      demo: "https://chat.kyere.me",
       category: "Real-Time Application",
       color: "from-purple-500 to-violet-600",
       bgColor: "bg-purple-500/10",
@@ -113,33 +120,27 @@ const MobileProjectCards = () => {
       bgColor: "bg-blue-500/10",
     },
     {
-      title: "Distributed File System",
-      shortTitle: " Distributed File System",
+      title: "Looply - Food Delivery System (CodeFest '25)",
+      shortTitle: "Looply",
       description:
-        "A high-performance, fault-tolerant distributed file storage system built with Go. Implements the Raft consensus algorithm for distributed coordination and provides enterprise-grade security and scalability.",
+        "Achieved 1st Runner-up position in the 2025 CodeFest competition organized by the KNUST Department of Computer Science. Served as the principal frontend developer, building a comprehensive food delivery mobile application using React Native and Bootstrap.",
       shortDesc:
-        "High-performance distributed file system with fault tolerance and scalability.",
-      technologies: [
-        "Go",
-        "Raft",
-        "Docker",
-        "Kubernetes",
-        "Prometheus",
-        "Grafana",
-      ],
+        "Award-winning food delivery mobile app built with React Native.",
+      technologies: ["React Native", "Bootstrap", "Mobile Development", "UI/UX"],
       features: [
-        "Distributed consensus with Raft algorithm",
-        "Multi-node replication and automatic failover",
-        "AES-256-GCM encryption at rest and in transit",
-        "JWT authentication and RBAC",
-        "Prometheus monitoring & Grafana dashboards",
+        "Award-winning project (1st Runner-up)",
+        "Comprehensive food delivery interface",
+        "Real-time order tracking",
+        "User-friendly navigation",
+        "Team collaboration and rapid prototyping",
       ],
-      icon: Server,
-      href: "https://github.com/cLLeB/distributed-fs",
-      demo: null,
-      category: "Distributed Systems",
+      icon: Smartphone,
+      href: 'https://github.com/cLLeB/HubtelClone-Public',
+      demo: "https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view",
+      category: "Mobile Application",
       color: "from-orange-500 to-red-600",
       bgColor: "bg-orange-500/10",
+      image: '/awards/award_pic.png'
     },
   ];
 
@@ -179,7 +180,7 @@ const MobileProjectCards = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative bg-black/60 backdrop-blur-sm rounded-2xl border border-blue-500/30 hover:border-purple-500/50 transition-all duration-500 overflow-hidden"
+              className="group relative bg-black/60 backdrop-blur-sm rounded-2xl border border-blue-500/30 hover:border-purple-500/50 transition-all duration-500 overflow-hidden project-card-while-hover"
               whileHover={{
                 y: -4,
                 scale: 1.02,
@@ -192,11 +193,30 @@ const MobileProjectCards = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-3 sm:space-x-4">
                     <motion.div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${project.color} rounded-lg flex items-center justify-center`}
+                      className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${project.color} rounded-lg flex items-center justify-center overflow-hidden cursor-pointer`}
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
+                      onClick={() => {
+                        // @ts-ignore
+                        if (project.image) {
+                          // @ts-ignore
+                          setSelectedImage(project.image);
+                          setSelectedAlt(project.title);
+                        }
+                      }}
                     >
-                      <project.icon size={20} className="text-white" />
+                      {/* @ts-ignore */}
+                      {project.image ? (
+                        <Image 
+                          src={project.image} 
+                          alt={project.title} 
+                          width={48} 
+                          height={48} 
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <project.icon size={20} className="text-white" />
+                      )}
                     </motion.div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 truncate">
@@ -212,33 +232,36 @@ const MobileProjectCards = () => {
                   </div>
 
                   <div className="flex space-x-2" style={{ position: 'relative', zIndex: 20, pointerEvents: 'auto' }}>
-                    <motion.button
-                      onClick={() => {
-                        if (project.href) {
-                          window.open(
-                            project.href,
-                            "_blank",
-                            "noopener,noreferrer"
-                          );
-                        }
-                      }}
-                      className="p-2 rounded-lg bg-gray-800/50 hover:bg-blue-600/50 transition-colors duration-300 group"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      title="View on GitHub"
-                    >
-                      <Github
-                        size={16}
-                        className="text-gray-400 group-hover:text-white transition-colors duration-300"
-                      />
-                    </motion.button>
+                    {project.href && (
+                      <motion.button
+                        onClick={() => {
+                          if (project.href) {
+                            window.open(
+                              project.href,
+                              "_blank",
+                              "noopener,noreferrer"
+                            );
+                          }
+                        }}
+                        className="p-2 sm:p-3 rounded-lg bg-gray-800/50 hover:bg-blue-600/50 transition-colors duration-300 group"
+                        style={{ touchAction: 'manipulation' }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        title="View on GitHub"
+                      >
+                        <Github
+                          size={16}
+                          className="text-gray-400 group-hover:text-white transition-colors duration-300"
+                        />
+                      </motion.button>
+                    )}
                     {project.demo && (
                       <motion.a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-gray-800/50 hover:bg-green-600/50 transition-colors duration-300 group"
-                        style={{ pointerEvents: 'auto' }}
+                        className="p-2 sm:p-3 rounded-lg bg-gray-800/50 hover:bg-green-600/50 transition-colors duration-300 group"
+                        style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         title="View Live Demo"
@@ -306,6 +329,13 @@ const MobileProjectCards = () => {
           </motion.a>
         </motion.div>
       </motion.div>
+
+      <ImageModal 
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
+        imageSrc={selectedImage}
+        alt={selectedAlt}
+      />
     </section>
   );
 };
