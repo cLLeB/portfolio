@@ -2,15 +2,22 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Menu, X, Home, User, Briefcase, Code, Mail, Zap, Award, Clock, Folder } from 'lucide-react'
+import { Menu, X, Home, User, Briefcase, Code, Mail, Zap, Award, Clock, Folder, Sun, Moon } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import ImageModal from './ui/ImageModal'
 
 const ResponsiveNavigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
   const [isMobile, setIsMobile] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   useEffect(() => {
+    setMounted(true)
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
@@ -61,20 +68,24 @@ const ResponsiveNavigation = () => {
     { id: 'contact', label: 'Contact', icon: Mail }
   ]
 
+  if (!mounted) {
+    return null
+  }
+
   return (
     <>
       {/* Main Navigation */}
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled 
-            ? 'bg-black/90 backdrop-blur-xl shadow-2xl border-b border-blue-500/30' 
-            : 'bg-black/20 backdrop-blur-sm'
+            ? 'bg-white/90 dark:bg-black/90 backdrop-blur-xl shadow-2xl border-b border-gray-200 dark:border-blue-500/30' 
+            : 'bg-white/20 dark:bg-black/20 backdrop-blur-sm'
         }`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         style={{
-          boxShadow: scrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.2)' : 'none'
+          boxShadow: scrolled ? '0 8px 32px rgba(0, 0, 0, 0.1), 0 0 20px rgba(59, 130, 246, 0.1)' : 'none'
         }}
       >
         <div className="container mx-auto px-4 sm:px-6">
@@ -85,7 +96,7 @@ const ResponsiveNavigation = () => {
               whileHover={{ scale: 1.05 }}
             >
               <motion.div 
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center relative overflow-hidden"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center relative overflow-hidden cursor-pointer border-2 border-blue-500"
                 animate={{
                   boxShadow: [
                     '0 0 20px rgba(59, 130, 246, 0.5)',
@@ -94,16 +105,16 @@ const ResponsiveNavigation = () => {
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
+                onClick={() => setSelectedImage('/dp/me.jpeg')}
               >
-                <span className="text-white font-bold text-sm sm:text-lg relative z-10">CKB</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  style={{ opacity: 0.3 }}
+                <Image
+                  src="/dp/me.jpeg"
+                  alt="Caleb Kyere Boateng"
+                  fill
+                  className="object-cover"
                 />
               </motion.div>
-              <span className="text-lg sm:text-xl font-bold text-white drop-shadow-lg">
+              <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg">
                 {isMobile ? 'CKB' : 'Caleb Kyere Boateng'}
               </span>
             </motion.div>
@@ -117,13 +128,13 @@ const ResponsiveNavigation = () => {
                   className={`relative px-3 lg:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
                     activeSection === item.id
                       ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg'
-                      : 'text-gray-300 hover:text-white hover:bg-white/10'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
                   }`}
                   whileHover={{ 
                     scale: 1.05,
                     boxShadow: activeSection === item.id 
                       ? '0 0 25px rgba(59, 130, 246, 0.6)' 
-                      : '0 0 15px rgba(255, 255, 255, 0.2)'
+                      : '0 0 15px rgba(100, 100, 100, 0.2)'
                   }}
                   whileTap={{ scale: 0.95 }}
                   animate={activeSection === item.id ? {
@@ -141,11 +152,31 @@ const ResponsiveNavigation = () => {
                   </span>
                 </motion.button>
               ))}
+              
+              {/* Theme Toggle */}
+              <motion.button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </motion.button>
             </div>
 
             {/* Mobile Menu Button */}
-            <motion.button
-              className="md:hidden p-2 rounded-lg bg-white/10 backdrop-blur-sm text-gray-300 border border-white/20"
+            <div className="flex items-center gap-2 md:hidden">
+              <motion.button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </motion.button>
+              
+              <motion.button
+                className="p-2 rounded-lg bg-gray-100 dark:bg-white/10 backdrop-blur-sm text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-white/20"
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.95 }}
               whileHover={{ scale: 1.05 }}
@@ -174,6 +205,7 @@ const ResponsiveNavigation = () => {
                 )}
               </AnimatePresence>
             </motion.button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -248,6 +280,13 @@ const ResponsiveNavigation = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <ImageModal
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
+        imageSrc={selectedImage}
+        alt="Profile Picture"
+      />
     </>
   )
 }

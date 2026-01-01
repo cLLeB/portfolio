@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Code, Database, Server, Smartphone, Cloud, Settings, TrendingUp, Zap } from 'lucide-react'
+import { Code, Network, Server, Smartphone, Cloud, Settings, TrendingUp, Zap } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const TouchOptimizedSkills = () => {
@@ -89,16 +89,16 @@ const TouchOptimizedSkills = () => {
       ]
     },
     {
-      title: 'Databases',
-      icon: Database,
+      title: 'Network',
+      icon: Network,
       color: 'from-orange-500 to-red-600',
       skills: [
-        { name: 'MongoDB', level: 41 },
-        { name: 'PostgreSQL', level: 21 },
-        { name: 'MySQL', level: 20 },
-        { name: 'Firebase', level: 15 },
-        { name: 'Redis', level: 30 },
-        { name: 'SQLite', level: 30 }
+        { name: 'Packet Tracer', level: 40 },
+        { name: 'Wireshark', level: 38 },
+        { name: 'GNS3', level: 35 },
+        { name: 'Nmap', level: 32 },
+        { name: 'Cisco IOS', level: 36 },
+        { name: 'Linux Networking', level: 39 }
       ]
     },
     {
@@ -145,23 +145,23 @@ const TouchOptimizedSkills = () => {
       >
         <div className="flex justify-between items-center mb-2">
           <span 
-            className="text-sm font-medium text-gray-200 relative z-20"
+            className="text-sm font-medium text-gray-700 dark:text-gray-200 relative z-20"
             style={{
-              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
             }}
           >
             {skill.name}
           </span>
           <span 
-            className="text-sm text-cyan-300 relative z-20 font-mono"
+            className="text-sm text-cyan-600 dark:text-cyan-300 relative z-20 font-mono"
             style={{
-              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
             }}
           >
             {skill.level}%
           </span>
         </div>
-        <div className="w-full bg-gray-700/50 rounded-full h-2 sm:h-2.5 relative overflow-hidden">
+        <div className="w-full bg-gray-200 dark:bg-gray-700/50 rounded-full h-2 sm:h-2.5 relative overflow-hidden">
           {/* White flow animation overlay, always full width, only animates when in view */}
           <motion.div
             className="absolute inset-0 h-full pointer-events-none"
@@ -185,9 +185,9 @@ const TouchOptimizedSkills = () => {
   }
 
   return (
-    <section id="skills" className="py-12 sm:py-20 bg-black/90 backdrop-blur-sm relative overflow-hidden">
+    <section id="skills" className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/20 to-purple-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-purple-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-purple-900/20"></div>
 
       {mounted && (
         <motion.div
@@ -198,18 +198,18 @@ const TouchOptimizedSkills = () => {
           animate={inView ? "visible" : "hidden"}
         >
           <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 relative z-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
               <span className="drop-shadow-2xl">Skills &</span>{' '}
               <span 
-                className="text-cyan-400 drop-shadow-2xl"
+                className="text-cyan-600 dark:text-cyan-400 drop-shadow-2xl"
                 style={{
-                  textShadow: '0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(34, 211, 238, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8)'
+                  textShadow: '0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
                 }}
               >
                 Technologies
               </span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
               Technical expertise across various domains of software development.
             </p>
             <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
@@ -226,7 +226,7 @@ const TouchOptimizedSkills = () => {
                     className={`flex-shrink-0 flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 ${
                       activeCategory === index
                         ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                        : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'
+                        : 'bg-gray-200 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700/50'
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -245,10 +245,9 @@ const TouchOptimizedSkills = () => {
               <motion.div
                 key={isMobile ? `mobile-${activeCategory}` : categoryIndex}
                 variants={itemVariants}
-                className="bg-black/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-cyan-500/30 hover:border-blue-500/50 transition-all duration-300 relative z-10"
+                className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-200 dark:border-cyan-500/30 hover:border-blue-500/50 transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(15,23,42,0.6) 100%)',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
                 }}
                 whileHover={{
                   boxShadow: '0 12px 40px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.1)',
@@ -265,9 +264,9 @@ const TouchOptimizedSkills = () => {
                     <category.icon size={isMobile ? 20 : 24} className="text-white" />
                   </motion.div>
                   <h3 
-                    className="text-lg sm:text-xl font-bold text-white relative z-20"
+                    className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white relative z-20"
                     style={{
-                      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.3)'
+                      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
                     }}
                   >
                     {category.title}
@@ -287,21 +286,21 @@ const TouchOptimizedSkills = () => {
 
                 {/* Category Stats */}
                 <motion.div 
-                  className="mt-4 sm:mt-6 pt-4 border-t border-gray-700/50"
+                  className="mt-4 sm:mt-6 pt-4 border-t border-gray-200 dark:border-gray-700/50"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
                   <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-400">
                       <TrendingUp size={14} />
                       <span>Avg Level</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className="text-cyan-300 font-mono">
+                      <span className="text-cyan-600 dark:text-cyan-300 font-mono">
                         {Math.round(category.skills.reduce((acc, skill) => acc + skill.level, 0) / category.skills.length)}%
                       </span>
-                      <Zap size={14} className="text-yellow-400" />
+                      <Zap size={14} className="text-yellow-500 dark:text-yellow-400" />
                     </div>
                   </div>
                 </motion.div>

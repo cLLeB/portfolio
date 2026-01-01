@@ -72,6 +72,7 @@ const MobileProjectCards = () => {
       category: "Programming Languages",
       color: "from-green-500 to-emerald-600",
       bgColor: "bg-green-500/10",
+      image: '/awards/custom-lang.png'
     },
     {
       title: "Ephemeral Chat",
@@ -95,6 +96,7 @@ const MobileProjectCards = () => {
       category: "Real-Time Application",
       color: "from-purple-500 to-violet-600",
       bgColor: "bg-purple-500/10",
+      image: '/awards/chat.png'
     },
     {
       title: "URL Shortener Pro",
@@ -147,10 +149,10 @@ const MobileProjectCards = () => {
   return (
     <section
       id="projects"
-      className="py-12 sm:py-20 bg-black/90 relative overflow-hidden"
+      className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden"
     >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/5 via-blue-900/5 to-cyan-900/5 dark:from-purple-900/20 dark:via-blue-900/20 dark:to-cyan-900/20"></div>
 
       <motion.div
         ref={ref}
@@ -163,10 +165,10 @@ const MobileProjectCards = () => {
           variants={itemVariants}
           className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 drop-shadow-2xl">
-            Featured <span className="holographic">Projects</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 drop-shadow-2xl">
+            Featured <span className="holographic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Projects</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg px-4">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg px-4">
             A showcase of distributed systems, full-stack applications, and
             innovative solutions built with modern technologies and best
             practices.
@@ -180,7 +182,7 @@ const MobileProjectCards = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative bg-black/60 backdrop-blur-sm rounded-2xl border border-blue-500/30 hover:border-purple-500/50 transition-all duration-500 overflow-hidden project-card-while-hover"
+              className="group relative bg-white dark:bg-black/60 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-blue-500/30 hover:border-purple-500/50 transition-all duration-500 overflow-hidden project-card-while-hover shadow-lg dark:shadow-none"
               whileHover={{
                 y: -4,
                 scale: 1.02,
@@ -219,13 +221,13 @@ const MobileProjectCards = () => {
                       )}
                     </motion.div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 truncate">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 truncate">
                         <span className="hidden sm:inline">
                           {project.title}
                         </span>
                         <span className="sm:hidden">{project.shortTitle}</span>
                       </h3>
-                      <span className="text-xs sm:text-sm text-blue-400 font-medium">
+                      <span className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-medium">
                         {project.category}
                       </span>
                     </div>
@@ -243,7 +245,7 @@ const MobileProjectCards = () => {
                             );
                           }
                         }}
-                        className="p-2 sm:p-3 rounded-lg bg-gray-800/50 hover:bg-blue-600/50 transition-colors duration-300 group"
+                        className="p-2 sm:p-3 rounded-lg bg-gray-100 dark:bg-gray-800/50 hover:bg-blue-100 dark:hover:bg-blue-600/50 transition-colors duration-300 group"
                         style={{ touchAction: 'manipulation' }}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
@@ -251,7 +253,7 @@ const MobileProjectCards = () => {
                       >
                         <Github
                           size={16}
-                          className="text-gray-400 group-hover:text-white transition-colors duration-300"
+                          className="text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white transition-colors duration-300"
                         />
                       </motion.button>
                     )}
@@ -260,7 +262,7 @@ const MobileProjectCards = () => {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 sm:p-3 rounded-lg bg-gray-800/50 hover:bg-green-600/50 transition-colors duration-300 group"
+                        className="p-2 sm:p-3 rounded-lg bg-gray-100 dark:bg-gray-800/50 hover:bg-green-100 dark:hover:bg-green-600/50 transition-colors duration-300 group"
                         style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
@@ -268,7 +270,7 @@ const MobileProjectCards = () => {
                       >
                         <ExternalLink
                           size={16}
-                          className="text-gray-400 group-hover:text-white transition-colors duration-300"
+                          className="text-gray-600 dark:text-gray-400 group-hover:text-green-600 dark:group-hover:text-white transition-colors duration-300"
                         />
                       </motion.a>
                     )}
@@ -276,7 +278,7 @@ const MobileProjectCards = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                   <span className="hidden sm:inline">
                     {project.description}
                   </span>
@@ -288,14 +290,14 @@ const MobileProjectCards = () => {
                   {project.technologies.slice(0, 4).map((tech, techIndex) => (
                     <motion.span
                       key={techIndex}
-                      className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-md text-xs font-medium border border-blue-500/30"
+                      className="px-2 py-1 bg-blue-100 dark:bg-blue-500/20 text-blue-800 dark:text-blue-300 rounded-md text-xs font-medium border border-blue-200 dark:border-blue-500/30"
                       whileHover={{ scale: 1.05 }}
                     >
                       {tech}
                     </motion.span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span className="px-2 py-1 bg-gray-500/20 text-gray-400 rounded-md text-xs">
+                    <span className="px-2 py-1 bg-gray-200 dark:bg-gray-500/20 text-gray-600 dark:text-gray-400 rounded-md text-xs">
                       +{project.technologies.length - 4}
                     </span>
                   )}

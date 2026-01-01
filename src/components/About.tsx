@@ -67,7 +67,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-12 sm:py-20 bg-black/80 backdrop-blur-sm relative overflow-hidden">
+    <section id="about" className="py-12 sm:py-20 bg-white/80 dark:bg-black/80 backdrop-blur-sm relative overflow-hidden transition-colors duration-500">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-cyan-900/20"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
@@ -79,7 +79,7 @@ const About = () => {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 drop-shadow-2xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 drop-shadow-2xl">
             About <span className="holographic">Me</span>
           </h2>
           <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
@@ -89,19 +89,19 @@ const About = () => {
           <motion.div variants={itemVariants}>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl transform rotate-3 animate-pulse"></div>
-              <div className="relative bg-black/80 backdrop-blur-sm border border-blue-500/30 p-6 sm:p-8 rounded-2xl shadow-2xl">
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 drop-shadow-lg">
+              <div className="relative bg-white/90 dark:bg-black/80 backdrop-blur-sm border border-blue-200 dark:border-blue-500/30 p-6 sm:p-8 rounded-2xl shadow-2xl">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-lg">
                   Computer Science Journey
                 </h3>
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
                   I'm a dedicated Computer Science student at Kwame Nkrumah University of Science and Technology (KNUST),
-                  passionate about creating innovative software solutions that make a difference. My journey in technology
+                  passionate about designing and securing robust networked systems. My journey in technology
                   is driven by curiosity and a desire to understand how complex systems work, from programming language
-                  design to blockchain technology.
+                  design to networking systems.
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  Through hands-on projects and continuous learning, I've developed skills in full-stack development,
-                  language interpretation, and blockchain systems. I thrive on challenging problems that push the
+                  Through hands-on projects and continuous learning, I've developed skills in secure application design,
+                  security-focused logic, and networking systems. I thrive on challenging problems that push the
                   boundaries of what's possible and enjoy collaborating with others to build meaningful solutions.
                 </p>
                 <div className="mb-6">

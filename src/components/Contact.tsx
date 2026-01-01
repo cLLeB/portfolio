@@ -74,7 +74,7 @@ const Contact = () => {
     },
     {
       icon: Phone,
-      title: 'Phone or Call',
+      title: 'Call',
       value: (
         <div className="flex flex-row space-x-4">
           <a href="tel:+233204185163" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">
@@ -85,13 +85,13 @@ const Contact = () => {
           </a>
         </div>
       ),
-      href: null
+      
     },
     {
       icon: MapPin,
       title: 'Location',
       value: 'Kumasi, Ghana',
-      href: null
+      href: 'https://www.knust.edu.gh/about/knust/maps'
     }
   ]
 
@@ -117,16 +117,16 @@ const Contact = () => {
     {
       icon: Phone,
       name: 'Phone or Call',
-      href: 'tel:+233204185163',
+      href: 'tel:+233537270382',
       color: 'hover:text-purple-600'
     }
   ]
 
   return (
-    <section id="contact" className="py-12 sm:py-20 bg-black/90 relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-blue-900/20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(236,72,153,0.1),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/5 via-pink-900/5 to-blue-900/5 dark:from-purple-900/20 dark:via-pink-900/20 dark:to-blue-900/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(236,72,153,0.05),transparent_60%)] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(236,72,153,0.1),transparent_60%)]"></div>
       <motion.div
         ref={ref}
         className="container mx-auto px-4 sm:px-6 relative z-10"
@@ -135,18 +135,18 @@ const Contact = () => {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 relative z-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
             <span className="drop-shadow-2xl">Get In</span>{' '}
             <span
-              className="text-pink-400 drop-shadow-2xl"
+              className="text-pink-600 dark:text-pink-400 drop-shadow-2xl"
               style={{
-                textShadow: '0 0 20px rgba(236, 72, 153, 0.8), 0 0 40px rgba(236, 72, 153, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8)'
+                textShadow: '0 0 20px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
               Touch
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
             I'm always interested in new opportunities, collaborations, and interesting projects. 
             Let's connect and discuss how we can work together!
           </p>
@@ -158,23 +158,22 @@ const Contact = () => {
           <motion.div variants={itemVariants} className="space-y-8">
             <div>
               <h3
-                className="text-2xl font-bold text-white mb-6 relative z-20"
+                className="text-2xl font-bold text-gray-900 dark:text-white mb-6 relative z-20"
                 style={{
-                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.3)'
+                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
                 }}
               >
                 Let's Start a Conversation
               </h3>
               <p
-                className="text-gray-200 leading-relaxed mb-8 relative z-20"
+                className="text-gray-600 dark:text-gray-200 leading-relaxed mb-8 relative z-20"
                 style={{
-                  textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                  textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                 }}
               >
                 Whether you're looking for a dedicated intern, have a project in mind, or just want to
                 connect with a fellow developer, I'd love to hear from you. I'm particularly interested
-                in opportunities involving software development, computer networking, programming language
-                design, and innovative technology solutions.
+                in opportunities involving  computer networking, security architecture, and innovative technology solutions.
               </p>
             </div>
 
@@ -190,9 +189,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4
-                      className="font-semibold text-white relative z-20"
+                      className="font-semibold text-gray-900 dark:text-white relative z-20"
                       style={{
-                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                       }}
                     >
                       {info.title}
@@ -201,9 +200,9 @@ const Contact = () => {
                       <div className="flex items-center gap-2">
                         <a
                           href={info.href}
-                          className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative z-20"
+                          className="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300 relative z-20"
                           style={{
-                            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                           }}
                         >
                           {info.value}
@@ -211,20 +210,20 @@ const Contact = () => {
                         {info.title === 'Email' && (
                           <motion.button
                             onClick={copyEmailToClipboard}
-                            className="p-1 rounded hover:bg-gray-700/50 transition-colors duration-300"
+                            className="p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700/50 transition-colors duration-300"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                             title="Copy email address"
                           >
-                            <Copy size={14} className="text-gray-400 hover:text-cyan-400" />
+                            <Copy size={14} className="text-gray-500 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400" />
                           </motion.button>
                         )}
                       </div>
                     ) : (
                       <span
-                        className="text-gray-300 relative z-20"
+                        className="text-gray-600 dark:text-gray-300 relative z-20"
                         style={{
-                          textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                          textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                         }}
                       >
                         {info.value}
@@ -237,9 +236,9 @@ const Contact = () => {
 
             <div>
               <h4
-                className="font-semibold text-white mb-4 relative z-20"
+                className="font-semibold text-gray-900 dark:text-white mb-4 relative z-20"
                 style={{
-                  textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                  textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                 }}
               >
                 Follow Me
@@ -251,7 +250,7 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 ${social.color}`}
+                    className={`p-3 rounded-full bg-gray-100 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/20 hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-300 ${social.color}`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.name}
@@ -266,16 +265,15 @@ const Contact = () => {
           {/* Contact Form */}
           <motion.div variants={itemVariants}>
             <div
-              className="bg-black/70 backdrop-blur-sm rounded-2xl p-8 border border-pink-500/30 shadow-xl relative z-10"
+              className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-pink-500/30 shadow-xl relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
               style={{
-                background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(30,41,59,0.6) 100%)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(236, 72, 153, 0.1)'
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 0 20px rgba(236, 72, 153, 0.1)'
               }}
             >
               <h3
-                className="text-2xl font-bold text-white mb-6 relative z-20"
+                className="text-2xl font-bold text-gray-900 dark:text-white mb-6 relative z-20"
                 style={{
-                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.3)'
+                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
                 }}
               >
                 Send a Message
@@ -286,9 +284,9 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-200 mb-2 relative z-20"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 relative z-20"
                       style={{
-                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                       }}
                     >
                       Name
@@ -300,7 +298,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-black/50 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 relative z-20"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-black/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 relative z-20"
                       style={{
                         backdropFilter: 'blur(10px)'
                       }}
@@ -311,9 +309,9 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-200 mb-2 relative z-20"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 relative z-20"
                       style={{
-                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                       }}
                     >
                       Email
@@ -325,7 +323,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-black/50 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 relative z-20"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-black/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 relative z-20"
                       style={{
                         backdropFilter: 'blur(10px)'
                       }}
@@ -337,9 +335,9 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium text-gray-200 mb-2 relative z-20"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 relative z-20"
                     style={{
-                      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                     }}
                   >
                     Subject
@@ -351,7 +349,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-black/50 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 relative z-20"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-black/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 relative z-20"
                     style={{
                       backdropFilter: 'blur(10px)'
                     }}
@@ -362,9 +360,9 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-200 mb-2 relative z-20"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 relative z-20"
                     style={{
-                      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+                      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                     }}
                   >
                     Message
@@ -376,7 +374,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-black/50 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 resize-none relative z-20"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-black/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 resize-none relative z-20"
                     style={{
                       backdropFilter: 'blur(10px)'
                     }}

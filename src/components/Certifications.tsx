@@ -65,7 +65,7 @@ const Certifications = () => {
   }
 
   return (
-    <section id="certifications" className="py-20 bg-black/60 relative overflow-hidden">
+    <section id="certifications" className="py-20 bg-gray-50 dark:bg-black/60 relative overflow-hidden">
       <motion.div
         ref={ref}
         className="container mx-auto px-6 relative z-10"
@@ -74,7 +74,7 @@ const Certifications = () => {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Certifications & <span className="text-purple-500">Licenses</span>
           </h2>
           <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full"></div>
@@ -85,7 +85,7 @@ const Certifications = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group"
+              className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 group shadow-lg dark:shadow-none"
             >
               <div className="mb-6 relative w-16 h-16 mx-auto md:mx-0">
                 {cert.image ? (
@@ -110,12 +110,12 @@ const Certifications = () => {
                   </div>
                 )}
               </div>
-              <h3 className="text-xl font-bold text-white mb-2 min-h-[3.5rem]">{cert.name}</h3>
-              <p className="text-purple-400 font-medium mb-1">{cert.issuer}</p>
-              <p className="text-sm text-gray-400 mb-4">{cert.date}</p>
-              <div className="pt-4 border-t border-white/10">
-                <p className="text-sm text-gray-300">
-                  <span className="text-purple-400 font-semibold">Focus:</span> {cert.focus}
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 min-h-[3.5rem]">{cert.name}</h3>
+              <p className="text-purple-600 dark:text-purple-400 font-medium mb-1">{cert.issuer}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{cert.date}</p>
+              <div className="pt-4 border-t border-gray-200 dark:border-white/10">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <span className="text-purple-600 dark:text-purple-400 font-semibold">Focus:</span> {cert.focus}
                 </p>
               </div>
             </motion.div>

@@ -18,8 +18,8 @@ const MobileOptimizedHero = () => {
   
   const roles = [
     'CS Student',
-    'Full Stack Dev',
-    'Software Engineer',
+    'Security Dev',
+    'Network Engineer',
     'Problem Solver'
   ]
 
@@ -64,14 +64,14 @@ const MobileOptimizedHero = () => {
   }
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50 dark:bg-black">
       {/* Mobile-Optimized Background */}
       <motion.div 
         className="absolute inset-0"
         style={{ y }}
       >
         {/* Simplified mobile background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/30 to-cyan-900/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 via-purple-100/30 to-cyan-100/30 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-cyan-900/30" />
         
         {/* Mobile floating particles */}
         {[...Array(isMobile ? 8 : 15)].map((_, i) => (
@@ -109,7 +109,7 @@ const MobileOptimizedHero = () => {
         >
           <motion.h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6">
             <motion.span 
-              className="block text-white drop-shadow-2xl mb-2 sm:mb-0 sm:inline"
+              className="block text-gray-900 dark:text-white drop-shadow-2xl mb-2 sm:mb-0 sm:inline"
               animate={{
                 textShadow: [
                   '0 0 20px rgba(255, 255, 255, 0.5)',
@@ -122,14 +122,14 @@ const MobileOptimizedHero = () => {
               Hi, I'm{' '}
             </motion.span>
             <GlitchText
-              text="Caleb Kyere Boateng"
+              text="Caleb Kwabena Kyere Boateng"
               className="holographic text-3xl sm:text-5xl md:text-7xl block sm:inline"
             />
           </motion.h1>
           
           {/* Mobile-Optimized Role Display */}
           <motion.div 
-            className="text-lg sm:text-2xl md:text-3xl text-cyan-300 mb-6 sm:mb-8 h-8 sm:h-12 flex items-center justify-center font-mono px-4"
+            className="text-lg sm:text-2xl md:text-3xl text-cyan-600 dark:text-cyan-300 mb-6 sm:mb-8 h-8 sm:h-12 flex items-center justify-center font-mono px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -148,7 +148,7 @@ const MobileOptimizedHero = () => {
               {displayText}
             </motion.span>
             <motion.span
-              className="ml-1 text-cyan-400"
+              className="ml-1 text-cyan-600 dark:text-cyan-400"
               animate={{ 
                 opacity: isTyping ? [1, 0] : 1,
                 textShadow: [
@@ -172,7 +172,7 @@ const MobileOptimizedHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed drop-shadow-lg px-4"
+          className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-200 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed drop-shadow-lg px-4"
         >
           Passionate CS student at KNUST creating innovative software solutions. 
           Seeking internship opportunities to grow and contribute.
@@ -239,12 +239,12 @@ const MobileOptimizedHero = () => {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 sm:p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="p-3 sm:p-4 rounded-full bg-gray-100 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/20 hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-300"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               aria-label={label}
             >
-              <Icon size={isMobile ? 20 : 24} className="text-gray-300" />
+              <Icon size={isMobile ? 20 : 24} className="text-gray-600 dark:text-gray-300" />
             </motion.a>
           ))}
         </motion.div>
@@ -258,7 +258,7 @@ const MobileOptimizedHero = () => {
         >
           <motion.button
             onClick={() => scrollToSection('about')}
-            className="flex flex-col items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
+            className="flex flex-col items-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             aria-label="Scroll to about section"

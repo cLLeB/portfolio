@@ -3,12 +3,18 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Github, ExternalLink, Server, Database, Smartphone, Globe2, Code, Shield, MessageCircle } from 'lucide-react'
+import Image from 'next/image'
+import { useState } from 'react'
+import ImageModal from './ui/ImageModal'
 
 const Projects = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
+
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [selectedAlt, setSelectedAlt] = useState('')
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,7 +54,8 @@ const Projects = () => {
       icon: Code,
       github: 'https://github.com/cLLeB/custom-lang-interpreter',
       demo: 'https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view',
-      category: 'Programming Languages'
+      category: 'Programming Languages',
+      image: '/awards/custom-lang.png'
     },
     {
       title: 'Ephemeral Chat',
@@ -65,7 +72,8 @@ const Projects = () => {
       icon: MessageCircle,
       github: 'https://github.com/cLLeB/ephemeral-chat',
       demo: 'https://chat.kyere.me',
-      category: 'Real-Time Application'
+      category: 'Real-Time Application',
+      image: '/awards/chat.png'
     },
     {
       title: 'URL Shortener Pro',
@@ -102,10 +110,10 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20 bg-black/90 relative overflow-hidden">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/5 via-blue-900/5 to-cyan-900/5 dark:from-purple-900/20 dark:via-blue-900/20 dark:to-cyan-900/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.05),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]"></div>
       <motion.div
         ref={ref}
         className="container mx-auto px-6 relative z-10"
@@ -114,10 +122,10 @@ const Projects = () => {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl">
-            Featured <span className="holographic">Projects</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
+            Featured <span className="holographic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Projects</span>
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg">
+          <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg">
             A showcase of distributed systems, full-stack applications, and innovative solutions 
             built with modern technologies and best practices.
           </p>
@@ -129,14 +137,13 @@ const Projects = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative bg-black/60 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/30 hover:border-purple-500/50 hover:shadow-2xl transition-all duration-500 project-card-while-hover"
+              className="group relative bg-white dark:bg-black/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-blue-500/30 hover:border-purple-500/50 hover:shadow-2xl transition-all duration-500 project-card-while-hover dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-800/40"
               whileHover={{
                 y: -8,
                 scale: 1.02,
                 boxShadow: '0 25px 50px rgba(59, 130, 246, 0.3), 0 0 30px rgba(147, 51, 234, 0.2)'
               }}
               style={{
-                background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(30,41,59,0.4) 100%)',
                 position: 'relative',
                 zIndex: 1
               }}
@@ -146,9 +153,27 @@ const Projects = () => {
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <project.icon size={24} className="text-white" />
-                    </div>
+                    {project.image ? (
+                      <div 
+                        className="w-12 h-12 rounded-lg overflow-hidden cursor-pointer hover:scale-110 transition-transform duration-300 border border-gray-200 dark:border-white/10"
+                        onClick={() => {
+                          setSelectedImage(project.image)
+                          setSelectedAlt(project.title)
+                        }}
+                      >
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={48}
+                          height={48}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <project.icon size={24} className="text-white" />
+                      </div>
+                    )}
                     <div>
                       <h3 className="text-2xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                         {project.title}
@@ -234,6 +259,13 @@ const Projects = () => {
           </motion.a>
         </motion.div>
       </motion.div>
+
+      <ImageModal
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
+        imageSrc={selectedImage}
+        alt={selectedAlt}
+      />
     </section>
   )
 }

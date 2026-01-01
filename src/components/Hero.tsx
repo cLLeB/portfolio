@@ -75,7 +75,7 @@ const Hero = () => {
   }
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50 dark:bg-black">
       {/* Dynamic Interactive Background */}
       <DynamicBackground />
 
@@ -140,7 +140,7 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.span
-              className="text-white drop-shadow-2xl"
+              className="text-gray-900 dark:text-white drop-shadow-2xl"
               animate={{
                 textShadow: [
                   '0 0 20px rgba(255, 255, 255, 0.5)',
@@ -152,11 +152,11 @@ const Hero = () => {
             >
               Hi, I'm{' '}
             </motion.span>
-            <GlitchText text="Caleb Kyere Boateng" className="holographic text-5xl md:text-7xl" />
+            <GlitchText text="Caleb Kwabena Kyere Boateng" className="holographic text-5xl md:text-7xl" />
           </motion.h1>
           
           <motion.div
-            className="text-2xl md:text-3xl text-cyan-300 mb-8 h-12 flex items-center justify-center font-mono"
+            className="text-2xl md:text-3xl text-cyan-600 dark:text-cyan-300 mb-8 h-12 flex items-center justify-center font-mono"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -175,7 +175,7 @@ const Hero = () => {
               {displayText}
             </motion.span>
             <motion.span
-              className="ml-1 text-cyan-400"
+              className="ml-1 text-cyan-600 dark:text-cyan-400"
               animate={{
                 opacity: isTyping ? [1, 0] : 1,
                 textShadow: [
@@ -196,7 +196,7 @@ const Hero = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-lg"
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-lg"
           animate={{
             textShadow: [
               '0 0 10px rgba(255, 255, 255, 0.3)',
@@ -269,12 +269,12 @@ const Hero = () => {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="p-3 rounded-full bg-gray-100 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/20 hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-300"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               aria-label={label}
             >
-              <Icon size={24} className="text-gray-700 dark:text-gray-300" />
+              <Icon size={24} className="text-gray-600 dark:text-gray-300" />
             </motion.a>
           ))}
         </motion.div>

@@ -53,14 +53,14 @@ const Navigation = () => {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-black/80 backdrop-blur-xl shadow-2xl border-b border-blue-500/30'
-          : 'bg-black/20 backdrop-blur-sm'
+          ? 'bg-white/80 dark:bg-black/80 backdrop-blur-xl shadow-2xl border-b border-gray-200 dark:border-blue-500/30'
+          : 'bg-white/20 dark:bg-black/20 backdrop-blur-sm'
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       style={{
-        boxShadow: scrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.2)' : 'none'
+        boxShadow: scrolled ? '0 8px 32px rgba(0, 0, 0, 0.1), 0 0 20px rgba(59, 130, 246, 0.1)' : 'none'
       }}
     >
       <div className="container mx-auto px-6">
@@ -89,7 +89,7 @@ const Navigation = () => {
                 style={{ opacity: 0.3 }}
               />
             </motion.div>
-            <span className="text-xl font-bold text-white drop-shadow-lg">
+            <span className="text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg">
               Caleb Kyere Boateng
             </span>
           </motion.div>
@@ -103,13 +103,13 @@ const Navigation = () => {
                 className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
                   activeSection === item.id
                     ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg'
-                    : 'text-gray-300 hover:text-white hover:bg-white/10'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
                 }`}
                 whileHover={{
                   scale: 1.05,
                   boxShadow: activeSection === item.id
                     ? '0 0 25px rgba(59, 130, 246, 0.6)'
-                    : '0 0 15px rgba(255, 255, 255, 0.2)'
+                    : '0 0 15px rgba(255, 255, 255, 0.1)'
                 }}
                 whileTap={{ scale: 0.95 }}
                 animate={activeSection === item.id ? {

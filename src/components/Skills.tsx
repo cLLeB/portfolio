@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Code, Database, Server, Smartphone, Cloud, Settings } from 'lucide-react'
+import { Code, Network, Server, Smartphone, Cloud, Settings } from 'lucide-react'
 
 const Skills = () => {
   const [ref, inView] = useInView({
@@ -71,15 +71,15 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Databases',
-      icon: Database,
+      title: 'Network',
+      icon: Network,
       skills: [
-        { name: 'MongoDB', level: 41 },
-        { name: 'PostgreSQL', level: 21 },
-        { name: 'MySQL', level: 20 },
-        { name: 'Firebase', level: 15 },
-        { name: 'Redis', level: 30 },
-        { name: 'SQLite', level: 30 }
+        { name: 'Packet Tracer', level: 40 },
+        { name: 'Wireshark', level: 38 },
+        { name: 'GNS3', level: 35 },
+        { name: 'Nmap', level: 32 },
+        { name: 'Cisco IOS', level: 36 },
+        { name: 'Linux Networking', level: 39 }
       ]
     },
     {
@@ -120,17 +120,17 @@ const Skills = () => {
       >
         <div className="flex justify-between items-center mb-2">
           <span
-            className="text-sm font-medium text-gray-200 relative z-20"
+            className="text-sm font-medium text-gray-700 dark:text-gray-200 relative z-20"
             style={{
-              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
             }}
           >
             {skill.name}
           </span>
           <span
-            className="text-sm text-cyan-300 relative z-20"
+            className="text-sm text-cyan-600 dark:text-cyan-300 relative z-20"
             style={{
-              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
             }}
           >
             {skill.level}%
@@ -160,10 +160,10 @@ const Skills = () => {
   }
 
   return (
-    <section id="skills" className="py-20 bg-black/90 backdrop-blur-sm relative overflow-hidden">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/20 to-purple-900/20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-purple-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-purple-900/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.05),transparent_60%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_60%)]"></div>
       <motion.div
         ref={ref}
         className="container mx-auto px-6 relative z-10"
@@ -172,18 +172,18 @@ const Skills = () => {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 relative z-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 relative z-20">
             <span className="drop-shadow-2xl">Skills &</span>{' '}
             <span
-              className="text-cyan-400 drop-shadow-2xl"
+              className="text-cyan-600 dark:text-cyan-400 drop-shadow-2xl"
               style={{
-                textShadow: '0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(34, 211, 238, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8)'
+                textShadow: '0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
               Technologies
             </span>
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg relative z-20">
+          <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg relative z-20">
             A comprehensive overview of my technical expertise across various domains of software development.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
@@ -194,10 +194,9 @@ const Skills = () => {
             <motion.div
               key={categoryIndex}
               variants={itemVariants}
-              className="bg-black/70 backdrop-blur-sm rounded-2xl p-6 border border-cyan-500/30 hover:border-blue-500/50 hover:shadow-xl transition-all duration-300 relative z-10"
+              className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-cyan-500/30 hover:border-blue-500/50 hover:shadow-xl transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
               style={{
-                background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(15,23,42,0.6) 100%)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
               }}
               whileHover={{
                 boxShadow: '0 12px 40px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.1)'
@@ -208,9 +207,9 @@ const Skills = () => {
                   <category.icon size={24} className="text-white" />
                 </div>
                 <h3
-                  className="text-xl font-bold text-white relative z-20"
+                  className="text-xl font-bold text-gray-900 dark:text-white relative z-20"
                   style={{
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.3)'
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
                   }}
                 >
                   {category.title}

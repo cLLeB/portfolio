@@ -33,8 +33,8 @@ const EnhancedHero = () => {
   useEffect(() => {
     const roles = [
       'Computer Science Student',
-      'Full Stack Developer',
-      'Software Engineer',
+      'Network Engineer',
+      'Security Professional',
       'Problem Solver',
       'Tech Enthusiast'
     ]
@@ -101,7 +101,7 @@ const EnhancedHero = () => {
   }
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-900 transition-colors duration-500">
       {/* Enhanced Background Effects */}
       <motion.div 
         className="absolute inset-0"
@@ -175,12 +175,12 @@ const EnhancedHero = () => {
         >
           <div className="flex items-center justify-center space-x-2 mb-6">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-gray-300 text-sm font-medium tracking-wide uppercase">
+            <span className="text-gray-600 dark:text-gray-300 text-sm font-medium tracking-wide uppercase">
               Available for Opportunities
             </span>
           </div>
           
-          <div className="flex items-center justify-center space-x-2 text-gray-400 mb-8">
+          <div className="flex items-center justify-center space-x-2 text-gray-500 dark:text-gray-400 mb-8">
             <MapPin size={16} />
             <span className="text-sm">Based in Ghana</span>
           </div>
@@ -195,12 +195,12 @@ const EnhancedHero = () => {
         >
           <h1 className="text-display-2xl md:text-display-xl font-bold mb-4">
             <motion.span
-              className="block text-gray-200 mb-2"
+              className="block text-gray-800 dark:text-gray-200 mb-2"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Hello, I'm
+              Hello, I am
             </motion.span>
             <motion.div
               className="block"
@@ -209,7 +209,7 @@ const EnhancedHero = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <GlitchText
-                text="Caleb Kyere Boateng"
+                text="Caleb Kwabena Kyere Boateng"
                 className="gradient-text text-display-2xl md:text-display-xl font-bold"
               />
             </motion.div>
@@ -223,7 +223,7 @@ const EnhancedHero = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="mb-12"
         >
-          <div className="text-heading-xl text-gray-300 mb-6 h-16 flex items-center justify-center">
+          <div className="text-heading-xl text-gray-600 dark:text-gray-300 mb-6 h-16 flex items-center justify-center">
             <span className="font-mono">
               {displayText}
               <motion.span
@@ -235,7 +235,7 @@ const EnhancedHero = () => {
           </div>
           
           <motion.p
-            className="text-body-lg text-gray-400 max-w-2xl mx-auto leading-relaxed"
+            className="text-body-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
@@ -286,7 +286,7 @@ const EnhancedHero = () => {
               icon: Github, 
               href: 'https://github.com/cLLeB', 
               label: 'GitHub',
-              color: 'hover:text-gray-300'
+              color: 'hover:text-gray-900 dark:hover:text-gray-300'
             },
             { 
               icon: Linkedin, 
@@ -307,7 +307,7 @@ const EnhancedHero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={`
-                p-4 rounded-full glass-card text-gray-400 ${color}
+                p-4 rounded-full glass-card text-gray-500 dark:text-gray-400 ${color}
                 transition-all duration-300 group
               `}
               whileHover={{ 
@@ -333,7 +333,7 @@ const EnhancedHero = () => {
         >
           <motion.button
             onClick={() => scrollToSection('about')}
-            className="flex flex-col items-center text-gray-400 hover:text-blue-400 transition-colors duration-300 group"
+            className="flex flex-col items-center text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 group"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             aria-label="Scroll to about section"
@@ -342,7 +342,7 @@ const EnhancedHero = () => {
               Discover More
             </span>
             <motion.div
-              className="p-2 rounded-full border border-gray-600 group-hover:border-blue-400 transition-colors"
+              className="p-2 rounded-full border border-gray-300 dark:border-gray-600 group-hover:border-blue-500 dark:group-hover:border-blue-400 transition-colors"
               whileHover={{ scale: 1.1 }}
             >
               <ChevronDown size={20} />
