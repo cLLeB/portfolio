@@ -246,7 +246,7 @@ const ResponsiveNavigation = () => {
             
             {/* Menu Content */}
             <motion.div
-              className="absolute top-20 left-4 right-4 bg-black/90 backdrop-blur-xl rounded-2xl border border-blue-500/30 shadow-2xl overflow-hidden"
+              className="absolute top-20 left-4 right-4 bg-white/90 dark:bg-black/90 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-blue-500/30 shadow-2xl overflow-hidden"
               initial={{ y: -20, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: -20, opacity: 0, scale: 0.95 }}
@@ -261,7 +261,7 @@ const ResponsiveNavigation = () => {
                       className={`w-full flex items-center space-x-4 px-4 py-4 rounded-xl text-left transition-all duration-300 ${
                         activeSection === item.id
                           ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                          : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                          : 'text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white'
                       }`}
                       initial={{ x: -20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
@@ -272,7 +272,7 @@ const ResponsiveNavigation = () => {
                       <div className={`p-2 rounded-lg ${
                         activeSection === item.id 
                           ? 'bg-white/20' 
-                          : 'bg-blue-500/20'
+                          : 'bg-blue-100 dark:bg-blue-500/20'
                       }`}>
                         <item.icon size={20} />
                       </div>

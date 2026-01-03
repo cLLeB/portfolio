@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
+import LoadingSpinner from './LoadingSpinner'
 
 interface ButtonProps {
   children: ReactNode
@@ -12,6 +13,8 @@ interface ButtonProps {
   href?: string
   target?: string
   disabled?: boolean
+  isLoading?: boolean
+  type?: 'button' | 'submit' | 'reset'
   icon?: ReactNode
   iconPosition?: 'left' | 'right'
 }
@@ -25,6 +28,8 @@ const Button = ({
   href,
   target,
   disabled = false,
+  isLoading = false,
+  type = 'button',
   icon,
   iconPosition = 'left'
 }: ButtonProps) => {
@@ -71,22 +76,28 @@ const Button = ({
   const content = (
     <>
       {/* Shimmer Effect */}
-      {variant === 'primary' && (
+      {variant === 'primary' && !isLoading && (
         <div className="absolute inset-0 -top-2 -bottom-2 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
       )}
       
       {/* Content */}
-      <span className="relative z-10 flex items-center space-x-2">
+      <span className={`relative z-10 flex items-center space-x-2 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         {icon && iconPosition === 'left' && <span>{icon}</span>}
         <span>{children}</span>
         {icon && iconPosition === 'right' && <span>{icon}</span>}
       </span>
+
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <LoadingSpinner size="sm" className="text-current" />
+        </div>
+      )}
     </>
   )
 
   const motionProps = {
-    whileHover: { scale: disabled ? 1 : 1.02, y: disabled ? 0 : -2 },
-    whileTap: { scale: disabled ? 1 : 0.98 },
+    whileHover: { scale: (disabled || isLoading) ? 1 : 1.02, y: (disabled || isLoading) ? 0 : -2 },
+    whileTap: { scale: (disabled || isLoading) ? 1 : 0.98 },
     transition: { duration: 0.2 }
   }
 
@@ -105,8 +116,9 @@ const Button = ({
 
   return (
     <motion.button
+      type={type}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || isLoading}
       className={buttonClasses}
       {...motionProps}
     >

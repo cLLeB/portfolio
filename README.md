@@ -1,31 +1,77 @@
 # Professional CS Portfolio Website
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Framer Motion, designed specifically for Computer Science students and professionals seeking internship opportunities.
+A modern, responsive, and highly interactive portfolio website built with Next.js, TypeScript, and Framer Motion. Designed specifically for Computer Science students and professionals to showcase their skills, projects, and certifications with a polished, mobile-first approach.
 
 ## ✨ Features
 
-- **Modern Design**: Clean, professional aesthetic with smooth animations
-- **Responsive**: Optimized for desktop, tablet, and mobile devices
-- **Performance**: Fast loading times with optimized images and code splitting
-- **SEO Optimized**: Proper meta tags, structured data, and accessibility features
-- **Smooth Animations**: Framer Motion powered animations and transitions
-- **Interactive**: Hover effects, scroll animations, and dynamic content
-- **Professional Sections**:
-  - Hero section with animated typing effect
-  - About section highlighting CS background
-  - Projects showcase with detailed descriptions
-  - Skills section with animated progress bars
-  - Contact form with social links
+- **Advanced UI/UX**:
+  - **Dark/Light Mode**: Fully supported with persistent theme switching.
+  - **Custom Cursor**: Interactive custom cursor for a unique feel.
+  - **Glitch Text Effects**: Cyberpunk-inspired text animations.
+  - **Glassmorphism**: Modern frosted glass effects on cards and navigation.
+  
+- **Mobile-First Architecture**:
+  - **Dedicated Mobile Components**: Specialized views for mobile devices (`MobileOptimizedHero`, `MobileProjectCards`, `TouchOptimizedSkills`) ensuring native-app-like experience.
+  - **Responsive Navigation**: Adaptive navigation bar with mobile menu overlay.
+  - **Touch Optimizations**: Swipe-friendly interfaces and appropriate touch targets.
+
+- **Rich Content Sections**:
+  - **Enhanced Hero**: Dynamic typing effects and particle animations.
+  - **About**: Professional bio with interest highlights.
+  - **Experience**: Timeline view of professional history.
+  - **Certifications**: Grid layout for certificates with modal preview.
+  - **Projects**: Detailed project showcase with GitHub/Demo links and tech stack tags.
+  - **Skills**: Animated progress bars and categorized skill sets.
+  - **Contact**: Integrated contact form and social links.
+
+- **Interactive Elements**:
+  - **Image Modals**: Full-screen, scroll-locked image previews for certificates and project screenshots.
+  - **Scroll Animations**: Elements animate into view as you scroll.
+  - **Hover Effects**: Interactive states for cards, buttons, and links.
+
+- **Performance & SEO**:
+  - **Next.js App Router**: Leveraging the latest React features.
+  - **Optimized Images**: Automatic image optimization with `next/image`.
+  - **SEO Ready**: Meta tags, Open Graph support, and structured data.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Theming**: [next-themes](https://github.com/pacocoursey/next-themes)
+- **Forms**: [React Hook Form](https://react-hook-form.com/) (Ready for integration)
+
+## 📁 Project Structure
+
+```
+portfolio-website/
+├── src/
+│   ├── app/
+│   │   ├── globals.css          # Global styles & Tailwind imports
+│   │   ├── layout.tsx           # Root layout with Providers
+│   │   └── page.tsx             # Main landing page
+│   ├── components/
+│   │   ├── ui/                  # Reusable UI components (Buttons, Modals, etc.)
+│   │   ├── EnhancedHero.tsx     # Desktop Hero section
+│   │   ├── MobileOptimizedHero.tsx # Mobile Hero section
+│   │   ├── Projects.tsx         # Desktop Projects grid
+│   │   ├── MobileProjectCards.tsx # Mobile Projects view
+│   │   ├── Skills.tsx           # Desktop Skills section
+│   │   ├── TouchOptimizedSkills.tsx # Mobile Skills section
+│   │   ├── ResponsiveNavigation.tsx # Main Navigation
+│   │   ├── Certifications.tsx   # Certifications section
+│   │   ├── Experience.tsx       # Experience timeline
+│   │   └── ...
+│   └── utils/                   # Utility functions
+├── public/                      # Static assets (images, icons)
+├── docs/                        # Documentation
+└── ...
+```
 
 ## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js 18.0 or later
-- npm or yarn package manager
-- Git
-
-### Installation
 
 1. **Clone the repository**
    ```bash
@@ -36,149 +82,48 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Frame
 2. **Install dependencies**
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
 3. **Start development server**
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
 4. **Open your browser**
-   Navigate to `http://localhost:3000` to see your portfolio
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Deployment**: Vercel, Netlify, or GitHub Pages
-
-## 📁 Project Structure
-
-```
-portfolio-website/
-├── src/
-│   ├── app/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   └── components/
-│       ├── Hero.tsx
-│       ├── About.tsx
-│       ├── Projects.tsx
-│       ├── Skills.tsx
-│       ├── Contact.tsx
-│       ├── Navigation.tsx
-│       └── Footer.tsx
-├── public/
-│   ├── robots.txt
-│   ├── sitemap.xml
-│   └── manifest.json
-├── docs/
-│   ├── DEPLOYMENT.md
-│   ├── CUSTOMIZATION.md
-│   └── PROJECT_SHOWCASE.md
-├── .github/workflows/
-│   └── deploy.yml
-├── vercel.json
-├── netlify.toml
-└── package.json
-```
+   Navigate to `http://localhost:3000`
 
 ## 🎨 Customization
 
 ### Personal Information
+- **Hero**: Update `src/components/EnhancedHero.tsx` and `src/components/MobileOptimizedHero.tsx`.
+- **About**: Update `src/components/About.tsx`.
+- **Experience**: Update `src/components/Experience.tsx`.
+- **Certifications**: Update `src/components/Certifications.tsx`.
+- **Projects**: Update `src/components/Projects.tsx` (Desktop) and `src/components/MobileProjectCards.tsx` (Mobile).
+- **Skills**: Update `src/components/Skills.tsx` (Desktop) and `src/components/TouchOptimizedSkills.tsx` (Mobile).
+- **Contact**: Update `src/components/Contact.tsx`.
 
-1. **Update Hero Section** (`src/components/Hero.tsx`):
-   - Replace "Your Name" with your actual name
-   - Modify the roles array with your titles
-   - Update the description paragraph
-
-2. **Update Contact Information** (`src/components/Contact.tsx`):
-   - Replace email, phone, and location
-   - Update social media links
-
-3. **Update Projects** (`src/components/Projects.tsx`):
-   - Replace with your actual projects
-   - Update GitHub links and descriptions
-   - Modify technology stacks
-
-### Styling
-
-- **Colors**: Modify the color scheme in `tailwind.config.js`
-- **Fonts**: Update font imports in `src/app/globals.css`
-- **Animations**: Customize animations in component files
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive with breakpoints:
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🔧 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript type checking
-
-## 📈 Performance Optimization
-
-- **Image Optimization**: Next.js automatic image optimization
-- **Code Splitting**: Automatic code splitting with Next.js
-- **Lazy Loading**: Components load as they enter viewport
-- **Caching**: Proper caching headers for static assets
+### Images
+- Place your images in the `public/` directory.
+- Update image paths in the respective components (e.g., `/dp/me.jpg`, `/certs/my-cert.png`).
 
 ## 🌐 Deployment
 
-See [DEPLOYMENT.md](docs/DEPLOYMENT.md) for detailed deployment instructions for:
-- Vercel
-- Netlify
-- GitHub Pages
-- Custom hosting
+This project is optimized for deployment on **Vercel**, **Netlify**, or **GitHub Pages**.
 
-## 📋 Customization Guide
-
-See [CUSTOMIZATION.md](docs/CUSTOMIZATION.md) for detailed customization instructions.
-
-## 🎯 Project Showcase Tips
-
-See [PROJECT_SHOWCASE.md](docs/PROJECT_SHOWCASE.md) for tips on effectively showcasing your projects.
+See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for detailed instructions.
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-If you encounter any issues or have questions:
-1. Check the documentation in the `docs/` folder
-2. Search existing issues on GitHub
-3. Create a new issue with detailed information
+This project is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
 
-- Built with [Next.js](https://nextjs.org/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Animated with [Framer Motion](https://www.framer.com/motion/)
-- Icons from [Lucide](https://lucide.dev/)
+- Design inspiration from modern portfolio trends.
+- Icons by Lucide.
+- Animations powered by Framer Motion.
 
----
-
-**Happy coding! 🚀**

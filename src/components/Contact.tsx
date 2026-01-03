@@ -5,6 +5,8 @@ import { useInView } from 'react-intersection-observer'
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, MessageCircle, Copy } from 'lucide-react'
 import { useState } from 'react'
 import { submitContactForm, copyEmailToClipboard, contactViaWhatsApp } from '@/utils/contactForm'
+import Button from './ui/Button'
+import LoadingSpinner from './ui/LoadingSpinner'
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -383,16 +385,17 @@ const Contact = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
-                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  >
-                    <Send size={20} />
-                    <span>{isSubmitting ? 'Opening Email...' : 'Send Message'}</span>
-                  </motion.button>
+                  <div className="flex-1">
+                    <Button
+                      type="submit"
+                      className="w-full h-full"
+                      isLoading={isSubmitting}
+                      icon={<Send size={20} />}
+                      size="lg"
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                    </Button>
+                  </div>
 
                   <motion.button
                     type="button"

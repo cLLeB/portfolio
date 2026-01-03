@@ -105,12 +105,13 @@ const Projects = () => {
       icon: Smartphone,
       github: 'https://github.com/cLLeB/HubtelClone-Public',
       demo: 'https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view',
-      category: 'Mobile Application'
+      category: 'Mobile Application',
+      image: '/awards/award_pic.png'
     }
   ]
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden">
+    <section className="py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/5 via-blue-900/5 to-cyan-900/5 dark:from-purple-900/20 dark:via-blue-900/20 dark:to-cyan-900/20"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.05),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]"></div>

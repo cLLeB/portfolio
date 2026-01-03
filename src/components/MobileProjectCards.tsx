@@ -148,7 +148,6 @@ const MobileProjectCards = () => {
 
   return (
     <section
-      id="projects"
       className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden"
     >
       {/* Background Effects */}

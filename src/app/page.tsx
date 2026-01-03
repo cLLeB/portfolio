@@ -29,18 +29,22 @@ export default function Home() {
       <Experience />
       <Certifications />
 
-      <div className="hidden md:block">
-        <Projects />
-      </div>
-      <div className="md:hidden">
-        <MobileProjectCards />
+      <div id="projects">
+        <div className="hidden md:block">
+          <Projects />
+        </div>
+        <div className="md:hidden">
+          <MobileProjectCards />
+        </div>
       </div>
 
-      <div className="hidden md:block">
-        <Skills />
-      </div>
-      <div className="md:hidden">
-        <TouchOptimizedSkills />
+      <div id="skills">
+        <div className="hidden md:block">
+          <Skills />
+        </div>
+        <div className="md:hidden">
+          <TouchOptimizedSkills />
+        </div>
       </div>
 
       <Contact />

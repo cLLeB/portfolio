@@ -3,7 +3,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import LoadingSpinner from './LoadingSpinner'
 
 interface ImageModalProps {
   isOpen: boolean
@@ -14,6 +15,15 @@ interface ImageModalProps {
 }
 
 const ImageModal = ({ isOpen, onClose, imageSrc, alt, lockScroll = true }: ImageModalProps) => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  // Reset loading state when imageSrc changes
+  useEffect(() => {
+    if (isOpen) {
+      setIsLoading(true)
+    }
+  }, [imageSrc, isOpen])
+
   // Close on escape key
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -64,15 +74,21 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt, lockScroll = true }: Image
             className="relative w-full max-w-5xl max-h-[90vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full h-[30vh] sm:h-[85vh] overflow-hidden rounded-lg shadow-2xl border border-white/10 bg-black/20">
+            <div className="relative w-full h-[30vh] sm:h-[85vh] overflow-hidden rounded-lg shadow-2xl border border-white/10 bg-black/20 flex items-center justify-center">
+              {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <LoadingSpinner size="lg" className="text-purple-500" />
+                </div>
+              )}
               <Image
                 src={imageSrc}
                 alt={alt}
                 fill
-                className="object-contain"
+                className={`object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                 priority
                 unoptimized
                 sizes="100vw"
+                onLoadingComplete={() => setIsLoading(false)}
               />
             </div>
           </motion.div>

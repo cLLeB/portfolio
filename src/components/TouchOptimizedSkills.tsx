@@ -185,7 +185,7 @@ const TouchOptimizedSkills = () => {
   }
 
   return (
-    <section id="skills" className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
+    <section className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-purple-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-purple-900/20"></div>
 
