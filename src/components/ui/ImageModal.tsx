@@ -3,16 +3,24 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 interface ImageModalProps {
   isOpen: boolean
   onClose: () => void
   imageSrc: string | null
   alt: string
+  lockScroll?: boolean
 }
 
-const ImageModal = ({ isOpen, onClose, imageSrc, alt }: ImageModalProps) => {
+const ImageModal = ({ isOpen, onClose, imageSrc, alt, lockScroll = true }: ImageModalProps) => {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   // Close on escape key
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -24,24 +32,28 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt }: ImageModalProps) => {
 
   // Prevent scrolling when modal is open
   useEffect(() => {
+    if (!lockScroll) return
+
     if (isOpen) {
       document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
     }
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
     }
-  }, [isOpen])
+  }, [isOpen, lockScroll])
 
-  return (
+  if (!mounted) return null
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && imageSrc && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8"
+          className="fixed inset-0 h-screen w-screen z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8"
           onClick={onClose}
         >
           <motion.button
@@ -61,20 +73,22 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt }: ImageModalProps) => {
             className="relative w-full max-w-5xl max-h-[90vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full h-auto max-h-[85vh] overflow-hidden rounded-lg shadow-2xl border border-white/10">
+            <div className="relative w-full h-[35vh] sm:h-[75vh] overflow-hidden rounded-lg shadow-2xl border border-white/10 bg-black/20">
               <Image
                 src={imageSrc}
                 alt={alt}
-                width={1920}
-                height={1080}
-                className="w-full h-full object-contain max-h-[85vh]"
+                fill
+                className="object-contain"
                 priority
+                unoptimized
+                sizes="100vw"
               />
             </div>
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   )
 }
 

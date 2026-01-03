@@ -43,7 +43,7 @@ const GlitchText = ({ text, className = '' }: GlitchTextProps) => {
         setGlitchText(originalText)
         setIsGlitching(false)
       }
-    }, 50)
+    }, 20)
   }, [text, isGlitching, glitchChars])
 
   // Set isMounted to true after component mounts (client-side only)

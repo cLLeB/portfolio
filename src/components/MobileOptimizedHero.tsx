@@ -6,26 +6,38 @@ import { useEffect, useState } from 'react'
 import GlitchText from './GlitchText'
 import { downloadResume } from '@/utils/downloadResume'
 
+const ROLES = [
+  'CS Student',
+  'Security Dev',
+  'Network Engineer',
+  'Problem Solver'
+]
+
 const MobileOptimizedHero = () => {
   const [currentRole, setCurrentRole] = useState(0)
   const [displayText, setDisplayText] = useState('')
   const [isTyping, setIsTyping] = useState(true)
   const [isMobile, setIsMobile] = useState(false)
+  const [particles, setParticles] = useState<{ left: string; top: string; duration: number; delay: number }[]>([])
   
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], [0, 150])
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
   
-  const roles = [
-    'CS Student',
-    'Security Dev',
-    'Network Engineer',
-    'Problem Solver'
-  ]
-
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+      
+      // Generate particles based on mobile state
+      const particleCount = mobile ? 8 : 15
+      const newParticles = Array.from({ length: particleCount }).map(() => ({
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        duration: 3 + Math.random() * 2,
+        delay: Math.random() * 2
+      }))
+      setParticles(newParticles)
     }
     
     checkMobile()
@@ -34,7 +46,7 @@ const MobileOptimizedHero = () => {
   }, [])
 
   useEffect(() => {
-    const currentRoleText = roles[currentRole]
+    const currentRoleText = ROLES[currentRole]
     let currentIndex = 0
     
     const typeText = () => {
@@ -46,7 +58,7 @@ const MobileOptimizedHero = () => {
         setIsTyping(false)
         setTimeout(() => {
           setIsTyping(true)
-          setCurrentRole((prev) => (prev + 1) % roles.length)
+          setCurrentRole((prev) => (prev + 1) % ROLES.length)
         }, 2000)
       }
     }
@@ -74,13 +86,13 @@ const MobileOptimizedHero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 via-purple-100/30 to-cyan-100/30 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-cyan-900/30" />
         
         {/* Mobile floating particles */}
-        {[...Array(isMobile ? 8 : 15)].map((_, i) => (
+        {particles.map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-blue-400/40 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: particle.left,
+              top: particle.top,
             }}
             animate={{
               y: [0, -30, 0],
@@ -88,9 +100,9 @@ const MobileOptimizedHero = () => {
               scale: [1, 1.5, 1]
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 2
+              delay: particle.delay
             }}
           />
         ))}
@@ -107,7 +119,7 @@ const MobileOptimizedHero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-6 sm:mb-8"
         >
-          <motion.h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6">
+          <motion.h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 min-h-[160px] sm:min-h-0 flex flex-col sm:block justify-center">
             <motion.span 
               className="block text-gray-900 dark:text-white drop-shadow-2xl mb-2 sm:mb-0 sm:inline"
               animate={{

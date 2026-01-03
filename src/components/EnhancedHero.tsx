@@ -64,16 +64,8 @@ const EnhancedHero = () => {
   }, [currentRole, isTyping])
 
   // Mouse tracking for interactive elements
-  useEffect(() => {
-    if (typeof window === 'undefined') return
+  // Removed duplicate useEffect
 
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
 
   useEffect(() => {
     const styles = [...Array(6)].map((_, i) => ({

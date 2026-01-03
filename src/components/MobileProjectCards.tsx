@@ -306,7 +306,7 @@ const MobileProjectCards = () => {
 
               {/* Hover Gradient Overlay */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`}
               />
             </motion.div>
           ))}

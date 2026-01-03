@@ -50,6 +50,18 @@ const ResponsiveNavigation = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Lock body scroll when menu or modal is open
+  useEffect(() => {
+    if (isOpen || !!selectedImage) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen, selectedImage])
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -91,12 +103,14 @@ const ResponsiveNavigation = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <motion.div
-              className="flex items-center space-x-2 sm:space-x-3"
+            <motion.button
+              className="flex items-center space-x-2 sm:space-x-3 cursor-pointer bg-transparent border-none p-0"
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setSelectedImage('/dp/me.jpg')}
             >
               <motion.div 
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center relative overflow-hidden cursor-pointer border-2 border-blue-500"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center relative overflow-hidden border-2 border-blue-500"
                 animate={{
                   boxShadow: [
                     '0 0 20px rgba(59, 130, 246, 0.5)',
@@ -105,19 +119,20 @@ const ResponsiveNavigation = () => {
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
-                onClick={() => setSelectedImage('/dp/me.jpeg')}
               >
                 <Image
-                  src="/dp/me.jpeg"
+                  src="/dp/me.jpg"
                   alt="Caleb Kyere Boateng"
                   fill
+                  sizes="40px"
+                  priority
                   className="object-cover"
                 />
               </motion.div>
               <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg">
                 {isMobile ? 'CKB' : 'Caleb Kyere Boateng'}
               </span>
-            </motion.div>
+            </motion.button>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
@@ -214,7 +229,7 @@ const ResponsiveNavigation = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 h-screen w-screen z-40 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -286,6 +301,7 @@ const ResponsiveNavigation = () => {
         onClose={() => setSelectedImage(null)}
         imageSrc={selectedImage}
         alt="Profile Picture"
+        lockScroll={false}
       />
     </>
   )
