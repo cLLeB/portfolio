@@ -3,8 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
+import { useEffect } from 'react'
 
 interface ImageModalProps {
   isOpen: boolean
@@ -15,12 +14,6 @@ interface ImageModalProps {
 }
 
 const ImageModal = ({ isOpen, onClose, imageSrc, alt, lockScroll = true }: ImageModalProps) => {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   // Close on escape key
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -44,16 +37,14 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt, lockScroll = true }: Image
     }
   }, [isOpen, lockScroll])
 
-  if (!mounted) return null
-
-  return createPortal(
+  return (
     <AnimatePresence>
       {isOpen && imageSrc && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 h-screen w-screen z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8"
+          className="fixed inset-0 h-screen w-screen z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8"
           onClick={onClose}
         >
           <motion.button
@@ -73,7 +64,7 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt, lockScroll = true }: Image
             className="relative w-full max-w-5xl max-h-[90vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full h-[35vh] sm:h-[75vh] overflow-hidden rounded-lg shadow-2xl border border-white/10 bg-black/20">
+            <div className="relative w-full h-[30vh] sm:h-[85vh] overflow-hidden rounded-lg shadow-2xl border border-white/10 bg-black/20">
               <Image
                 src={imageSrc}
                 alt={alt}
@@ -87,8 +78,7 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt, lockScroll = true }: Image
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>,
-    document.body
+    </AnimatePresence>
   )
 }
 
