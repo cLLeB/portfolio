@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Code, Database, Server, Smartphone, Globe, Brain, Cloud } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const About = () => {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -34,35 +36,35 @@ const About = () => {
   }
 
   const interests = [
-     {
+    {
       icon: Server,
-      title: 'Computer Networking',
-      description: 'Exploring networks, switches, routers, and cable infrastructure for robust connectivity.'
+      title: t('about.interests.0.title'),
+      description: t('about.interests.0.description')
     },
     {
       icon: Code,
-      title: 'Programming Languages',
-      description: 'Fascinated by language design and implementation, from lexical analysis to interpreter development.'
+      title: t('about.interests.1.title'),
+      description: t('about.interests.1.description')
     },
     {
       icon: Cloud,
-      title: 'Cloud Networking & Security',
-      description: 'Securing cloud deployments and remote workflows through robust access controls and safe data transfer protocols.'
+      title: t('about.interests.2.title'),
+      description: t('about.interests.2.description')
     },
     {
       icon: Globe,
-      title: 'Web Technologies',
-      description: 'Staying current with modern frameworks, tools, and best practices in web development.'
+      title: t('about.interests.3.title'),
+      description: t('about.interests.3.description')
     },
     {
       icon: Brain,
-      title: 'Algorithm Design',
-      description: 'Developing efficient algorithms and data structures to solve complex computational problems.'
+      title: t('about.interests.4.title'),
+      description: t('about.interests.4.description')
     },
     {
       icon: Smartphone,
-      title: 'Software Architecture',
-      description: 'Designing scalable, maintainable systems with clean code principles and design patterns.'
+      title: t('about.interests.5.title'),
+      description: t('about.interests.5.description')
     }
   ]
 
@@ -80,7 +82,7 @@ const About = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 drop-shadow-2xl">
-            About <span className="holographic">Me</span>
+            {t('about.title')} <span className="holographic">{t('about.me')}</span>
           </h2>
           <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
@@ -91,32 +93,18 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl transform rotate-3 animate-pulse"></div>
               <div className="relative bg-white/90 dark:bg-black/80 backdrop-blur-sm border border-blue-200 dark:border-blue-500/30 p-6 sm:p-8 rounded-2xl shadow-2xl">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-lg">
-                  Computer Science Journey
+                  {t('about.journey_title')}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
-                  I'm a dedicated Computer Science student at Kwame Nkrumah University of Science and Technology (KNUST),
-                  passionate about designing and securing robust networked systems. My journey in technology
-                  is driven by curiosity and a desire to understand how complex systems work, from programming language
-                  design to networking systems.
+                  {t('about.journey_desc1')}
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  Through hands-on projects and continuous learning, I've developed skills in secure application design,
-                  security-focused logic, and networking systems. I thrive on challenging problems that push the
-                  boundaries of what's possible and enjoy collaborating with others to build meaningful solutions.
+                  {t('about.journey_desc2')}
                 </p>
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-3">Key Coursework:</h4>
+                  <h4 className="font-semibold text-gray-800 dark:text-white mb-3">{t('about.key_coursework')}</h4>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {[
-                      'Data Structures & Algorithms',
-                      'Programming Languages',
-                      'Computer Networks',
-                      'Database Systems',
-                      'Software Engineering',
-                      'Operating Systems',
-                      'Compiler Design',
-                      'Discrete Mathematics'
-                    ].map((course) => (
+                    {t('about.courses').map((course: string) => (
                       <span
                         key={course}
                         className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-medium"
@@ -128,7 +116,7 @@ const About = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  {['Problem Solving', 'Team Collaboration', 'Continuous Learning', 'Innovation'].map((trait) => (
+                  {t('about.traits').map((trait: string) => (
                     <span
                       key={trait}
                       className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium"
@@ -143,27 +131,10 @@ const About = () => {
 
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">
-              What Drives Me
+              {t('about.drives_title')}
             </h3>
             <div className="space-y-6">
-              {[
-                {
-                  title: 'Creating Innovative Solutions',
-                  description: 'I enjoy building systems from the ground up, whether it\'s designing a programming language interpreter or developing blockchain applications.'
-                },
-                {
-                  title: 'Continuous Learning',
-                  description: 'Technology evolves rapidly, and I\'m committed to staying current with new frameworks, languages, and development methodologies.'
-                },
-                {
-                  title: 'Problem-Solving Mindset',
-                  description: 'I thrive on breaking down complex challenges into manageable components and finding creative, efficient solutions.'
-                },
-                {
-                  title: 'Seeking Growth Opportunities',
-                  description: 'I\'m actively seeking internship opportunities where I can contribute to meaningful projects while expanding my technical expertise.'
-                }
-              ].map((item, index) => (
+              {t('about.drives').map((item: any, index: number) => (
                 <motion.div
                   key={index}
                   className="flex items-start space-x-4"
@@ -186,7 +157,7 @@ const About = () => {
 
         <motion.div variants={itemVariants}>
           <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
-            Areas of Interest
+            {t('about.interests_title')}
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {interests.map((interest, index) => (

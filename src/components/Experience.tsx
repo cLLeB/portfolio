@@ -6,30 +6,32 @@ import { Briefcase, Shield, Search } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import ImageModal from './ui/ImageModal'
+import { useLanguage } from '@/context/LanguageContext'
 
 const Experience = () => {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
-  
+
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [selectedAlt, setSelectedAlt] = useState('')
 
   const experiences = [
     {
-      role: 'Student Researcher',
-      company: 'Computer Science Society | KNUST, Kumasi',
-      period: '2025 - PRESENT',
-      description: 'Conduct applied research within the Computer Science Society at KNUST, Ghana, contributing to collaborative projects aligned with emerging computer science trends. Support project design, documentation, and peer knowledge sharing while maintaining ethical and academic research standards. Foster an engaging research environment that strengthens student participation and technical skill development.',
+      role: t('experience.jobs.0.role'),
+      company: t('experience.jobs.0.company'),
+      period: t('experience.jobs.0.period'),
+      description: t('experience.jobs.0.description'),
       icon: Search,
       image: '/exp/css.png'
     },
     {
-      role: 'Security Intern',
-      company: 'Information Security and Technology Assurance Division | KNUST, Kumasi',
-      period: 'SEPTEMBER 2025 - NOVEMBER 2025',
-      description: 'Performed network security analysis to safeguard university digital assets within the Information Security and Technology Assurance Division at KNUST. Analyzed student portal traffic using Wireshark to detect anomalies and used Nmap for port scanning and host discovery to identify potential vulnerabilities. Supported vulnerability assessment, penetration testing activities, and security policy documentation.',
+      role: t('experience.jobs.1.role'),
+      company: t('experience.jobs.1.company'),
+      period: t('experience.jobs.1.period'),
+      description: t('experience.jobs.1.description'),
       icon: Shield,
       image: '/exp/istad.jpeg'
     }
@@ -67,7 +69,7 @@ const Experience = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Professional <span className="text-blue-500">Experience</span>
+            {t('experience.title')} <span className="text-blue-500">{t('experience.subtitle')}</span>
           </h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
         </motion.div>
@@ -82,18 +84,18 @@ const Experience = () => {
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="flex-shrink-0">
                   {exp.image ? (
-                    <div 
+                    <div
                       className="w-16 h-16 rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 cursor-pointer hover:scale-105 transition-transform"
                       onClick={() => {
                         setSelectedImage(exp.image)
                         setSelectedAlt(exp.company)
                       }}
                     >
-                      <Image 
-                        src={exp.image} 
-                        alt={exp.company} 
-                        width={64} 
-                        height={64} 
+                      <Image
+                        src={exp.image}
+                        alt={exp.company}
+                        width={64}
+                        height={64}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -123,7 +125,7 @@ const Experience = () => {
         </div>
       </motion.div>
 
-      <ImageModal 
+      <ImageModal
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
         imageSrc={selectedImage}

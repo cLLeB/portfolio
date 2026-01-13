@@ -1,0 +1,265 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "experience": "Experience",
+        "certifications": "Certifications",
+        "projects": "Projects",
+        "skills": "Skills",
+        "contact": "Contact"
+    },
+    "hero": {
+        "available": "Available for Opportunities",
+        "based_in": "Based in Ghana",
+        "hello": "Hello, I am",
+        "roles": [
+            "Computer Science Student",
+            "Network Engineer",
+            "Security Professional",
+            "Problem Solver",
+            "Tech Enthusiast"
+        ],
+        "description": "Passionate about creating innovative solutions through code. Specializing in full-stack development, computer networking, and building user-centric applications that make a difference.",
+        "view_work": "View My Work",
+        "download_resume": "Download Resume",
+        "discover_more": "Discover More",
+        "scroll_down": "Scroll Down"
+    },
+    "about": {
+        "title": "About",
+        "me": "Me",
+        "journey_title": "Computer Science Journey",
+        "journey_desc1": "I'm a dedicated Computer Science student at Kwame Nkrumah University of Science and Technology (KNUST), passionate about designing and securing robust networked systems. My journey in technology is driven by curiosity and a desire to understand how complex systems work, from programming language design to networking systems.",
+        "journey_desc2": "Through hands-on projects and continuous learning, I've developed skills in secure application design, security-focused logic, and networking systems. I thrive on challenging problems that push the boundaries of what's possible and enjoy collaborating with others to build meaningful solutions.",
+        "key_coursework": "Key Coursework:",
+        "courses": [
+            "Data Structures & Algorithms",
+            "Programming Languages",
+            "Computer Networks",
+            "Database Systems",
+            "Software Engineering",
+            "Operating Systems",
+            "Compiler Design",
+            "Discrete Mathematics"
+        ],
+        "traits": [
+            "Problem Solving",
+            "Team Collaboration",
+            "Continuous Learning",
+            "Innovation"
+        ],
+        "drives_title": "What Drives Me",
+        "drives": [
+            {
+                "title": "Creating Innovative Solutions",
+                "description": "I enjoy building systems from the ground up, whether it's designing a programming language interpreter or developing blockchain applications."
+            },
+            {
+                "title": "Continuous Learning",
+                "description": "Technology evolves rapidly, and I'm committed to staying current with new frameworks, languages, and development methodologies."
+            },
+            {
+                "title": "Problem-Solving Mindset",
+                "description": "I thrive on breaking down complex challenges into manageable components and finding creative, efficient solutions."
+            },
+            {
+                "title": "Seeking Growth Opportunities",
+                "description": "I'm actively seeking internship opportunities where I can contribute to meaningful projects while expanding my technical expertise."
+            }
+        ],
+        "interests_title": "Areas of Interest",
+        "interests": [
+            {
+                "title": "Computer Networking",
+                "description": "Exploring networks, switches, routers, and cable infrastructure for robust connectivity."
+            },
+            {
+                "title": "Programming Languages",
+                "description": "Fascinated by language design and implementation, from lexical analysis to interpreter development."
+            },
+            {
+                "title": "Cloud Networking & Security",
+                "description": "Securing cloud deployments and remote workflows through robust access controls and safe data transfer protocols."
+            },
+            {
+                "title": "Web Technologies",
+                "description": "Staying current with modern frameworks, tools, and best practices in web development."
+            },
+            {
+                "title": "Algorithm Design",
+                "description": "Developing efficient algorithms and data structures to solve complex computational problems."
+            },
+            {
+                "title": "Software Architecture",
+                "description": "Designing scalable, maintainable systems with clean code principles and design patterns."
+            }
+        ]
+    },
+    "experience": {
+        "title": "Professional",
+        "subtitle": "Experience",
+        "jobs": [
+            {
+                "role": "Student Researcher",
+                "company": "Computer Science Society | KNUST, Kumasi",
+                "period": "2025 - PRESENT",
+                "description": "Conduct applied research within the Computer Science Society at KNUST, Ghana, contributing to collaborative projects aligned with emerging computer science trends. Support project design, documentation, and peer knowledge sharing while maintaining ethical and academic research standards. Foster an engaging research environment that strengthens student participation and technical skill development."
+            },
+            {
+                "role": "Security Intern",
+                "company": "Information Security and Technology Assurance Division | KNUST, Kumasi",
+                "period": "SEPTEMBER 2025 - NOVEMBER 2025",
+                "description": "Performed network security analysis to safeguard university digital assets within the Information Security and Technology Assurance Division at KNUST. Analyzed student portal traffic using Wireshark to detect anomalies and used Nmap for port scanning and host discovery to identify potential vulnerabilities. Supported vulnerability assessment, penetration testing activities, and security policy documentation."
+            }
+        ]
+    },
+    "certifications": {
+        "title": "Certifications &",
+        "subtitle": "Licenses",
+        "items": [
+            {
+                "name": "Certified Network Security Practitioner (CNSP)",
+                "issuer": "The SecOps Group",
+                "date": "Issued Nov 2025",
+                "focus": "Defensive Security, Network Protocol & Traffic Analysis"
+            },
+            {
+                "name": "Certified Cybersecurity Educator Professional (CCEP)",
+                "issuer": "Red Team Leaders",
+                "date": "Issued Nov 2025",
+                "focus": "Network Security, Information Security Architecture"
+            },
+            {
+                "name": "Research Methodologies in Strategy and Product Development",
+                "issuer": "Institute of Management, Technology and Finance",
+                "date": "Issued Jul 2025",
+                "focus": "Strategy, Product Development, Research"
+            }
+        ],
+        "focus_label": "Focus:"
+    },
+    "projects": {
+        "title": "Featured",
+        "subtitle": "Projects",
+        "description": "A showcase of distributed systems, full-stack applications, and innovative solutions built with modern technologies and best practices.",
+        "view_github": "View All Projects on GitHub",
+        "key_features": "Key Features:",
+        "items": [
+            {
+                "title": "Custom Language Interpreter",
+                "description": "A sophisticated interpreter for a custom programming language featuring lexical analysis, parsing, and execution. Supports variables, functions, control structures, and advanced language features with comprehensive error handling.",
+                "features": [
+                    "Complete lexical and syntax analysis",
+                    "Abstract Syntax Tree generation",
+                    "Variable scoping and memory management",
+                    "Function definitions and recursion",
+                    "Comprehensive error reporting"
+                ],
+                "category": "Programming Languages"
+            },
+            {
+                "title": "Ephemeral Chat",
+                "description": "A real-time anonymous chat application with self-destructing messages and instant room creation. Features WebSocket-based messaging, automatic cleanup, and cross-platform compatibility for secure, temporary communications.",
+                "features": [
+                    "Instant room creation with unique identifiers",
+                    "Anonymous participation without accounts",
+                    "Real-time messaging via WebSockets",
+                    "Self-destructing messages after reading",
+                    "Automatic room closure after inactivity",
+                    "Cross-platform support (web, mobile, desktop)"
+                ],
+                "category": "Real-Time Application"
+            },
+            {
+                "title": "URL Shortener Pro",
+                "description": "Professional URL shortening service with enterprise features including analytics, rate limiting, custom domains, and user authentication. Built with microservices architecture for scalability and performance.",
+                "features": [
+                    "Custom domain support",
+                    "Advanced analytics dashboard",
+                    "Rate limiting and security",
+                    "User authentication & management",
+                    "Microservices architecture"
+                ],
+                "category": "Web Application"
+            },
+            {
+                "title": "Looply - Food Delivery System (CodeFest '25)",
+                "description": "Achieved 1st Runner-up position in the 2025 CodeFest competition organized by the KNUST Department of Computer Science. Served as the principal frontend developer, building a comprehensive food delivery mobile application using React Native and Bootstrap, inspired by Hubtel, and collaborated within a team to deliver a functional product prototype.",
+                "features": [
+                    "Award-winning project (1st Runner-up)",
+                    "Comprehensive food delivery interface",
+                    "Real-time order tracking",
+                    "User-friendly navigation",
+                    "Team collaboration and rapid prototyping"
+                ],
+                "category": "Mobile Application"
+            }
+        ]
+    },
+    "skills": {
+        "title": "Skills &",
+        "subtitle": "Technologies",
+        "description": "A comprehensive overview of my technical expertise across various domains of software development.",
+        "avg_level": "Avg Level",
+        "categories": {
+            "programming": "Programming Languages",
+            "frontend": "Frontend Technologies",
+            "backend": "Backend & APIs",
+            "network": "Network",
+            "devops": "DevOps & Cloud",
+            "tools": "Tools & Others"
+        },
+        "additional_title": "Additional Competencies",
+        "competencies": [
+            {
+                "title": "System Design",
+                "description": "Designing scalable, distributed architectures"
+            },
+            {
+                "title": "Problem Solving",
+                "description": "Breaking down complex challenges systematically"
+            },
+            {
+                "title": "Code Review",
+                "description": "Ensuring code quality and best practices"
+            },
+            {
+                "title": "Team Collaboration",
+                "description": "Working effectively in agile development teams"
+            }
+        ]
+    },
+    "contact": {
+        "title_start": "Get In",
+        "title_end": "Touch",
+        "description": "I'm always interested in new opportunities, collaborations, and interesting projects. Let's connect and discuss how we can work together!",
+        "conversation_title": "Let's Start a Conversation",
+        "conversation_desc": "Whether you're looking for a dedicated intern, have a project in mind, or just want to connect with a fellow developer, I'd love to hear from you. I'm particularly interested in opportunities involving computer networking, security architecture, and innovative technology solutions.",
+        "follow_me": "Follow Me",
+        "form_title": "Send a Message",
+        "name_label": "Name",
+        "name_placeholder": "Your Name",
+        "email_label": "Email",
+        "email_placeholder": "your.email@example.com",
+        "subject_label": "Subject",
+        "subject_placeholder": "What's this about?",
+        "message_label": "Message",
+        "message_placeholder": "Tell me about your project, opportunity, or just say hello!",
+        "send_button": "Send Message",
+        "sending": "Sending...",
+        "whatsapp": "WhatsApp",
+        "info": {
+            "email": "Email",
+            "call": "Call",
+            "location": "Location"
+        }
+    },
+    "footer": {
+        "description": "Computer Science student passionate about building innovative solutions and contributing to impactful projects through technology.",
+        "quick_links": "Quick Links",
+        "get_in_touch": "Get In Touch",
+        "made_with": "Made with",
+        "coffee": "and lots of coffee",
+        "back_to_top": "Back to Top"
+    }
+}

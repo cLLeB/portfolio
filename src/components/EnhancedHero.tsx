@@ -5,8 +5,10 @@ import { useState, useEffect } from 'react'
 import { ChevronDown, Github, Linkedin, Mail, Download, MapPin } from 'lucide-react'
 import Button from './ui/Button'
 import GlitchText from './GlitchText'
+import { useLanguage } from '@/context/LanguageContext'
 
 const EnhancedHero = () => {
+  const { t, language } = useLanguage()
   const [orbStyles, setOrbStyles] = useState<{ width: string; height: string; left: string; top: string }[]>([])
   const [currentRole, setCurrentRole] = useState(0)
   const [displayText, setDisplayText] = useState('')
@@ -24,23 +26,17 @@ const EnhancedHero = () => {
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
-  
+
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], [0, 150])
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
-  
+
   // Enhanced typing animation
   useEffect(() => {
-    const roles = [
-      'Computer Science Student',
-      'Network Engineer',
-      'Security Professional',
-      'Problem Solver',
-      'Tech Enthusiast'
-    ]
+    const roles = t('hero.roles')
     const currentRoleText = roles[currentRole]
     let currentIndex = 0
-    
+
     const typeText = () => {
       if (currentIndex < currentRoleText.length) {
         setDisplayText(currentRoleText.slice(0, currentIndex + 1))
@@ -61,7 +57,7 @@ const EnhancedHero = () => {
     if (isTyping) {
       typeText()
     }
-  }, [currentRole, isTyping])
+  }, [currentRole, isTyping, t])
 
   // Mouse tracking for interactive elements
   // Removed duplicate useEffect
@@ -95,7 +91,7 @@ const EnhancedHero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-900 transition-colors duration-500">
       {/* Enhanced Background Effects */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0"
         style={{ y }}
       >
@@ -168,13 +164,13 @@ const EnhancedHero = () => {
           <div className="flex items-center justify-center space-x-2 mb-6">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             <span className="text-gray-600 dark:text-gray-300 text-sm font-medium tracking-wide uppercase">
-              Available for Opportunities
+              {t('hero.available')}
             </span>
           </div>
-          
+
           <div className="flex items-center justify-center space-x-2 text-gray-500 dark:text-gray-400 mb-8">
             <MapPin size={16} />
-            <span className="text-sm">Based in Ghana</span>
+            <span className="text-sm">{t('hero.based_in')}</span>
           </div>
         </motion.div>
 
@@ -192,7 +188,7 @@ const EnhancedHero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Hello, I am
+              {t('hero.hello')}
             </motion.span>
             <motion.div
               className="block"
@@ -225,16 +221,14 @@ const EnhancedHero = () => {
               />
             </span>
           </div>
-          
+
           <motion.p
             className="text-body-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
-            Passionate about creating innovative solutions through code. 
-            Specializing in full-stack development, computer networking, 
-            and building user-centric applications that make a difference.
+            {t('hero.description')}
           </motion.p>
         </motion.div>
 
@@ -251,18 +245,18 @@ const EnhancedHero = () => {
             onClick={() => scrollToSection('projects')}
             className="min-w-[200px]"
           >
-            View My Work
+            {t('hero.view_work')}
           </Button>
-          
+
           <Button
             variant="outline"
             size="lg"
-            href="/resume.pdf"
+            href={language === 'fr' ? "/resume-fr.pdf" : "/resume.pdf"}
             target="_blank"
             icon={<Download size={20} />}
             className="min-w-[200px]"
           >
-            Download Resume
+            {t('hero.download_resume')}
           </Button>
         </motion.div>
 
@@ -274,21 +268,21 @@ const EnhancedHero = () => {
           className="flex justify-center space-x-6 mb-16"
         >
           {[
-            { 
-              icon: Github, 
-              href: 'https://github.com/cLLeB', 
+            {
+              icon: Github,
+              href: 'https://github.com/cLLeB',
               label: 'GitHub',
               color: 'hover:text-gray-900 dark:hover:text-gray-300'
             },
-            { 
-              icon: Linkedin, 
-              href: 'https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4', 
+            {
+              icon: Linkedin,
+              href: 'https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4',
               label: 'LinkedIn',
               color: 'hover:text-blue-400'
             },
-            { 
-              icon: Mail, 
-              href: 'mailto:kyereboatengcaleb@gmail.com', 
+            {
+              icon: Mail,
+              href: 'mailto:kyereboatengcaleb@gmail.com',
               label: 'Email',
               color: 'hover:text-green-400'
             }
@@ -302,8 +296,8 @@ const EnhancedHero = () => {
                 p-4 rounded-full glass-card text-gray-500 dark:text-gray-400 ${color}
                 transition-all duration-300 group
               `}
-              whileHover={{ 
-                scale: 1.1, 
+              whileHover={{
+                scale: 1.1,
                 y: -5,
                 boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)"
               }}
@@ -331,7 +325,7 @@ const EnhancedHero = () => {
             aria-label="Scroll to about section"
           >
             <span className="text-sm mb-2 opacity-0 group-hover:opacity-100 transition-opacity">
-              Discover More
+              {t('hero.discover_more')}
             </span>
             <motion.div
               className="p-2 rounded-full border border-gray-300 dark:border-gray-600 group-hover:border-blue-500 dark:group-hover:border-blue-400 transition-colors"

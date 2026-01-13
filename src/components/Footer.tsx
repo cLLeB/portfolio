@@ -1,9 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Heart, ArrowUp } from 'lucide-react'
+import { Github, Linkedin, Mail, Heart, ArrowUp, Coffee } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const Footer = () => {
+  const { t } = useLanguage()
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -48,20 +50,24 @@ const Footer = () => {
               <span className="text-xl font-bold">Caleb Kyere Boateng</span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              Computer Science student passionate about building innovative solutions 
-              and contributing to impactful projects through technology.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <h3 className="text-lg font-semibold">{t('footer.quick_links')}</h3>
             <div className="space-y-2">
-              {['About', 'Projects', 'Skills', 'Contact'].map((link) => (
+              {[
+                { id: 'about', label: t('nav.about') },
+                { id: 'experience', label: t('nav.experience') },
+                { id: 'projects', label: t('nav.projects') },
+                { id: 'contact', label: t('nav.contact') }
+              ].map((link) => (
                 <motion.button
-                  key={link}
+                  key={link.id}
                   onClick={() => {
-                    const element = document.getElementById(link.toLowerCase())
+                    const element = document.getElementById(link.id)
                     if (element) {
                       element.scrollIntoView({ behavior: 'smooth' })
                     }
@@ -69,7 +75,7 @@ const Footer = () => {
                   className="block text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors duration-300"
                   whileHover={{ x: 5 }}
                 >
-                  {link}
+                  {link.label}
                 </motion.button>
               ))}
             </div>
@@ -77,7 +83,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Get In Touch</h3>
+            <h3 className="text-lg font-semibold">{t('footer.get_in_touch')}</h3>
             <div className="space-y-2 text-gray-600 dark:text-gray-400">
               <p>kyereboatengcaleb@gmail.com</p>
               <p>+233 20 418 5163</p>
@@ -106,11 +112,12 @@ const Footer = () => {
         <div className="border-t border-gray-200 dark:border-slate-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-              <span>© {currentYear} Caleb Kyere Boateng. Made with</span>
+              <span>© {currentYear} Caleb Kyere Boateng. {t('footer.made_with')}</span>
               <Heart size={16} className="text-red-500" />
-              <span>and lots of coffee</span>
+              <span>{t('footer.coffee')}</span>
+              <Coffee size={16} className="text-amber-700 dark:text-amber-500" />
             </div>
-            
+
             <motion.button
               onClick={scrollToTop}
               className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:shadow-lg transition-all duration-300"
@@ -118,7 +125,7 @@ const Footer = () => {
               whileTap={{ scale: 0.95 }}
             >
               <ArrowUp size={16} />
-              <span>Back to Top</span>
+              <span>{t('footer.back_to_top')}</span>
             </motion.button>
           </div>
         </div>

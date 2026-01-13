@@ -6,6 +6,7 @@ import { Menu, X, Home, User, Briefcase, Code, Mail, Zap, Award, Clock, Folder, 
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import ImageModal from './ui/ImageModal'
+import { useLanguage } from '@/context/LanguageContext'
 
 const ResponsiveNavigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -13,6 +14,7 @@ const ResponsiveNavigation = () => {
   const [activeSection, setActiveSection] = useState('hero')
   const [isMobile, setIsMobile] = useState(false)
   const { theme, setTheme } = useTheme()
+  const { language, toggleLanguage, t } = useLanguage()
   const [mounted, setMounted] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
@@ -21,7 +23,7 @@ const ResponsiveNavigation = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
-    
+
     checkMobile()
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
@@ -30,7 +32,7 @@ const ResponsiveNavigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
-      
+
       const sections = ['hero', 'about', 'experience', 'certifications', 'projects', 'skills', 'contact']
       const currentSection = sections.find(section => {
         const element = document.getElementById(section)
@@ -40,7 +42,7 @@ const ResponsiveNavigation = () => {
         }
         return false
       })
-      
+
       if (currentSection) {
         setActiveSection(currentSection)
       }
@@ -71,13 +73,13 @@ const ResponsiveNavigation = () => {
   }
 
   const navItems = [
-    { id: 'hero', label: 'Home', icon: Home },
-    { id: 'about', label: 'About', icon: User },
-    { id: 'experience', label: 'Experience', icon: Briefcase },
-    { id: 'certifications', label: 'Certifications', icon: Award },
-    { id: 'projects', label: 'Projects', icon: Folder },
-    { id: 'skills', label: 'Skills', icon: Code },
-    { id: 'contact', label: 'Contact', icon: Mail }
+    { id: 'hero', label: t('nav.home'), icon: Home },
+    { id: 'about', label: t('nav.about'), icon: User },
+    { id: 'experience', label: t('nav.experience'), icon: Briefcase },
+    { id: 'certifications', label: t('nav.certifications'), icon: Award },
+    { id: 'projects', label: t('nav.projects'), icon: Folder },
+    { id: 'skills', label: t('nav.skills'), icon: Code },
+    { id: 'contact', label: t('nav.contact'), icon: Mail }
   ]
 
   if (!mounted) {
@@ -88,11 +90,10 @@ const ResponsiveNavigation = () => {
     <>
       {/* Main Navigation */}
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'bg-white/90 dark:bg-black/90 backdrop-blur-xl shadow-2xl border-b border-gray-200 dark:border-blue-500/30' 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+            ? 'bg-white/90 dark:bg-black/90 backdrop-blur-xl shadow-2xl border-b border-gray-200 dark:border-blue-500/30'
             : 'bg-white/20 dark:bg-black/20 backdrop-blur-sm'
-        }`}
+          }`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -109,7 +110,7 @@ const ResponsiveNavigation = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => setSelectedImage('/dp/me.jpg')}
             >
-              <motion.div 
+              <motion.div
                 className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center relative overflow-hidden border-2 border-blue-500"
                 animate={{
                   boxShadow: [
@@ -140,15 +141,14 @@ const ResponsiveNavigation = () => {
                 <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative px-3 lg:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
-                    activeSection === item.id
+                  className={`relative px-3 lg:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${activeSection === item.id
                       ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg'
                       : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
-                  }`}
-                  whileHover={{ 
+                    }`}
+                  whileHover={{
                     scale: 1.05,
-                    boxShadow: activeSection === item.id 
-                      ? '0 0 25px rgba(59, 130, 246, 0.6)' 
+                    boxShadow: activeSection === item.id
+                      ? '0 0 25px rgba(59, 130, 246, 0.6)'
                       : '0 0 15px rgba(100, 100, 100, 0.2)'
                   }}
                   whileTap={{ scale: 0.95 }}
@@ -167,7 +167,17 @@ const ResponsiveNavigation = () => {
                   </span>
                 </motion.button>
               ))}
-              
+
+              {/* Language Toggle */}
+              <motion.button
+                onClick={toggleLanguage}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors font-bold w-10 h-10 flex items-center justify-center"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {language.toUpperCase()}
+              </motion.button>
+
               {/* Theme Toggle */}
               <motion.button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -189,37 +199,46 @@ const ResponsiveNavigation = () => {
               >
                 {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               </motion.button>
-              
+
+              <motion.button
+                onClick={toggleLanguage}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors font-bold w-10 h-10 flex items-center justify-center"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {language.toUpperCase()}
+              </motion.button>
+
               <motion.button
                 className="p-2 rounded-lg bg-gray-100 dark:bg-white/10 backdrop-blur-sm text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-white/20"
-              onClick={() => setIsOpen(!isOpen)}
-              whileTap={{ scale: 0.95 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <AnimatePresence mode="wait">
-                {isOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X size={24} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu size={24} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
+                onClick={() => setIsOpen(!isOpen)}
+                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <AnimatePresence mode="wait">
+                  {isOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X size={24} />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu size={24} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -243,7 +262,7 @@ const ResponsiveNavigation = () => {
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
             />
-            
+
             {/* Menu Content */}
             <motion.div
               className="absolute top-20 left-4 right-4 bg-white/90 dark:bg-black/90 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-blue-500/30 shadow-2xl overflow-hidden"
@@ -258,22 +277,20 @@ const ResponsiveNavigation = () => {
                     <motion.button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      className={`w-full flex items-center space-x-4 px-4 py-4 rounded-xl text-left transition-all duration-300 ${
-                        activeSection === item.id
+                      className={`w-full flex items-center space-x-4 px-4 py-4 rounded-xl text-left transition-all duration-300 ${activeSection === item.id
                           ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                           : 'text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white'
-                      }`}
+                        }`}
                       initial={{ x: -20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: index * 0.1, duration: 0.3 }}
                       whileHover={{ x: 5, scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <div className={`p-2 rounded-lg ${
-                        activeSection === item.id 
-                          ? 'bg-white/20' 
+                      <div className={`p-2 rounded-lg ${activeSection === item.id
+                          ? 'bg-white/20'
                           : 'bg-blue-100 dark:bg-blue-500/20'
-                      }`}>
+                        }`}>
                         <item.icon size={20} />
                       </div>
                       <span className="font-medium text-lg">{item.label}</span>

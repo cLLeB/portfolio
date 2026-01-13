@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Code, Network, Server, Smartphone, Cloud, Settings, TrendingUp, Zap } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const TouchOptimizedSkills = () => {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -50,7 +52,7 @@ const TouchOptimizedSkills = () => {
 
   const skillCategories = [
     {
-      title: 'Programming Languages',
+      title: t('skills.categories.programming'),
       icon: Code,
       color: 'from-green-500 to-emerald-600',
       skills: [
@@ -63,7 +65,7 @@ const TouchOptimizedSkills = () => {
       ]
     },
     {
-      title: 'Frontend Technologies',
+      title: t('skills.categories.frontend'),
       icon: Smartphone,
       color: 'from-blue-500 to-cyan-600',
       skills: [
@@ -76,7 +78,7 @@ const TouchOptimizedSkills = () => {
       ]
     },
     {
-      title: 'Backend & APIs',
+      title: t('skills.categories.backend'),
       icon: Server,
       color: 'from-purple-500 to-violet-600',
       skills: [
@@ -89,7 +91,7 @@ const TouchOptimizedSkills = () => {
       ]
     },
     {
-      title: 'Network',
+      title: t('skills.categories.network'),
       icon: Network,
       color: 'from-orange-500 to-red-600',
       skills: [
@@ -102,7 +104,7 @@ const TouchOptimizedSkills = () => {
       ]
     },
     {
-      title: 'DevOps & Cloud',
+      title: t('skills.categories.devops'),
       icon: Cloud,
       color: 'from-cyan-500 to-blue-600',
       skills: [
@@ -115,7 +117,7 @@ const TouchOptimizedSkills = () => {
       ]
     },
     {
-      title: 'Tools & Others',
+      title: t('skills.categories.tools'),
       icon: Settings,
       color: 'from-pink-500 to-rose-600',
       skills: [
@@ -129,10 +131,10 @@ const TouchOptimizedSkills = () => {
     }
   ]
 
-  const ProgressBar = ({ skill, index, categoryColor }: { 
-    skill: { name: string; level: number }, 
+  const ProgressBar = ({ skill, index, categoryColor }: {
+    skill: { name: string; level: number },
     index: number,
-    categoryColor: string 
+    categoryColor: string
   }) => {
     // Make animation duration dynamic per bar for a more lively effect
     const flowDuration = 3.5 + (index % 4) * 0.7; // 3.5s to 5.6s
@@ -144,7 +146,7 @@ const TouchOptimizedSkills = () => {
         transition={{ delay: index * 0.1, duration: 0.5 }}
       >
         <div className="flex justify-between items-center mb-2">
-          <span 
+          <span
             className="text-sm font-medium text-gray-700 dark:text-gray-200 relative z-20"
             style={{
               textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
@@ -152,7 +154,7 @@ const TouchOptimizedSkills = () => {
           >
             {skill.name}
           </span>
-          <span 
+          <span
             className="text-sm text-cyan-600 dark:text-cyan-300 relative z-20 font-mono"
             style={{
               textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
@@ -199,18 +201,17 @@ const TouchOptimizedSkills = () => {
         >
           <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
-              <span className="drop-shadow-2xl">Skills &</span>{' '}
-              <span 
+              {t('skills.title')} <span
                 className="text-cyan-600 dark:text-cyan-400 drop-shadow-2xl"
                 style={{
                   textShadow: '0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                Technologies
+                {t('skills.subtitle')}
               </span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
-              Technical expertise across various domains of software development.
+              {t('skills.description')}
             </p>
             <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
           </motion.div>
@@ -223,11 +224,10 @@ const TouchOptimizedSkills = () => {
                   <motion.button
                     key={index}
                     onClick={() => setActiveCategory(index)}
-                    className={`flex-shrink-0 flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 ${
-                      activeCategory === index
+                    className={`flex-shrink-0 flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 ${activeCategory === index
                         ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
                         : 'bg-gray-200 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700/50'
-                    }`}
+                      }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -256,14 +256,14 @@ const TouchOptimizedSkills = () => {
                 layout={isMobile}
               >
                 <div className="flex items-center mb-4 sm:mb-6">
-                  <motion.div 
+                  <motion.div
                     className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center mr-3 sm:mr-4`}
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
                     <category.icon size={isMobile ? 20 : 24} className="text-white" />
                   </motion.div>
-                  <h3 
+                  <h3
                     className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white relative z-20"
                     style={{
                       textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
@@ -272,20 +272,20 @@ const TouchOptimizedSkills = () => {
                     {category.title}
                   </h3>
                 </div>
-                
+
                 <div className="space-y-3 sm:space-y-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <ProgressBar 
-                      key={skillIndex} 
-                      skill={skill} 
-                      index={skillIndex} 
+                    <ProgressBar
+                      key={skillIndex}
+                      skill={skill}
+                      index={skillIndex}
                       categoryColor={category.color}
                     />
                   ))}
                 </div>
 
                 {/* Category Stats */}
-                <motion.div 
+                <motion.div
                   className="mt-4 sm:mt-6 pt-4 border-t border-gray-200 dark:border-gray-700/50"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -294,7 +294,7 @@ const TouchOptimizedSkills = () => {
                   <div className="flex items-center justify-between text-sm">
                     <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-400">
                       <TrendingUp size={14} />
-                      <span>Avg Level</span>
+                      <span>{t('skills.avg_level')}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <span className="text-cyan-600 dark:text-cyan-300 font-mono">
@@ -310,7 +310,7 @@ const TouchOptimizedSkills = () => {
 
           {/* Mobile Navigation Dots */}
           {isMobile && (
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex justify-center space-x-2 mt-8"
             >
@@ -318,9 +318,8 @@ const TouchOptimizedSkills = () => {
                 <motion.button
                   key={index}
                   onClick={() => setActiveCategory(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    activeCategory === index ? 'bg-cyan-400 w-6' : 'bg-gray-600'
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${activeCategory === index ? 'bg-cyan-400 w-6' : 'bg-gray-600'
+                    }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
                 />

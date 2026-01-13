@@ -7,8 +7,10 @@ import { useState } from 'react'
 import { submitContactForm, copyEmailToClipboard, contactViaWhatsApp } from '@/utils/contactForm'
 import Button from './ui/Button'
 import LoadingSpinner from './ui/LoadingSpinner'
+import { useLanguage } from '@/context/LanguageContext'
 
 const Contact = () => {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -70,13 +72,13 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
+      title: t('contact.info.email'),
       value: 'kyereboatengcaleb@gmail.com',
       href: 'mailto:kyereboatengcaleb@gmail.com'
     },
     {
       icon: Phone,
-      title: 'Call',
+      title: t('contact.info.call'),
       value: (
         <div className="flex flex-row space-x-4">
           <a href="tel:+233204185163" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">
@@ -87,11 +89,11 @@ const Contact = () => {
           </a>
         </div>
       ),
-      
+
     },
     {
       icon: MapPin,
-      title: 'Location',
+      title: t('contact.info.location'),
       value: 'Kumasi, Ghana',
       href: 'https://www.knust.edu.gh/about/knust/maps'
     }
@@ -138,19 +140,17 @@ const Contact = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
-            <span className="drop-shadow-2xl">Get In</span>{' '}
-            <span
+            {t('contact.title_start')} <span
               className="text-pink-600 dark:text-pink-400 drop-shadow-2xl"
               style={{
                 textShadow: '0 0 20px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
-              Touch
+              {t('contact.title_end')}
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
-            I'm always interested in new opportunities, collaborations, and interesting projects. 
-            Let's connect and discuss how we can work together!
+            {t('contact.description')}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
@@ -165,7 +165,7 @@ const Contact = () => {
                   textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
                 }}
               >
-                Let's Start a Conversation
+                {t('contact.conversation_title')}
               </h3>
               <p
                 className="text-gray-600 dark:text-gray-200 leading-relaxed mb-8 relative z-20"
@@ -173,9 +173,7 @@ const Contact = () => {
                   textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                Whether you're looking for a dedicated intern, have a project in mind, or just want to
-                connect with a fellow developer, I'd love to hear from you. I'm particularly interested
-                in opportunities involving  computer networking, security architecture, and innovative technology solutions.
+                {t('contact.conversation_desc')}
               </p>
             </div>
 
@@ -243,7 +241,7 @@ const Contact = () => {
                   textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                Follow Me
+                {t('contact.follow_me')}
               </h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
@@ -278,9 +276,9 @@ const Contact = () => {
                   textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
                 }}
               >
-                Send a Message
+                {t('contact.form_title')}
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -291,7 +289,7 @@ const Contact = () => {
                         textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                       }}
                     >
-                      Name
+                      {t('contact.name_label')}
                     </label>
                     <input
                       type="text"
@@ -304,10 +302,10 @@ const Contact = () => {
                       style={{
                         backdropFilter: 'blur(10px)'
                       }}
-                      placeholder="Your Name"
+                      placeholder={t('contact.name_placeholder')}
                     />
                   </div>
-                  
+
                   <div>
                     <label
                       htmlFor="email"
@@ -316,7 +314,7 @@ const Contact = () => {
                         textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                       }}
                     >
-                      Email
+                      {t('contact.email_label')}
                     </label>
                     <input
                       type="email"
@@ -329,7 +327,7 @@ const Contact = () => {
                       style={{
                         backdropFilter: 'blur(10px)'
                       }}
-                      placeholder="your.email@example.com"
+                      placeholder={t('contact.email_placeholder')}
                     />
                   </div>
                 </div>
@@ -342,7 +340,7 @@ const Contact = () => {
                       textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                     }}
                   >
-                    Subject
+                    {t('contact.subject_label')}
                   </label>
                   <input
                     type="text"
@@ -355,7 +353,7 @@ const Contact = () => {
                     style={{
                       backdropFilter: 'blur(10px)'
                     }}
-                    placeholder="What's this about?"
+                    placeholder={t('contact.subject_placeholder')}
                   />
                 </div>
 
@@ -367,7 +365,7 @@ const Contact = () => {
                       textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
                     }}
                   >
-                    Message
+                    {t('contact.message_label')}
                   </label>
                   <textarea
                     id="message"
@@ -380,7 +378,7 @@ const Contact = () => {
                     style={{
                       backdropFilter: 'blur(10px)'
                     }}
-                    placeholder="Tell me about your project, opportunity, or just say hello!"
+                    placeholder={t('contact.message_placeholder')}
                   />
                 </div>
 
@@ -393,7 +391,7 @@ const Contact = () => {
                       icon={<Send size={20} />}
                       size="lg"
                     >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      {isSubmitting ? t('contact.sending') : t('contact.send_button')}
                     </Button>
                   </div>
 
@@ -406,7 +404,7 @@ const Contact = () => {
                     title="Contact via WhatsApp"
                   >
                     <MessageCircle size={20} />
-                    <span>WhatsApp</span>
+                    <span>{t('contact.whatsapp')}</span>
                   </motion.button>
                 </div>
               </form>

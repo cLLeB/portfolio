@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, Download, Sparkles } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import GlitchText from './GlitchText'
-import { downloadResume } from '@/utils/downloadResume'
+import { useLanguage } from '@/context/LanguageContext'
 
 const ROLES = [
   'CS Student',
@@ -14,21 +14,22 @@ const ROLES = [
 ]
 
 const MobileOptimizedHero = () => {
+  const { t, language } = useLanguage()
   const [currentRole, setCurrentRole] = useState(0)
   const [displayText, setDisplayText] = useState('')
   const [isTyping, setIsTyping] = useState(true)
   const [isMobile, setIsMobile] = useState(false)
   const [particles, setParticles] = useState<{ left: string; top: string; duration: number; delay: number }[]>([])
-  
+
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], [0, 150])
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
-  
+
   useEffect(() => {
     const checkMobile = () => {
       const mobile = window.innerWidth < 768
       setIsMobile(mobile)
-      
+
       // Generate particles based on mobile state
       const particleCount = mobile ? 8 : 15
       const newParticles = Array.from({ length: particleCount }).map(() => ({
@@ -39,16 +40,17 @@ const MobileOptimizedHero = () => {
       }))
       setParticles(newParticles)
     }
-    
+
     checkMobile()
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
   useEffect(() => {
-    const currentRoleText = ROLES[currentRole]
+    const roles = t('hero.roles')
+    const currentRoleText = roles[currentRole]
     let currentIndex = 0
-    
+
     const typeText = () => {
       if (currentIndex < currentRoleText.length) {
         setDisplayText(currentRoleText.slice(0, currentIndex + 1))
@@ -78,13 +80,13 @@ const MobileOptimizedHero = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50 dark:bg-black">
       {/* Mobile-Optimized Background */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0"
         style={{ y }}
       >
         {/* Simplified mobile background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 via-purple-100/30 to-cyan-100/30 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-cyan-900/30" />
-        
+
         {/* Mobile floating particles */}
         {particles.map((particle, i) => (
           <motion.div
@@ -120,7 +122,7 @@ const MobileOptimizedHero = () => {
           className="mb-6 sm:mb-8"
         >
           <motion.h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 min-h-[160px] sm:min-h-0 flex flex-col sm:block justify-center">
-            <motion.span 
+            <motion.span
               className="block text-gray-900 dark:text-white drop-shadow-2xl mb-2 sm:mb-0 sm:inline"
               animate={{
                 textShadow: [
@@ -131,16 +133,16 @@ const MobileOptimizedHero = () => {
               }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              Hi, I'm{' '}
+              {t('hero.hello')}{' '}
             </motion.span>
             <GlitchText
               text="Caleb Kwabena Kyere Boateng"
               className="holographic text-3xl sm:text-5xl md:text-7xl block sm:inline"
             />
           </motion.h1>
-          
+
           {/* Mobile-Optimized Role Display */}
-          <motion.div 
+          <motion.div
             className="text-lg sm:text-2xl md:text-3xl text-cyan-600 dark:text-cyan-300 mb-6 sm:mb-8 h-8 sm:h-12 flex items-center justify-center font-mono px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -161,7 +163,7 @@ const MobileOptimizedHero = () => {
             </motion.span>
             <motion.span
               className="ml-1 text-cyan-600 dark:text-cyan-400"
-              animate={{ 
+              animate={{
                 opacity: isTyping ? [1, 0] : 1,
                 textShadow: [
                   '0 0 5px rgba(34, 211, 238, 1)',
@@ -169,7 +171,7 @@ const MobileOptimizedHero = () => {
                   '0 0 5px rgba(34, 211, 238, 1)'
                 ]
               }}
-              transition={{ 
+              transition={{
                 opacity: { duration: 0.5, repeat: isTyping ? Infinity : 0 },
                 textShadow: { duration: 1, repeat: Infinity }
               }}
@@ -180,18 +182,17 @@ const MobileOptimizedHero = () => {
         </motion.div>
 
         {/* Mobile-Optimized Description */}
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
           className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-200 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed drop-shadow-lg px-4"
         >
-          Passionate CS student at KNUST creating innovative software solutions. 
-          Seeking internship opportunities to grow and contribute.
+          {t('hero.description')}
         </motion.p>
 
         {/* Mobile-Optimized Buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
@@ -200,7 +201,7 @@ const MobileOptimizedHero = () => {
           <motion.button
             onClick={() => scrollToSection('projects')}
             className="w-full sm:w-auto magnetic-button bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:shadow-2xl relative overflow-hidden"
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               boxShadow: "0 0 25px rgba(59, 130, 246, 0.6)"
             }}
@@ -208,22 +209,24 @@ const MobileOptimizedHero = () => {
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               <Sparkles size={18} />
-              View My Work
+              {t('hero.view_work')}
             </span>
           </motion.button>
-          
-          <motion.button
-            onClick={downloadResume}
+
+          <motion.a
+            href={language === 'fr' ? "/resume-fr.pdf" : "/resume.pdf"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto magnetic-button border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden group"
             whileHover={{
               scale: 1.05,
               borderColor: "#8b5cf6"
             }}
             whileTap={{ scale: 0.95 }}
-            title="Download Resume"
+            title={t('hero.download_resume')}
           >
             <Download size={18} className="relative z-10" />
-            <span className="relative z-10">Resume</span>
+            <span className="relative z-10">{t('hero.download_resume')}</span>
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600"
               initial={{ scale: 0 }}
@@ -231,11 +234,11 @@ const MobileOptimizedHero = () => {
               transition={{ duration: 0.3 }}
               style={{ originX: 0.5, originY: 0.5 }}
             />
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         {/* Mobile-Optimized Social Links */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.6 }}
@@ -275,7 +278,7 @@ const MobileOptimizedHero = () => {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             aria-label="Scroll to about section"
           >
-            <span className="text-xs sm:text-sm mb-2">Scroll Down</span>
+            <span className="text-xs sm:text-sm mb-2">{t('hero.scroll_down')}</span>
             <ChevronDown size={isMobile ? 20 : 24} />
           </motion.button>
         </motion.div>

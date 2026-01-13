@@ -1,0 +1,265 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "about": "À propos",
+        "experience": "Expérience",
+        "certifications": "Certifications",
+        "projects": "Projets",
+        "skills": "Compétences",
+        "contact": "Contact"
+    },
+    "hero": {
+        "available": "Disponible pour opportunités",
+        "based_in": "Basé au Ghana",
+        "hello": "Bonjour, je suis",
+        "roles": [
+            "Étudiant en informatique",
+            "Ingénieur réseau",
+            "Professionnel de la sécurité",
+            "Résolveur de problèmes",
+            "Passionné de technologie"
+        ],
+        "description": "Passionné par la création de solutions innovantes grâce au code. Spécialisé dans le développement full-stack, les réseaux informatiques et la création d'applications centrées sur l'utilisateur qui font la différence.",
+        "view_work": "Voir mon travail",
+        "download_resume": "Télécharger mon CV",
+        "discover_more": "Découvrir plus",
+        "scroll_down": "Défiler vers le bas"
+    },
+    "about": {
+        "title": "À propos de",
+        "me": "Moi",
+        "journey_title": "Parcours en informatique",
+        "journey_desc1": "Je suis un étudiant dévoué en informatique à l'Université des sciences et technologies Kwame Nkrumah (KNUST), passionné par la conception et la sécurisation de systèmes en réseau robustes. Mon parcours technologique est motivé par la curiosité et le désir de comprendre le fonctionnement des systèmes complexes, de la conception de langages de programmation aux systèmes de réseau.",
+        "journey_desc2": "Grâce à des projets pratiques et à un apprentissage continu, j'ai développé des compétences en conception d'applications sécurisées, en logique axée sur la sécurité et en systèmes de réseau. Je m'épanouis dans la résolution de problèmes difficiles qui repoussent les limites du possible et j'aime collaborer avec d'autres pour créer des solutions significatives.",
+        "key_coursework": "Cours clés :",
+        "courses": [
+            "Structures de données et algorithmes",
+            "Langages de programmation",
+            "Réseaux informatiques",
+            "Systèmes de bases de données",
+            "Génie logiciel",
+            "Systèmes d'exploitation",
+            "Conception de compilateurs",
+            "Mathématiques discrètes"
+        ],
+        "traits": [
+            "Résolution de problèmes",
+            "Collaboration d'équipe",
+            "Apprentissage continu",
+            "Innovation"
+        ],
+        "drives_title": "Ce qui me motive",
+        "drives": [
+            {
+                "title": "Créer des solutions innovantes",
+                "description": "J'aime construire des systèmes à partir de zéro, qu'il s'agisse de concevoir un interpréteur de langage de programmation ou de développer des applications blockchain."
+            },
+            {
+                "title": "Apprentissage continu",
+                "description": "La technologie évolue rapidement et je m'engage à rester à jour avec les nouveaux frameworks, langages et méthodologies de développement."
+            },
+            {
+                "title": "Esprit de résolution de problèmes",
+                "description": "Je m'épanouis en décomposant des défis complexes en composants gérables et en trouvant des solutions créatives et efficaces."
+            },
+            {
+                "title": "Recherche d'opportunités de croissance",
+                "description": "Je recherche activement des opportunités de stage où je peux contribuer à des projets significatifs tout en élargissant mon expertise technique."
+            }
+        ],
+        "interests_title": "Domaines d'intérêt",
+        "interests": [
+            {
+                "title": "Réseaux informatiques",
+                "description": "Exploration des réseaux, commutateurs, routeurs et infrastructures de câblage pour une connectivité robuste."
+            },
+            {
+                "title": "Langages de programmation",
+                "description": "Fasciné par la conception et l'implémentation de langages, de l'analyse lexicale au développement d'interpréteurs."
+            },
+            {
+                "title": "Réseaux et sécurité cloud",
+                "description": "Sécurisation des déploiements cloud et des flux de travail à distance grâce à des contrôles d'accès robustes et des protocoles de transfert de données sécurisés."
+            },
+            {
+                "title": "Technologies Web",
+                "description": "Rester à jour avec les frameworks modernes, les outils et les meilleures pratiques en développement web."
+            },
+            {
+                "title": "Conception d'algorithmes",
+                "description": "Développement d'algorithmes et de structures de données efficaces pour résoudre des problèmes informatiques complexes."
+            },
+            {
+                "title": "Architecture logicielle",
+                "description": "Conception de systèmes évolutifs et maintenables avec des principes de code propre et des modèles de conception."
+            }
+        ]
+    },
+    "experience": {
+        "title": "Expérience",
+        "subtitle": "Professionnelle",
+        "jobs": [
+            {
+                "role": "Étudiant Chercheur",
+                "company": "Société d'Informatique | KNUST, Kumasi",
+                "period": "2025 - PRÉSENT",
+                "description": "Mener des recherches appliquées au sein de la Société d'Informatique de KNUST, Ghana, contribuant à des projets collaboratifs alignés sur les tendances émergentes de l'informatique. Soutenir la conception de projets, la documentation et le partage des connaissances entre pairs tout en maintenant des normes de recherche éthiques et académiques. Favoriser un environnement de recherche engageant qui renforce la participation des étudiants et le développement des compétences techniques."
+            },
+            {
+                "role": "Stagiaire en sécurité",
+                "company": "Division de la sécurité de l'information et de l'assurance technologique | KNUST, Kumasi",
+                "period": "SEPTEMBRE 2025 - NOVEMBRE 2025",
+                "description": "Analyse de la sécurité du réseau pour protéger les actifs numériques de l'université au sein de la Division de la sécurité de l'information et de l'assurance technologique de KNUST. Analyse du trafic du portail étudiant à l'aide de Wireshark pour détecter les anomalies et utilisation de Nmap pour le balayage des ports et la découverte d'hôtes afin d'identifier les vulnérabilités potentielles. Soutien à l'évaluation des vulnérabilités, aux tests d'intrusion et à la documentation des politiques de sécurité."
+            }
+        ]
+    },
+    "certifications": {
+        "title": "Certifications &",
+        "subtitle": "Licences",
+        "items": [
+            {
+                "name": "Praticien certifié en sécurité réseau (CNSP)",
+                "issuer": "The SecOps Group",
+                "date": "Délivré nov. 2025",
+                "focus": "Sécurité défensive, protocole réseau et analyse du trafic"
+            },
+            {
+                "name": "Professionnel certifié éducateur en cybersécurité (CCEP)",
+                "issuer": "Red Team Leaders",
+                "date": "Délivré nov. 2025",
+                "focus": "Sécurité réseau, architecture de sécurité de l'information"
+            },
+            {
+                "name": "Méthodologies de recherche en stratégie et développement de produits",
+                "issuer": "Institute of Management, Technology and Finance",
+                "date": "Délivré juil. 2025",
+                "focus": "Stratégie, développement de produits, recherche"
+            }
+        ],
+        "focus_label": "Focus :"
+    },
+    "projects": {
+        "title": "Projets",
+        "subtitle": "En vedette",
+        "description": "Une vitrine de systèmes distribués, d'applications full-stack et de solutions innovantes construites avec des technologies modernes et les meilleures pratiques.",
+        "view_github": "Voir tous les projets sur GitHub",
+        "key_features": "Fonctionnalités clés :",
+        "items": [
+            {
+                "title": "Interpréteur de langage personnalisé",
+                "description": "Un interpréteur sophistiqué pour un langage de programmation personnalisé comprenant une analyse lexicale, une analyse syntaxique et une exécution. Prend en charge les variables, les fonctions, les structures de contrôle et les fonctionnalités linguistiques avancées avec une gestion complète des erreurs.",
+                "features": [
+                    "Analyse lexicale et syntaxique complète",
+                    "Génération d'arbre syntaxique abstrait",
+                    "Portée des variables et gestion de la mémoire",
+                    "Définitions de fonctions et récursivité",
+                    "Rapports d'erreurs complets"
+                ],
+                "category": "Langages de programmation"
+            },
+            {
+                "title": "Chat éphémère",
+                "description": "Une application de chat anonyme en temps réel avec des messages autodestructeurs et la création instantanée de salles. Fonctionne avec une messagerie basée sur WebSocket, un nettoyage automatique et une compatibilité multiplateforme pour des communications sécurisées et temporaires.",
+                "features": [
+                    "Création instantanée de salles avec identifiants uniques",
+                    "Participation anonyme sans compte",
+                    "Messagerie en temps réel via WebSockets",
+                    "Messages autodestructeurs après lecture",
+                    "Fermeture automatique de la salle après inactivité",
+                    "Support multiplateforme (web, mobile, bureau)"
+                ],
+                "category": "Application temps réel"
+            },
+            {
+                "title": "URL Shortener Pro",
+                "description": "Service professionnel de raccourcissement d'URL avec des fonctionnalités d'entreprise, notamment des analyses, une limitation de débit, des domaines personnalisés et une authentification des utilisateurs. Construit avec une architecture de microservices pour l'évolutivité et la performance.",
+                "features": [
+                    "Support de domaine personnalisé",
+                    "Tableau de bord d'analyse avancé",
+                    "Limitation de débit et sécurité",
+                    "Authentification et gestion des utilisateurs",
+                    "Architecture de microservices"
+                ],
+                "category": "Application Web"
+            },
+            {
+                "title": "Looply - Système de livraison de nourriture (CodeFest '25)",
+                "description": "A obtenu la position de 1er dauphin au concours CodeFest 2025 organisé par le département d'informatique de KNUST. A servi de développeur frontend principal, construisant une application mobile complète de livraison de nourriture utilisant React Native et Bootstrap, inspirée par Hubtel, et a collaboré au sein d'une équipe pour livrer un prototype de produit fonctionnel.",
+                "features": [
+                    "Projet primé (1er dauphin)",
+                    "Interface complète de livraison de nourriture",
+                    "Suivi des commandes en temps réel",
+                    "Navigation conviviale",
+                    "Collaboration d'équipe et prototypage rapide"
+                ],
+                "category": "Application mobile"
+            }
+        ]
+    },
+    "skills": {
+        "title": "Compétences &",
+        "subtitle": "Technologies",
+        "description": "Un aperçu complet de mon expertise technique dans divers domaines du développement logiciel.",
+        "avg_level": "Niveau moyen",
+        "categories": {
+            "programming": "Langages de programmation",
+            "frontend": "Technologies Frontend",
+            "backend": "Backend & APIs",
+            "network": "Réseau",
+            "devops": "DevOps & Cloud",
+            "tools": "Outils & Autres"
+        },
+        "additional_title": "Compétences supplémentaires",
+        "competencies": [
+            {
+                "title": "Conception de systèmes",
+                "description": "Conception d'architectures distribuées et évolutives"
+            },
+            {
+                "title": "Résolution de problèmes",
+                "description": "Décomposer systématiquement des défis complexes"
+            },
+            {
+                "title": "Revue de code",
+                "description": "Assurer la qualité du code et les meilleures pratiques"
+            },
+            {
+                "title": "Collaboration d'équipe",
+                "description": "Travailler efficacement dans des équipes de développement agile"
+            }
+        ]
+    },
+    "contact": {
+        "title_start": "Entrer en",
+        "title_end": "Contact",
+        "description": "Je suis toujours intéressé par de nouvelles opportunités, collaborations et projets intéressants. Connectons-nous et discutons de la façon dont nous pouvons travailler ensemble !",
+        "conversation_title": "Commençons une conversation",
+        "conversation_desc": "Que vous recherchiez un stagiaire dévoué, que vous ayez un projet en tête ou que vous souhaitiez simplement vous connecter avec un collègue développeur, j'aimerais avoir de vos nouvelles. Je suis particulièrement intéressé par les opportunités impliquant les réseaux informatiques, l'architecture de sécurité et les solutions technologiques innovantes.",
+        "follow_me": "Suivez-moi",
+        "form_title": "Envoyer un message",
+        "name_label": "Nom",
+        "name_placeholder": "Votre nom",
+        "email_label": "Email",
+        "email_placeholder": "votre.email@exemple.com",
+        "subject_label": "Sujet",
+        "subject_placeholder": "De quoi s'agit-il ?",
+        "message_label": "Message",
+        "message_placeholder": "Parlez-moi de votre projet, opportunité, ou dites simplement bonjour !",
+        "send_button": "Envoyer le message",
+        "sending": "Envoi...",
+        "whatsapp": "WhatsApp",
+        "info": {
+            "email": "Email",
+            "call": "Appeler",
+            "location": "Localisation"
+        }
+    },
+    "footer": {
+        "description": "Étudiant en informatique passionné par la création de solutions innovantes et la contribution à des projets impactants grâce à la technologie.",
+        "quick_links": "Liens rapides",
+        "get_in_touch": "Entrer en contact",
+        "made_with": "Fait avec",
+        "coffee": "et beaucoup de café",
+        "back_to_top": "Retour en haut"
+    }
+}

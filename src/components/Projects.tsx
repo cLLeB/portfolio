@@ -6,8 +6,10 @@ import { Github, ExternalLink, Server, Database, Smartphone, Globe2, Code, Shiel
 import Image from 'next/image'
 import { useState } from 'react'
 import ImageModal from './ui/ImageModal'
+import { useLanguage } from '@/context/LanguageContext'
 
 const Projects = () => {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -41,71 +43,46 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Custom Language Interpreter',
-      description: 'A sophisticated interpreter for a custom programming language featuring lexical analysis, parsing, and execution. Supports variables, functions, control structures, and advanced language features with comprehensive error handling.',
+      title: t('projects.items.0.title'),
+      description: t('projects.items.0.description'),
       technologies: ['Python', 'ANTLR', 'AST', 'Compiler Design', 'Language Theory'],
-      features: [
-        'Complete lexical and syntax analysis',
-        'Abstract Syntax Tree generation',
-        'Variable scoping and memory management',
-        'Function definitions and recursion',
-        'Comprehensive error reporting'
-      ],
+      features: t('projects.items.0.features'),
       icon: Code,
       github: 'https://github.com/cLLeB/custom-lang-interpreter',
       demo: 'https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view',
-      category: 'Programming Languages',
+      category: t('projects.items.0.category'),
       image: '/awards/custom-lang.png'
     },
     {
-      title: 'Ephemeral Chat',
-      description: 'A real-time anonymous chat application with self-destructing messages and instant room creation. Features WebSocket-based messaging, automatic cleanup, and cross-platform compatibility for secure, temporary communications.',
+      title: t('projects.items.1.title'),
+      description: t('projects.items.1.description'),
       technologies: ['Node.js', 'Socket.io', 'React', 'WebSockets', 'MongoDB', 'Express'],
-      features: [
-        'Instant room creation with unique identifiers',
-        'Anonymous participation without accounts',
-        'Real-time messaging via WebSockets',
-        'Self-destructing messages after reading',
-        'Automatic room closure after inactivity',
-        'Cross-platform support (web, mobile, desktop)'
-      ],
+      features: t('projects.items.1.features'),
       icon: MessageCircle,
       github: 'https://github.com/cLLeB/ephemeral-chat',
       demo: 'https://chat.kyere.me',
-      category: 'Real-Time Application',
+      category: t('projects.items.1.category'),
       image: '/awards/chat.png'
     },
     {
-      title: 'URL Shortener Pro',
-      description: 'Professional URL shortening service with enterprise features including analytics, rate limiting, custom domains, and user authentication. Built with microservices architecture for scalability and performance.',
+      title: t('projects.items.2.title'),
+      description: t('projects.items.2.description'),
       technologies: ['Node.js', 'React', 'PostgreSQL', 'Redis', 'Docker', 'Nginx'],
-      features: [
-        'Custom domain support',
-        'Advanced analytics dashboard',
-        'Rate limiting and security',
-        'User authentication & management',
-        'Microservices architecture'
-      ],
+      features: t('projects.items.2.features'),
       icon: Globe2,
       github: 'https://github.com/cLLeB/URL-shortening',
       demo: null,
-      category: 'Web Application'
+      category: t('projects.items.2.category')
     },
     {
-      title: 'Looply - Food Delivery System (CodeFest \'25)',
-      description: 'Achieved 1st Runner-up position in the 2025 CodeFest competition organized by the KNUST Department of Computer Science. Served as the principal frontend developer, building a comprehensive food delivery mobile application using React Native and Bootstrap, inspired by Hubtel, and collaborated within a team to deliver a functional product prototype.',
+      title: t('projects.items.3.title'),
+      description: t('projects.items.3.description'),
       technologies: ['React Native', 'Bootstrap', 'Mobile Development', 'UI/UX'],
-      features: [
-        'Award-winning project (1st Runner-up)',
-        'Comprehensive food delivery interface',
-        'Real-time order tracking',
-        'User-friendly navigation',
-        'Team collaboration and rapid prototyping'
-      ],
+      features: t('projects.items.3.features'),
       icon: Smartphone,
       github: 'https://github.com/cLLeB/HubtelClone-Public',
       demo: 'https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view',
-      category: 'Mobile Application',
+      category: t('projects.items.3.category'),
       image: '/awards/award_pic.png'
     }
   ]
@@ -124,11 +101,10 @@ const Projects = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
-            Featured <span className="holographic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Projects</span>
+            {t('projects.title')} <span className="holographic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">{t('projects.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-            A showcase of distributed systems, full-stack applications, and innovative solutions 
-            built with modern technologies and best practices.
+            {t('projects.description')}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
@@ -150,12 +126,12 @@ const Projects = () => {
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-4">
                     {project.image ? (
-                      <div 
+                      <div
                         className="w-12 h-12 rounded-lg overflow-hidden cursor-pointer hover:scale-110 transition-transform duration-300 border border-gray-200 dark:border-white/10"
                         onClick={() => {
                           setSelectedImage(project.image)
@@ -184,7 +160,7 @@ const Projects = () => {
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="flex space-x-3" style={{ position: 'relative', zIndex: 20, pointerEvents: 'auto' }}>
                     {project.github && (
                       <motion.a
@@ -220,9 +196,9 @@ const Projects = () => {
                 </p>
 
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-800 dark:text-white mb-3">Key Features:</h4>
+                  <h4 className="text-sm font-semibold text-gray-800 dark:text-white mb-3">{t('projects.key_features')}</h4>
                   <ul className="space-y-2">
-                    {project.features.slice(0, 3).map((feature, featureIndex) => (
+                    {project.features.slice(0, 3).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
                         <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 flex-shrink-0"></div>
                         {feature}
@@ -256,7 +232,7 @@ const Projects = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Github size={24} />
-            <span>View All Projects on GitHub</span>
+            <span>{t('projects.view_github')}</span>
           </motion.a>
         </motion.div>
       </motion.div>

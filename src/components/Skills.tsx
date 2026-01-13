@@ -2,9 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Code, Network, Server, Smartphone, Cloud, Settings } from 'lucide-react'
+import { Code, Network, Server, Smartphone, Cloud, Settings, TrendingUp, Zap } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const Skills = () => {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -35,7 +37,7 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: 'Programming Languages',
+      title: t('skills.categories.programming'),
       icon: Code,
       skills: [
         { name: 'JavaScript/TypeScript', level: 35 },
@@ -47,7 +49,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Frontend Technologies',
+      title: t('skills.categories.frontend'),
       icon: Smartphone,
       skills: [
         { name: 'React/Next.js', level: 45 },
@@ -59,7 +61,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Backend & APIs',
+      title: t('skills.categories.backend'),
       icon: Server,
       skills: [
         { name: 'Node.js/Express', level: 42 },
@@ -71,7 +73,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Network',
+      title: t('skills.categories.network'),
       icon: Network,
       skills: [
         { name: 'Packet Tracer', level: 40 },
@@ -83,7 +85,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'DevOps & Cloud',
+      title: t('skills.categories.devops'),
       icon: Cloud,
       skills: [
         { name: 'Git/GitHub', level: 45 },
@@ -95,7 +97,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Tools & Others',
+      title: t('skills.categories.tools'),
       icon: Settings,
       skills: [
         { name: 'VS Code', level: 55 },
@@ -173,18 +175,17 @@ const Skills = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 relative z-20">
-            <span className="drop-shadow-2xl">Skills &</span>{' '}
-            <span
+            {t('skills.title')} <span
               className="text-cyan-600 dark:text-cyan-400 drop-shadow-2xl"
               style={{
                 textShadow: '0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
-              Technologies
+              {t('skills.subtitle')}
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg relative z-20">
-            A comprehensive overview of my technical expertise across various domains of software development.
+            {t('skills.description')}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
@@ -215,7 +216,7 @@ const Skills = () => {
                   {category.title}
                 </h3>
               </div>
-              
+
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <ProgressBar key={skillIndex} skill={skill} index={skillIndex} />
@@ -228,27 +229,10 @@ const Skills = () => {
         <motion.div variants={itemVariants} className="mt-16">
           <div className="bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
             <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
-              Additional Competencies
+              {t('skills.additional_title')}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  title: 'System Design',
-                  description: 'Designing scalable, distributed architectures'
-                },
-                {
-                  title: 'Problem Solving',
-                  description: 'Breaking down complex challenges systematically'
-                },
-                {
-                  title: 'Code Review',
-                  description: 'Ensuring code quality and best practices'
-                },
-                {
-                  title: 'Team Collaboration',
-                  description: 'Working effectively in agile development teams'
-                }
-              ].map((competency, index) => (
+              {t('skills.competencies').map((competency: any, index: number) => (
                 <motion.div
                   key={index}
                   className="text-center"

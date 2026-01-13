@@ -6,8 +6,10 @@ import { Award, Shield, BookOpen } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import ImageModal from './ui/ImageModal'
+import { useLanguage } from '@/context/LanguageContext'
 
 const Certifications = () => {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -18,26 +20,26 @@ const Certifications = () => {
 
   const certifications = [
     {
-      name: 'Certified Network Security Practitioner (CNSP)',
-      issuer: 'The SecOps Group',
-      date: 'Issued Nov 2025',
-      focus: 'Defensive Security, Network Protocol & Traffic Analysis',
+      name: t('certifications.items.0.name'),
+      issuer: t('certifications.items.0.issuer'),
+      date: t('certifications.items.0.date'),
+      focus: t('certifications.items.0.focus'),
       icon: Shield,
       image: '/certs/cnsp.png'
     },
     {
-      name: 'Certified Cybersecurity Educator Professional (CCEP)',
-      issuer: 'Red Team Leaders',
-      date: 'Issued Nov 2025',
-      focus: 'Network Security, Information Security Architecture',
+      name: t('certifications.items.1.name'),
+      issuer: t('certifications.items.1.issuer'),
+      date: t('certifications.items.1.date'),
+      focus: t('certifications.items.1.focus'),
       icon: Award,
       image: '/certs/ccep.png'
     },
     {
-      name: 'Research Methodologies in Strategy and Product Development',
-      issuer: 'Institute of Management, Technology and Finance',
-      date: 'Issued Jul 2025',
-      focus: 'Strategy, Product Development, Research',
+      name: t('certifications.items.2.name'),
+      issuer: t('certifications.items.2.issuer'),
+      date: t('certifications.items.2.date'),
+      focus: t('certifications.items.2.focus'),
       icon: BookOpen,
       image: '/certs/product-management.jpg'
     }
@@ -75,7 +77,7 @@ const Certifications = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Certifications & <span className="text-purple-500">Licenses</span>
+            {t('certifications.title')} <span className="text-purple-500">{t('certifications.subtitle')}</span>
           </h2>
           <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full"></div>
         </motion.div>
@@ -89,18 +91,18 @@ const Certifications = () => {
             >
               <div className="mb-6 relative w-16 h-16 mx-auto md:mx-0">
                 {cert.image ? (
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500/30 group-hover:border-purple-500 transition-colors cursor-pointer"
                     onClick={() => {
                       setSelectedImage(cert.image)
                       setSelectedAlt(cert.issuer)
                     }}
                   >
-                    <Image 
-                      src={cert.image} 
-                      alt={cert.issuer} 
-                      width={64} 
-                      height={64} 
+                    <Image
+                      src={cert.image}
+                      alt={cert.issuer}
+                      width={64}
+                      height={64}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -115,7 +117,7 @@ const Certifications = () => {
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{cert.date}</p>
               <div className="pt-4 border-t border-gray-200 dark:border-white/10">
                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <span className="text-purple-600 dark:text-purple-400 font-semibold">Focus:</span> {cert.focus}
+                  <span className="text-purple-600 dark:text-purple-400 font-semibold">{t('certifications.focus_label')}</span> {cert.focus}
                 </p>
               </div>
             </motion.div>
@@ -123,7 +125,7 @@ const Certifications = () => {
         </div>
       </motion.div>
 
-      <ImageModal 
+      <ImageModal
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
         imageSrc={selectedImage}
