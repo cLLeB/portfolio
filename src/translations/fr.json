@@ -147,7 +147,9 @@
         "items": [
             {
                 "title": "Interpréteur de langage personnalisé",
+                "shortTitle": "Interpréteur Lang",
                 "description": "Un interpréteur sophistiqué pour un langage de programmation personnalisé comprenant une analyse lexicale, une analyse syntaxique et une exécution. Prend en charge les variables, les fonctions, les structures de contrôle et les fonctionnalités linguistiques avancées avec une gestion complète des erreurs.",
+                "shortDesc": "Interpréteur de langage personnalisé avec capacités d'analyse avancées.",
                 "features": [
                     "Analyse lexicale et syntaxique complète",
                     "Génération d'arbre syntaxique abstrait",
@@ -159,7 +161,9 @@
             },
             {
                 "title": "Chat éphémère",
+                "shortTitle": "Chat éphémère",
                 "description": "Une application de chat anonyme en temps réel avec des messages autodestructeurs et la création instantanée de salles. Fonctionne avec une messagerie basée sur WebSocket, un nettoyage automatique et une compatibilité multiplateforme pour des communications sécurisées et temporaires.",
+                "shortDesc": "Chat anonyme en temps réel avec messages autodestructeurs.",
                 "features": [
                     "Création instantanée de salles avec identifiants uniques",
                     "Participation anonyme sans compte",
@@ -172,7 +176,9 @@
             },
             {
                 "title": "URL Shortener Pro",
+                "shortTitle": "Raccourcisseur URL",
                 "description": "Service professionnel de raccourcissement d'URL avec des fonctionnalités d'entreprise, notamment des analyses, une limitation de débit, des domaines personnalisés et une authentification des utilisateurs. Construit avec une architecture de microservices pour l'évolutivité et la performance.",
+                "shortDesc": "Service de raccourcissement d'URL niveau entreprise avec analyses avancées.",
                 "features": [
                     "Support de domaine personnalisé",
                     "Tableau de bord d'analyse avancé",
@@ -184,7 +190,9 @@
             },
             {
                 "title": "Looply - Système de livraison de nourriture (CodeFest '25)",
+                "shortTitle": "Looply",
                 "description": "A obtenu la position de 1er dauphin au concours CodeFest 2025 organisé par le département d'informatique de KNUST. A servi de développeur frontend principal, construisant une application mobile complète de livraison de nourriture utilisant React Native et Bootstrap, inspirée par Hubtel, et a collaboré au sein d'une équipe pour livrer un prototype de produit fonctionnel.",
+                "shortDesc": "Application mobile de livraison de nourriture primée, construite avec React Native.",
                 "features": [
                     "Projet primé (1er dauphin)",
                     "Interface complète de livraison de nourriture",

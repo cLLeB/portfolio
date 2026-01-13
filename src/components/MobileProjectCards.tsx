@@ -5,10 +5,8 @@ import { useInView } from "react-intersection-observer";
 import {
   Github,
   ExternalLink,
-  Server,
   Globe,
   Code,
-  Shield,
   ChevronRight,
   MessageCircle,
   Smartphone,
@@ -16,8 +14,10 @@ import {
 import Image from 'next/image';
 import { useState } from 'react';
 import ImageModal from './ui/ImageModal';
+import { useLanguage } from "@/context/LanguageContext";
 
 const MobileProjectCards = () => {
+  const { t } = useLanguage();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -49,102 +49,48 @@ const MobileProjectCards = () => {
     },
   };
 
-  const projects = [
+  const projectConfig = [
     {
-      title: "Custom Language Interpreter",
-      shortTitle: "Lang Interpreter",
-      description:
-        "A sophisticated interpreter for a custom programming language featuring lexical analysis, parsing, and execution with comprehensive error handling.",
-      shortDesc:
-        "Custom programming language interpreter with advanced parsing capabilities.",
       technologies: ["Python", "ANTLR", "AST", "Compiler Design"],
-      features: [
-        "Complete lexical and syntax analysis",
-        "Abstract Syntax Tree generation",
-        "Variable scoping and memory management",
-        "Function definitions and recursion",
-        "Comprehensive error reporting",
-        "Interactive REPL environment",
-      ],
       icon: Code,
       href: "https://github.com/cLLeB/custom-lang-interpreter",
       demo: "https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view",
-      category: "Programming Languages",
       color: "from-green-500 to-emerald-600",
       bgColor: "bg-green-500/10",
       image: '/awards/custom-lang.png'
     },
     {
-      title: "Ephemeral Chat",
-      shortTitle: "Ephemeral Chat",
-      description:
-        "A real-time anonymous chat application with self-destructing messages and instant room creation. Features WebSocket-based messaging, automatic cleanup, and cross-platform compatibility for secure, temporary communications.",
-      shortDesc:
-        "Real-time anonymous chat with self-destructing messages and instant rooms.",
       technologies: ["Node.js", "Socket.io", "React", "WebSockets", "MongoDB", "Express"],
-      features: [
-        "Instant room creation with unique identifiers",
-        "Anonymous participation without accounts",
-        "Real-time messaging via WebSockets",
-        "Self-destructing messages after reading",
-        "Automatic room closure after inactivity",
-        "Cross-platform support (web, mobile, desktop)",
-      ],
       icon: MessageCircle,
       href: "https://github.com/cLLeB/ephemeral-chat",
       demo: "https://chat.kyere.me",
-      category: "Real-Time Application",
       color: "from-purple-500 to-violet-600",
       bgColor: "bg-purple-500/10",
       image: '/awards/chat.png'
     },
     {
-      title: "URL Shortener Pro",
-      shortTitle: "URL Shortener",
-      description:
-        "Professional URL shortening service with enterprise features including analytics, rate limiting, and custom domains.",
-      shortDesc:
-        "Enterprise-level URL shortening service with advanced analytics.",
       technologies: ["Node.js", "React", "PostgreSQL", "Redis"],
-      features: [
-        "Custom domain support",
-        "Advanced analytics dashboard",
-        "Rate limiting and security",
-        "User authentication",
-        "QR code generation",
-        "Bulk URL processing",
-      ],
       icon: Globe,
       href: "https://github.com/cLLeB/URL-shortening",
       demo: null,
-      category: "Web Application",
       color: "from-blue-500 to-cyan-600",
       bgColor: "bg-blue-500/10",
     },
     {
-      title: "Looply - Food Delivery System (CodeFest '25)",
-      shortTitle: "Looply",
-      description:
-        "Achieved 1st Runner-up position in the 2025 CodeFest competition organized by the KNUST Department of Computer Science. Served as the principal frontend developer, building a comprehensive food delivery mobile application using React Native and Bootstrap.",
-      shortDesc:
-        "Award-winning food delivery mobile app built with React Native.",
       technologies: ["React Native", "Bootstrap", "Mobile Development", "UI/UX"],
-      features: [
-        "Award-winning project (1st Runner-up)",
-        "Comprehensive food delivery interface",
-        "Real-time order tracking",
-        "User-friendly navigation",
-        "Team collaboration and rapid prototyping",
-      ],
       icon: Smartphone,
       href: 'https://github.com/cLLeB/HubtelClone-Public',
       demo: "https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view",
-      category: "Mobile Application",
       color: "from-orange-500 to-red-600",
       bgColor: "bg-orange-500/10",
       image: '/awards/award_pic.png'
-    },
+    }
   ];
+
+  const projects = (t('projects.items') as any[]).map((item, index) => ({
+    ...item,
+    ...projectConfig[index]
+  }));
 
   return (
     <section
@@ -165,12 +111,10 @@ const MobileProjectCards = () => {
           className="text-center mb-8 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 drop-shadow-2xl">
-            Featured <span className="holographic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Projects</span>
+            {t('projects.title')} <span className="holographic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">{t('projects.subtitle')}</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg px-4">
-            A showcase of distributed systems, full-stack applications, and
-            innovative solutions built with modern technologies and best
-            practices.
+            {t('projects.description')}
           </p>
           <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
@@ -208,11 +152,11 @@ const MobileProjectCards = () => {
                     >
                       {/* @ts-ignore */}
                       {project.image ? (
-                        <Image 
-                          src={project.image} 
-                          alt={project.title} 
-                          width={48} 
-                          height={48} 
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={48}
+                          height={48}
                           className="w-full h-full object-cover"
                         />
                       ) : (
@@ -286,7 +230,7 @@ const MobileProjectCards = () => {
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                  {project.technologies.slice(0, 4).map((tech: string, techIndex: number) => (
                     <motion.span
                       key={techIndex}
                       className="px-2 py-1 bg-blue-100 dark:bg-blue-500/20 text-blue-800 dark:text-blue-300 rounded-md text-xs font-medium border border-blue-200 dark:border-blue-500/30"
@@ -325,13 +269,13 @@ const MobileProjectCards = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Github size={20} />
-            <span>View All Projects</span>
+            <span>{t('projects.view_github')}</span>
             <ChevronRight size={16} />
           </motion.a>
         </motion.div>
       </motion.div>
 
-      <ImageModal 
+      <ImageModal
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
         imageSrc={selectedImage}

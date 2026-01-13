@@ -33,31 +33,41 @@ const EnhancedHero = () => {
 
   // Enhanced typing animation
   useEffect(() => {
-    const roles = t('hero.roles')
-    const currentRoleText = roles[currentRole]
-    let currentIndex = 0
+    const roles = t('hero.roles') as unknown as string[];
+    // Guard against invalid roles data
+    if (!Array.isArray(roles) || roles.length === 0) return;
 
-    const typeText = () => {
-      if (currentIndex < currentRoleText.length) {
-        setDisplayText(currentRoleText.slice(0, currentIndex + 1))
-        currentIndex++
-        setTimeout(typeText, 100)
-      } else {
-        setTimeout(() => {
-          setIsTyping(false)
-          setTimeout(() => {
-            setDisplayText('')
-            setCurrentRole((prev) => (prev + 1) % roles.length)
-            setIsTyping(true)
-          }, 1000)
-        }, 2000)
-      }
-    }
+    const currentRoleText = roles[currentRole] || '';
+    let timeoutId: NodeJS.Timeout;
 
     if (isTyping) {
-      typeText()
+      if (displayText.length < currentRoleText.length) {
+        timeoutId = setTimeout(() => {
+          setDisplayText(currentRoleText.slice(0, displayText.length + 1));
+        }, 100);
+      } else {
+        // Finished typing, wait before clearing
+        timeoutId = setTimeout(() => {
+          setIsTyping(false);
+        }, 2000);
+      }
+    } else {
+      // Clearing phase
+      timeoutId = setTimeout(() => {
+        setDisplayText('');
+        setCurrentRole((prev) => (prev + 1) % roles.length);
+        setIsTyping(true);
+      }, 500);
     }
-  }, [currentRole, isTyping, t])
+
+    return () => clearTimeout(timeoutId);
+  }, [displayText, isTyping, currentRole, t]);
+
+  // Reset animation on language change
+  useEffect(() => {
+    setDisplayText('');
+    setIsTyping(true);
+  }, [language]);
 
   // Mouse tracking for interactive elements
   // Removed duplicate useEffect
