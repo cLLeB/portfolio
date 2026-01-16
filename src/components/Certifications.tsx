@@ -43,6 +43,15 @@ const Certifications = () => {
       icon: BookOpen,
       image: '/certs/product-management.jpg'
     }
+    ,
+    {
+      name: t('certifications.items.3.name'),
+      issuer: t('certifications.items.3.issuer'),
+      date: t('certifications.items.3.date'),
+      focus: t('certifications.items.3.focus'),
+      icon: Award,
+      image: '/certs/cisco.png'
+    }
   ]
 
   const containerVariants = {
@@ -82,17 +91,17 @@ const Certifications = () => {
           <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 group shadow-lg dark:shadow-none"
             >
-              <div className="mb-6 relative w-16 h-16 mx-auto md:mx-0">
+              <div className="mb-6 relative w-16 h-16 mx-auto md:mx-0 xl:w-20 xl:h-20">
                 {cert.image ? (
                   <div
-                    className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500/30 group-hover:border-purple-500 transition-colors cursor-pointer"
+                    className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500/30 group-hover:border-purple-500 transition-colors cursor-pointer xl:w-20 xl:h-20"
                     onClick={() => {
                       setSelectedImage(cert.image)
                       setSelectedAlt(cert.issuer)
@@ -101,8 +110,8 @@ const Certifications = () => {
                     <Image
                       src={cert.image}
                       alt={cert.issuer}
-                      width={64}
-                      height={64}
+                      width={80}
+                      height={80}
                       className="w-full h-full object-cover"
                     />
                   </div>

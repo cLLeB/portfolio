@@ -134,7 +134,13 @@
                 "issuer": "Institute of Management, Technology and Finance",
                 "date": "Issued Jul 2025",
                 "focus": "Strategy, Product Development, Research"
-            }
+                },
+                {
+                    "name": "Network Technician Career Path (Cisco Networking Academy)",
+                    "issuer": "Cisco Networking Academy",
+                    "date": "Issued Jan 16, 2026",
+                    "focus": "Network Technician, Ethernet, IPv4/IPv6, Wireless, DNS/DHCP, Troubleshooting"
+                }
         ],
         "focus_label": "Focus:"
     },

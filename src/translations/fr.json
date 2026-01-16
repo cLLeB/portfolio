@@ -134,7 +134,13 @@
                 "issuer": "Institute of Management, Technology and Finance",
                 "date": "Délivré juil. 2025",
                 "focus": "Stratégie, développement de produits, recherche"
-            }
+                },
+                {
+                    "name": "Parcours de Technicien Réseau (Cisco Networking Academy)",
+                    "issuer": "Cisco Networking Academy",
+                    "date": "Délivré 16 janv. 2026",
+                    "focus": "Technicien Réseau, Ethernet, IPv4/IPv6, Sans fil, DNS/DHCP, Dépannage"
+                }
         ],
         "focus_label": "Focus :"
     },
