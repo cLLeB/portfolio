@@ -3,7 +3,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, Download, Sparkles } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import GlitchText from './GlitchText'
 import { useLanguage } from '@/context/LanguageContext'
 
 const ROLES = [
@@ -135,10 +134,16 @@ const MobileOptimizedHero = () => {
             >
               {t('hero.hello')}{' '}
             </motion.span>
-            <GlitchText
-              text="Caleb Kwabena Kyere Boateng"
-              className="holographic text-3xl sm:text-5xl md:text-7xl block sm:inline"
-            />
+            <motion.span
+              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 text-3xl sm:text-5xl md:text-7xl block sm:inline font-bold"
+              animate={{
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+              style={{ backgroundSize: '200% 200%' }}
+            >
+              Caleb Kwabena Kyere Boateng
+            </motion.span>
           </motion.h1>
 
           {/* Mobile-Optimized Role Display */}

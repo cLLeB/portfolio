@@ -1,101 +1,176 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import LoadingSpinner from './LoadingSpinner'
+import MobileImageModal from './MobileImageModal'
 
 interface ImageModalProps {
-  isOpen: boolean
-  onClose: () => void
-  imageSrc: string | null
-  alt: string
-  lockScroll?: boolean
+    isOpen: boolean
+    onClose: () => void
+    imageSrc: string | null
+    alt: string
 }
 
-const ImageModal = ({ isOpen, onClose, imageSrc, alt, lockScroll = true }: ImageModalProps) => {
-  const [isLoading, setIsLoading] = useState(true)
+/**
+ * Responsive Image Modal - automatically uses MobileImageModal on mobile devices.
+ */
+const ImageModal = ({ isOpen, onClose, imageSrc, alt }: ImageModalProps) => {
+    const [mounted, setMounted] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
+    const [visible, setVisible] = useState(false)
+    const [loaded, setLoaded] = useState(false)
+    const scrollY = useRef(0)
 
-  // Reset loading state when imageSrc changes
-  useEffect(() => {
-    if (isOpen) {
-      setIsLoading(true)
+    // Client-side mount and mobile detection
+    useEffect(() => {
+        setMounted(true)
+        const checkMobile = () => setIsMobile(window.innerWidth < 768)
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
+
+    // Handle visibility with animation delay
+    useEffect(() => {
+        if (isOpen) {
+            setVisible(true)
+            setLoaded(false)
+            scrollY.current = window.scrollY
+            document.body.style.overflow = 'hidden'
+            document.body.style.position = 'fixed'
+            document.body.style.top = `-${scrollY.current}px`
+            document.body.style.width = '100%'
+        } else {
+            // CRITICAL: Save position before clearing styles
+            const savedPosition = scrollY.current
+
+            // Clear styles
+            document.body.style.position = ''
+            document.body.style.top = ''
+            document.body.style.width = ''
+            document.body.style.overflow = ''
+
+            // Restore scroll instantly (no animation)
+            window.scrollTo({ top: savedPosition, left: 0, behavior: 'instant' })
+
+            const timer = setTimeout(() => setVisible(false), 200)
+            return () => clearTimeout(timer)
+        }
+        return () => {
+            document.body.style.overflow = ''
+            document.body.style.position = ''
+            document.body.style.top = ''
+            document.body.style.width = ''
+        }
+    }, [isOpen])
+
+    // ESC to close
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose()
+        }
+        if (isOpen) {
+            document.addEventListener('keydown', handleKey)
+            return () => document.removeEventListener('keydown', handleKey)
+        }
+    }, [isOpen, onClose])
+
+    // Use MobileImageModal for mobile devices
+    if (mounted && isMobile) {
+        return <MobileImageModal isOpen={isOpen} onClose={onClose} imageSrc={imageSrc} alt={alt} />
     }
-  }, [imageSrc, isOpen])
 
-  // Close on escape key
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', handleEsc)
-    return () => window.removeEventListener('keydown', handleEsc)
-  }, [onClose])
+    // Don't render until mounted or if not visible (desktop)
+    if (!mounted || !visible || !imageSrc) return null
 
-  // Prevent scrolling when modal is open
-  useEffect(() => {
-    if (!lockScroll) return
-
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [isOpen, lockScroll])
-
-  return (
-    <AnimatePresence>
-      {isOpen && imageSrc && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 h-screen w-screen z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8"
-          onClick={onClose}
-        >
-          <motion.button
-            className="absolute top-4 right-4 p-2 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors z-50"
+    // Desktop modal content
+    const modalContent = (
+        <div
             onClick={onClose}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <X size={24} />
-          </motion.button>
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: '100vw',
+                height: '100vh',
+                zIndex: 999999,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: isOpen ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 0)',
+                transition: 'background-color 0.2s ease',
+                padding: '20px',
+                boxSizing: 'border-box',
+            }}
+        >
+            <button
+                onClick={(e) => {
+                    e.stopPropagation()
+                    onClose()
+                }}
+                style={{
+                    position: 'absolute',
+                    top: '20px',
+                    right: '20px',
+                    zIndex: 1000000,
+                    padding: '12px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                    border: 'none',
+                    borderRadius: '50%',
+                    color: 'white',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minWidth: '48px',
+                    minHeight: '48px',
+                }}
+                aria-label="Close"
+            >
+                <X size={24} />
+            </button>
 
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-5xl max-h-[90vh] flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative w-full h-[30vh] sm:h-[85vh] overflow-hidden rounded-lg shadow-2xl border border-white/10 bg-black/20 flex items-center justify-center">
-              {isLoading && (
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <LoadingSpinner size="lg" className="text-purple-500" />
-                </div>
-              )}
-              <Image
+            {!loaded && (
+                <div
+                    style={{
+                        position: 'absolute',
+                        width: '40px',
+                        height: '40px',
+                        border: '3px solid rgba(255,255,255,0.3)',
+                        borderTopColor: 'white',
+                        borderRadius: '50%',
+                        animation: 'spin 0.8s linear infinite',
+                    }}
+                />
+            )}
+            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
                 src={imageSrc}
                 alt={alt}
-                fill
-                className={`object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-                priority
-                unoptimized
-                sizes="100vw"
-                onLoadingComplete={() => setIsLoading(false)}
-              />
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
+                onClick={(e) => e.stopPropagation()}
+                onLoad={() => setLoaded(true)}
+                style={{
+                    maxWidth: '90vw',
+                    maxHeight: '80vh',
+                    width: 'auto',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    borderRadius: '8px',
+                    boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+                    opacity: isOpen && loaded ? 1 : 0,
+                    transform: isOpen && loaded ? 'scale(1)' : 'scale(0.9)',
+                    transition: 'opacity 0.3s ease, transform 0.3s ease',
+                }}
+            />
+        </div>
+    )
+
+    return createPortal(modalContent, document.body)
 }
 
 export default ImageModal

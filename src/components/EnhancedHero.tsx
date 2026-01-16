@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { ChevronDown, Github, Linkedin, Mail, Download, MapPin } from 'lucide-react'
 import Button from './ui/Button'
-import GlitchText from './GlitchText'
 import { useLanguage } from '@/context/LanguageContext'
 
 const EnhancedHero = () => {
@@ -184,7 +183,7 @@ const EnhancedHero = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Name Display with Glitch Effect */}
+        {/* Enhanced Name Display with Gradient Effect */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -206,10 +205,16 @@ const EnhancedHero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <GlitchText
-                text="Caleb Kwabena Kyere Boateng"
-                className="gradient-text text-display-2xl md:text-display-xl font-bold"
-              />
+              <motion.span
+                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 text-display-2xl md:text-display-xl font-bold"
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+                style={{ backgroundSize: '200% 200%' }}
+              >
+                Caleb Kwabena Kyere Boateng
+              </motion.span>
             </motion.div>
           </h1>
         </motion.div>
