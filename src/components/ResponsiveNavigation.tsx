@@ -318,7 +318,6 @@ const ResponsiveNavigation = () => {
         onClose={() => setSelectedImage(null)}
         imageSrc={selectedImage}
         alt="Profile Picture"
-        lockScroll={false}
       />
     </>
   )
