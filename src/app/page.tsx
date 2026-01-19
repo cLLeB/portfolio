@@ -5,8 +5,9 @@ import About from '@/components/About'
 import Experience from '@/components/Experience'
 import Certifications from '@/components/Certifications'
 import Projects from '@/components/Projects'
-import MobileProjectCards from '@/components/MobileProjectCards'
+import InterestsCarousel from '@/components/InterestsCarousel'
 import Skills from '@/components/Skills'
+
 import TouchOptimizedSkills from '@/components/TouchOptimizedSkills'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -17,7 +18,7 @@ export default function Home() {
     <main className="relative bg-black">
       <CustomCursor />
       <ResponsiveNavigation />
-      
+
       <div className="hidden md:block">
         <EnhancedHero />
       </div>
@@ -29,16 +30,11 @@ export default function Home() {
       <Experience />
       <Certifications />
 
-      <div id="projects">
-        <div className="hidden md:block">
-          <Projects />
-        </div>
-        <div className="md:hidden">
-          <MobileProjectCards />
-        </div>
-      </div>
+      <Projects />
+      <InterestsCarousel />
 
       <div id="skills">
+
         <div className="hidden md:block">
           <Skills />
         </div>

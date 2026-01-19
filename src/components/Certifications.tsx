@@ -91,7 +91,7 @@ const Certifications = () => {
           <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full"></div>
         </motion.div>
 
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}

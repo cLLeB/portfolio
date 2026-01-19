@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Code, Server, Brain, Cloud, Shield, Layout, Globe } from 'lucide-react'
+import { Server, Cloud, Brain, Layout, Globe, Code } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
 const About = () => {
@@ -35,39 +35,6 @@ const About = () => {
     }
   }
 
-  const interests = [
-    {
-      icon: Server,
-      title: t('about.interests.0.title'),
-      description: t('about.interests.0.description')
-    },
-    {
-      icon: Cloud,
-      title: t('about.interests.1.title'),
-      description: t('about.interests.1.description')
-    },
-    {
-      icon: Brain,
-      title: t('about.interests.2.title'),
-      description: t('about.interests.2.description')
-    },
-    {
-      icon: Layout,
-      title: t('about.interests.3.title'),
-      description: t('about.interests.3.description')
-    },
-    {
-      icon: Globe,
-      title: t('about.interests.4.title'),
-      description: t('about.interests.4.description')
-    },
-    {
-      icon: Code,
-      title: t('about.interests.5.title'),
-      description: t('about.interests.5.description')
-    }
-  ]
-
   return (
     <section id="about" className="py-12 sm:py-20 bg-white/80 dark:bg-black/80 backdrop-blur-sm relative overflow-hidden transition-colors duration-500">
       {/* Background Effects */}
@@ -87,7 +54,7 @@ const About = () => {
           <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <motion.div variants={itemVariants}>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl transform rotate-3 animate-pulse"></div>
@@ -154,32 +121,6 @@ const About = () => {
             </div>
           </motion.div>
         </div>
-
-        <motion.div variants={itemVariants}>
-          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
-            {t('about.interests_title')}
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {interests.map((interest, index) => (
-              <motion.div
-                key={index}
-                className="group p-6 bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300"
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-              >
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <interest.icon size={24} className="text-white" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
-                  {interest.title}
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {interest.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   )
