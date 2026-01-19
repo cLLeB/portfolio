@@ -73,7 +73,7 @@ const ResponsiveNavigation = () => {
   }
 
   const navItems = [
-    { id: 'hero', label: t('nav.home'), icon: Home },
+
     { id: 'about', label: t('nav.about'), icon: User },
     { id: 'experience', label: t('nav.experience'), icon: Briefcase },
     { id: 'certifications', label: t('nav.certifications'), icon: Award },
@@ -104,36 +104,51 @@ const ResponsiveNavigation = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <motion.button
-              className="flex items-center space-x-2 sm:space-x-3 cursor-pointer bg-transparent border-none p-0"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setSelectedImage('/dp/me.jpg')}
-            >
-              <motion.div
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center relative overflow-hidden border-2 border-blue-500"
-                animate={{
-                  boxShadow: [
-                    '0 0 20px rgba(59, 130, 246, 0.5)',
-                    '0 0 30px rgba(147, 51, 234, 0.5)',
-                    '0 0 20px rgba(59, 130, 246, 0.5)'
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
+            {/* Logo & Name Area */}
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              {/* Profile Picture - Opens Image Modal */}
+              <motion.button
+                className="cursor-pointer bg-transparent border-none p-0 outline-none"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setSelectedImage('/dp/me.jpg')}
+                aria-label="View Profile Picture"
               >
-                <Image
-                  src="/dp/me.jpg"
-                  alt="Caleb Kyere Boateng"
-                  fill
-                  sizes="40px"
-                  priority
-                  className="object-cover"
-                />
-              </motion.div>
-              <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg">
-                {isMobile ? 'CKB' : 'Caleb Kyere Boateng'}
-              </span>
-            </motion.button>
+                <motion.div
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center relative overflow-hidden border-2 border-blue-500"
+                  animate={{
+                    boxShadow: [
+                      '0 0 20px rgba(59, 130, 246, 0.5)',
+                      '0 0 30px rgba(147, 51, 234, 0.5)',
+                      '0 0 20px rgba(59, 130, 246, 0.5)'
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Image
+                    src="/dp/me.jpg"
+                    alt="Caleb Kyere Boateng"
+                    fill
+                    sizes="40px"
+                    priority
+                    className="object-cover"
+                  />
+                </motion.div>
+              </motion.button>
+
+              {/* Name - Scrolls to Home */}
+              <motion.button
+                className="cursor-pointer bg-transparent border-none p-0 outline-none"
+                onClick={() => scrollToSection('hero')}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                aria-label="Go to Home"
+              >
+                <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  {isMobile ? 'CKB' : 'Caleb Kyere Boateng'}
+                </span>
+              </motion.button>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
