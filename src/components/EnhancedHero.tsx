@@ -98,7 +98,7 @@ const EnhancedHero = () => {
   }
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-900 transition-colors duration-500">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-900 transition-colors duration-500 pt-24 sm:pt-28">
       {/* Enhanced Background Effects */}
       <motion.div
         className="absolute inset-0"
@@ -119,7 +119,7 @@ const EnhancedHero = () => {
         {orbStyles.map((style, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl"
+            className="absolute rounded-full bg-gradient-to-r from-blue-500/20 to-indigo-500/20 blur-xl"
             style={style}
             animate={{
               x: [0, Math.random() * 100 - 50],
@@ -164,24 +164,7 @@ const EnhancedHero = () => {
         style={{ opacity }}
       >
         {/* Professional Introduction */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-8"
-        >
-          <div className="flex items-center justify-center space-x-2 mb-6">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-gray-600 dark:text-gray-300 text-sm font-medium tracking-wide uppercase">
-              {t('hero.available')}
-            </span>
-          </div>
 
-          <div className="flex items-center justify-center space-x-2 text-gray-500 dark:text-gray-400 mb-8">
-            <MapPin size={16} />
-            <span className="text-sm">{t('hero.based_in')}</span>
-          </div>
-        </motion.div>
 
         {/* Enhanced Name Display with Gradient Effect */}
         <motion.div
@@ -206,7 +189,7 @@ const EnhancedHero = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <motion.span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 text-display-2xl md:text-display-xl font-bold"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 text-display-2xl md:text-display-xl font-bold"
                 animate={{
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
                 }}

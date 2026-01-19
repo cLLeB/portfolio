@@ -44,7 +44,7 @@ const Footer = () => {
           {/* Brand Section - hide on small screens */}
           <div className="space-y-4 hidden sm:block">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">CKB</span>
               </div>
               <span className="text-xl font-bold">Caleb Kyere Boateng</span>
@@ -120,7 +120,7 @@ const Footer = () => {
 
             <motion.button
               onClick={scrollToTop}
-              className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:shadow-lg transition-all duration-300"
+              className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg hover:shadow-lg transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >

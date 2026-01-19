@@ -155,7 +155,7 @@ const Skills = () => {
           </motion.div>
           {/* Filled bar */}
           <motion.div
-            className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
+            className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full"
             style={{ zIndex: 2, position: 'relative' }}
             initial={{ width: 0 }}
             animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
@@ -169,7 +169,7 @@ const Skills = () => {
   return (
     <section className="py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-purple-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-purple-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-indigo-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-indigo-900/20"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.05),transparent_60%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_60%)]"></div>
       <motion.div
         ref={ref}
@@ -181,10 +181,7 @@ const Skills = () => {
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 relative z-20">
             {t('skills.title')} <span
-              className="text-cyan-600 dark:text-cyan-400 drop-shadow-2xl"
-              style={{
-                textShadow: '0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
-              }}
+              className="text-blue-600 dark:text-blue-400 drop-shadow-2xl"
             >
               {t('skills.subtitle')}
             </span>
@@ -194,7 +191,7 @@ const Skills = () => {
               {t('skills.description')}
             </p>
           )}
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -211,7 +208,7 @@ const Skills = () => {
               }}
             >
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
                   <category.icon size={24} className="text-white" />
                 </div>
                 <h3
@@ -234,7 +231,7 @@ const Skills = () => {
         </div>
 
         <motion.div variants={itemVariants} className="mt-16">
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
+          <div className="bg-gradient-to-r from-blue-500/10 to-indigo-600/10 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
             <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
               {t('skills.additional_title')}
             </h3>
@@ -245,7 +242,7 @@ const Skills = () => {
                   className="text-center"
                   variants={itemVariants}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-white font-bold text-xl">{index + 1}</span>
                   </div>
                   <h4 className="font-semibold text-gray-800 dark:text-white mb-2">

@@ -96,9 +96,9 @@ const Certifications = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            {t('certifications.title')} <span className="text-purple-500">{t('certifications.subtitle')}</span>
+            {t('certifications.title')} <span className="text-indigo-500">{t('certifications.subtitle')}</span>
           </h2>
-          <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Desktop: grid, Mobile: swipeable carousel */}
@@ -108,12 +108,12 @@ const Certifications = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 group shadow-lg dark:shadow-none"
+                className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:border-indigo-500/50 transition-all duration-300 group shadow-lg dark:shadow-none"
               >
                 <div className="mb-6 relative w-16 h-16 mx-auto md:mx-0 xl:w-20 xl:h-20">
                   {cert.image ? (
                     <div
-                      className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500/30 group-hover:border-purple-500 transition-colors cursor-pointer xl:w-20 xl:h-20"
+                      className="w-16 h-16 rounded-full overflow-hidden border-2 border-indigo-500/30 group-hover:border-indigo-500 transition-colors cursor-pointer xl:w-20 xl:h-20"
                       onClick={() => {
                         setSelectedImage(cert.image)
                         setSelectedAlt(cert.issuer)
@@ -128,17 +128,17 @@ const Certifications = () => {
                       />
                     </div>
                   ) : (
-                    <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
                       <cert.icon size={32} />
                     </div>
                   )}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 min-h-[3.5rem]">{cert.name}</h3>
-                <p className="text-purple-600 dark:text-purple-400 font-medium mb-1">{cert.issuer}</p>
+                <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-1">{cert.issuer}</p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{cert.date}</p>
                 <div className="pt-4 border-t border-gray-200 dark:border-white/10">
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    <span className="text-purple-600 dark:text-purple-400 font-semibold">{t('certifications.focus_label')}</span> {cert.focus}
+                    <span className="text-indigo-600 dark:text-indigo-400 font-semibold">{t('certifications.focus_label')}</span> {cert.focus}
                   </p>
                 </div>
               </motion.div>
@@ -195,7 +195,7 @@ const Certifications = () => {
                             setSelectedAlt(cert.issuer)
                           }
                         }}
-                        className="w-20 h-20 overflow-hidden border-2 border-purple-500/30 flex items-center justify-center p-0 focus:outline-none rounded-md"
+                        className="w-20 h-20 overflow-hidden border-2 border-indigo-500/30 flex items-center justify-center p-0 focus:outline-none rounded-md"
                         aria-label={`Open ${cert.issuer} certificate`}
                       >
                         {cert.image ? (
@@ -208,9 +208,9 @@ const Certifications = () => {
 
                     <div className="px-1">
                       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 line-clamp-2">{cert.name}</h3>
-                      <p className="text-sm text-purple-600 dark:text-purple-400 mb-2">{cert.issuer}</p>
+                      <p className="text-sm text-indigo-600 dark:text-indigo-400 mb-2">{cert.issuer}</p>
                       <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{cert.date}</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3"><span className="font-semibold text-purple-600 dark:text-purple-400">{t('certifications.focus_label')}</span> {cert.focus}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3"><span className="font-semibold text-indigo-600 dark:text-indigo-400">{t('certifications.focus_label')}</span> {cert.focus}</p>
                     </div>
                   </div>
                 ))}

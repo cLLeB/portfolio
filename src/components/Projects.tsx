@@ -61,7 +61,7 @@ const Projects = () => {
     ...(projectConfig[index] || {}),
     // provide shortTitle fallback
     shortTitle: item.shortTitle || (item.title ? item.title.split('-')[0].trim() : item.title),
-    shortDesc: item.shortDesc || (item.description ? item.description.split('.').slice(0,1)[0] + '.' : item.description)
+    shortDesc: item.shortDesc || (item.description ? item.description.split('.').slice(0, 1)[0] + '.' : item.description)
   }))
 
   const itemsToShow = 1
@@ -120,7 +120,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/5 via-blue-900/5 to-cyan-900/5 dark:from-purple-900/20 dark:via-blue-900/20 dark:to-cyan-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/5 via-blue-900/5 to-cyan-900/5 dark:from-indigo-900/20 dark:via-blue-900/20 dark:to-cyan-900/20"></div>
 
       <motion.div
         ref={ref}
@@ -134,14 +134,14 @@ const Projects = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
-            {t('projects.title')} <span className="holographic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">{t('projects.subtitle')}</span>
+            {t('projects.title')} <span className="text-blue-600 dark:text-blue-400">{t('projects.subtitle')}</span>
           </h2>
           {!isMobile && (
             <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg">
               {t('projects.description')}
             </p>
           )}
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="relative group max-w-4xl mx-auto px-4 md:px-0">
@@ -192,11 +192,11 @@ const Projects = () => {
                 {visibleProjects.map((project, index) => (
                   <motion.div
                     key={`${currentIndex}-${index}`}
-                    className="group relative bg-white dark:bg-black/60 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-blue-500/30 hover:border-purple-500/50 transition-all duration-500 shadow-xl flex flex-col h-full overflow-hidden"
+                    className="group relative bg-white dark:bg-black/60 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-blue-500/30 hover:border-indigo-500/50 transition-all duration-500 shadow-xl flex flex-col h-full overflow-hidden"
                     whileHover={{ y: -5 }}
                   >
                     {/* Glassmorphism Highlight */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-600/5 rounded-3xl pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-600/5 rounded-3xl pointer-events-none"></div>
 
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-center justify-between mb-8">
@@ -218,14 +218,14 @@ const Projects = () => {
                               />
                             </div>
                           ) : (
-                            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-md flex-shrink-0">
+                            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-md flex-shrink-0">
                               {project.icon && <project.icon size={24} className="text-white" />}
                             </div>
                           )}
                           <div className="min-w-0">
-                                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                                    {isMobile ? (project.shortTitle || project.title) : project.title}
-                                  </h3>
+                            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                              {isMobile ? (project.shortTitle || project.title) : project.title}
+                            </h3>
                             <span className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-medium tracking-wider uppercase">
                               {project.category}
                             </span>
@@ -302,7 +302,7 @@ const Projects = () => {
                 key={i}
                 onClick={() => paginate(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i
-                  ? 'w-8 sm:w-12 bg-gradient-to-r from-blue-500 to-purple-600'
+                  ? 'w-8 sm:w-12 bg-gradient-to-r from-blue-500 to-indigo-600'
                   : 'w-2 sm:w-3 bg-gray-300 dark:bg-white/20 hover:bg-gray-400 dark:hover:bg-white/40'
                   }`}
                 whileHover={{ scale: 1.2 }}

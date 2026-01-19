@@ -91,8 +91,8 @@ const ResponsiveNavigation = () => {
       {/* Main Navigation */}
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? 'bg-white/90 dark:bg-black/90 backdrop-blur-xl shadow-2xl border-b border-gray-200 dark:border-blue-500/30'
-          : 'bg-white/20 dark:bg-black/20 backdrop-blur-sm'
+          ? 'bg-white/10 dark:bg-black/40 backdrop-blur-xl shadow-2xl border-b border-white/20 dark:border-blue-500/30'
+          : 'bg-white/5 dark:bg-black/20 backdrop-blur-sm'
           }`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -142,7 +142,7 @@ const ResponsiveNavigation = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`relative px-3 lg:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${activeSection === item.id
-                    ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg'
+                    ? 'text-white bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg'
                     : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
                     }`}
                   whileHover={{
@@ -278,7 +278,7 @@ const ResponsiveNavigation = () => {
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
                       className={`w-full flex items-center space-x-4 px-4 py-4 rounded-xl text-left transition-all duration-300 ${activeSection === item.id
-                        ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
+                        ? 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white'
                         }`}
                       initial={{ x: -20, opacity: 0 }}

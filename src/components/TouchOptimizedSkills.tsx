@@ -80,7 +80,7 @@ const TouchOptimizedSkills = () => {
     {
       title: t('skills.categories.backend'),
       icon: Server,
-      color: 'from-purple-500 to-violet-600',
+      color: 'from-indigo-600 to-blue-800',
       skills: [
         { name: 'Node.js/Express', level: 12 },
         { name: 'RESTful APIs', level: 18 },
@@ -189,7 +189,7 @@ const TouchOptimizedSkills = () => {
   return (
     <section className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-purple-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-purple-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-indigo-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-indigo-900/20"></div>
 
       {mounted && (
         <motion.div
@@ -205,10 +205,7 @@ const TouchOptimizedSkills = () => {
               {/* On non-mobile show subtitle inline */}
               {!isMobile && (
                 <span
-                  className="text-cyan-600 dark:text-cyan-400 drop-shadow-2xl"
-                  style={{
-                    textShadow: '0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
-                  }}
+                  className="text-blue-600 dark:text-blue-400 drop-shadow-2xl"
                 >
                   {t('skills.subtitle')}
                 </span>
@@ -221,7 +218,7 @@ const TouchOptimizedSkills = () => {
                 <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
                   {t('skills.description')}
                 </p>
-                <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+                <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
               </>
             )}
           </motion.div>

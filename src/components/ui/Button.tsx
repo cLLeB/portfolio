@@ -42,21 +42,21 @@ const Button = ({
 
   const variantClasses = {
     primary: `
-      bg-gradient-to-r from-blue-600 to-purple-600
-      hover:from-purple-600 hover:to-blue-600
+      bg-gradient-to-r from-blue-600 to-blue-800
+      hover:from-blue-700 hover:to-blue-500
       text-white shadow-lg hover:shadow-xl
       hover:shadow-blue-500/25
     `,
     secondary: `
-      bg-white/10 backdrop-blur-sm border border-white/20
-      hover:bg-white/20 text-white
+  bg - white / 10 backdrop - blur - sm border border - white / 20
+  hover: bg - white / 20 text - white
     `,
     outline: `
-      border-2 border-blue-500 text-blue-500
-      hover:bg-blue-500 hover:text-white
+  border - 2 border - blue - 500 text - blue - 500
+  hover: bg - blue - 500 hover: text - white
     `,
     ghost: `
-      text-gray-300 hover:text-white hover:bg-white/10
+  text - gray - 300 hover: text - white hover: bg - white / 10
     `
   }
 
@@ -79,9 +79,9 @@ const Button = ({
       {variant === 'primary' && !isLoading && (
         <div className="absolute inset-0 -top-2 -bottom-2 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
       )}
-      
+
       {/* Content */}
-      <span className={`relative z-10 flex items-center space-x-2 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+      <span className={`relative z - 10 flex items - center space - x - 2 ${isLoading ? 'opacity-0' : 'opacity-100'} `}>
         {icon && iconPosition === 'left' && <span>{icon}</span>}
         <span>{children}</span>
         {icon && iconPosition === 'right' && <span>{icon}</span>}

@@ -131,14 +131,14 @@ const Contact = () => {
       icon: Phone,
       name: 'Phone or Call',
       href: 'tel:+233537270382',
-      color: 'hover:text-purple-600'
+      color: 'hover:text-indigo-600'
     }
   ]
 
   return (
     <section id="contact" className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/5 via-pink-900/5 to-blue-900/5 dark:from-purple-900/20 dark:via-pink-900/20 dark:to-blue-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/5 via-pink-900/5 to-blue-900/5 dark:from-indigo-900/20 dark:via-pink-900/20 dark:to-blue-900/20"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(236,72,153,0.05),transparent_60%)] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(236,72,153,0.1),transparent_60%)]"></div>
       <motion.div
         ref={ref}
@@ -167,7 +167,7 @@ const Contact = () => {
           )}
 
           {/* Description removed on desktop as requested */}
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
@@ -201,7 +201,7 @@ const Contact = () => {
                   className="flex items-center space-x-4"
                   variants={itemVariants}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
                     <info.icon size={24} className="text-white" />
                   </div>
                   <div>

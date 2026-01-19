@@ -113,7 +113,7 @@ const InterestsCarousel = () => {
     return (
         <section className="py-20 bg-white dark:bg-black/95 relative overflow-hidden">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-cyan-900/5 to-purple-900/5 dark:from-blue-900/10 dark:via-cyan-900/10 dark:to-purple-900/10"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-cyan-900/5 to-indigo-900/5 dark:from-blue-900/10 dark:via-cyan-900/10 dark:to-indigo-900/10"></div>
 
             <motion.div
                 ref={ref}
@@ -129,7 +129,7 @@ const InterestsCarousel = () => {
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
                         {t('about.interests_title')}
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
                 </motion.div>
 
 
@@ -179,10 +179,10 @@ const InterestsCarousel = () => {
                                 }}
                             >
                                 <motion.div
-                                    className="group relative bg-white dark:bg-black/60 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-gray-200 dark:border-blue-500/30 hover:border-purple-500/50 transition-all duration-500 shadow-xl flex flex-col items-center text-center"
+                                    className="group relative bg-white dark:bg-black/60 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-gray-200 dark:border-blue-500/30 hover:border-indigo-500/50 transition-all duration-500 shadow-xl flex flex-col items-center text-center"
                                     whileHover={{ y: -5 }}
                                 >
-                                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                                         <currentInterest.icon size={40} className="text-white" />
                                     </div>
 
@@ -205,7 +205,7 @@ const InterestsCarousel = () => {
                                 key={i}
                                 onClick={() => paginate(i)}
                                 className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i
-                                    ? 'w-10 bg-gradient-to-r from-blue-500 to-purple-600'
+                                    ? 'w-10 bg-gradient-to-r from-blue-500 to-indigo-600'
                                     : 'w-2 bg-gray-300 dark:bg-white/20 hover:bg-gray-400 dark:hover:bg-white/40'
                                     }`}
                                 whileHover={{ scale: 1.2 }}

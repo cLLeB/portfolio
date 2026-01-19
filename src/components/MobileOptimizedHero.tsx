@@ -84,7 +84,7 @@ const MobileOptimizedHero = () => {
         style={{ y }}
       >
         {/* Simplified mobile background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 via-purple-100/30 to-cyan-100/30 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-cyan-900/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 via-indigo-100/30 to-cyan-100/30 dark:from-blue-900/30 dark:via-indigo-900/30 dark:to-cyan-900/30" />
 
         {/* Mobile floating particles */}
         {particles.map((particle, i) => (
@@ -135,7 +135,7 @@ const MobileOptimizedHero = () => {
               {t('hero.hello')}{' '}
             </motion.span>
             <motion.span
-              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 text-3xl sm:text-5xl md:text-7xl block sm:inline font-bold"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 text-3xl sm:text-5xl md:text-7xl block sm:inline font-bold"
               animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
               }}
@@ -205,7 +205,7 @@ const MobileOptimizedHero = () => {
         >
           <motion.button
             onClick={() => scrollToSection('projects')}
-            className="w-full sm:w-auto magnetic-button bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:shadow-2xl relative overflow-hidden"
+            className="w-full sm:w-auto magnetic-button bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-indigo-600 hover:to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:shadow-2xl relative overflow-hidden"
             whileHover={{
               scale: 1.05,
               boxShadow: "0 0 25px rgba(59, 130, 246, 0.6)"
@@ -225,7 +225,7 @@ const MobileOptimizedHero = () => {
             className="w-full sm:w-auto magnetic-button border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden group"
             whileHover={{
               scale: 1.05,
-              borderColor: "#8b5cf6"
+              borderColor: "#2563eb"
             }}
             whileTap={{ scale: 0.95 }}
             title={t('hero.download_resume')}
@@ -233,7 +233,7 @@ const MobileOptimizedHero = () => {
             <Download size={18} className="relative z-10" />
             <span className="relative z-10">{t('hero.download_resume')}</span>
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600"
+              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600"
               initial={{ scale: 0 }}
               whileHover={{ scale: 1 }}
               transition={{ duration: 0.3 }}
