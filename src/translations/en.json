@@ -110,14 +110,14 @@
                 "company": "Computer Science Society | KNUST, Kumasi",
                 "period": "2025 - PRESENT",
                 "description": "Conduct applied research within the Computer Science Society at KNUST, Ghana, contributing to collaborative projects aligned with emerging computer science trends. Support project design, documentation, and peer knowledge sharing while maintaining ethical and academic research standards. Foster an engaging research environment that strengthens student participation and technical skill development.",
-                "description_mobile": "Researcher at KNUST — project support, docs, and student collaboration."
+                "description_mobile": "Researcher at KNUST, project support, docs, and student collaboration."
             },
             {
                 "role": "Security Intern",
                 "company": "Information Security and Technology Assurance Division | KNUST, Kumasi",
                 "period": "SEPTEMBER 2025 - NOVEMBER 2025",
                 "description": "Performed network security analysis to safeguard university digital assets within the Information Security and Technology Assurance Division at KNUST. Analyzed student portal traffic using Wireshark to detect anomalies and used Nmap for port scanning and host discovery to identify potential vulnerabilities. Supported vulnerability assessment, penetration testing activities, and security policy documentation.",
-                "description_mobile": "Security intern — network analysis, vulnerability scanning, and assessments."
+                "description_mobile": "Security intern, network analysis, vulnerability scanning, and assessments."
             }
         ]
     },

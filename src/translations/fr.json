@@ -110,14 +110,14 @@
                 "company": "Société d'Informatique | KNUST, Kumasi",
                 "period": "2025 - PRÉSENT",
                 "description": "Mener des recherches appliquées au sein de la Société d'Informatique de KNUST, Ghana, contribuant à des projets collaboratifs alignés sur les tendances émergentes de l'informatique. Soutenir la conception de projets, la documentation et le partage des connaissances entre pairs tout en maintenant des normes de recherche éthiques et académiques. Favoriser un environnement de recherche engageant qui renforce la participation des étudiants et le développement des compétences techniques.",
-                "description_mobile": "Chercheur à KNUST — soutien de projets, documentation et collaboration étudiante."
+                "description_mobile": "Chercheur à KNUST ,soutien de projets, documentation et collaboration étudiante."
             },
             {
                 "role": "Stagiaire en sécurité",
                 "company": "Division de la sécurité de l'information et de l'assurance technologique | KNUST, Kumasi",
                 "period": "SEPTEMBRE 2025 - NOVEMBRE 2025",
                 "description": "Analyse de la sécurité du réseau pour protéger les actifs numériques de l'université au sein de la Division de la sécurité de l'information et de l'assurance technologique de KNUST. Analyse du trafic du portail étudiant à l'aide de Wireshark pour détecter les anomalies et utilisation de Nmap pour le balayage des ports et la découverte d'hôtes afin d'identifier les vulnérabilités potentielles. Soutien à l'évaluation des vulnérabilités, aux tests d'intrusion et à la documentation des politiques de sécurité.",
-                "description_mobile": "Stagiaire en sécurité — analyse réseau, scan de vulnérabilités et évaluations."
+                "description_mobile": "Stagiaire en sécurité ,analyse réseau, scan de vulnérabilités et évaluations."
             }
         ]
     },
