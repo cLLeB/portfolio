@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useEffect, useState } from 'react'
 import { Server, Cloud, Brain, Layout, Globe, Code } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -11,6 +12,16 @@ const About = () => {
     triggerOnce: true,
     threshold: 0.1
   })
+
+  // Mobile-only flag (assumption: mobile when width < 768)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(typeof window !== 'undefined' && window.innerWidth < 768)
+    onResize()
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -62,25 +73,28 @@ const About = () => {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-lg">
                   {t('about.journey_title')}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
-                  {t('about.journey_desc1')}
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed mb-4">
+                  {isMobile ? t('about.journey_desc1_mobile') : t('about.journey_desc1')}
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  {t('about.journey_desc2')}
+                  {isMobile ? t('about.journey_desc2_mobile') : t('about.journey_desc2')}
                 </p>
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-3">{t('about.key_coursework')}</h4>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {Array.isArray(t('about.courses')) && t('about.courses').map((course: string) => (
-                      <span
-                        key={course}
-                        className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-medium"
-                      >
-                        {course}
-                      </span>
-                    ))}
+                {/* Hide coursework on mobile to reduce card length */}
+                {!isMobile && (
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-800 dark:text-white mb-3">{t('about.key_coursework')}</h4>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {Array.isArray(t('about.courses')) && t('about.courses').map((course: string) => (
+                        <span
+                          key={course}
+                          className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-medium"
+                        >
+                          {course}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <div className="flex flex-wrap gap-3">
                   {Array.isArray(t('about.traits')) && t('about.traits').map((trait: string) => (
@@ -101,23 +115,25 @@ const About = () => {
               {t('about.drives_title')}
             </h3>
             <div className="space-y-6">
-              {Array.isArray(t('about.drives')) && t('about.drives').map((item: any, index: number) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start space-x-4"
-                  variants={itemVariants}
-                >
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-                      {item.title}
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+                {Array.isArray(t('about.drives')) && t('about.drives').map((item: any, index: number) => {
+                  return (
+                    <motion.div
+                      key={index}
+                      className="flex items-start space-x-4"
+                      variants={itemVariants}
+                    >
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+                          {item.title}
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          {isMobile ? (item.description_mobile || item.description) : item.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )
+                })}
             </div>
           </motion.div>
         </div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Code, Network, Server, Smartphone, Cloud, Settings, TrendingUp, Zap } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
+import { useState, useEffect } from 'react'
 
 const Skills = () => {
   const { t } = useLanguage()
@@ -44,8 +45,7 @@ const Skills = () => {
         { name: 'Python', level: 18 },
         { name: 'Java', level: 12 },
         { name: 'C++', level: 14 },
-        { name: 'PHP', level: 10 },
-        { name: 'Solidity', level: 8 }
+        { name: 'PHP', level: 10 }
       ]
     },
     {
@@ -56,7 +56,6 @@ const Skills = () => {
         { name: 'HTML5/CSS3', level: 20 },
         { name: 'Tailwind CSS', level: 12 },
         { name: 'Bootstrap', level: 10 },
-        { name: 'Framer Motion', level: 8 },
         { name: 'React Native', level: 14 }
       ]
     },
@@ -67,7 +66,6 @@ const Skills = () => {
         { name: 'Node.js/Express', level: 12 },
         { name: 'RESTful APIs', level: 18 },
         { name: 'FastAPI/Flask', level: 10 },
-        { name: 'GraphQL', level: 5 },
         { name: 'Socket.io', level: 8 },
         { name: 'JWT Authentication', level: 11 }
       ]
@@ -76,12 +74,12 @@ const Skills = () => {
       title: t('skills.categories.network'),
       icon: Network,
       skills: [
-        { name: 'Packet Tracer', level: 40 },
-        { name: 'Wireshark', level: 38 },
-        { name: 'GNS3', level: 35 },
-        { name: 'Nmap', level: 32 },
-        { name: 'Cisco IOS', level: 36 },
-        { name: 'Linux Networking', level: 39 }
+        { name: 'Packet Tracer', level: 22 },
+        { name: 'Wireshark', level: 21 },
+        { name: 'GNS3', level: 23 },
+        { name: 'Nmap', level: 20 },
+        { name: 'Cisco IOS', level: 24 },
+        { name: 'Linux Networking', level: 25 }
       ]
     },
     {
@@ -91,7 +89,6 @@ const Skills = () => {
         { name: 'Git/GitHub', level: 20 },
         { name: 'Docker', level: 15 },
         { name: 'Linux', level: 22 },
-        { name: 'AWS Basics', level: 10 },
         { name: 'CI/CD', level: 12 },
         { name: 'Nginx', level: 14 }
       ]
@@ -104,11 +101,19 @@ const Skills = () => {
         { name: 'Postman', level: 15 },
         { name: 'Jest/Testing', level: 10 },
         { name: 'Figma', level: 12 },
-        { name: 'ANTLR', level: 18 },
-        { name: 'Web3.js', level: 8 }
+        { name: 'ANTLR', level: 11 }
       ]
     }
   ]
+
+  // detect mobile for hiding the description
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const onResize = () => setIsMobile(typeof window !== 'undefined' && window.innerWidth < 768)
+    onResize()
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   const ProgressBar = ({ skill, index }: { skill: { name: string; level: number }, index: number }) => {
     // Make animation duration dynamic per bar for a more lively effect
@@ -184,9 +189,11 @@ const Skills = () => {
               {t('skills.subtitle')}
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg relative z-20">
-            {t('skills.description')}
-          </p>
+          {!isMobile && (
+            <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg relative z-20">
+              {t('skills.description')}
+            </p>
+          )}
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
 

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, MessageCircle, Copy } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { submitContactForm, copyEmailToClipboard, contactViaWhatsApp } from '@/utils/contactForm'
 import Button from './ui/Button'
 import LoadingSpinner from './ui/LoadingSpinner'
@@ -15,6 +15,15 @@ const Contact = () => {
     triggerOnce: true,
     threshold: 0.1
   })
+
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(typeof window !== 'undefined' && window.innerWidth < 768)
+    onResize()
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   const [formData, setFormData] = useState({
     name: '',
@@ -139,43 +148,51 @@ const Contact = () => {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
-            {t('contact.title_start')} <span
-              className="text-pink-600 dark:text-pink-400 drop-shadow-2xl"
-              style={{
-                textShadow: '0 0 20px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
-              }}
-            >
-              {t('contact.title_end')}
-            </span>
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
-            {t('contact.description')}
-          </p>
+          {/* On mobile show conversation title instead of 'Get In Touch' */}
+          {!isMobile ? (
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
+              {t('contact.title_start')} <span
+                className="text-pink-600 dark:text-pink-400 drop-shadow-2xl"
+                style={{
+                  textShadow: '0 0 20px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+                {t('contact.title_end')}
+              </span>
+            </h2>
+          ) : (
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
+              {t('contact.conversation_title')}
+            </h2>
+          )}
+
+          {/* Description removed on desktop as requested */}
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
           <motion.div variants={itemVariants} className="space-y-8">
-            <div>
-              <h3
-                className="text-2xl font-bold text-gray-900 dark:text-white mb-6 relative z-20"
-                style={{
-                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                {t('contact.conversation_title')}
-              </h3>
-              <p
-                className="text-gray-600 dark:text-gray-200 leading-relaxed mb-8 relative z-20"
-                style={{
-                  textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
-                }}
-              >
-                {t('contact.conversation_desc')}
-              </p>
-            </div>
+            {!isMobile && (
+              <div>
+                <h3
+                  className="text-2xl font-bold text-gray-900 dark:text-white mb-6 relative z-20"
+                  style={{
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  {t('contact.conversation_title')}
+                </h3>
+                <p
+                  className="text-gray-600 dark:text-gray-200 leading-relaxed mb-8 relative z-20"
+                  style={{
+                    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
+                  }}
+                >
+                  {t('contact.conversation_desc')}
+                </p>
+              </div>
+            )}
 
             <div className="space-y-6">
               {contactInfo.map((info, index) => (

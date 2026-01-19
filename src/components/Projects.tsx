@@ -23,7 +23,7 @@ const Projects = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024)
+      setIsMobile(window.innerWidth < 768)
     }
     checkMobile()
     window.addEventListener('resize', checkMobile)
@@ -58,7 +58,10 @@ const Projects = () => {
   // Combine with translations
   const projects = (t('projects.items') as any[]).map((item, index) => ({
     ...item,
-    ...(projectConfig[index] || {})
+    ...(projectConfig[index] || {}),
+    // provide shortTitle fallback
+    shortTitle: item.shortTitle || (item.title ? item.title.split('-')[0].trim() : item.title),
+    shortDesc: item.shortDesc || (item.description ? item.description.split('.').slice(0,1)[0] + '.' : item.description)
   }))
 
   const itemsToShow = 1
@@ -133,9 +136,11 @@ const Projects = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
             {t('projects.title')} <span className="holographic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">{t('projects.subtitle')}</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-            {t('projects.description')}
-          </p>
+          {!isMobile && (
+            <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg">
+              {t('projects.description')}
+            </p>
+          )}
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
 
@@ -218,9 +223,9 @@ const Projects = () => {
                             </div>
                           )}
                           <div className="min-w-0">
-                            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                              {project.title}
-                            </h3>
+                                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                                    {isMobile ? (project.shortTitle || project.title) : project.title}
+                                  </h3>
                             <span className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-medium tracking-wider uppercase">
                               {project.category}
                             </span>
@@ -257,7 +262,7 @@ const Projects = () => {
                       </div>
 
                       <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base sm:text-lg">
-                        {project.description}
+                        {isMobile ? (project.shortDesc || project.description) : project.description}
                       </p>
 
 

@@ -30,7 +30,9 @@
         "me": "Me",
         "journey_title": "Computer Science Journey",
         "journey_desc1": "I'm a dedicated Computer Science student at Kwame Nkrumah University of Science and Technology (KNUST), passionate about designing and securing robust networked systems. My journey in technology is driven by curiosity and a desire to understand how complex systems work, from programming language design to networking systems.",
+        "journey_desc1_mobile": "Computer Science student at KNUST focused on networking, security, and systems design.",
         "journey_desc2": "Through hands-on projects and continuous learning, I've developed skills in secure application design, security-focused logic, and networking systems. I thrive on challenging problems that push the boundaries of what's possible and enjoy collaborating with others to build meaningful solutions.",
+        "journey_desc2_mobile": "I build secure, maintainable solutions and learn by doing — projects, research, and collaboration.",
         "key_coursework": "Key Coursework:",
         "courses": [
             "Network Security",
@@ -52,19 +54,23 @@
         "drives": [
             {
                 "title": "Architecting Secure Networks",
-                "description": "I enjoy designing and implementing secure network infrastructures, focusing on robustness, scalability, and defense-in-depth strategies."
+                "description": "I enjoy designing and implementing secure network infrastructures, focusing on robustness, scalability, and defense-in-depth strategies.",
+                "description_mobile": "Designing secure, scalable networks."
             },
             {
                 "title": "Continuous Learning",
-                "description": "Technology evolves rapidly, and I'm committed to staying current with new frameworks, languages, and development methodologies."
+                "description": "Technology evolves rapidly, and I'm committed to staying current with new frameworks, languages, and development methodologies.",
+                "description_mobile": "Always learning new tools and languages."
             },
             {
                 "title": "Problem-Solving Mindset",
-                "description": "I thrive on breaking down complex challenges into manageable components and finding creative, efficient solutions."
+                "description": "I thrive on breaking down complex challenges into manageable components and finding creative, efficient solutions.",
+                "description_mobile": "Breaking problems into simple, practical solutions."
             },
             {
                 "title": "Seeking Growth Opportunities",
-                "description": "I'm actively seeking internship opportunities where I can contribute to meaningful projects while expanding my technical expertise."
+                "description": "I'm actively seeking internship opportunities where I can contribute to meaningful projects while expanding my technical expertise.",
+                "description_mobile": "Seeking internships to grow and contribute."
             }
         ],
         "interests_title": "Areas of Interest",
@@ -103,13 +109,15 @@
                 "role": "Student Researcher",
                 "company": "Computer Science Society | KNUST, Kumasi",
                 "period": "2025 - PRESENT",
-                "description": "Conduct applied research within the Computer Science Society at KNUST, Ghana, contributing to collaborative projects aligned with emerging computer science trends. Support project design, documentation, and peer knowledge sharing while maintaining ethical and academic research standards. Foster an engaging research environment that strengthens student participation and technical skill development."
+                "description": "Conduct applied research within the Computer Science Society at KNUST, Ghana, contributing to collaborative projects aligned with emerging computer science trends. Support project design, documentation, and peer knowledge sharing while maintaining ethical and academic research standards. Foster an engaging research environment that strengthens student participation and technical skill development.",
+                "description_mobile": "Researcher at KNUST — project support, docs, and student collaboration."
             },
             {
                 "role": "Security Intern",
                 "company": "Information Security and Technology Assurance Division | KNUST, Kumasi",
                 "period": "SEPTEMBER 2025 - NOVEMBER 2025",
-                "description": "Performed network security analysis to safeguard university digital assets within the Information Security and Technology Assurance Division at KNUST. Analyzed student portal traffic using Wireshark to detect anomalies and used Nmap for port scanning and host discovery to identify potential vulnerabilities. Supported vulnerability assessment, penetration testing activities, and security policy documentation."
+                "description": "Performed network security analysis to safeguard university digital assets within the Information Security and Technology Assurance Division at KNUST. Analyzed student portal traffic using Wireshark to detect anomalies and used Nmap for port scanning and host discovery to identify potential vulnerabilities. Supported vulnerability assessment, penetration testing activities, and security policy documentation.",
+                "description_mobile": "Security intern — network analysis, vulnerability scanning, and assessments."
             }
         ]
     },
@@ -198,6 +206,7 @@
     },
     "skills": {
         "title": "Skills &",
+        "title_mobile": "Skills",
         "subtitle": "Technologies",
         "description": "A comprehensive overview of my technical expertise across various domains of software development.",
         "avg_level": "Avg Level",

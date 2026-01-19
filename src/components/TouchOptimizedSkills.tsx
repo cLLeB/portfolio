@@ -95,12 +95,12 @@ const TouchOptimizedSkills = () => {
       icon: Network,
       color: 'from-orange-500 to-red-600',
       skills: [
-        { name: 'Packet Tracer', level: 40 },
-        { name: 'Wireshark', level: 38 },
-        { name: 'GNS3', level: 35 },
-        { name: 'Nmap', level: 32 },
-        { name: 'Cisco IOS', level: 36 },
-        { name: 'Linux Networking', level: 39 }
+        { name: 'Packet Tracer', level: 22 },
+        { name: 'Wireshark', level: 21 },
+        { name: 'GNS3', level: 23 },
+        { name: 'Nmap', level: 20 },
+        { name: 'Cisco IOS', level: 24 },
+        { name: 'Linux Networking', level: 25 }
       ]
     },
     {
@@ -125,7 +125,7 @@ const TouchOptimizedSkills = () => {
         { name: 'Postman', level: 15 },
         { name: 'Jest/Testing', level: 10 },
         { name: 'Figma', level: 12 },
-        { name: 'ANTLR', level: 18 },
+        { name: 'ANTLR', level: 11 },
         { name: 'Web3.js', level: 8 }
       ]
     }
@@ -201,19 +201,29 @@ const TouchOptimizedSkills = () => {
         >
           <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
-              {t('skills.title')} <span
-                className="text-cyan-600 dark:text-cyan-400 drop-shadow-2xl"
-                style={{
-                  textShadow: '0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
-                }}
-              >
-                {t('skills.subtitle')}
-              </span>
+              {isMobile ? t('skills.title_mobile') : t('skills.title')}
+              {/* On non-mobile show subtitle inline */}
+              {!isMobile && (
+                <span
+                  className="text-cyan-600 dark:text-cyan-400 drop-shadow-2xl"
+                  style={{
+                    textShadow: '0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1)'
+                  }}
+                >
+                  {t('skills.subtitle')}
+                </span>
+              )}
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
-              {t('skills.description')}
-            </p>
-            <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+
+            {/* Description only on non-mobile */}
+            {!isMobile && (
+              <>
+                <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
+                  {t('skills.description')}
+                </p>
+                <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+              </>
+            )}
           </motion.div>
 
           {/* Mobile Tab Navigation */}
@@ -274,7 +284,21 @@ const TouchOptimizedSkills = () => {
                 </div>
 
                 <div className="space-y-3 sm:space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
+                  {(
+                    // On mobile, remove the skill with the lowest level before rendering
+                    isMobile
+                      ? (() => {
+                        const skillsCopy = [...category.skills]
+                        // find index of min
+                        let minIdx = 0
+                        for (let i = 1; i < skillsCopy.length; i++) {
+                          if (skillsCopy[i].level < skillsCopy[minIdx].level) minIdx = i
+                        }
+                        skillsCopy.splice(minIdx, 1)
+                        return skillsCopy
+                      })()
+                      : category.skills
+                  ).map((skill, skillIndex) => (
                     <ProgressBar
                       key={skillIndex}
                       skill={skill}
@@ -298,7 +322,17 @@ const TouchOptimizedSkills = () => {
                     </div>
                     <div className="flex items-center space-x-2">
                       <span className="text-cyan-600 dark:text-cyan-300 font-mono">
-                        {Math.round(category.skills.reduce((acc, skill) => acc + skill.level, 0) / category.skills.length)}%
+                        {(() => {
+                          // compute average based on displayed skills (exclude lowest on mobile)
+                          const displayed = isMobile ? (() => {
+                            const s = [...category.skills]
+                            let minIdx = 0
+                            for (let i = 1; i < s.length; i++) if (s[i].level < s[minIdx].level) minIdx = i
+                            s.splice(minIdx, 1)
+                            return s
+                          })() : category.skills
+                          return Math.round(displayed.reduce((acc, skill) => acc + skill.level, 0) / displayed.length)
+                        })()}%
                       </span>
                       <Zap size={14} className="text-yellow-500 dark:text-yellow-400" />
                     </div>

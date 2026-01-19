@@ -41,8 +41,8 @@ const Footer = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
-          <div className="space-y-4">
+          {/* Brand Section - hide on small screens */}
+          <div className="space-y-4 hidden sm:block">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">CKB</span>
@@ -54,10 +54,10 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">{t('footer.quick_links')}</h3>
-            <div className="space-y-2">
+          {/* Quick Links - show 2x2 on mobile */}
+          <div>
+            <h3 className="text-lg font-semibold hidden sm:block">{t('footer.quick_links')}</h3>
+            <div className="grid grid-cols-2 gap-2">
               {[
                 { id: 'about', label: t('nav.about') },
                 { id: 'experience', label: t('nav.experience') },
@@ -72,7 +72,7 @@ const Footer = () => {
                       element.scrollIntoView({ behavior: 'smooth' })
                     }
                   }}
-                  className="block text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors duration-300"
+                  className="text-left text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors duration-300"
                   whileHover={{ x: 5 }}
                 >
                   {link.label}
@@ -81,8 +81,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-4">
+          {/* Contact Info - hide title and on small screens show only icons and remove 'Get in touch' title */}
+          <div className="space-y-4 hidden sm:block">
             <h3 className="text-lg font-semibold">{t('footer.get_in_touch')}</h3>
             <div className="space-y-2 text-gray-600 dark:text-gray-400">
               <p>kyereboatengcaleb@gmail.com</p>
