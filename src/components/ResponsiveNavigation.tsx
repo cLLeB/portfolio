@@ -21,7 +21,7 @@ const ResponsiveNavigation = () => {
   useEffect(() => {
     setMounted(true)
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+      setIsMobile(window.innerWidth < 1024)
     }
 
     checkMobile()
@@ -136,7 +136,7 @@ const ResponsiveNavigation = () => {
             </motion.button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
+            <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
               {navItems.map((item) => (
                 <motion.button
                   key={item.id}
@@ -190,7 +190,7 @@ const ResponsiveNavigation = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex items-center gap-2 md:hidden">
+            <div className="flex items-center gap-2 lg:hidden">
               <motion.button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 className="p-2 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
@@ -248,7 +248,7 @@ const ResponsiveNavigation = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 h-screen w-screen z-40 md:hidden"
+            className="fixed inset-0 h-screen w-screen z-40 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

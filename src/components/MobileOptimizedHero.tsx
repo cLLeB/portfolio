@@ -135,12 +135,7 @@ const MobileOptimizedHero = () => {
               {t('hero.hello')}{' '}
             </motion.span>
             <motion.span
-              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 text-3xl sm:text-5xl md:text-7xl block sm:inline font-bold"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-              }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-              style={{ backgroundSize: '200% 200%' }}
+              className="text-blue-600 dark:text-blue-400 text-3xl sm:text-5xl md:text-7xl block sm:inline font-bold"
             >
               Caleb Kwabena Kyere Boateng
             </motion.span>
