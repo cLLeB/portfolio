@@ -1,8 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Code, Network, Server, Smartphone, Cloud, Settings, TrendingUp, Zap } from 'lucide-react'
+import { Code, Network, Server, Smartphone, Cloud, Settings, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { useState, useEffect } from 'react'
 
@@ -13,28 +13,17 @@ const Skills = () => {
     threshold: 0.1
   })
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
-    }
-  }
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
 
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  }
+  // detect mobile for hiding the description
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const onResize = () => setIsMobile(typeof window !== 'undefined' && window.innerWidth < 768)
+    onResize()
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   const skillCategories = [
     {
@@ -106,14 +95,54 @@ const Skills = () => {
     }
   ]
 
-  // detect mobile for hiding the description
-  const [isMobile, setIsMobile] = useState(false)
-  useEffect(() => {
-    const onResize = () => setIsMobile(typeof window !== 'undefined' && window.innerWidth < 768)
-    onResize()
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
+  const maxIndex = skillCategories.length - 1
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 500 : -500,
+      opacity: 0,
+      scale: 0.95
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        x: { type: 'spring', stiffness: 300, damping: 30 },
+        opacity: { duration: 0.3 },
+        scale: { duration: 0.4 }
+      }
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 500 : -500,
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        x: { type: 'spring', stiffness: 300, damping: 30 },
+        opacity: { duration: 0.3 },
+        scale: { duration: 0.4 }
+      }
+    })
+  }
+
+  const navigate = (newDirection: number) => {
+    setDirection(newDirection)
+    const nextIndex = currentIndex + newDirection
+    if (nextIndex < 0) {
+      setCurrentIndex(maxIndex)
+    } else if (nextIndex > maxIndex) {
+      setCurrentIndex(0)
+    } else {
+      setCurrentIndex(nextIndex)
+    }
+  }
+
+  const paginate = (index: number) => {
+    setDirection(index > currentIndex ? 1 : -1)
+    setCurrentIndex(index)
+  }
 
   const ProgressBar = ({ skill, index }: { skill: { name: string; level: number }, index: number }) => {
     // Make animation duration dynamic per bar for a more lively effect
@@ -122,7 +151,7 @@ const Skills = () => {
       <motion.div
         className="mb-4"
         initial={{ opacity: 0, x: -20 }}
-        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ delay: index * 0.1, duration: 0.5 }}
       >
         <div className="flex justify-between items-center mb-2">
@@ -148,8 +177,8 @@ const Skills = () => {
           <motion.div
             className="absolute inset-0 h-full pointer-events-none"
             style={{ zIndex: 1 }}
-            animate={inView ? { x: ['-100%', '100%'] } : { x: '-100%' }}
-            transition={{ duration: flowDuration, repeat: inView ? Infinity : 0, ease: "linear" }}
+            animate={{ x: ['-100%', '100%'] }}
+            transition={{ duration: flowDuration, repeat: Infinity, ease: "linear" }}
           >
             <div className="w-full h-full bg-white/20 rounded-full" />
           </motion.div>
@@ -158,13 +187,15 @@ const Skills = () => {
             className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full"
             style={{ zIndex: 2, position: 'relative' }}
             initial={{ width: 0 }}
-            animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
+            animate={{ width: `${skill.level}%` }}
             transition={{ delay: index * 0.1 + 0.3, duration: 1, ease: "easeOut" }}
           />
         </div>
       </motion.div>
     )
   }
+
+  const currentCategory = skillCategories[currentIndex]
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
@@ -174,11 +205,14 @@ const Skills = () => {
       <motion.div
         ref={ref}
         className="container mx-auto px-6 relative z-10"
-        variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 relative z-20">
             {t('skills.title')} <span
               className="text-blue-600 dark:text-blue-400 drop-shadow-2xl"
@@ -194,68 +228,98 @@ const Skills = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={categoryIndex}
-              variants={itemVariants}
-              className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-cyan-500/30 hover:border-blue-500/50 hover:shadow-xl transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
-              style={{
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
-              }}
-              whileHover={{
-                boxShadow: '0 12px 40px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.1)'
-              }}
+        {/* Carousel Container */}
+        <div className="relative group max-w-3xl mx-auto px-4 md:px-0">
+          {/* Navigation Arrows */}
+          <div className="hidden lg:block absolute -left-20 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <motion.button
+              onClick={() => navigate(-1)}
+              className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
+              whileHover={{ scale: 1.1, x: -5 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
-                  <category.icon size={24} className="text-white" />
-                </div>
-                <h3
-                  className="text-xl font-bold text-gray-900 dark:text-white relative z-20"
-                  style={{
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
-                  }}
-                >
-                  {category.title}
-                </h3>
-              </div>
+              <ChevronLeft size={24} />
+            </motion.button>
+          </div>
 
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <ProgressBar key={skillIndex} skill={skill} index={skillIndex} />
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          <div className="hidden lg:block absolute -right-20 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <motion.button
+              onClick={() => navigate(1)}
+              className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
+              whileHover={{ scale: 1.1, x: 5 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronRight size={24} />
+            </motion.button>
+          </div>
+
+          {/* Carousel Content */}
+          <div className="min-h-[500px] flex items-center">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="w-full"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = Math.abs(offset.x) > 50 && Math.abs(velocity.x) > 500
+                  if (swipe) {
+                    navigate(offset.x > 0 ? -1 : 1)
+                  }
+                }}
+              >
+                <motion.div
+                  className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/30 shadow-xl transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
+                >
+                  <div className="flex items-center justify-center mb-8">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                      <currentCategory.icon size={32} className="text-white" />
+                    </div>
+                    <h3
+                      className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white relative z-20"
+                      style={{
+                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.1)'
+                      }}
+                    >
+                      {currentCategory.title}
+                    </h3>
+                  </div>
+
+                  <div className="space-y-6 max-w-2xl mx-auto">
+                    {currentCategory.skills.map((skill, skillIndex) => (
+                      <ProgressBar key={skillIndex} skill={skill} index={skillIndex} />
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Pagination Indicators */}
+          <div className="flex justify-center items-center space-x-2 sm:space-x-3 mt-10">
+            {skillCategories.map((_, i) => (
+              <motion.button
+                key={i}
+                onClick={() => paginate(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i
+                  ? 'w-10 bg-gradient-to-r from-blue-500 to-indigo-600'
+                  : 'w-2 bg-gray-300 dark:bg-white/20 hover:bg-gray-400 dark:hover:bg-white/40'
+                  }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              />
+            ))}
+          </div>
         </div>
 
-        <motion.div variants={itemVariants} className="mt-16">
-          <div className="bg-gradient-to-r from-blue-500/10 to-indigo-600/10 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
-            <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
-              {t('skills.additional_title')}
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {t('skills.competencies').map((competency: any, index: number) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  variants={itemVariants}
-                >
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white font-bold text-xl">{index + 1}</span>
-                  </div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-                    {competency.title}
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    {competency.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+
+
       </motion.div>
     </section>
   )

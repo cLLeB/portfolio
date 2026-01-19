@@ -59,7 +59,7 @@ const MobileOptimizedHero = () => {
         setIsTyping(false)
         setTimeout(() => {
           setIsTyping(true)
-          setCurrentRole((prev) => (prev + 1) % ROLES.length)
+          setCurrentRole((prev) => (prev + 1) % roles.length)
         }, 2000)
       }
     }
@@ -118,9 +118,9 @@ const MobileOptimizedHero = () => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-6 sm:mb-8"
+          className="mb-2 sm:mb-8"
         >
-          <motion.h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 min-h-[160px] sm:min-h-0 flex flex-col sm:block justify-center">
+          <motion.h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-2 sm:mb-6 min-h-[130px] sm:min-h-0 flex flex-col sm:block justify-center">
             <motion.span
               className="block text-gray-900 dark:text-white drop-shadow-2xl mb-2 sm:mb-0 sm:inline"
               animate={{
@@ -143,7 +143,7 @@ const MobileOptimizedHero = () => {
 
           {/* Mobile-Optimized Role Display */}
           <motion.div
-            className="text-lg sm:text-2xl md:text-3xl text-cyan-600 dark:text-cyan-300 mb-6 sm:mb-8 h-8 sm:h-12 flex items-center justify-center font-mono px-4"
+            className="text-lg sm:text-2xl md:text-3xl text-cyan-600 dark:text-cyan-300 mb-3 sm:mb-8 h-8 sm:h-12 flex items-center justify-center font-mono px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -186,7 +186,7 @@ const MobileOptimizedHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-200 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed drop-shadow-lg px-4"
+          className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-200 max-w-2xl mx-auto mb-4 sm:mb-12 leading-relaxed drop-shadow-lg px-4"
         >
           {t('hero.description')}
         </motion.p>
@@ -196,7 +196,7 @@ const MobileOptimizedHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 sm:mb-16 px-4"
+          className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6 sm:mb-16 px-4"
         >
           <motion.button
             onClick={() => scrollToSection('projects')}
@@ -242,7 +242,7 @@ const MobileOptimizedHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="flex justify-center space-x-4 sm:space-x-6 mb-12 sm:mb-16"
+          className="flex justify-center space-x-4 sm:space-x-6 mb-6 sm:mb-16"
         >
           {[
             { icon: Github, href: 'https://github.com/cLLeB', label: 'GitHub' },
@@ -269,7 +269,7 @@ const MobileOptimizedHero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-2 sm:bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.button
             onClick={() => scrollToSection('about')}

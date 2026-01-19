@@ -6,7 +6,11 @@ import { Server, Cloud, Brain, Layout, Globe, Code, ChevronLeft, ChevronRight } 
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 
-const InterestsCarousel = () => {
+interface InterestsCarouselProps {
+    embedded?: boolean
+}
+
+const InterestsCarousel = ({ embedded = false }: InterestsCarouselProps) => {
     const { t } = useLanguage()
     const [ref, inView] = useInView({
         triggerOnce: true,
@@ -111,49 +115,58 @@ const InterestsCarousel = () => {
     const currentInterest = interests[currentIndex]
 
     return (
-        <section className="py-20 bg-white dark:bg-black/95 relative overflow-hidden">
-            {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-cyan-900/5 to-indigo-900/5 dark:from-blue-900/10 dark:via-cyan-900/10 dark:to-indigo-900/10"></div>
+        <section className={`${embedded ? 'py-0' : 'py-20 bg-white dark:bg-black/95'} relative overflow-hidden`}>
+            {/* Background Effects - Only show if not embedded */}
+            {!embedded && (
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-cyan-900/5 to-indigo-900/5 dark:from-blue-900/10 dark:via-cyan-900/10 dark:to-indigo-900/10"></div>
+            )}
 
             <motion.div
                 ref={ref}
-                className="container mx-auto px-6 relative z-10"
+                className={`container mx-auto ${embedded ? 'px-0' : 'px-6'} relative z-10`}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
             >
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    className="text-center mb-12 sm:mb-16"
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
-                        {t('about.interests_title')}
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
-                </motion.div>
+                {!embedded && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-center mb-12 sm:mb-16"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
+                            {t('about.interests_title')}
+                        </h2>
+                        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
+                    </motion.div>
+                )}
 
 
                 <div className="relative group max-w-3xl mx-auto px-4 md:px-0">
+                    {/* Subtitle */}
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+                        {t('about.interests_title')}
+                    </h3>
+
                     {/* Navigation Arrows */}
-                    <div className="hidden lg:block absolute -left-20 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="hidden lg:block absolute -left-4 top-1/2 -translate-y-1/2 z-20">
                         <motion.button
                             onClick={() => navigate(-1)}
-                            className="p-4 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
+                            className="p-2 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
                             whileHover={{ scale: 1.1, x: -5 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <ChevronLeft size={28} />
+                            <ChevronLeft size={20} />
                         </motion.button>
                     </div>
 
-                    <div className="hidden lg:block absolute -right-20 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 z-20">
                         <motion.button
                             onClick={() => navigate(1)}
-                            className="p-4 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
+                            className="p-2 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
                             whileHover={{ scale: 1.1, x: 5 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <ChevronRight size={28} />
+                            <ChevronRight size={20} />
                         </motion.button>
                     </div>
 

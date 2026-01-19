@@ -71,7 +71,7 @@ const Experience = () => {
   }
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-black/40 relative overflow-hidden transition-colors duration-500">
+    <section id="experience" className="py-10 sm:py-20 bg-gray-50 dark:bg-black/40 relative overflow-hidden transition-colors duration-500">
       <motion.div
         ref={ref}
         className="container mx-auto px-6 relative z-10"
@@ -79,7 +79,7 @@ const Experience = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <motion.div variants={itemVariants} className="text-center mb-8 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             {t('experience.title')} <span className="text-blue-500">{t('experience.subtitle')}</span>
           </h2>
@@ -139,7 +139,7 @@ const Experience = () => {
           </div>
         ) : (
           <div className="overflow-x-hidden">
-            <div className="min-h-[320px] flex items-center">
+            <div className="min-h-[280px] flex items-center">
               <div
                 ref={scrollRef}
                 className="exp-snap-container flex gap-4 w-full overflow-x-auto touch-pan-x"
@@ -172,7 +172,7 @@ const Experience = () => {
                 }}
               >
                 {experiences.map((exp, index) => (
-                  <div key={index} className="min-w-[88%] bg-white dark:bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-white/10 shadow-lg overflow-hidden" style={{ scrollSnapAlign: 'center', flex: '0 0 88%' }}>
+                  <div key={index} className="min-w-[88%] bg-white dark:bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-gray-200 dark:border-white/10 shadow-lg overflow-hidden" style={{ scrollSnapAlign: 'center', flex: '0 0 88%' }}>
                     <div className="flex justify-center mb-3">
                       {exp.image ? (
                         <button

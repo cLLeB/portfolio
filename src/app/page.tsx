@@ -31,7 +31,7 @@ export default function Home() {
       <Certifications />
 
       <Projects />
-      <InterestsCarousel />
+
 
       <div id="skills">
 

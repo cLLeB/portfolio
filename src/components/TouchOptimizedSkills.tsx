@@ -187,7 +187,7 @@ const TouchOptimizedSkills = () => {
   }
 
   return (
-    <section className="py-12 sm:py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
+    <section className="py-8 sm:py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-indigo-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-indigo-900/20"></div>
 
@@ -199,7 +199,7 @@ const TouchOptimizedSkills = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-16">
+          <motion.div variants={itemVariants} className="text-center mb-6 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 relative z-20">
               {isMobile ? t('skills.title_mobile') : t('skills.title')}
               {/* On non-mobile show subtitle inline */}
@@ -225,7 +225,7 @@ const TouchOptimizedSkills = () => {
 
           {/* Mobile Tab Navigation */}
           {isMobile && (
-            <motion.div variants={itemVariants} className="mb-8">
+            <motion.div variants={itemVariants} className="mb-4">
               <div className="flex overflow-x-auto pb-4 space-x-2 scrollbar-hide">
                 {skillCategories.map((category, index) => (
                   <motion.button
@@ -247,7 +247,7 @@ const TouchOptimizedSkills = () => {
           )}
 
           {/* Skills Grid */}
-          <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-6 sm:gap-8`}>
+          <div className={`grid ${isMobile ? 'grid-cols-1 gap-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'}`}>
             {(isMobile ? [skillCategories[activeCategory]] : skillCategories).map((category, categoryIndex) => (
               <motion.div
                 key={isMobile ? `mobile-${activeCategory}` : categoryIndex}

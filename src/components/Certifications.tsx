@@ -86,7 +86,7 @@ const Certifications = () => {
   }
 
   return (
-    <section id="certifications" className="py-20 bg-gray-50 dark:bg-black/60 relative overflow-hidden">
+    <section id="certifications" className="py-10 sm:py-20 bg-gray-50 dark:bg-black/60 relative overflow-hidden">
       <motion.div
         ref={ref}
         className="container mx-auto px-6 relative z-10"
@@ -94,7 +94,7 @@ const Certifications = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <motion.div variants={itemVariants} className="text-center mb-8 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             {t('certifications.title')} <span className="text-blue-600 dark:text-blue-400">{t('certifications.subtitle')}</span>
           </h2>
@@ -146,7 +146,7 @@ const Certifications = () => {
           </div>
         ) : (
           <div className="overflow-x-hidden">
-            <div className="min-h-[360px] flex items-center">
+            <div className="min-h-[320px] flex items-center">
               {/* scroll-snap container - cards will center on swipe */}
               <div
                 ref={scrollRef}
@@ -183,7 +183,7 @@ const Certifications = () => {
                 {certifications.map((cert, index) => (
                   <div
                     key={index}
-                    className="min-w-[90%] bg-white dark:bg-white/5 backdrop-blur-sm rounded-3xl p-5 border border-gray-200 dark:border-white/10 shadow-lg overflow-hidden"
+                    className="min-w-[90%] bg-white dark:bg-white/5 backdrop-blur-sm rounded-3xl p-4 border border-gray-200 dark:border-white/10 shadow-lg overflow-hidden"
                     style={{ scrollSnapAlign: 'center', flex: '0 0 90%' }}
                   >
                     {/* Image on top center, then stacked text to reduce clutter */}
@@ -216,7 +216,7 @@ const Certifications = () => {
                 ))}
               </div>
             </div>
-            <div className="text-center mt-4 text-sm text-gray-500 dark:text-gray-400">Swipe left or right to view more</div>
+            <div className="text-center mt-4 text-sm text-gray-500 dark:text-gray-400">{t('certifications.swipe_hint')}</div>
           </div>
         )}
         <style jsx>{`

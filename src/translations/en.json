@@ -150,7 +150,8 @@
                 "focus": "Network Technician, Ethernet, IPv4/IPv6, Wireless, DNS/DHCP, Troubleshooting"
             }
         ],
-        "focus_label": "Focus:"
+        "focus_label": "Focus:",
+        "swipe_hint": "Swipe left or right to view more"
     },
     "projects": {
         "title": "Featured",
@@ -257,6 +258,8 @@
         "send_button": "Send Message",
         "sending": "Sending...",
         "whatsapp": "WhatsApp",
+        "copy_email": "Copy email address",
+        "whatsapp_title": "Contact via WhatsApp",
         "info": {
             "email": "Email",
             "call": "Call",
@@ -269,6 +272,7 @@
         "get_in_touch": "Get In Touch",
         "made_with": "Made with",
         "coffee": "and lots of coffee",
-        "back_to_top": "Back to Top"
+        "back_to_top": "Back to Top",
+        "all_rights_reserved": "All rights reserved."
     }
 }
