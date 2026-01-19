@@ -19,7 +19,7 @@
             "Résolveur de problèmes",
             "Passionné de technologie"
         ],
-        "description": "Passionné par la création de solutions innovantes grâce au code. Spécialisé dans le développement full-stack, les réseaux informatiques et la création d'applications centrées sur l'utilisateur qui font la différence.",
+        "description": "Passionné par les réseaux, la cybersécurité et les systèmes. Spécialisé dans la conception d'infrastructures sécurisées et la gestion d'environnements réseau robustes pour une performance et une sécurité optimales.",
         "view_work": "Voir mon travail",
         "download_resume": "Télécharger mon CV",
         "discover_more": "Découvrir plus",
@@ -33,14 +33,14 @@
         "journey_desc2": "Grâce à des projets pratiques et à un apprentissage continu, j'ai développé des compétences en conception d'applications sécurisées, en logique axée sur la sécurité et en systèmes de réseau. Je m'épanouis dans la résolution de problèmes difficiles qui repoussent les limites du possible et j'aime collaborer avec d'autres pour créer des solutions significatives.",
         "key_coursework": "Cours clés :",
         "courses": [
-            "Structures de données et algorithmes",
-            "Langages de programmation",
+            "Sécurité réseau",
             "Réseaux informatiques",
-            "Systèmes de bases de données",
-            "Génie logiciel",
+            "Cryptographie",
             "Systèmes d'exploitation",
-            "Conception de compilateurs",
-            "Mathématiques discrètes"
+            "Systèmes de bases de données",
+            "Structures de données et algorithmes",
+            "Protocoles de réseau",
+            "Administration Linux"
         ],
         "traits": [
             "Résolution de problèmes",
@@ -51,8 +51,8 @@
         "drives_title": "Ce qui me motive",
         "drives": [
             {
-                "title": "Créer des solutions innovantes",
-                "description": "J'aime construire des systèmes à partir de zéro, qu'il s'agisse de concevoir un interpréteur de langage de programmation ou de développer des applications blockchain."
+                "title": "Architecture de réseaux sécurisés",
+                "description": "J'aime concevoir et mettre en œuvre des infrastructures réseau sécurisées, en me concentrant sur la robustesse, l'évolutivité et les stratégies de défense en profondeur."
             },
             {
                 "title": "Apprentissage continu",
@@ -74,16 +74,8 @@
                 "description": "Exploration des réseaux, commutateurs, routeurs et infrastructures de câblage pour une connectivité robuste."
             },
             {
-                "title": "Langages de programmation",
-                "description": "Fasciné par la conception et l'implémentation de langages, de l'analyse lexicale au développement d'interpréteurs."
-            },
-            {
                 "title": "Réseaux et sécurité cloud",
                 "description": "Sécurisation des déploiements cloud et des flux de travail à distance grâce à des contrôles d'accès robustes et des protocoles de transfert de données sécurisés."
-            },
-            {
-                "title": "Technologies Web",
-                "description": "Rester à jour avec les frameworks modernes, les outils et les meilleures pratiques en développement web."
             },
             {
                 "title": "Conception d'algorithmes",
@@ -92,6 +84,14 @@
             {
                 "title": "Architecture logicielle",
                 "description": "Conception de systèmes évolutifs et maintenables avec des principes de code propre et des modèles de conception."
+            },
+            {
+                "title": "Technologies Web",
+                "description": "Rester à jour avec les frameworks modernes, les outils et les meilleures pratiques en développement web."
+            },
+            {
+                "title": "Langages de programmation",
+                "description": "Fasciné par la conception et l'implémentation de langages, de l'analyse lexicale au développement d'interpréteurs."
             }
         ]
     },
@@ -134,13 +134,13 @@
                 "issuer": "Institute of Management, Technology and Finance",
                 "date": "Délivré juil. 2025",
                 "focus": "Stratégie, développement de produits, recherche"
-                },
-                {
-                    "name": "Parcours de Technicien Réseau (Cisco Networking Academy)",
-                    "issuer": "Cisco Networking Academy",
-                    "date": "Délivré 16 janv. 2026",
-                    "focus": "Technicien Réseau, Ethernet, IPv4/IPv6, Sans fil, DNS/DHCP, Dépannage"
-                }
+            },
+            {
+                "name": "Parcours de Technicien Réseau (Cisco Networking Academy)",
+                "issuer": "Cisco Networking Academy",
+                "date": "Délivré 16 janv. 2026",
+                "focus": "Technicien Réseau, Ethernet, IPv4/IPv6, Sans fil, DNS/DHCP, Dépannage"
+            }
         ],
         "focus_label": "Focus :"
     },
@@ -152,18 +152,18 @@
         "key_features": "Fonctionnalités clés :",
         "items": [
             {
-                "title": "Interpréteur de langage personnalisé",
-                "shortTitle": "Interpréteur Lang",
-                "description": "Un interpréteur sophistiqué pour un langage de programmation personnalisé comprenant une analyse lexicale, une analyse syntaxique et une exécution. Prend en charge les variables, les fonctions, les structures de contrôle et les fonctionnalités linguistiques avancées avec une gestion complète des erreurs.",
-                "shortDesc": "Interpréteur de langage personnalisé avec capacités d'analyse avancées.",
+                "title": "Looply - Système de livraison de nourriture (CodeFest '25)",
+                "shortTitle": "Looply",
+                "description": "A obtenu la position de 1er dauphin au concours CodeFest 2025 organisé par le département d'informatique de KNUST. A servi de développeur frontend principal, construisant une application mobile complète de livraison de nourriture utilisant React Native et Bootstrap, inspirée par Hubtel, et a collaboré au sein d'une équipe pour livrer un prototype de produit fonctionnel.",
+                "shortDesc": "Application mobile de livraison de nourriture primée, construite avec React Native.",
                 "features": [
-                    "Analyse lexicale et syntaxique complète",
-                    "Génération d'arbre syntaxique abstrait",
-                    "Portée des variables et gestion de la mémoire",
-                    "Définitions de fonctions et récursivité",
-                    "Rapports d'erreurs complets"
+                    "Projet primé (1er dauphin)",
+                    "Interface complète de livraison de nourriture",
+                    "Suivi des commandes en temps réel",
+                    "Navigation conviviale",
+                    "Collaboration d'équipe et prototypage rapide"
                 ],
-                "category": "Langages de programmation"
+                "category": "Application mobile"
             },
             {
                 "title": "Chat éphémère",
@@ -181,32 +181,18 @@
                 "category": "Application temps réel"
             },
             {
-                "title": "URL Shortener Pro",
-                "shortTitle": "Raccourcisseur URL",
-                "description": "Service professionnel de raccourcissement d'URL avec des fonctionnalités d'entreprise, notamment des analyses, une limitation de débit, des domaines personnalisés et une authentification des utilisateurs. Construit avec une architecture de microservices pour l'évolutivité et la performance.",
-                "shortDesc": "Service de raccourcissement d'URL niveau entreprise avec analyses avancées.",
+                "title": "Interpréteur de langage personnalisé",
+                "shortTitle": "Interpréteur Lang",
+                "description": "Un interpréteur sophistiqué pour un langage de programmation personnalisé comprenant une analyse lexicale, une analyse syntaxique et une exécution. Prend en charge les variables, les fonctions, les structures de contrôle et les fonctionnalités linguistiques avancées avec une gestion complète des erreurs.",
+                "shortDesc": "Interpréteur de langage personnalisé avec capacités d'analyse avancées.",
                 "features": [
-                    "Support de domaine personnalisé",
-                    "Tableau de bord d'analyse avancé",
-                    "Limitation de débit et sécurité",
-                    "Authentification et gestion des utilisateurs",
-                    "Architecture de microservices"
+                    "Analyse lexicale et syntaxique complète",
+                    "Génération d'arbre syntaxique abstrait",
+                    "Portée des variables et gestion de la mémoire",
+                    "Définitions de fonctions et récursivité",
+                    "Rapports d'erreurs complets"
                 ],
-                "category": "Application Web"
-            },
-            {
-                "title": "Looply - Système de livraison de nourriture (CodeFest '25)",
-                "shortTitle": "Looply",
-                "description": "A obtenu la position de 1er dauphin au concours CodeFest 2025 organisé par le département d'informatique de KNUST. A servi de développeur frontend principal, construisant une application mobile complète de livraison de nourriture utilisant React Native et Bootstrap, inspirée par Hubtel, et a collaboré au sein d'une équipe pour livrer un prototype de produit fonctionnel.",
-                "shortDesc": "Application mobile de livraison de nourriture primée, construite avec React Native.",
-                "features": [
-                    "Projet primé (1er dauphin)",
-                    "Interface complète de livraison de nourriture",
-                    "Suivi des commandes en temps réel",
-                    "Navigation conviviale",
-                    "Collaboration d'équipe et prototypage rapide"
-                ],
-                "category": "Application mobile"
+                "category": "Langages de programmation"
             }
         ]
     },

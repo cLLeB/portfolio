@@ -40,36 +40,36 @@ const Skills = () => {
       title: t('skills.categories.programming'),
       icon: Code,
       skills: [
-        { name: 'JavaScript/TypeScript', level: 35 },
-        { name: 'Python', level: 31 },
-        { name: 'Java', level: 30 },
-        { name: 'C++', level: 35 },
-        { name: 'PHP', level: 28 },
-        { name: 'Solidity', level: 20 }
+        { name: 'JavaScript/TypeScript', level: 15 },
+        { name: 'Python', level: 18 },
+        { name: 'Java', level: 12 },
+        { name: 'C++', level: 14 },
+        { name: 'PHP', level: 10 },
+        { name: 'Solidity', level: 8 }
       ]
     },
     {
       title: t('skills.categories.frontend'),
       icon: Smartphone,
       skills: [
-        { name: 'React/Next.js', level: 45 },
-        { name: 'HTML5/CSS3', level: 40 },
-        { name: 'Tailwind CSS', level: 30 },
-        { name: 'Bootstrap', level: 20 },
-        { name: 'Framer Motion', level: 22 },
-        { name: 'React Native', level: 35 }
+        { name: 'React/Next.js', level: 16 },
+        { name: 'HTML5/CSS3', level: 20 },
+        { name: 'Tailwind CSS', level: 12 },
+        { name: 'Bootstrap', level: 10 },
+        { name: 'Framer Motion', level: 8 },
+        { name: 'React Native', level: 14 }
       ]
     },
     {
       title: t('skills.categories.backend'),
       icon: Server,
       skills: [
-        { name: 'Node.js/Express', level: 42 },
-        { name: 'RESTful APIs', level: 30 },
-        { name: 'FastAPI/Flask', level: 24 },
-        { name: 'GraphQL', level: 15 },
-        { name: 'Socket.io', level: 11 },
-        { name: 'JWT Authentication', level: 24 }
+        { name: 'Node.js/Express', level: 12 },
+        { name: 'RESTful APIs', level: 18 },
+        { name: 'FastAPI/Flask', level: 10 },
+        { name: 'GraphQL', level: 5 },
+        { name: 'Socket.io', level: 8 },
+        { name: 'JWT Authentication', level: 11 }
       ]
     },
     {
@@ -88,24 +88,24 @@ const Skills = () => {
       title: t('skills.categories.devops'),
       icon: Cloud,
       skills: [
-        { name: 'Git/GitHub', level: 45 },
-        { name: 'Docker', level: 35 },
-        { name: 'Linux', level: 48 },
-        { name: 'AWS Basics', level: 20 },
-        { name: 'CI/CD', level: 35 },
-        { name: 'Nginx', level: 25 }
+        { name: 'Git/GitHub', level: 20 },
+        { name: 'Docker', level: 15 },
+        { name: 'Linux', level: 22 },
+        { name: 'AWS Basics', level: 10 },
+        { name: 'CI/CD', level: 12 },
+        { name: 'Nginx', level: 14 }
       ]
     },
     {
       title: t('skills.categories.tools'),
       icon: Settings,
       skills: [
-        { name: 'VS Code', level: 55 },
-        { name: 'Postman', level: 32 },
-        { name: 'Jest/Testing', level: 22 },
-        { name: 'Figma', level: 48 },
-        { name: 'ANTLR', level: 23 },
-        { name: 'Web3.js', level: 15 }
+        { name: 'VS Code', level: 25 },
+        { name: 'Postman', level: 15 },
+        { name: 'Jest/Testing', level: 10 },
+        { name: 'Figma', level: 12 },
+        { name: 'ANTLR', level: 18 },
+        { name: 'Web3.js', level: 8 }
       ]
     }
   ]

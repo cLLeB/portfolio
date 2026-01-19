@@ -5,11 +5,10 @@ import { useInView } from "react-intersection-observer";
 import {
   Github,
   ExternalLink,
-  Globe,
-  Code,
   ChevronRight,
   MessageCircle,
   Smartphone,
+  Code
 } from "lucide-react";
 import Image from 'next/image';
 import { useState } from 'react';
@@ -51,13 +50,13 @@ const MobileProjectCards = () => {
 
   const projectConfig = [
     {
-      technologies: ["Python", "ANTLR", "AST", "Compiler Design"],
-      icon: Code,
-      href: "https://github.com/cLLeB/custom-lang-interpreter",
-      demo: "https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view",
-      color: "from-green-500 to-emerald-600",
-      bgColor: "bg-green-500/10",
-      image: '/awards/custom-lang.png'
+      technologies: ["React Native", "Bootstrap", "Mobile Development", "UI/UX"],
+      icon: Smartphone,
+      href: 'https://github.com/cLLeB/HubtelClone-Public',
+      demo: "https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view",
+      color: "from-orange-500 to-red-600",
+      bgColor: "bg-orange-500/10",
+      image: '/awards/award_pic.png'
     },
     {
       technologies: ["Node.js", "Socket.io", "React", "WebSockets", "MongoDB", "Express"],
@@ -69,27 +68,19 @@ const MobileProjectCards = () => {
       image: '/awards/chat.png'
     },
     {
-      technologies: ["Node.js", "React", "PostgreSQL", "Redis"],
-      icon: Globe,
-      href: "https://github.com/cLLeB/URL-shortening",
-      demo: null,
-      color: "from-blue-500 to-cyan-600",
-      bgColor: "bg-blue-500/10",
-    },
-    {
-      technologies: ["React Native", "Bootstrap", "Mobile Development", "UI/UX"],
-      icon: Smartphone,
-      href: 'https://github.com/cLLeB/HubtelClone-Public',
-      demo: "https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view",
-      color: "from-orange-500 to-red-600",
-      bgColor: "bg-orange-500/10",
-      image: '/awards/award_pic.png'
+      technologies: ["Python", "ANTLR", "AST", "Compiler Design"],
+      icon: Code,
+      href: "https://github.com/cLLeB/custom-lang-interpreter",
+      demo: "https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view",
+      color: "from-green-500 to-emerald-600",
+      bgColor: "bg-green-500/10",
+      image: '/awards/custom-lang.png'
     }
   ];
 
   const projects = (t('projects.items') as any[]).map((item, index) => ({
     ...item,
-    ...projectConfig[index]
+    ...(projectConfig[index] || {})
   }));
 
   return (
@@ -138,19 +129,16 @@ const MobileProjectCards = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-3 sm:space-x-4">
                     <motion.div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${project.color} rounded-lg flex items-center justify-center overflow-hidden cursor-pointer`}
+                      className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${project.color || 'from-blue-500 to-purple-600'} rounded-lg flex items-center justify-center overflow-hidden cursor-pointer`}
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                       onClick={() => {
-                        // @ts-ignore
                         if (project.image) {
-                          // @ts-ignore
                           setSelectedImage(project.image);
                           setSelectedAlt(project.title);
                         }
                       }}
                     >
-                      {/* @ts-ignore */}
                       {project.image ? (
                         <Image
                           src={project.image}
@@ -160,7 +148,7 @@ const MobileProjectCards = () => {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <project.icon size={20} className="text-white" />
+                        project.icon && <project.icon size={20} className="text-white" />
                       )}
                     </motion.div>
                     <div className="flex-1 min-w-0">
@@ -230,7 +218,7 @@ const MobileProjectCards = () => {
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.slice(0, 4).map((tech: string, techIndex: number) => (
+                  {project.technologies && project.technologies.slice(0, 4).map((tech: string, techIndex: number) => (
                     <motion.span
                       key={techIndex}
                       className="px-2 py-1 bg-blue-100 dark:bg-blue-500/20 text-blue-800 dark:text-blue-300 rounded-md text-xs font-medium border border-blue-200 dark:border-blue-500/30"
@@ -239,7 +227,7 @@ const MobileProjectCards = () => {
                       {tech}
                     </motion.span>
                   ))}
-                  {project.technologies.length > 4 && (
+                  {project.technologies && project.technologies.length > 4 && (
                     <span className="px-2 py-1 bg-gray-200 dark:bg-gray-500/20 text-gray-600 dark:text-gray-400 rounded-md text-xs">
                       +{project.technologies.length - 4}
                     </span>
@@ -249,7 +237,7 @@ const MobileProjectCards = () => {
 
               {/* Hover Gradient Overlay */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`}
+                className={`absolute inset-0 bg-gradient-to-r ${project.color || 'from-blue-500 to-purple-600'} opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`}
               />
             </motion.div>
           ))}

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Code, Database, Server, Smartphone, Globe, Brain, Cloud } from 'lucide-react'
+import { Code, Server, Brain, Cloud, Shield, Layout, Globe } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
 const About = () => {
@@ -42,27 +42,27 @@ const About = () => {
       description: t('about.interests.0.description')
     },
     {
-      icon: Code,
+      icon: Cloud,
       title: t('about.interests.1.title'),
       description: t('about.interests.1.description')
     },
     {
-      icon: Cloud,
+      icon: Brain,
       title: t('about.interests.2.title'),
       description: t('about.interests.2.description')
     },
     {
-      icon: Globe,
+      icon: Layout,
       title: t('about.interests.3.title'),
       description: t('about.interests.3.description')
     },
     {
-      icon: Brain,
+      icon: Globe,
       title: t('about.interests.4.title'),
       description: t('about.interests.4.description')
     },
     {
-      icon: Smartphone,
+      icon: Code,
       title: t('about.interests.5.title'),
       description: t('about.interests.5.description')
     }
@@ -104,7 +104,7 @@ const About = () => {
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-800 dark:text-white mb-3">{t('about.key_coursework')}</h4>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {t('about.courses').map((course: string) => (
+                    {Array.isArray(t('about.courses')) && t('about.courses').map((course: string) => (
                       <span
                         key={course}
                         className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-medium"
@@ -116,7 +116,7 @@ const About = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  {t('about.traits').map((trait: string) => (
+                  {Array.isArray(t('about.traits')) && t('about.traits').map((trait: string) => (
                     <span
                       key={trait}
                       className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium"
@@ -134,7 +134,7 @@ const About = () => {
               {t('about.drives_title')}
             </h3>
             <div className="space-y-6">
-              {t('about.drives').map((item: any, index: number) => (
+              {Array.isArray(t('about.drives')) && t('about.drives').map((item: any, index: number) => (
                 <motion.div
                   key={index}
                   className="flex items-start space-x-4"

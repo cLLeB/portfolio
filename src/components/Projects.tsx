@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Github, ExternalLink, Server, Database, Smartphone, Globe2, Code, Shield, MessageCircle } from 'lucide-react'
+import { Github, ExternalLink, Smartphone, Code, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import ImageModal from './ui/ImageModal'
@@ -45,13 +45,13 @@ const Projects = () => {
     {
       title: t('projects.items.0.title'),
       description: t('projects.items.0.description'),
-      technologies: ['Python', 'ANTLR', 'AST', 'Compiler Design', 'Language Theory'],
+      technologies: ['React Native', 'Bootstrap', 'Mobile Development', 'UI/UX'],
       features: t('projects.items.0.features'),
-      icon: Code,
-      github: 'https://github.com/cLLeB/custom-lang-interpreter',
-      demo: 'https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view',
+      icon: Smartphone,
+      github: 'https://github.com/cLLeB/HubtelClone-Public',
+      demo: 'https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view',
       category: t('projects.items.0.category'),
-      image: '/awards/custom-lang.png'
+      image: '/awards/award_pic.png'
     },
     {
       title: t('projects.items.1.title'),
@@ -67,23 +67,13 @@ const Projects = () => {
     {
       title: t('projects.items.2.title'),
       description: t('projects.items.2.description'),
-      technologies: ['Node.js', 'React', 'PostgreSQL', 'Redis', 'Docker', 'Nginx'],
+      technologies: ['Python', 'ANTLR', 'AST', 'Compiler Design', 'Language Theory'],
       features: t('projects.items.2.features'),
-      icon: Globe2,
-      github: 'https://github.com/cLLeB/URL-shortening',
-      demo: null,
-      category: t('projects.items.2.category')
-    },
-    {
-      title: t('projects.items.3.title'),
-      description: t('projects.items.3.description'),
-      technologies: ['React Native', 'Bootstrap', 'Mobile Development', 'UI/UX'],
-      features: t('projects.items.3.features'),
-      icon: Smartphone,
-      github: 'https://github.com/cLLeB/HubtelClone-Public',
-      demo: 'https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view',
-      category: t('projects.items.3.category'),
-      image: '/awards/award_pic.png'
+      icon: Code,
+      github: 'https://github.com/cLLeB/custom-lang-interpreter',
+      demo: 'https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view',
+      category: t('projects.items.2.category'),
+      image: '/awards/custom-lang.png'
     }
   ]
 
@@ -148,7 +138,7 @@ const Projects = () => {
                       </div>
                     ) : (
                       <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <project.icon size={24} className="text-white" />
+                        {project.icon && <project.icon size={24} className="text-white" />}
                       </div>
                     )}
                     <div>
@@ -198,7 +188,7 @@ const Projects = () => {
                 <div className="mb-6">
                   <h4 className="text-sm font-semibold text-gray-800 dark:text-white mb-3">{t('projects.key_features')}</h4>
                   <ul className="space-y-2">
-                    {project.features.slice(0, 3).map((feature: string, featureIndex: number) => (
+                    {Array.isArray(project.features) && project.features.slice(0, 3).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
                         <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 flex-shrink-0"></div>
                         {feature}
@@ -208,7 +198,7 @@ const Projects = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
+                  {project.technologies && project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
                       className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-xs font-medium"
