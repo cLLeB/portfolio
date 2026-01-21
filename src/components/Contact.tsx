@@ -118,7 +118,7 @@ const Contact = () => {
     {
       icon: Linkedin,
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/yourprofile',
+      href: 'https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4',
       color: 'hover:text-blue-600'
     },
     {

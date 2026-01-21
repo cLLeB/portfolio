@@ -20,7 +20,7 @@ const Footer = () => {
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/in/yourprofile',
+      href: 'https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4',
       label: 'LinkedIn'
     },
     {
@@ -30,7 +30,7 @@ const Footer = () => {
     },
     {
       icon: Phone,
-      href: 'tel:+233204185163',
+      href: 'tel:+233537270382',
       label: 'Phone'
     },
     {
