@@ -130,7 +130,7 @@ const Contact = () => {
     {
       icon: Phone,
       name: 'Phone',
-      href: 'tel:+233204185163',
+      href: 'tel:+233537270382',
       color: 'hover:text-indigo-600'
     },
     {
