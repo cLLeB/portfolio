@@ -1,3 +1,5 @@
+'use client'
+
 import { ThemeProvider, useTheme } from 'next-themes'
 import { LanguageProvider } from '@/context/LanguageContext'
 import { useEffect } from 'react'
