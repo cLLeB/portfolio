@@ -67,7 +67,7 @@ const MobileOptimizedHero = () => {
     setDisplayText('')
     setIsTyping(true)
     setTimeout(typeText, 500)
-  }, [currentRole])
+  }, [currentRole, t])
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)

@@ -21,6 +21,7 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
     const [visible, setVisible] = useState(false)
     const [imageLoaded, setImageLoaded] = useState(false)
     const scrollPositionRef = useRef(0)
+    const scrollBehaviorRef = useRef('')
 
     // Client-side mount check for portal
     useEffect(() => {
@@ -29,17 +30,43 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
 
     // Handle open/close with scroll lock
     useEffect(() => {
-        if (isOpen) {
-            // Save scroll position
-            scrollPositionRef.current = window.scrollY
-
-            // Lock the page - multiple methods for cross-browser compatibility
+        const restoreScroll = (savedPosition: number) => {
             const html = document.documentElement
             const body = document.body
 
-            // Prevent scrolling
+            body.style.position = ''
+            body.style.top = ''
+            body.style.left = ''
+            body.style.right = ''
+            body.style.width = ''
+            body.style.height = ''
+            body.style.overflow = ''
+            html.style.overflow = ''
+            html.style.height = ''
+
+            if (scrollBehaviorRef.current !== '') {
+                html.style.scrollBehavior = scrollBehaviorRef.current
+            } else {
+                html.style.scrollBehavior = ''
+            }
+
+            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            requestAnimationFrame(() => {
+                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            })
+        }
+
+        if (isOpen) {
+            scrollPositionRef.current = window.scrollY
+            scrollBehaviorRef.current = document.documentElement.style.scrollBehavior
+
+            const html = document.documentElement
+            const body = document.body
+
+            html.style.scrollBehavior = 'auto'
             html.style.overflow = 'hidden'
             html.style.height = '100%'
+
             body.style.overflow = 'hidden'
             body.style.position = 'fixed'
             body.style.top = `-${scrollPositionRef.current}px`
@@ -51,45 +78,15 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
             setVisible(true)
             setImageLoaded(false)
         } else {
-            // CRITICAL: Restore scroll position FIRST, before removing styles
             const savedPosition = scrollPositionRef.current
+            restoreScroll(savedPosition)
 
-            // Restore scrolling styles
-            const html = document.documentElement
-            const body = document.body
-
-            // Clear body position first
-            body.style.position = ''
-            body.style.top = ''
-            body.style.left = ''
-            body.style.right = ''
-            body.style.width = ''
-            body.style.height = ''
-            body.style.overflow = ''
-            html.style.overflow = ''
-            html.style.height = ''
-
-            // Immediately restore scroll position (no animation)
-            window.scrollTo({ top: savedPosition, left: 0, behavior: 'instant' })
-
-            // Delay hiding for exit animation
             const timer = setTimeout(() => setVisible(false), 200)
             return () => clearTimeout(timer)
         }
 
-        // Cleanup on unmount
         return () => {
-            const html = document.documentElement
-            const body = document.body
-            html.style.overflow = ''
-            html.style.height = ''
-            body.style.overflow = ''
-            body.style.position = ''
-            body.style.top = ''
-            body.style.left = ''
-            body.style.right = ''
-            body.style.width = ''
-            body.style.height = ''
+            restoreScroll(scrollPositionRef.current)
         }
     }, [isOpen])
 

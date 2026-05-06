@@ -21,6 +21,7 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt }: ImageModalProps) => {
     const [visible, setVisible] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const scrollY = useRef(0)
+    const scrollBehavior = useRef('')
 
     // Client-side mount and mobile detection
     useEffect(() => {
@@ -33,35 +34,51 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt }: ImageModalProps) => {
 
     // Handle visibility with animation delay
     useEffect(() => {
+        const restoreScroll = (savedPosition: number) => {
+            const html = document.documentElement
+            const body = document.body
+
+            body.style.position = ''
+            body.style.top = ''
+            body.style.width = ''
+            body.style.overflow = ''
+            html.style.overflow = ''
+
+            if (scrollBehavior.current !== '') {
+                html.style.scrollBehavior = scrollBehavior.current
+            } else {
+                html.style.scrollBehavior = ''
+            }
+
+            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            requestAnimationFrame(() => {
+                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            })
+        }
+
         if (isOpen) {
             setVisible(true)
             setLoaded(false)
             scrollY.current = window.scrollY
+            scrollBehavior.current = document.documentElement.style.scrollBehavior
+
+            const html = document.documentElement
+            html.style.scrollBehavior = 'auto'
+            html.style.overflow = 'hidden'
+
             document.body.style.overflow = 'hidden'
             document.body.style.position = 'fixed'
             document.body.style.top = `-${scrollY.current}px`
             document.body.style.width = '100%'
         } else {
-            // CRITICAL: Save position before clearing styles
             const savedPosition = scrollY.current
-
-            // Clear styles
-            document.body.style.position = ''
-            document.body.style.top = ''
-            document.body.style.width = ''
-            document.body.style.overflow = ''
-
-            // Restore scroll instantly (no animation)
-            window.scrollTo({ top: savedPosition, left: 0, behavior: 'instant' })
+            restoreScroll(savedPosition)
 
             const timer = setTimeout(() => setVisible(false), 200)
             return () => clearTimeout(timer)
         }
         return () => {
-            document.body.style.overflow = ''
-            document.body.style.position = ''
-            document.body.style.top = ''
-            document.body.style.width = ''
+            restoreScroll(scrollY.current)
         }
     }, [isOpen])
 
