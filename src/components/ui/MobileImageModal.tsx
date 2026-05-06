@@ -30,6 +30,19 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
 
     // Handle open/close with scroll lock
     useEffect(() => {
+        const forceRestoreScroll = (savedPosition: number) => {
+            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            requestAnimationFrame(() => {
+                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            })
+            setTimeout(() => {
+                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            }, 50)
+            setTimeout(() => {
+                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            }, 200)
+        }
+
         const restoreScroll = (savedPosition: number) => {
             const html = document.documentElement
             const body = document.body
@@ -50,14 +63,11 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
                 html.style.scrollBehavior = ''
             }
 
-            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
-            requestAnimationFrame(() => {
-                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
-            })
+            forceRestoreScroll(savedPosition)
         }
 
         if (isOpen) {
-            scrollPositionRef.current = window.scrollY
+            scrollPositionRef.current = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0
             scrollBehaviorRef.current = document.documentElement.style.scrollBehavior
 
             const html = document.documentElement
