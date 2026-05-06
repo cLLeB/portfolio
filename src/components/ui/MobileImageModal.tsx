@@ -30,22 +30,12 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
 
     // Handle open/close with scroll lock
     useEffect(() => {
-        const forceRestoreScroll = (savedPosition: number) => {
-            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
-            requestAnimationFrame(() => {
-                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
-            })
-            setTimeout(() => {
-                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
-            }, 50)
-            setTimeout(() => {
-                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
-            }, 200)
-        }
-
         const restoreScroll = (savedPosition: number) => {
             const html = document.documentElement
             const body = document.body
+
+            html.style.scrollBehavior = 'auto'
+            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
 
             body.style.position = ''
             body.style.top = ''
@@ -63,7 +53,9 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
                 html.style.scrollBehavior = ''
             }
 
-            forceRestoreScroll(savedPosition)
+            requestAnimationFrame(() => {
+                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            })
         }
 
         if (isOpen) {
@@ -184,7 +176,7 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
                 className="mobile-image-modal-overlay"
                 onClick={onClose}
                 style={{
-                    opacity: isOpen ? 1 : 0,
+                    opacity: visible ? 1 : 0,
                     transition: 'opacity 0.2s ease-out',
                 }}
             >

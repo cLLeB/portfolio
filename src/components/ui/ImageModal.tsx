@@ -49,7 +49,7 @@ const ImageModal = ({ isOpen, onClose, imageSrc, alt }: ImageModalProps) => {
             document.body.style.width = ''
             document.body.style.overflow = ''
 
-            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+            window.scrollTo({ top: savedPosition, left: 0, behavior: 'instant' })
 
             const timer = setTimeout(() => setVisible(false), 200)
             return () => clearTimeout(timer)
