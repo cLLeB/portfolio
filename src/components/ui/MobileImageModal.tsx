@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
+import { useMobileScrollLock } from '../../hooks/useMobileScrollLock'
 
 interface MobileImageModalProps {
     isOpen: boolean
@@ -20,8 +21,8 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
     const [mounted, setMounted] = useState(false)
     const [visible, setVisible] = useState(false)
     const [imageLoaded, setImageLoaded] = useState(false)
-    const scrollPositionRef = useRef(0)
-    const scrollBehaviorRef = useRef('')
+
+    useMobileScrollLock(visible)
 
     // Client-side mount check for portal
     useEffect(() => {
@@ -30,77 +31,12 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
 
     // Handle open/close with scroll lock
     useEffect(() => {
-        const restoreScroll = (savedPosition: number) => {
-            const html = document.documentElement
-            const body = document.body
-
-            // Prevent visible jump by offsetting page visually using transform
-            // while we remove fixed positioning. This keeps the viewport stationary
-            // and then we restore the real scroll position and clear the transform.
-            html.style.scrollBehavior = 'auto'
-
-            // Apply transform to visually keep content in place when we remove fixed positioning
-            body.style.transform = `translateY(${savedPosition}px)`
-            body.style.willChange = 'transform'
-
-            // Clear locking styles
-            body.style.position = ''
-            body.style.top = ''
-            body.style.left = ''
-            body.style.right = ''
-            body.style.width = ''
-            body.style.height = ''
-            body.style.overflow = ''
-            html.style.overflow = ''
-            html.style.height = ''
-
-            // Force the document scroll to the saved position (no-smooth)
-            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
-
-            // Next frame: remove the visual transform so the page stays exactly where it should be
-            requestAnimationFrame(() => {
-                body.style.transform = ''
-                body.style.willChange = ''
-
-                if (scrollBehaviorRef.current !== '') {
-                    html.style.scrollBehavior = scrollBehaviorRef.current
-                } else {
-                    html.style.scrollBehavior = ''
-                }
-            })
-        }
-
         if (isOpen) {
-            scrollPositionRef.current = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0
-            scrollBehaviorRef.current = document.documentElement.style.scrollBehavior
-
-            const html = document.documentElement
-            const body = document.body
-
-            html.style.scrollBehavior = 'auto'
-            html.style.overflow = 'hidden'
-            html.style.height = '100%'
-
-            body.style.overflow = 'hidden'
-            body.style.position = 'fixed'
-            body.style.top = `-${scrollPositionRef.current}px`
-            body.style.left = '0'
-            body.style.right = '0'
-            body.style.width = '100%'
-            body.style.height = '100%'
-
             setVisible(true)
             setImageLoaded(false)
         } else {
-            const savedPosition = scrollPositionRef.current
-            restoreScroll(savedPosition)
-
             const timer = setTimeout(() => setVisible(false), 200)
             return () => clearTimeout(timer)
-        }
-
-        return () => {
-            restoreScroll(scrollPositionRef.current)
         }
     }, [isOpen])
 
@@ -138,8 +74,7 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
           background-color: rgba(0, 0, 0, 0.97) !important;
           padding: 16px !important;
           box-sizing: border-box !important;
-          touch-action: none !important;
-          -webkit-overflow-scrolling: none !important;
+          touch-action: manipulation !important;
           overscroll-behavior: none !important;
         }
         .mobile-image-modal-close {
