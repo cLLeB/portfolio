@@ -19,6 +19,7 @@ interface MobileImageModalProps {
  */
 const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalProps) => {
     const [mounted, setMounted] = useState(false)
+    const [shouldRender, setShouldRender] = useState(false)
     const [visible, setVisible] = useState(false)
     const [imageLoaded, setImageLoaded] = useState(false)
 
@@ -32,10 +33,12 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
     // Handle open/close with scroll lock
     useEffect(() => {
         if (isOpen) {
+            setShouldRender(true)
             setVisible(true)
             setImageLoaded(false)
         } else {
-            const timer = setTimeout(() => setVisible(false), 200)
+            setVisible(false)
+            const timer = setTimeout(() => setShouldRender(false), 250)
             return () => clearTimeout(timer)
         }
     }, [isOpen])
@@ -52,7 +55,7 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
     }, [isOpen, onClose])
 
     // Don't render until mounted or if not visible
-    if (!mounted || !visible || !imageSrc) return null
+    if (!mounted || !shouldRender || !imageSrc) return null
 
     const modalContent = (
         <>
@@ -74,7 +77,6 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
           background-color: rgba(0, 0, 0, 0.97) !important;
           padding: 16px !important;
           box-sizing: border-box !important;
-          touch-action: manipulation !important;
           overscroll-behavior: none !important;
         }
         .mobile-image-modal-close {
