@@ -34,9 +34,16 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
             const html = document.documentElement
             const body = document.body
 
+            // Prevent visible jump by offsetting page visually using transform
+            // while we remove fixed positioning. This keeps the viewport stationary
+            // and then we restore the real scroll position and clear the transform.
             html.style.scrollBehavior = 'auto'
-            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
 
+            // Apply transform to visually keep content in place when we remove fixed positioning
+            body.style.transform = `translateY(${savedPosition}px)`
+            body.style.willChange = 'transform'
+
+            // Clear locking styles
             body.style.position = ''
             body.style.top = ''
             body.style.left = ''
@@ -47,14 +54,19 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
             html.style.overflow = ''
             html.style.height = ''
 
-            if (scrollBehaviorRef.current !== '') {
-                html.style.scrollBehavior = scrollBehaviorRef.current
-            } else {
-                html.style.scrollBehavior = ''
-            }
+            // Force the document scroll to the saved position (no-smooth)
+            window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
 
+            // Next frame: remove the visual transform so the page stays exactly where it should be
             requestAnimationFrame(() => {
-                window.scrollTo({ top: savedPosition, left: 0, behavior: 'auto' })
+                body.style.transform = ''
+                body.style.willChange = ''
+
+                if (scrollBehaviorRef.current !== '') {
+                    html.style.scrollBehavior = scrollBehaviorRef.current
+                } else {
+                    html.style.scrollBehavior = ''
+                }
             })
         }
 
