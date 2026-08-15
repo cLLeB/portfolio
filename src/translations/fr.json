@@ -14,12 +14,11 @@
         "hello": "Bonjour, je suis",
         "roles": [
             "Étudiant en informatique",
-            "Ingénieur réseau",
-            "Professionnel de la sécurité",
-            "Résolveur de problèmes",
-            "Passionné de technologie"
+            "Sécurité réseau",
+            "Programmeur système",
+            "Rust & TypeScript"
         ],
-        "description": "Passionné par les réseaux, la cybersécurité et les systèmes. Spécialisé dans la conception d'infrastructures sécurisées et la gestion d'environnements réseau robustes pour une performance et une sécurité optimales.",
+        "description": "Étudiant en informatique à KNUST. J'analyse le trafic réseau avec Wireshark et Nmap, et je construis des outils hors ligne en Rust et TypeScript — une boîte à outils de stéganographie, un terminal pour développeurs, et un firmware qui coupe le secteur quand la batterie est pleine.",
         "view_work": "Voir mon travail",
         "download_resume": "Télécharger mon CV",
         "discover_more": "Découvrir plus",
@@ -29,10 +28,10 @@
         "title": "À propos de",
         "me": "Moi",
         "journey_title": "Parcours en informatique",
-        "journey_desc1": "Je suis un étudiant dévoué en informatique à l'Université des sciences et technologies Kwame Nkrumah (KNUST), passionné par la conception et la sécurisation de systèmes en réseau robustes. Mon parcours technologique est motivé par la curiosité et le désir de comprendre le fonctionnement des systèmes complexes, de la conception de langages de programmation aux systèmes de réseau.",
-        "journey_desc1_mobile": "Étudiant en informatique à KNUST, axé sur les réseaux, la sécurité et la conception de systèmes.",
-        "journey_desc2": "Grâce à des projets pratiques et à un apprentissage continu, j'ai développé des compétences en conception d'applications sécurisées, en logique axée sur la sécurité et en systèmes de réseau. Je m'épanouis dans la résolution de problèmes difficiles qui repoussent les limites du possible et j'aime collaborer avec d'autres pour créer des solutions significatives.",
-        "journey_desc2_mobile": "Je crée des solutions sécurisées et maintenables, en apprenant par la pratique projets, recherche et collaboration.",
+        "journey_desc1": "J'étudie l'informatique à l'Université des sciences et technologies Kwame Nkrumah (KNUST). Pendant mon stage à la Division de la sécurité de l'information et de l'assurance technologique de l'université, j'ai analysé le trafic du portail étudiant dans Wireshark pour détecter des anomalies, lancé des scans Nmap pour la découverte d'hôtes, et rédigé nos conclusions. C'est là que la sécurité vue en cours est devenue quelque chose que je pouvais vérifier moi-même.",
+        "journey_desc1_mobile": "Étudiant en informatique à KNUST. Analyse du trafic du portail étudiant avec Wireshark et scans Nmap lors d'un stage en sécurité.",
+        "journey_desc2": "J'ai surtout appris en livrant. J'écris en Rust quand un programme doit être petit et correct — un cœur de chiffrement, un interpréteur, un firmware sur Arduino Uno — et en TypeScript quand il doit toucher des gens. Plusieurs de mes projets fonctionnent entièrement hors ligne par conception : pas de serveur, pas de télémétrie, rien à divulguer.",
+        "journey_desc2_mobile": "Rust quand la justesse compte, TypeScript quand la portée compte. Plusieurs projets fonctionnent hors ligne par conception.",
         "key_coursework": "Cours clés :",
         "courses": [
             "Sécurité réseau",
@@ -45,59 +44,59 @@
             "Administration Linux"
         ],
         "traits": [
-            "Résolution de problèmes",
-            "Collaboration d'équipe",
-            "Apprentissage continu",
-            "Innovation"
+            "Analyse de trafic",
+            "Rust",
+            "Conception hors ligne",
+            "Cryptographie appliquée"
         ],
-        "drives_title": "Ce qui me motive",
+        "drives_title": "Ce sur quoi je travaille",
         "drives": [
             {
-                "title": "Architecture de réseaux sécurisés",
-                "description": "J'aime concevoir et mettre en œuvre des infrastructures réseau sécurisées, en me concentrant sur la robustesse, l'évolutivité et les stratégies de défense en profondeur.",
-                "description_mobile": "Conception de réseaux sécurisés et évolutifs."
+                "title": "Des logiciels qui marchent hors ligne",
+                "description": "Stegno et l'application biblique fonctionnent sans serveur et sans le moindre appel réseau. Quand un outil manipule quelque chose de privé, l'architecture la plus sûre est celle où les données ne quittent jamais l'appareil : rien à compromettre, rien à réquisitionner.",
+                "description_mobile": "Des outils sans serveur ni appel réseau — rien ne quitte l'appareil."
             },
             {
-                "title": "Apprentissage continu",
-                "description": "La technologie évolue rapidement et je m'engage à rester à jour avec les nouveaux frameworks, langages et méthodologies de développement.",
-                "description_mobile": "Toujours en train d'apprendre de nouveaux outils et langages."
+                "title": "Un seul cœur, plusieurs interfaces",
+                "description": "Le chiffrement de Stegno vit dans une seule caisse Rust. L'application de bureau Tauri et l'application Android native l'appellent toutes deux via UniFFI : la cryptographie est écrite et auditée une fois, au lieu d'être réimplémentée par plateforme.",
+                "description_mobile": "La crypto de Stegno tient dans une caisse Rust ; bureau et Android l'appellent via UniFFI."
             },
             {
-                "title": "Esprit de résolution de problèmes",
-                "description": "Je m'épanouis en décomposant des défis complexes en composants gérables et en trouvant des solutions créatives et efficaces.",
-                "description_mobile": "Décomposer les problèmes en solutions simples et pratiques."
+                "title": "Lire ce qui circule vraiment",
+                "description": "Une capture de paquets tranche les débats. Mon stage a surtout consisté à utiliser Wireshark et Nmap sur un portail étudiant en production, et je détiens la CNSP ainsi que le parcours Cisco Network Technician (IPv4/IPv6, DNS/DHCP, sans-fil, dépannage).",
+                "description_mobile": "Wireshark et Nmap sur un portail en production, plus la CNSP et le parcours Cisco."
             },
             {
-                "title": "Recherche d'opportunités de croissance",
-                "description": "Je recherche activement des opportunités de stage où je peux contribuer à des projets significatifs tout en élargissant mon expertise technique.",
-                "description_mobile": "Recherche de stages pour évoluer et contribuer."
+                "title": "Terminer les choses",
+                "description": "La prise intelligente fonctionne sur du 230 V réel, avec 123 tests sur 123 qui passent, dans 41 % de la flash de l'Uno. Gear est distribué sur l'Arch User Repository et le Microsoft Store. Livré et contraint vaut mieux qu'astucieux et inachevé.",
+                "description_mobile": "Prise sur 230 V réel, 123/123 tests. Gear distribué sur l'AUR et le Microsoft Store."
             }
         ],
         "interests_title": "Domaines d'intérêt",
         "interests": [
             {
                 "title": "Réseaux informatiques",
-                "description": "Exploration des réseaux, commutateurs, routeurs et infrastructures de câblage pour une connectivité robuste."
+                "description": "Commutateurs, routeurs, adressage IPv4/IPv6, DNS et DHCP — et lire la capture quand le schéma et la réalité divergent."
             },
             {
-                "title": "Réseaux et sécurité cloud",
-                "description": "Sécurisation des déploiements cloud et des flux de travail à distance grâce à des contrôles d'accès robustes et des protocoles de transfert de données sécurisés."
+                "title": "Cryptographie appliquée",
+                "description": "Argon2id pour la dérivation de clé et AES-256-GCM pour la charge utile, chiffrée côté client pour que le serveur ne détienne que du chiffré."
             },
             {
-                "title": "Conception d'algorithmes",
-                "description": "Développement d'algorithmes et de structures de données efficaces pour résoudre des problèmes informatiques complexes."
+                "title": "Stéganographie",
+                "description": "LSB et PVD dans les images, ondelettes de Haar entières, méthodes DCT JPEG dont F5 et OutGuess, caractères de largeur nulle dans le texte, et LSB dans l'audio WAV."
             },
             {
-                "title": "Architecture logicielle",
-                "description": "Conception de systèmes évolutifs et maintenables avec des principes de code propre et des modèles de conception."
+                "title": "Systèmes embarqués",
+                "description": "Firmware Arduino en C++ sous contraintes réelles : détecter la fin de charge, commuter un relais sur 230 V, et tenir dans 32 Ko de flash."
             },
             {
-                "title": "Technologies Web",
-                "description": "Rester à jour avec les frameworks modernes, les outils et les meilleures pratiques en développement web."
+                "title": "Applications de bureau",
+                "description": "Tauri 2 avec un backend Rust et une interface React — binaires légers, performances natives, sans embarquer un moteur de navigateur par application."
             },
             {
-                "title": "Langages de programmation",
-                "description": "Fasciné par la conception et l'implémentation de langages, de l'analyse lexicale au développement d'interpréteurs."
+                "title": "Implémentation de langages",
+                "description": "Un interpréteur à parcours d'arbre en Rust : lexeur, parseur, AST et évaluateur, avec vérification des paramètres typés couverte par des tests de conformité."
             }
         ]
     },
@@ -156,52 +155,158 @@
     "projects": {
         "title": "Projets",
         "subtitle": "En vedette",
-        "description": "Une vitrine de systèmes distribués, d'applications full-stack et de solutions innovantes construites avec des technologies modernes et les meilleures pratiques.",
+        "description": "Ce que j'ai réellement terminé et mis entre les mains des gens — sur le Microsoft Store, l'Arch User Repository, le web, et un sur une prise murale en 230 V.",
         "view_github": "Voir tous les projets sur GitHub",
         "key_features": "Fonctionnalités clés :",
         "items": [
             {
-                "title": "Looply - Système de livraison de nourriture (CodeFest '25)",
-                "shortTitle": "Looply",
-                "description": "A obtenu la position de 1er dauphin au concours CodeFest 2025 organisé par le département d'informatique de KNUST. A servi de développeur frontend principal, construisant une application mobile complète de livraison de nourriture utilisant React Native et Bootstrap, inspirée par Hubtel, et a collaboré au sein d'une équipe pour livrer un prototype de produit fonctionnel.",
-                "shortDesc": "Application mobile de livraison de nourriture primée, construite avec React Native.",
+                "title": "Stegno",
+                "shortTitle": "Stegno",
+                "description": "Une boîte à outils de stéganographie hors ligne qui dissimule des données chiffrées dans des fichiers ordinaires. Toute la cryptographie tient dans une seule caisse Rust, et les deux interfaces — une application de bureau Tauri et une application Android native en Kotlin et Jetpack Compose — l'appellent via UniFFI : le code sensible est écrit une fois plutôt que réimplémenté par plateforme. Aucun réseau, aucune télémétrie, aucun serveur.",
+                "shortDesc": "Boîte à outils de stéganographie hors ligne, un cœur Rust pour bureau et Android.",
                 "features": [
-                    "Projet primé (1er dauphin)",
-                    "Interface complète de livraison de nourriture",
-                    "Suivi des commandes en temps réel",
-                    "Navigation conviviale",
-                    "Collaboration d'équipe et prototypage rapide"
+                    "Dérivation de clé Argon2id et charge utile AES-256-GCM",
+                    "Méthodes image : LSB, LSB matching, adaptatif aux contours, PVD",
+                    "Méthodes DCT JPEG dont jsteg, F5 et OutGuess",
+                    "Dissimulation par largeur nulle et espaces dans le texte",
+                    "LSB exact et amorcé par clé dans l'audio WAV",
+                    "Bureau et Android partagent un même cœur Rust via UniFFI"
                 ],
-                "category": "Application mobile"
+                "category": "Outils de sécurité"
+            },
+            {
+                "title": "Gear",
+                "shortTitle": "Gear",
+                "description": "Un terminal pour développeurs bâti sur Tauri 2, backend Rust et interface React 19. Terminaux multi-onglets et panneaux divisés, éditeur CodeMirror 6 avec mode Vim, panneau git avec diffs et remises, explorateur de fichiers et navigateur de prévisualisation intégré pour les serveurs de développement — plus un chat IA et de la complétion en ligne reliés à plusieurs fournisseurs. Environ 300 commits.",
+                "shortDesc": "Un terminal développeur Tauri 2 avec éditeur, panneau git et IA intégrés.",
+                "features": [
+                    "Terminaux multi-onglets, divisions horizontales et verticales",
+                    "Éditeur CodeMirror 6, mode Vim, plus de 100 langages",
+                    "Panneau git : branches, diffs, historique, remises",
+                    "Navigateur de prévisualisation pour serveurs locaux",
+                    "Chat IA et complétion en ligne, plusieurs fournisseurs",
+                    "Les sessions de terminal survivent aux redémarrages"
+                ],
+                "category": "Outils de développement"
             },
             {
                 "title": "Chat éphémère",
                 "shortTitle": "Chat éphémère",
-                "description": "Une application de chat anonyme en temps réel avec des messages autodestructeurs et la création instantanée de salles. Fonctionne avec une messagerie basée sur WebSocket, un nettoyage automatique et une compatibilité multiplateforme pour des communications sécurisées et temporaires.",
-                "shortDesc": "Chat anonyme en temps réel avec messages autodestructeurs.",
+                "description": "Messagerie chiffrée de bout en bout sur un serveur uniquement en RAM : rien n'est écrit sur disque, donc aucune base à saisir et aucun historique à divulguer. Cryptographie en couches fondée sur HPKE, remplissage par tranches de taille pour contrer l'analyse de trafic, et voix et vidéo en plus du texte. Mon plus gros projet, environ 790 commits.",
+                "shortDesc": "Chat chiffré de bout en bout sur un serveur sans persistance.",
                 "features": [
-                    "Création instantanée de salles avec identifiants uniques",
-                    "Participation anonyme sans compte",
-                    "Messagerie en temps réel via WebSockets",
-                    "Messages autodestructeurs après lecture",
-                    "Fermeture automatique de la salle après inactivité",
-                    "Support multiplateforme (web, mobile, bureau)"
+                    "Serveur sans persistance — rien ne touche le disque",
+                    "Chiffrement de bout en bout en couches fondé sur HPKE",
+                    "Remplissage par tranches contre l'analyse de trafic",
+                    "Appels voix et vidéo, pas seulement du texte",
+                    "Aucun compte requis pour rejoindre un salon",
+                    "Environ 790 commits, toujours maintenu"
                 ],
                 "category": "Application temps réel"
             },
             {
+                "title": "Prise intelligente à programmation adaptative",
+                "shortTitle": "Prise intelligente",
+                "description": "Un firmware Arduino Uno qui coupe le secteur dès qu'un appareil est chargé, pour qu'il ne reste pas en charge d'entretien toute la nuit. Il surveille le courant appelé jusqu'à la décroissance qui signale la fin de charge, puis ouvre le relais. En service sur du 230 V réel : un ordinateur portable chargé à 95 %, la prise a détecté la décroissance, coupé l'alimentation et verrouillé.",
+                "shortDesc": "Firmware Arduino qui coupe le 230 V quand l'appareil est chargé.",
+                "features": [
+                    "Détection de fin de charge par décroissance du courant",
+                    "Commutation d'un relais sur secteur 230 V",
+                    "123 tests sur 123 qui passent",
+                    "41 % de la flash et 40 % de la RAM d'un Uno",
+                    "Validé sur matériel réel, pas seulement au banc",
+                    "Guide de montage complet, des composants à la prise"
+                ],
+                "category": "Systèmes embarqués"
+            },
+            {
+                "title": "Application biblique",
+                "shortTitle": "App biblique",
+                "description": "Une application de bureau hors ligne pour les églises : on saisit une référence et elle s'affiche sur un second écran, sur fond noir. Backend Rust sur Tauri, texte en SQLite, interface React, et aucune dépendance au cloud — elle fonctionne dans un bâtiment sans connexion, ce qui est tout l'intérêt.",
+                "shortDesc": "Application Tauri hors ligne qui projette l'Écriture sur un second écran.",
+                "features": [
+                    "Projection sur second écran avec occultation instantanée",
+                    "Texte intégral stocké localement en SQLite",
+                    "Fonctionne sans aucune connexion Internet",
+                    "Backend Rust couvert par des tests unitaires",
+                    "Transcription vocale pour une recherche mains libres",
+                    "Gestion des médias et du déroulé pour un culte en direct"
+                ],
+                "category": "Application de bureau"
+            },
+            {
+                "title": "UniMatch Ghana",
+                "shortTitle": "UniMatch",
+                "description": "Un projet d'équipe qui part des notes WASSCE d'un élève ghanéen et affiche tous les programmes universitaires auxquels il est admissible — et, en cas d'échec, exactement quelle note changerait la réponse. Points de coupure, fiches d'universités et pages de programmes sont consultables sans compte, car les élèves cherchent les seuils bien avant d'être prêts à saisir huit notes.",
+                "shortDesc": "Confronte les notes WASSCE à tous les programmes universitaires du Ghana.",
+                "features": [
+                    "Admissibilité classée avec la raison de chaque résultat",
+                    "Simulateur « et si » pour des notes améliorées",
+                    "Points de coupure et fiches d'universités sans connexion",
+                    "Comparaison de programmes et suivi des échéances",
+                    "Un conseiller qui répond à partir des données",
+                    "Tests de bout en bout avec Playwright"
+                ],
+                "category": "Application web"
+            },
+            {
+                "title": "Ephemeral Drops",
+                "shortTitle": "Eph. Drops",
+                "description": "Des dépôts chiffrés et autodestructeurs — texte, images, audio ou fichiers — adressés à des destinataires précis et effacés après consultation ou expiration. Le chiffrement a lieu dans le navigateur en AES-256-GCM : le serveur ne stocke que du chiffré qu'il ne peut pas lire. Extrait de Chat éphémère en application autonome et déployé en conteneur.",
+                "shortDesc": "Dépôts de fichiers et messages chiffrés côté client et autodestructeurs.",
+                "features": [
+                    "Chiffrement AES-256-GCM effectué côté client",
+                    "Le serveur ne détient que du chiffré",
+                    "Dépôts réservés à des destinataires nommés",
+                    "Détruits après consultation ou à l'expiration",
+                    "Texte, images, audio et fichiers quelconques",
+                    "Déploiement conteneurisé"
+                ],
+                "category": "Outils de sécurité"
+            },
+            {
+                "title": "Système de point de vente",
+                "shortTitle": "POS",
+                "description": "Un point de vente de bureau en Python avec Tkinter et SQLite, écrit pour le cours de programmation structurée puis poussé au-delà de l'énoncé : paiements mobile money via Paystack, avec un service webhook distinct déployé pour confirmer les transactions en temps réel.",
+                "shortDesc": "Point de vente Python et Tkinter avec SQLite et mobile money Paystack.",
+                "features": [
+                    "Ventes, stock et génération de reçus",
+                    "Stockage SQLite avec sauvegarde et export CSV",
+                    "Intégration mobile money Paystack",
+                    "Service webhook déployé pour confirmation en direct",
+                    "Bibliothèque standard uniquement pour l'application",
+                    "Couvert par une suite pytest"
+                ],
+                "category": "Application de bureau"
+            },
+            {
                 "title": "Interpréteur de langage personnalisé",
                 "shortTitle": "Interpréteur Lang",
-                "description": "Un interpréteur sophistiqué pour un langage de programmation personnalisé comprenant une analyse lexicale, une analyse syntaxique et une exécution. Prend en charge les variables, les fonctions, les structures de contrôle et les fonctionnalités linguistiques avancées avec une gestion complète des erreurs.",
-                "shortDesc": "Interpréteur de langage personnalisé avec capacités d'analyse avancées.",
+                "description": "Un interpréteur à parcours d'arbre pour un petit langage, écrit en Rust — lexeur, parseur, AST et évaluateur, avec un REPL. Il gère nombres, chaînes, booléens, tableaux, liaisons `let`, if/else, boucles while, fonctions et récursivité, et vérifie les paramètres typés via une suite de conformité exécutée en CI.",
+                "shortDesc": "Un interpréteur à parcours d'arbre pour un petit langage, écrit en Rust.",
                 "features": [
-                    "Analyse lexicale et syntaxique complète",
-                    "Génération d'arbre syntaxique abstrait",
-                    "Portée des variables et gestion de la mémoire",
-                    "Définitions de fonctions et récursivité",
-                    "Rapports d'erreurs complets"
+                    "Lexeur, parseur et AST écrits à la main en Rust",
+                    "Tableaux, fonctions, récursivité et boucles while",
+                    "Vérification des paramètres typés par tests de conformité",
+                    "REPL interactif",
+                    "Erreurs qui pointent le jeton fautif",
+                    "CI exécutant la suite complète sur stable et beta"
                 ],
                 "category": "Langages de programmation"
+            },
+            {
+                "title": "Looply — Application de livraison (CodeFest '25)",
+                "shortTitle": "Looply",
+                "description": "1er dauphin au CodeFest 2025, organisé par le département d'informatique de KNUST. J'étais développeur frontend principal dans une équipe de quatre, sur une application de livraison de repas en React Native — navigation, panier, paiement et suivi de commande — partie de zéro jusqu'à un prototype fonctionnel dans le temps du concours.",
+                "shortDesc": "Application React Native de livraison, 1er dauphin au CodeFest 2025.",
+                "features": [
+                    "1er dauphin, KNUST CodeFest 2025",
+                    "Développeur frontend principal de l'équipe",
+                    "Construite en React Native sous contrainte de temps",
+                    "Navigation, panier, paiement et suivi de commande",
+                    "Prototype fonctionnel présenté au jury"
+                ],
+                "category": "Application mobile"
             }
         ]
     },
@@ -209,7 +314,7 @@
         "title": "Compétences &",
         "title_mobile": "Compétences",
         "subtitle": "Technologies",
-        "description": "Un aperçu complet de mon expertise technique dans divers domaines du développement logiciel.",
+        "description": "Ce vers quoi je me tourne, et à peu près combien je m'en suis servi.",
         "avg_level": "Niveau moyen",
         "categories": {
             "programming": "Langages de programmation",
@@ -222,30 +327,30 @@
         "additional_title": "Compétences supplémentaires",
         "competencies": [
             {
-                "title": "Conception de systèmes",
-                "description": "Conception d'architectures distribuées et évolutives"
+                "title": "Analyse de trafic",
+                "description": "Captures Wireshark, découverte d'hôtes et scans Nmap"
             },
             {
-                "title": "Résolution de problèmes",
-                "description": "Décomposer systématiquement des défis complexes"
+                "title": "Cœurs multiplateformes",
+                "description": "Une caisse Rust derrière le bureau et Android via UniFFI"
             },
             {
-                "title": "Revue de code",
-                "description": "Assurer la qualité du code et les meilleures pratiques"
+                "title": "Tester sous contraintes",
+                "description": "123/123 tests de firmware dans 41 % de la flash d'un Uno"
             },
             {
-                "title": "Collaboration d'équipe",
-                "description": "Travailler efficacement dans des équipes de développement agile"
+                "title": "Rédaction technique",
+                "description": "Guides de montage et documentation de sécurité réutilisables"
             }
         ]
     },
     "contact": {
         "title_start": "Entrer en",
         "title_end": "Contact",
-        "description": "Je suis toujours intéressé par de nouvelles opportunités, collaborations et projets intéressants. Connectons-nous et discutons de la façon dont nous pouvons travailler ensemble !",
+        "description": "Je lis tout ce qui arrive ici. Si vous avez un stage, un projet, ou une question sur quoi que ce soit sur ce site, écrivez-moi.",
         "email_href": "mailto:kyereboatengcaleb@gmail.com",
         "conversation_title": "Commençons une conversation",
-        "conversation_desc": "Que vous recherchiez un stagiaire dévoué, que vous ayez un projet en tête ou que vous souhaitiez simplement vous connecter avec un collègue développeur, j'aimerais avoir de vos nouvelles. Je suis particulièrement intéressé par les opportunités impliquant les réseaux informatiques, l'architecture de sécurité et les solutions technologiques innovantes.",
+        "conversation_desc": "Je cherche un stage en réseaux ou en sécurité — quelque part où je lirais des captures, durcirais une infrastructure, ou écrirais du code système. Si vous voulez les sources de quoi que ce soit ici, ou si vous pensez que je me suis trompé, c'est aussi un message bienvenu.",
         "follow_me": "Suivez-moi",
         "form_title": "Envoyer un message",
         "name_label": "Nom",
@@ -268,7 +373,7 @@
         }
     },
     "footer": {
-        "description": "Étudiant en informatique passionné par la création de solutions innovantes et la contribution à des projets impactants grâce à la technologie.",
+        "description": "Étudiant en informatique à KNUST. Sécurité réseau, Rust, et des outils qui marchent sans serveur.",
         "quick_links": "Liens rapides",
         "get_in_touch": "Entrer en contact",
         "made_with": "Fait avec",

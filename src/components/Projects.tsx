@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import ImageModal from './ui/ImageModal'
@@ -30,28 +30,72 @@ const Projects = () => {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Static config for icons and links
+  // Static config for icons and links. Order must match projects.items in the
+  // translation files — the two arrays are zipped by index below.
   const projectConfig = [
+    {
+      icon: EyeOff,
+      github: 'https://github.com/cLLeB/stegno',
+      technologies: ['Rust', 'Tauri', 'Kotlin', 'Jetpack Compose', 'UniFFI', 'AES-256-GCM'],
+      image: '/projects/stegno.png'
+    },
+    {
+      icon: Terminal,
+      github: 'https://github.com/cLLeB/gear',
+      demo: 'https://gear.kyere.me',
+      technologies: ['Rust', 'Tauri 2', 'React 19', 'TypeScript', 'CodeMirror 6'],
+      image: '/projects/gear.png'
+    },
+    {
+      icon: MessageCircle,
+      github: 'https://github.com/cLLeB/ephemeral-chat',
+      demo: 'https://chat.kyere.me',
+      technologies: ['React', 'Node.js', 'Express', 'Rust', 'WebSockets', 'HPKE'],
+      image: '/awards/chat.png'
+    },
+    {
+      icon: Plug,
+      github: 'https://github.com/cLLeB/embedded-system',
+      technologies: ['C++', 'Arduino Uno', 'Relay Control', 'Embedded Testing'],
+      image: '/projects/smart-socket.jpeg'
+    },
+    {
+      icon: BookOpen,
+      github: 'https://github.com/cLLeB/bible-app',
+      technologies: ['Rust', 'Tauri', 'React', 'SQLite', 'Zustand'],
+      image: '/projects/bible-app.png'
+    },
+    {
+      icon: GraduationCap,
+      github: 'https://github.com/EnamAbra/Unimatch',
+      technologies: ['React', 'TypeScript', 'Vite', 'Supabase', 'Playwright'],
+      image: '/projects/unimatch.png'
+    },
+    {
+      icon: Package,
+      github: 'https://github.com/cLLeB/ephdrops',
+      demo: 'https://beternow-ephdrops.hf.space',
+      technologies: ['AES-256-GCM', 'Docker', 'Hugging Face Spaces'],
+      image: '/projects/ephemeral-drops.png'
+    },
+    {
+      icon: ShoppingCart,
+      github: 'https://github.com/cLLeB/pos',
+      technologies: ['Python', 'Tkinter', 'SQLite', 'Paystack'],
+    },
+    {
+      icon: Code,
+      github: 'https://github.com/cLLeB/custom-lang-interpreter',
+      demo: 'https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view',
+      technologies: ['Rust', 'Lexer', 'Parser', 'AST', 'Tree-Walking Interpreter', 'REPL'],
+      image: '/awards/custom-lang.png'
+    },
     {
       icon: Smartphone,
       github: 'https://github.com/cLLeB/HubtelClone-Public',
       demo: 'https://drive.google.com/file/d/1RQZIu7f-NeHHZTHBEbZxkhkEXeJ_vLxM/view',
       technologies: ['React Native', 'Bootstrap', 'Mobile Development', 'UI/UX'],
       image: '/awards/award_pic.png'
-    },
-    {
-      icon: MessageCircle,
-      github: 'https://github.com/cLLeB/ephemeral-chat',
-      demo: 'https://chat.kyere.me',
-      technologies: ['Node.js', 'Socket.io', 'React', 'WebSockets', 'MongoDB', 'Express'],
-      image: '/awards/chat.png'
-    },
-    {
-      icon: Code,
-      github: 'https://github.com/cLLeB/custom-lang-interpreter',
-      demo: 'https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view',
-      technologies: ['Python', 'ANTLR', 'AST', 'Compiler Design', 'Language Theory'],
-      image: '/awards/custom-lang.png'
     }
   ]
 
