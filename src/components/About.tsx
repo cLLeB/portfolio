@@ -49,7 +49,7 @@ const About = () => {
   return (
     <section id="about" className="py-8 sm:py-20 bg-white dark:bg-black/80 backdrop-blur-sm relative overflow-hidden transition-colors duration-500">
       {/* Background Effects - Only visible in dark mode or significantly lightened for light mode */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-indigo-100/20 to-cyan-100/20 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-cyan-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-100/20 via-teal-100/20 to-teal-100/20 dark:from-teal-900/20 dark:via-teal-900/20 dark:to-teal-900/20"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
       <motion.div
         ref={ref}
@@ -67,8 +67,8 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           <motion.div variants={itemVariants}>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl transform rotate-3 animate-pulse"></div>
-              <div className="relative bg-white dark:bg-black/80 backdrop-blur-sm border border-blue-200 dark:border-blue-500/30 p-5 sm:p-8 rounded-2xl shadow-2xl">
+              <div className="absolute inset-0 bg-teal-700 dark:bg-teal-600 rounded-2xl transform rotate-3 animate-pulse"></div>
+              <div className="relative bg-white dark:bg-black/80 backdrop-blur-sm border border-teal-200 dark:border-teal-500/30 p-5 sm:p-8 rounded-2xl shadow-2xl">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-lg">
                   {t('about.journey_title')}
                 </h3>
@@ -86,7 +86,7 @@ const About = () => {
                       {Array.isArray(t('about.courses')) && t('about.courses').map((course: string) => (
                         <span
                           key={course}
-                          className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 rounded-full text-xs font-medium"
+                          className="px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 rounded-full text-xs font-medium"
                         >
                           {course}
                         </span>
@@ -99,7 +99,7 @@ const About = () => {
                   {Array.isArray(t('about.traits')) && t('about.traits').map((trait: string) => (
                     <span
                       key={trait}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 rounded-full text-sm font-medium"
                     >
                       {trait}
                     </span>

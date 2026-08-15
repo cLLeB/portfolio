@@ -42,10 +42,9 @@ const Button = ({
 
   const variantClasses = {
     primary: `
-      bg-gradient-to-r from-blue-600 to-blue-800
-      hover:from-blue-700 hover:to-blue-500
+      bg-teal-700 dark:bg-teal-600
       text-white shadow-lg hover:shadow-xl
-      hover:shadow-blue-500/25
+      hover:shadow-teal-500/25
     `,
     secondary: `
   bg - white / 10 backdrop - blur - sm border border - white / 20

@@ -54,7 +54,7 @@ const TouchOptimizedSkills = () => {
     {
       title: t('skills.categories.programming'),
       icon: Code,
-      color: 'from-green-500 to-emerald-600',
+      color: 'bg-teal-700 dark:bg-teal-600',
       skills: [
         { name: 'JavaScript/TypeScript', level: 15 },
         { name: 'Python', level: 18 },
@@ -67,7 +67,7 @@ const TouchOptimizedSkills = () => {
     {
       title: t('skills.categories.frontend'),
       icon: Smartphone,
-      color: 'from-blue-500 to-cyan-600',
+      color: 'bg-teal-700 dark:bg-teal-600',
       skills: [
         { name: 'React/Next.js', level: 16 },
         { name: 'HTML5/CSS3', level: 20 },
@@ -80,7 +80,7 @@ const TouchOptimizedSkills = () => {
     {
       title: t('skills.categories.backend'),
       icon: Server,
-      color: 'from-indigo-600 to-blue-800',
+      color: 'bg-teal-700 dark:bg-teal-600',
       skills: [
         { name: 'Node.js/Express', level: 12 },
         { name: 'RESTful APIs', level: 18 },
@@ -93,7 +93,7 @@ const TouchOptimizedSkills = () => {
     {
       title: t('skills.categories.network'),
       icon: Network,
-      color: 'from-orange-500 to-red-600',
+      color: 'bg-teal-700 dark:bg-teal-600',
       skills: [
         { name: 'Packet Tracer', level: 22 },
         { name: 'Wireshark', level: 21 },
@@ -106,7 +106,7 @@ const TouchOptimizedSkills = () => {
     {
       title: t('skills.categories.devops'),
       icon: Cloud,
-      color: 'from-cyan-500 to-blue-600',
+      color: 'bg-teal-700 dark:bg-teal-600',
       skills: [
         { name: 'Git/GitHub', level: 20 },
         { name: 'Docker', level: 15 },
@@ -119,7 +119,7 @@ const TouchOptimizedSkills = () => {
     {
       title: t('skills.categories.tools'),
       icon: Settings,
-      color: 'from-pink-500 to-rose-600',
+      color: 'bg-teal-700 dark:bg-teal-600',
       skills: [
         { name: 'VS Code', level: 25 },
         { name: 'Postman', level: 15 },
@@ -155,7 +155,7 @@ const TouchOptimizedSkills = () => {
             {skill.name}
           </span>
           <span
-            className="text-sm text-cyan-600 dark:text-cyan-300 relative z-20 font-mono"
+            className="text-sm text-teal-600 dark:text-teal-300 relative z-20 font-mono"
             style={{
               textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
             }}
@@ -175,7 +175,7 @@ const TouchOptimizedSkills = () => {
           </motion.div>
           {/* Filled bar */}
           <motion.div
-            className={`bg-gradient-to-r ${categoryColor} h-full rounded-full relative`}
+            className={`${categoryColor} h-full rounded-full relative`}
             style={{ zIndex: 2, position: 'relative' }}
             initial={{ width: 0 }}
             animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
@@ -189,7 +189,7 @@ const TouchOptimizedSkills = () => {
   return (
     <section className="py-8 sm:py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-indigo-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-indigo-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-900/5 via-teal-900/5 to-teal-900/5 dark:from-teal-900/20 dark:via-teal-900/20 dark:to-teal-900/20"></div>
 
       {mounted && (
         <motion.div
@@ -231,7 +231,7 @@ const TouchOptimizedSkills = () => {
                     key={index}
                     onClick={() => setActiveCategory(index)}
                     className={`flex-shrink-0 flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 ${activeCategory === index
-                      ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
+                      ? `${category.color} text-white shadow-lg`
                       : 'bg-gray-200 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700/50'
                       }`}
                     whileHover={{ scale: 1.05 }}
@@ -251,7 +251,7 @@ const TouchOptimizedSkills = () => {
               <motion.div
                 key={isMobile ? `mobile-${activeCategory}` : categoryIndex}
                 variants={itemVariants}
-                className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-200 dark:border-cyan-500/30 hover:border-blue-500/50 transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
+                className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-200 dark:border-teal-500/30 hover:border-teal-500/50 transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
                 style={{
                   boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
                 }}
@@ -263,7 +263,7 @@ const TouchOptimizedSkills = () => {
               >
                 <div className="flex items-center mb-4 sm:mb-6">
                   <motion.div
-                    className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center mr-3 sm:mr-4`}
+                    className={`w-10 h-10 sm:w-12 sm:h-12 ${category.color} rounded-lg flex items-center justify-center mr-3 sm:mr-4`}
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
@@ -317,7 +317,7 @@ const TouchOptimizedSkills = () => {
                       <span>{t('skills.avg_level')}</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className="text-cyan-600 dark:text-cyan-300 font-mono">
+                      <span className="text-teal-600 dark:text-teal-300 font-mono">
                         {(() => {
                           // compute average based on displayed skills (exclude lowest on mobile)
                           const displayed = isMobile ? (() => {
@@ -348,7 +348,7 @@ const TouchOptimizedSkills = () => {
                 <motion.button
                   key={index}
                   onClick={() => setActiveCategory(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${activeCategory === index ? 'bg-cyan-400 w-6' : 'bg-gray-600'
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${activeCategory === index ? 'bg-teal-400 w-6' : 'bg-gray-600'
                     }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}

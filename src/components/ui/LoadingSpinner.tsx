@@ -15,7 +15,7 @@ const LoadingSpinner = ({ size = 'md', className = '' }: LoadingSpinnerProps) =>
   }
 
   // Default colors if not provided in className
-  const defaultColors = className.includes('border-') ? '' : 'border-gray-200 dark:border-gray-700 border-t-blue-600 dark:border-t-blue-400'
+  const defaultColors = className.includes('border-') ? '' : 'border-gray-200 dark:border-gray-700 border-t-teal-600 dark:border-t-teal-400'
 
   return (
     <div className={`flex items-center justify-center`}>

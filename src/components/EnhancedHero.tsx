@@ -119,7 +119,7 @@ const EnhancedHero = () => {
         {orbStyles.map((style, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-gradient-to-r from-blue-500/20 to-indigo-500/20 blur-xl"
+            className="absolute rounded-full bg-gradient-to-r from-teal-500/20 to-teal-500/20 blur-xl"
             style={style}
             animate={{
               x: [0, Math.random() * 100 - 50],
@@ -139,7 +139,7 @@ const EnhancedHero = () => {
         {typeof window !== 'undefined' && particlePositions.map((position, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-blue-400 rounded-full"
+            className="absolute w-1 h-1 bg-teal-400 rounded-full"
             style={{
               left: position.left,
               top: position.top,
@@ -206,7 +206,7 @@ const EnhancedHero = () => {
             <span className="font-mono">
               {displayText}
               <motion.span
-                className="inline-block w-0.5 h-8 bg-blue-400 ml-1"
+                className="inline-block w-0.5 h-8 bg-teal-400 ml-1"
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ duration: 1, repeat: Infinity }}
               />
@@ -269,13 +269,13 @@ const EnhancedHero = () => {
               icon: Linkedin,
               href: 'https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4',
               label: 'LinkedIn',
-              color: 'hover:text-blue-400'
+              color: 'hover:text-teal-400'
             },
             {
               icon: Mail,
               href: 'mailto:kyereboatengcaleb@gmail.com',
               label: 'Email',
-              color: 'hover:text-green-400'
+              color: 'hover:text-teal-400'
             }
           ].map(({ icon: Icon, href, label, color }) => (
             <motion.a
@@ -310,7 +310,7 @@ const EnhancedHero = () => {
         >
           <motion.button
             onClick={() => scrollToSection('about')}
-            className="flex flex-col items-center text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 group"
+            className="flex flex-col items-center text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors duration-300 group"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             aria-label="Scroll to about section"
@@ -319,7 +319,7 @@ const EnhancedHero = () => {
               {t('hero.discover_more')}
             </span>
             <motion.div
-              className="p-2 rounded-full border border-gray-300 dark:border-gray-600 group-hover:border-blue-500 dark:group-hover:border-blue-400 transition-colors"
+              className="p-2 rounded-full border border-gray-300 dark:border-gray-600 group-hover:border-teal-500 dark:group-hover:border-teal-400 transition-colors"
               whileHover={{ scale: 1.1 }}
             >
               <ChevronDown size={20} />
@@ -329,7 +329,7 @@ const EnhancedHero = () => {
       </motion.div>
 
       {/* Ambient Light Effect */}
-      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-blue-900/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-teal-900/5 pointer-events-none" />
     </section>
   )
 }

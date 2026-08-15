@@ -164,7 +164,7 @@ const Skills = () => {
             {skill.name}
           </span>
           <span
-            className="text-sm text-cyan-600 dark:text-cyan-300 relative z-20"
+            className="text-sm text-teal-600 dark:text-teal-300 relative z-20"
             style={{
               textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
             }}
@@ -184,7 +184,7 @@ const Skills = () => {
           </motion.div>
           {/* Filled bar */}
           <motion.div
-            className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full"
+            className="bg-teal-700 dark:bg-teal-600 h-2 rounded-full"
             style={{ zIndex: 2, position: 'relative' }}
             initial={{ width: 0 }}
             animate={{ width: `${skill.level}%` }}
@@ -200,7 +200,7 @@ const Skills = () => {
   return (
     <section className="py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 via-blue-900/5 to-indigo-900/5 dark:from-cyan-900/20 dark:via-blue-900/20 dark:to-indigo-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-900/5 via-teal-900/5 to-teal-900/5 dark:from-teal-900/20 dark:via-teal-900/20 dark:to-teal-900/20"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.05),transparent_60%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_60%)]"></div>
       <motion.div
         ref={ref}
@@ -274,10 +274,10 @@ const Skills = () => {
                 }}
               >
                 <motion.div
-                  className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/30 shadow-xl transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
+                  className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-teal-500/30 shadow-xl transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
                 >
                   <div className="flex items-center justify-center mb-8">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                    <div className="w-16 h-16 bg-teal-700 dark:bg-teal-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                       <currentCategory.icon size={32} className="text-white" />
                     </div>
                     <h3
@@ -307,7 +307,7 @@ const Skills = () => {
                 key={i}
                 onClick={() => paginate(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i
-                  ? 'w-10 bg-gradient-to-r from-blue-500 to-indigo-600'
+                  ? 'w-10 bg-teal-700 dark:bg-teal-600'
                   : 'w-2 bg-gray-300 dark:bg-white/20 hover:bg-gray-400 dark:hover:bg-white/40'
                   }`}
                 whileHover={{ scale: 1.2 }}

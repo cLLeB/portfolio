@@ -91,7 +91,7 @@ const ResponsiveNavigation = () => {
       {/* Main Navigation */}
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? 'bg-white/10 dark:bg-black/40 backdrop-blur-xl shadow-2xl border-b border-white/20 dark:border-blue-500/30'
+          ? 'bg-white/10 dark:bg-black/40 backdrop-blur-xl shadow-2xl border-b border-white/20 dark:border-teal-500/30'
           : 'bg-white/5 dark:bg-black/20 backdrop-blur-sm'
           }`}
         initial={{ y: -100, opacity: 0 }}
@@ -115,7 +115,7 @@ const ResponsiveNavigation = () => {
                 aria-label="View Profile Picture"
               >
                 <motion.div
-                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center relative overflow-hidden border-2 border-blue-500"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center relative overflow-hidden border-2 border-teal-500"
                   animate={{
                     boxShadow: [
                       '0 0 20px rgba(59, 130, 246, 0.5)',
@@ -144,7 +144,7 @@ const ResponsiveNavigation = () => {
                 whileTap={{ scale: 0.98 }}
                 aria-label="Go to Home"
               >
-                <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
                   {isMobile ? 'CKB' : 'Caleb Kyere Boateng'}
                 </span>
               </motion.button>
@@ -157,7 +157,7 @@ const ResponsiveNavigation = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`relative px-3 lg:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${activeSection === item.id
-                    ? 'text-white bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg'
+                    ? 'text-white bg-teal-700 dark:bg-teal-600 shadow-lg'
                     : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
                     }`}
                   whileHover={{
@@ -280,7 +280,7 @@ const ResponsiveNavigation = () => {
 
             {/* Menu Content */}
             <motion.div
-              className="absolute top-20 left-4 right-4 bg-white/90 dark:bg-black/90 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-blue-500/30 shadow-2xl overflow-hidden"
+              className="absolute top-20 left-4 right-4 bg-white/90 dark:bg-black/90 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-teal-500/30 shadow-2xl overflow-hidden"
               initial={{ y: -20, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: -20, opacity: 0, scale: 0.95 }}
@@ -293,7 +293,7 @@ const ResponsiveNavigation = () => {
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
                       className={`w-full flex items-center space-x-4 px-4 py-4 rounded-xl text-left transition-all duration-300 ${activeSection === item.id
-                        ? 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg'
+                        ? 'bg-teal-700 dark:bg-teal-600 text-white shadow-lg'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white'
                         }`}
                       initial={{ x: -20, opacity: 0 }}
@@ -304,7 +304,7 @@ const ResponsiveNavigation = () => {
                     >
                       <div className={`p-2 rounded-lg ${activeSection === item.id
                         ? 'bg-white/20'
-                        : 'bg-blue-100 dark:bg-blue-500/20'
+                        : 'bg-teal-100 dark:bg-teal-500/20'
                         }`}>
                         <item.icon size={20} />
                       </div>

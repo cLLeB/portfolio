@@ -174,7 +174,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/5 via-blue-900/5 to-cyan-900/5 dark:from-indigo-900/20 dark:via-blue-900/20 dark:to-cyan-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-900/5 via-teal-900/5 to-teal-900/5 dark:from-teal-900/20 dark:via-teal-900/20 dark:to-teal-900/20"></div>
 
       <motion.div
         ref={ref}
@@ -245,11 +245,11 @@ const Projects = () => {
                 {visibleProjects.map((project, index) => (
                   <motion.div
                     key={`${currentIndex}-${index}`}
-                    className="group relative bg-white dark:bg-black/60 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-blue-500/30 hover:border-indigo-500/50 transition-all duration-500 shadow-xl flex flex-col h-full overflow-hidden"
+                    className="group relative bg-white dark:bg-black/60 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-teal-500/30 hover:border-teal-500/50 transition-all duration-500 shadow-xl flex flex-col h-full overflow-hidden"
                     whileHover={{ y: -5 }}
                   >
                     {/* Glassmorphism Highlight */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-600/5 rounded-3xl pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-teal-600/5 rounded-3xl pointer-events-none"></div>
 
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-center justify-between mb-8">
@@ -271,15 +271,15 @@ const Projects = () => {
                               />
                             </div>
                           ) : (
-                            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-md flex-shrink-0">
+                            <div className="w-12 h-12 bg-teal-700 dark:bg-teal-600 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-md flex-shrink-0">
                               {project.icon && <project.icon size={24} className="text-white" />}
                             </div>
                           )}
                           <div className="min-w-0">
-                            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
                               {isMobile ? (project.shortTitle || project.title) : project.title}
                             </h3>
-                            <span className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-medium tracking-wider uppercase">
+                            <span className="text-xs sm:text-sm text-teal-600 dark:text-teal-400 font-medium tracking-wider uppercase">
                               {project.category}
                             </span>
                           </div>
@@ -293,7 +293,7 @@ const Projects = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={`${project.title} source on GitHub`}
-                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                             >
@@ -306,7 +306,7 @@ const Projects = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={`${project.title} on the Microsoft Store`}
-                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400"
+                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                             >
@@ -332,7 +332,7 @@ const Projects = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={`${project.title} live site`}
-                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400"
+                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                             >
@@ -352,7 +352,7 @@ const Projects = () => {
                         <ul className="space-y-2">
                           {Array.isArray(project.features) && project.features.slice(0, 3).map((feature: string, featureIndex: number) => (
                             <li key={featureIndex} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></div>
+                              <div className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></div>
                               <span className="line-clamp-2">{feature}</span>
                             </li>
                           ))}
@@ -383,7 +383,7 @@ const Projects = () => {
                 key={i}
                 onClick={() => paginate(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i
-                  ? 'w-8 sm:w-12 bg-gradient-to-r from-blue-500 to-indigo-600'
+                  ? 'w-8 sm:w-12 bg-teal-700 dark:bg-teal-600'
                   : 'w-2 sm:w-3 bg-gray-300 dark:bg-white/20 hover:bg-gray-400 dark:hover:bg-white/40'
                   }`}
                 whileHover={{ scale: 1.2 }}
@@ -407,7 +407,7 @@ const Projects = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Github size={22} className="group-hover:text-blue-500 transition-colors" />
+            <Github size={22} className="group-hover:text-teal-500 transition-colors" />
             <span>{t('projects.view_github')}</span>
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </motion.a>

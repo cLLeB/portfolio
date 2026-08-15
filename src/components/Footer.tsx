@@ -50,7 +50,7 @@ const Footer = () => {
 
           <motion.button
             onClick={scrollToTop}
-            className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 text-sm font-medium"
+            className="flex items-center space-x-2 px-4 py-2 bg-teal-700 dark:bg-teal-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 text-sm font-medium"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
