@@ -290,13 +290,13 @@ a, button {
   }
 }
 
-/* Performance optimizations for mobile */
+/* Performance optimizations for mobile
+   NOTE: never apply `transform` (e.g. translateZ(0)) via the `*` selector here.
+   A transform makes an element the containing block for its `position: fixed`
+   descendants, so a universal transform anchors fixed overlays to the document
+   instead of the viewport — full-screen modals then render off-screen on
+   Chromium/Firefox. Opt individual elements in with .gpu-accelerated instead. */
 @media (max-width: 767px) {
-  * {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-
   .gpu-accelerated {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);

@@ -23,7 +23,7 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
     const [visible, setVisible] = useState(false)
     const [imageLoaded, setImageLoaded] = useState(false)
 
-    useMobileScrollLock(visible)
+    useMobileScrollLock(shouldRender)
 
     // Client-side mount check for portal
     useEffect(() => {
@@ -33,6 +33,7 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
     // Handle open/close with scroll lock
     useEffect(() => {
         if (isOpen) {
+            ;(document.activeElement as HTMLElement | null)?.blur()
             setShouldRender(true)
             setVisible(true)
             setImageLoaded(false)
@@ -77,6 +78,7 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
           background-color: rgba(0, 0, 0, 0.97) !important;
           padding: 16px !important;
           box-sizing: border-box !important;
+                    -webkit-tap-highlight-color: transparent !important;
           overscroll-behavior: none !important;
         }
         .mobile-image-modal-close {
@@ -123,7 +125,11 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
             {/* Modal Overlay */}
             <div
                 className="mobile-image-modal-overlay"
-                onClick={onClose}
+                onClick={(e) => {
+                    e.preventDefault()
+                    ;(document.activeElement as HTMLElement | null)?.blur()
+                    onClose()
+                }}
                 style={{
                     opacity: visible ? 1 : 0,
                     transition: 'opacity 0.2s ease-out',
@@ -133,7 +139,9 @@ const MobileImageModal = ({ isOpen, onClose, imageSrc, alt }: MobileImageModalPr
                 <button
                     className="mobile-image-modal-close"
                     onClick={(e) => {
+                        e.preventDefault()
                         e.stopPropagation()
+                        ;(document.activeElement as HTMLElement | null)?.blur()
                         onClose()
                     }}
                     aria-label="Close image"
