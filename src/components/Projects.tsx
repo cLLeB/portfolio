@@ -37,7 +37,6 @@ const Projects = () => {
       icon: EyeOff,
       github: 'https://github.com/cLLeB/stegno',
       store: 'https://apps.microsoft.com/detail/9phgxx54j7s8',
-      demo: 'https://stegno-omega.vercel.app',
       technologies: ['Rust', 'Tauri', 'Kotlin', 'Jetpack Compose', 'UniFFI', 'AES-256-GCM'],
       image: '/projects/stegno.png'
     },
