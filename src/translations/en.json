@@ -207,15 +207,16 @@
             {
                 "title": "Smart Socket with Adaptive Scheduling",
                 "shortTitle": "Smart Socket",
-                "description": "Arduino Uno firmware that cuts wall power once a charging device is full, so it never sits trickle-charging overnight. It watches the current draw for the taper that means the battery is done, then opens the relay. Running on real 230 V mains: a laptop charged to 95%, the socket caught the taper, cut power and latched.",
+                "description": "Arduino Uno firmware that cuts wall power once a charging device is full, so it never sits trickle-charging overnight. It watches the current draw for the taper that means the battery is done, then opens the relay — no app and no phone needed for the safety-critical path. Companion Windows and Android apps add the one thing the socket cannot know on its own: what percentage that taper happened at, so you can stop at 80% instead.",
                 "shortDesc": "Arduino firmware that cuts 230 V mains when a device finishes charging.",
                 "features": [
                     "Detects end-of-charge from the current taper",
                     "Switches a relay on live 230 V mains",
                     "123 of 123 core tests passing",
                     "Fits in 41% flash and 40% RAM on an Uno",
-                    "Confirmed on hardware, not just on the bench rig",
-                    "Full build guide from bare parts to working socket"
+                    "Windows app cuts at a chosen battery percentage",
+                    "Native Android companion over Bluetooth",
+                    "Hardware access isolated behind a single HAL file"
                 ],
                 "category": "Embedded Systems"
             },

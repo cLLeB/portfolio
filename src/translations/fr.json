@@ -207,15 +207,16 @@
             {
                 "title": "Prise intelligente à programmation adaptative",
                 "shortTitle": "Prise intelligente",
-                "description": "Un firmware Arduino Uno qui coupe le secteur dès qu'un appareil est chargé, pour qu'il ne reste pas en charge d'entretien toute la nuit. Il surveille le courant appelé jusqu'à la décroissance qui signale la fin de charge, puis ouvre le relais. En service sur du 230 V réel : un ordinateur portable chargé à 95 %, la prise a détecté la décroissance, coupé l'alimentation et verrouillé.",
+                "description": "Un firmware Arduino Uno qui coupe le secteur dès qu'un appareil est chargé, pour qu'il ne reste pas en charge d'entretien toute la nuit. Il surveille le courant appelé jusqu'à la décroissance qui signale la fin de charge, puis ouvre le relais — sans application ni téléphone pour le chemin critique. Des applications Windows et Android ajoutent ce que la prise ne peut pas savoir seule : à quel pourcentage cette décroissance a eu lieu, pour s'arrêter à 80 % si on préfère.",
                 "shortDesc": "Firmware Arduino qui coupe le 230 V quand l'appareil est chargé.",
                 "features": [
                     "Détection de fin de charge par décroissance du courant",
                     "Commutation d'un relais sur secteur 230 V",
                     "123 tests sur 123 qui passent",
                     "41 % de la flash et 40 % de la RAM d'un Uno",
-                    "Validé sur matériel réel, pas seulement au banc",
-                    "Guide de montage complet, des composants à la prise"
+                    "L'application Windows coupe au pourcentage choisi",
+                    "Application Android native via Bluetooth",
+                    "Accès matériel isolé derrière un unique fichier HAL"
                 ],
                 "category": "Systèmes embarqués"
             },

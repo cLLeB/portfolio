@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart } from 'lucide-react'
+import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart, Store } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import ImageModal from './ui/ImageModal'
@@ -36,12 +36,14 @@ const Projects = () => {
     {
       icon: EyeOff,
       github: 'https://github.com/cLLeB/stegno',
+      store: 'https://apps.microsoft.com/detail/9phgxx54j7s8',
       technologies: ['Rust', 'Tauri', 'Kotlin', 'Jetpack Compose', 'UniFFI', 'AES-256-GCM'],
       image: '/projects/stegno.png'
     },
     {
       icon: Terminal,
       github: 'https://github.com/cLLeB/gear',
+      store: 'https://apps.microsoft.com/detail/9p479wc1krqf',
       demo: 'https://gear.kyere.me',
       technologies: ['Rust', 'Tauri 2', 'React 19', 'TypeScript', 'CodeMirror 6'],
       image: '/projects/gear.png'
@@ -56,7 +58,8 @@ const Projects = () => {
     {
       icon: Plug,
       github: 'https://github.com/cLLeB/embedded-system',
-      technologies: ['C++', 'Arduino Uno', 'Relay Control', 'Embedded Testing'],
+      store: 'https://apps.microsoft.com/detail/9nbjqfff14lv',
+      technologies: ['C++', 'Arduino Uno', 'Kotlin', 'Bluetooth', 'Relay Control', 'Embedded Testing'],
       image: '/projects/smart-socket.jpeg'
     },
     {
@@ -283,6 +286,7 @@ const Projects = () => {
                               href={project.github}
                               target="_blank"
                               rel="noopener noreferrer"
+                              aria-label={`${project.title} source on GitHub`}
                               className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
@@ -290,11 +294,25 @@ const Projects = () => {
                               <Github size={18} />
                             </motion.a>
                           )}
+                          {project.store && (
+                            <motion.a
+                              href={project.store}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${project.title} on the Microsoft Store`}
+                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.9 }}
+                            >
+                              <Store size={18} />
+                            </motion.a>
+                          )}
                           {project.demo && (
                             <motion.a
                               href={project.demo}
                               target="_blank"
                               rel="noopener noreferrer"
+                              aria-label={`${project.title} live site`}
                               className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
