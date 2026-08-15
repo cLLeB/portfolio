@@ -17,11 +17,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://portfolio-chi-nine-93.vercel.app/'),
+  metadataBase: new URL('https://portfolio.kyere.me/'),
   openGraph: {
     title: 'Caleb Kyere Boateng | Computer Science Student Portfolio',
     description: 'Computer Science student at KNUST specializing in programming language design and computer networking.',
-    url: 'https://portfolio-chi-nine-93.vercel.app/',
+    url: 'https://portfolio.kyere.me/',
     siteName: 'Caleb Kyere Boateng Portfolio',
     images: [
       {

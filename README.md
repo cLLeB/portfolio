@@ -2,7 +2,7 @@
 
 My personal portfolio site. Computer Science student at KNUST, focused on computer networking, security, and programming language design.
 
-Live: https://portfolio-chi-nine-93.vercel.app/
+Live: https://portfolio.kyere.me/
 
 ## Running it locally
 
