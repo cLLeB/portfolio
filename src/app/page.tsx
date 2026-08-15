@@ -9,12 +9,10 @@ import Skills from '@/components/Skills'
 import TouchOptimizedSkills from '@/components/TouchOptimizedSkills'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import CustomCursor from '@/components/CustomCursor'
 
 export default function Home() {
   return (
     <main className="relative bg-black">
-      <CustomCursor />
       <ResponsiveNavigation />
 
       <div className="hidden md:block">

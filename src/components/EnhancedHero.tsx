@@ -188,16 +188,9 @@ const EnhancedHero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <motion.span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 text-display-2xl md:text-display-xl font-bold"
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-                style={{ backgroundSize: '200% 200%' }}
-              >
+              <span className="text-gray-900 dark:text-white text-display-2xl md:text-display-xl font-bold">
                 Caleb Kwabena Kyere Boateng
-              </motion.span>
+              </span>
             </motion.div>
           </h1>
         </motion.div>

@@ -188,14 +188,13 @@ const Projects = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
-            {t('projects.title')} <span className="text-blue-600 dark:text-blue-400">{t('projects.subtitle')}</span>
+            {t('projects.title')} <span>{t('projects.subtitle')}</span>
           </h2>
           {!isMobile && (
             <p className="text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-lg">
               {t('projects.description')}
             </p>
           )}
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="relative group max-w-4xl mx-auto px-4 md:px-0">

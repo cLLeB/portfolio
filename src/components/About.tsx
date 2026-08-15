@@ -60,9 +60,8 @@ const About = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-6 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 drop-shadow-2xl">
-            {t('about.title')} <span className="text-blue-600 dark:text-blue-400">{t('about.me')}</span>
+            {t('about.title')} <span>{t('about.me')}</span>
           </h2>
-          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">

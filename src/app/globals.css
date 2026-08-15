@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Enhanced Design System */
 @import '../styles/design-system.css';
 
 :root {
@@ -65,11 +64,11 @@ body {
   ::-webkit-scrollbar-track {
     background: #1e293b;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: #475569;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: #64748b;
   }
@@ -92,87 +91,13 @@ a, button {
   transition: all 0.2s ease-in-out;
 }
 
-/* Custom utilities */
-.text-gradient {
-  background: linear-gradient(135deg, #0ea5e9, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 3s ease-in-out infinite;
-}
-
-.glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-  .glass-effect {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-}
-
-/* Crazy animations */
-@keyframes gradient-shift {
-  0%, 100% {
-    background: linear-gradient(135deg, #0ea5e9, #3b82f6, #8b5cf6);
-  }
-  50% {
-    background: linear-gradient(135deg, #8b5cf6, #0ea5e9, #3b82f6);
-  }
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
-  }
-}
-
-@keyframes neon-flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-  75% { opacity: 0.9; }
-}
-
-/* Hide default cursor on desktop only */
-@media (min-width: 768px) {
-  * {
-    cursor: none !important;
-  }
-}
-
-/* Mobile touch optimization */
 @media (max-width: 767px) {
-  * {
-    cursor: auto !important;
-  }
-
   /* Improve touch targets */
   button, a, [role="button"] {
     min-height: 44px;
     min-width: 44px;
   }
 
-  /* Smooth scrolling for mobile */
   html {
     -webkit-overflow-scrolling: touch;
   }
@@ -183,7 +108,6 @@ a, button {
   }
 }
 
-/* Magnetic button effect */
 .magnetic-button {
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -webkit-tap-highlight-color: transparent;
@@ -209,76 +133,6 @@ a, button {
   display: none;
 }
 
-/* Holographic text effect */
-.holographic {
-  background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: holographic-shift 2s ease-in-out infinite;
-}
-
-@keyframes holographic-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-/* Mobile-specific animations */
-@keyframes mobile-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes mobile-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@keyframes mobile-glow {
-  0%, 100% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
-}
-
-/* Responsive text sizes */
-@media (max-width: 640px) {
-  .text-responsive-xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  .text-responsive-2xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
-  .text-responsive-3xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-}
-
-/* Touch-friendly interactions */
-@media (max-width: 767px) {
-  .touch-card {
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-  }
-
-  .touch-card:active {
-    transform: scale(0.98);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .touch-button {
-    transition: all 0.2s ease-out;
-  }
-
-  .touch-button:active {
-    transform: scale(0.95);
-    filter: brightness(0.9);
-  }
-}
-
 /* Improved focus states for accessibility */
 @media (max-width: 767px) {
   button:focus-visible,
@@ -290,8 +144,7 @@ a, button {
   }
 }
 
-/* Performance optimizations for mobile
-   NOTE: never apply `transform` (e.g. translateZ(0)) via the `*` selector here.
+/* NOTE: never apply `transform` (e.g. translateZ(0)) via the `*` selector here.
    A transform makes an element the containing block for its `position: fixed`
    descendants, so a universal transform anchors fixed overlays to the document
    instead of the viewport, and full-screen modals then render off-screen on
@@ -304,17 +157,5 @@ a, button {
     backface-visibility: hidden;
     -webkit-perspective: 1000;
     perspective: 1000;
-  }
-}
-
-/* Disable Framer Motion hover effects on touch devices */
-@media (hover: none) and (pointer: coarse) {
-  .motion-hover-disable * {
-    --framer-motion-hover: none !important;
-  }
-  .project-card-while-hover {
-    transform: none !important;
-    scale: 1 !important;
-    box-shadow: none !important;
   }
 }

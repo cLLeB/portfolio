@@ -96,9 +96,8 @@ const Certifications = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-8 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            {t('certifications.title')} <span className="text-blue-600 dark:text-blue-400">{t('certifications.subtitle')}</span>
+            {t('certifications.title')} <span>{t('certifications.subtitle')}</span>
           </h2>
-          <div className="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Desktop: grid, Mobile: swipeable carousel */}

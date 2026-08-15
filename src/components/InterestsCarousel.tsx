@@ -136,7 +136,6 @@ const InterestsCarousel = ({ embedded = false }: InterestsCarouselProps) => {
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-2xl">
                             {t('about.interests_title')}
                         </h2>
-                        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
                     </motion.div>
                 )}
 

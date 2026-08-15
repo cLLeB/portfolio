@@ -90,10 +90,10 @@ const Contact = () => {
       title: t('contact.info.call'),
       value: (
         <div className="flex flex-row space-x-4">
-          <a href="tel:+233204185163" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">
+          <a href="tel:+233204185163" className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">
             +233 20 418 5163
           </a>
-          <a href="tel:+233537270382" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">
+          <a href="tel:+233537270382" className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">
             +233 53 727 0382
           </a>
         </div>

@@ -135,7 +135,7 @@ const MobileOptimizedHero = () => {
               {t('hero.hello')}{' '}
             </motion.span>
             <motion.span
-              className="text-blue-600 dark:text-blue-400 text-3xl sm:text-5xl md:text-7xl block sm:inline font-bold"
+              className="text-gray-900 dark:text-white text-3xl sm:text-5xl md:text-7xl block sm:inline font-bold"
             >
               Caleb Kwabena Kyere Boateng
             </motion.span>

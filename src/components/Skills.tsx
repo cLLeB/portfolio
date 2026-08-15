@@ -215,7 +215,7 @@ const Skills = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 relative z-20">
             {t('skills.title')} <span
-              className="text-blue-600 dark:text-blue-400 drop-shadow-2xl"
+              className="drop-shadow-2xl"
             >
               {t('skills.subtitle')}
             </span>
@@ -225,7 +225,6 @@ const Skills = () => {
               {t('skills.description')}
             </p>
           )}
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Carousel Container */}

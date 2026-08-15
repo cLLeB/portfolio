@@ -81,9 +81,8 @@ const Experience = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-8 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            {t('experience.title')} <span className="text-blue-500">{t('experience.subtitle')}</span>
+            {t('experience.title')} <span>{t('experience.subtitle')}</span>
           </h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Desktop list, Mobile: scroll-snap carousel */}

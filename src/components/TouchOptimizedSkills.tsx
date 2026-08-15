@@ -205,7 +205,7 @@ const TouchOptimizedSkills = () => {
               {/* On non-mobile show subtitle inline */}
               {!isMobile && (
                 <span
-                  className="text-blue-600 dark:text-blue-400 drop-shadow-2xl"
+                  className="drop-shadow-2xl"
                 >
                   {t('skills.subtitle')}
                 </span>
@@ -218,7 +218,6 @@ const TouchOptimizedSkills = () => {
                 <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-lg relative z-20 px-4">
                   {t('skills.description')}
                 </p>
-                <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
               </>
             )}
           </motion.div>
