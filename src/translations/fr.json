@@ -18,7 +18,7 @@
             "Programmeur système",
             "Rust & TypeScript"
         ],
-        "description": "Étudiant en informatique à KNUST. J'analyse le trafic réseau avec Wireshark et Nmap, et je construis des outils hors ligne en Rust et TypeScript — une boîte à outils de stéganographie, un terminal pour développeurs, et un firmware qui coupe le secteur quand la batterie est pleine.",
+        "description": "Étudiant en informatique à KNUST. J'analyse le trafic réseau avec Wireshark et Nmap, et je construis des outils hors ligne en Rust et TypeScript : une boîte à outils de stéganographie, un terminal pour développeurs, et un firmware qui coupe le secteur quand la batterie est pleine.",
         "view_work": "Voir mon travail",
         "download_resume": "Télécharger mon CV",
         "discover_more": "Découvrir plus",
@@ -30,7 +30,7 @@
         "journey_title": "Parcours en informatique",
         "journey_desc1": "J'étudie l'informatique à l'Université des sciences et technologies Kwame Nkrumah (KNUST). Pendant mon stage à la Division de la sécurité de l'information et de l'assurance technologique de l'université, j'ai analysé le trafic du portail étudiant dans Wireshark pour détecter des anomalies, lancé des scans Nmap pour la découverte d'hôtes, et rédigé nos conclusions. C'est là que la sécurité vue en cours est devenue quelque chose que je pouvais vérifier moi-même.",
         "journey_desc1_mobile": "Étudiant en informatique à KNUST. Analyse du trafic du portail étudiant avec Wireshark et scans Nmap lors d'un stage en sécurité.",
-        "journey_desc2": "J'ai surtout appris en livrant. J'écris en Rust quand un programme doit être petit et correct — un cœur de chiffrement, un interpréteur, un firmware sur Arduino Uno — et en TypeScript quand il doit toucher des gens. Plusieurs de mes projets fonctionnent entièrement hors ligne par conception : pas de serveur, pas de télémétrie, rien à divulguer.",
+        "journey_desc2": "J'ai surtout appris en livrant. J'écris en Rust quand un programme doit être petit et correct (un cœur de chiffrement, un interpréteur, un firmware sur Arduino Uno), et en TypeScript quand il doit toucher des gens. Plusieurs de mes projets fonctionnent entièrement hors ligne par conception : pas de serveur, pas de télémétrie, rien à divulguer.",
         "journey_desc2_mobile": "Rust quand la justesse compte, TypeScript quand la portée compte. Plusieurs projets fonctionnent hors ligne par conception.",
         "key_coursework": "Cours clés :",
         "courses": [
@@ -54,7 +54,7 @@
             {
                 "title": "Des logiciels qui marchent hors ligne",
                 "description": "Stegno et l'application biblique fonctionnent sans serveur et sans le moindre appel réseau. Quand un outil manipule quelque chose de privé, l'architecture la plus sûre est celle où les données ne quittent jamais l'appareil : rien à compromettre, rien à réquisitionner.",
-                "description_mobile": "Des outils sans serveur ni appel réseau — rien ne quitte l'appareil."
+                "description_mobile": "Des outils sans serveur ni appel réseau. Rien ne quitte l'appareil."
             },
             {
                 "title": "Un seul cœur, plusieurs interfaces",
@@ -76,7 +76,7 @@
         "interests": [
             {
                 "title": "Réseaux informatiques",
-                "description": "Commutateurs, routeurs, adressage IPv4/IPv6, DNS et DHCP — et lire la capture quand le schéma et la réalité divergent."
+                "description": "Commutateurs, routeurs, adressage IPv4/IPv6, DNS et DHCP, et lire la capture quand le schéma et la réalité divergent."
             },
             {
                 "title": "Cryptographie appliquée",
@@ -92,7 +92,7 @@
             },
             {
                 "title": "Applications de bureau",
-                "description": "Tauri 2 avec un backend Rust et une interface React — binaires légers, performances natives, sans embarquer un moteur de navigateur par application."
+                "description": "Tauri 2 avec un backend Rust et une interface React : binaires légers, performances natives, sans embarquer un moteur de navigateur par application."
             },
             {
                 "title": "Implémentation de langages",
@@ -155,14 +155,14 @@
     "projects": {
         "title": "Projets",
         "subtitle": "En vedette",
-        "description": "Ce que j'ai réellement terminé et mis entre les mains des gens — sur le Microsoft Store, l'Arch User Repository, le web, et un sur une prise murale en 230 V.",
+        "description": "Ce que j'ai réellement terminé et mis entre les mains des gens : sur le Microsoft Store, l'Arch User Repository, le web, et un sur une prise murale en 230 V.",
         "view_github": "Voir tous les projets sur GitHub",
         "key_features": "Fonctionnalités clés :",
         "items": [
             {
                 "title": "Stegno",
                 "shortTitle": "Stegno",
-                "description": "Une boîte à outils de stéganographie hors ligne qui dissimule des données chiffrées dans des fichiers ordinaires. Toute la cryptographie tient dans une seule caisse Rust, et les deux interfaces — une application de bureau Tauri et une application Android native en Kotlin et Jetpack Compose — l'appellent via UniFFI : le code sensible est écrit une fois plutôt que réimplémenté par plateforme. Aucun réseau, aucune télémétrie, aucun serveur.",
+                "description": "Une boîte à outils de stéganographie hors ligne qui dissimule des données chiffrées dans des fichiers ordinaires. Toute la cryptographie tient dans une seule caisse Rust, et les deux interfaces (une application de bureau Tauri et une application Android native en Kotlin et Jetpack Compose) l'appellent via UniFFI : le code sensible est écrit une fois plutôt que réimplémenté par plateforme. Aucun réseau, aucune télémétrie, aucun serveur.",
                 "shortDesc": "Boîte à outils de stéganographie hors ligne, un cœur Rust pour bureau et Android.",
                 "features": [
                     "Dérivation de clé Argon2id et charge utile AES-256-GCM",
@@ -177,7 +177,7 @@
             {
                 "title": "Gear",
                 "shortTitle": "Gear",
-                "description": "Un terminal pour développeurs bâti sur Tauri 2, backend Rust et interface React 19. Terminaux multi-onglets et panneaux divisés, éditeur CodeMirror 6 avec mode Vim, panneau git avec diffs et remises, explorateur de fichiers et navigateur de prévisualisation intégré pour les serveurs de développement — plus un chat IA et de la complétion en ligne reliés à plusieurs fournisseurs. Environ 300 commits.",
+                "description": "Un terminal pour développeurs bâti sur Tauri 2, backend Rust et interface React 19. Terminaux multi-onglets et panneaux divisés, éditeur CodeMirror 6 avec mode Vim, panneau git avec diffs et remises, explorateur de fichiers et navigateur de prévisualisation intégré pour les serveurs de développement, plus un chat IA et de la complétion en ligne reliés à plusieurs fournisseurs. Environ 300 commits.",
                 "shortDesc": "Un terminal développeur Tauri 2 avec éditeur, panneau git et IA intégrés.",
                 "features": [
                     "Terminaux multi-onglets, divisions horizontales et verticales",
@@ -195,7 +195,7 @@
                 "description": "Messagerie chiffrée de bout en bout sur un serveur uniquement en RAM : rien n'est écrit sur disque, donc aucune base à saisir et aucun historique à divulguer. Cryptographie en couches fondée sur HPKE, remplissage par tranches de taille pour contrer l'analyse de trafic, et voix et vidéo en plus du texte. Mon plus gros projet, environ 790 commits.",
                 "shortDesc": "Chat chiffré de bout en bout sur un serveur sans persistance.",
                 "features": [
-                    "Serveur sans persistance — rien ne touche le disque",
+                    "Serveur sans persistance, rien ne touche le disque",
                     "Chiffrement de bout en bout en couches fondé sur HPKE",
                     "Remplissage par tranches contre l'analyse de trafic",
                     "Appels voix et vidéo, pas seulement du texte",
@@ -207,7 +207,7 @@
             {
                 "title": "Prise intelligente à programmation adaptative",
                 "shortTitle": "Prise intelligente",
-                "description": "Un firmware Arduino Uno qui coupe le secteur dès qu'un appareil est chargé, pour qu'il ne reste pas en charge d'entretien toute la nuit. Il surveille le courant appelé jusqu'à la décroissance qui signale la fin de charge, puis ouvre le relais — sans application ni téléphone pour le chemin critique. Des applications Windows et Android ajoutent ce que la prise ne peut pas savoir seule : à quel pourcentage cette décroissance a eu lieu, pour s'arrêter à 80 % si on préfère.",
+                "description": "Un firmware Arduino Uno qui coupe le secteur dès qu'un appareil est chargé, pour qu'il ne reste pas en charge d'entretien toute la nuit. Il surveille le courant appelé jusqu'à la décroissance qui signale la fin de charge, puis ouvre le relais, sans application ni téléphone pour le chemin critique. Des applications Windows et Android ajoutent ce que la prise ne peut pas savoir seule : à quel pourcentage cette décroissance a eu lieu, pour s'arrêter à 80 % si on préfère.",
                 "shortDesc": "Firmware Arduino qui coupe le 230 V quand l'appareil est chargé.",
                 "features": [
                     "Détection de fin de charge par décroissance du courant",
@@ -223,7 +223,7 @@
             {
                 "title": "Application biblique",
                 "shortTitle": "App biblique",
-                "description": "Une application de bureau hors ligne pour les églises : on saisit une référence et elle s'affiche sur un second écran, sur fond noir. Backend Rust sur Tauri, texte en SQLite, interface React, et aucune dépendance au cloud — elle fonctionne dans un bâtiment sans connexion, ce qui est tout l'intérêt.",
+                "description": "Une application de bureau hors ligne pour les églises : on saisit une référence et elle s'affiche sur un second écran, sur fond noir. Backend Rust sur Tauri, texte en SQLite, interface React, et aucune dépendance au cloud, donc elle fonctionne dans un bâtiment sans connexion, ce qui est tout l'intérêt.",
                 "shortDesc": "Application Tauri hors ligne qui projette l'Écriture sur un second écran.",
                 "features": [
                     "Projection sur second écran avec occultation instantanée",
@@ -238,7 +238,7 @@
             {
                 "title": "UniMatch Ghana",
                 "shortTitle": "UniMatch",
-                "description": "Un projet d'équipe qui part des notes WASSCE d'un élève ghanéen et affiche tous les programmes universitaires auxquels il est admissible — et, en cas d'échec, exactement quelle note changerait la réponse. Points de coupure, fiches d'universités et pages de programmes sont consultables sans compte, car les élèves cherchent les seuils bien avant d'être prêts à saisir huit notes.",
+                "description": "Un projet d'équipe qui part des notes WASSCE d'un élève ghanéen et affiche tous les programmes universitaires auxquels il est admissible et, en cas d'échec, exactement quelle note changerait la réponse. Points de coupure, fiches d'universités et pages de programmes sont consultables sans compte, car les élèves cherchent les seuils bien avant d'être prêts à saisir huit notes.",
                 "shortDesc": "Confronte les notes WASSCE à tous les programmes universitaires du Ghana.",
                 "features": [
                     "Admissibilité classée avec la raison de chaque résultat",
@@ -253,7 +253,7 @@
             {
                 "title": "Ephemeral Drops",
                 "shortTitle": "Eph. Drops",
-                "description": "Des dépôts chiffrés et autodestructeurs — texte, images, audio ou fichiers — adressés à des destinataires précis et effacés après consultation ou expiration. Le chiffrement a lieu dans le navigateur en AES-256-GCM : le serveur ne stocke que du chiffré qu'il ne peut pas lire. Extrait de Chat éphémère en application autonome et déployé en conteneur.",
+                "description": "Des dépôts chiffrés et autodestructeurs (texte, images, audio ou fichiers) adressés à des destinataires précis et effacés après consultation ou expiration. Le chiffrement a lieu dans le navigateur en AES-256-GCM : le serveur ne stocke que du chiffré qu'il ne peut pas lire. Extrait de Chat éphémère en application autonome et déployé en conteneur.",
                 "shortDesc": "Dépôts de fichiers et messages chiffrés côté client et autodestructeurs.",
                 "features": [
                     "Chiffrement AES-256-GCM effectué côté client",
@@ -283,7 +283,7 @@
             {
                 "title": "Interpréteur de langage personnalisé",
                 "shortTitle": "Interpréteur Lang",
-                "description": "Un interpréteur à parcours d'arbre pour un petit langage, écrit en Rust — lexeur, parseur, AST et évaluateur, avec un REPL. Il gère nombres, chaînes, booléens, tableaux, liaisons `let`, if/else, boucles while, fonctions et récursivité, et vérifie les paramètres typés via une suite de conformité exécutée en CI.",
+                "description": "Un interpréteur à parcours d'arbre pour un petit langage, écrit en Rust : lexeur, parseur, AST et évaluateur, avec un REPL. Il gère nombres, chaînes, booléens, tableaux, liaisons `let`, if/else, boucles while, fonctions et récursivité, et vérifie les paramètres typés via une suite de conformité exécutée en CI.",
                 "shortDesc": "Un interpréteur à parcours d'arbre pour un petit langage, écrit en Rust.",
                 "features": [
                     "Lexeur, parseur et AST écrits à la main en Rust",
@@ -296,9 +296,9 @@
                 "category": "Langages de programmation"
             },
             {
-                "title": "Looply — Application de livraison (CodeFest '25)",
+                "title": "Looply : Application de livraison (CodeFest '25)",
                 "shortTitle": "Looply",
-                "description": "1er dauphin au CodeFest 2025, organisé par le département d'informatique de KNUST. J'étais développeur frontend principal dans une équipe de quatre, sur une application de livraison de repas en React Native — navigation, panier, paiement et suivi de commande — partie de zéro jusqu'à un prototype fonctionnel dans le temps du concours.",
+                "description": "1er dauphin au CodeFest 2025, organisé par le département d'informatique de KNUST. J'étais développeur frontend principal dans une équipe de quatre, sur une application de livraison de repas en React Native (navigation, panier, paiement et suivi de commande), partie de zéro jusqu'à un prototype fonctionnel dans le temps du concours.",
                 "shortDesc": "Application React Native de livraison, 1er dauphin au CodeFest 2025.",
                 "features": [
                     "1er dauphin, KNUST CodeFest 2025",
@@ -351,7 +351,7 @@
         "description": "Je lis tout ce qui arrive ici. Si vous avez un stage, un projet, ou une question sur quoi que ce soit sur ce site, écrivez-moi.",
         "email_href": "mailto:kyereboatengcaleb@gmail.com",
         "conversation_title": "Commençons une conversation",
-        "conversation_desc": "Je cherche un stage en réseaux ou en sécurité — quelque part où je lirais des captures, durcirais une infrastructure, ou écrirais du code système. Si vous voulez les sources de quoi que ce soit ici, ou si vous pensez que je me suis trompé, c'est aussi un message bienvenu.",
+        "conversation_desc": "Je cherche un stage en réseaux ou en sécurité, quelque part où je lirais des captures, durcirais une infrastructure, ou écrirais du code système. Si vous voulez les sources de quoi que ce soit ici, ou si vous pensez que je me suis trompé, c'est aussi un message bienvenu.",
         "follow_me": "Suivez-moi",
         "form_title": "Envoyer un message",
         "name_label": "Nom",

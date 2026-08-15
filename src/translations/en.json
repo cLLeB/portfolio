@@ -18,7 +18,7 @@
             "Systems Programmer",
             "Rust & TypeScript"
         ],
-        "description": "Computer Science student at KNUST. I analyse network traffic with Wireshark and Nmap, and build offline-first tools in Rust and TypeScript — a steganography toolkit, a developer terminal, and firmware that cuts mains power when your battery is full.",
+        "description": "Computer Science student at KNUST. I analyse network traffic with Wireshark and Nmap, and build offline-first tools in Rust and TypeScript: a steganography toolkit, a developer terminal, and firmware that cuts mains power when your battery is full.",
         "view_work": "View My Work",
         "download_resume": "Download Resume",
         "discover_more": "Discover More",
@@ -30,7 +30,7 @@
         "journey_title": "Computer Science Journey",
         "journey_desc1": "I study Computer Science at Kwame Nkrumah University of Science and Technology (KNUST). During my internship with the university's Information Security and Technology Assurance Division I analysed student portal traffic in Wireshark to find anomalies, ran Nmap scans for host discovery, and wrote up what we found. That work is where the abstract security material from lectures turned into something I could actually check.",
         "journey_desc1_mobile": "CS student at KNUST. Analysed student portal traffic in Wireshark and ran Nmap scans during a security internship there.",
-        "journey_desc2": "Most of what I know I learned by shipping. I write Rust when a program has to be correct and small — an encryption core, a language interpreter, firmware on an Arduino Uno — and TypeScript when it has to reach people. Several of my projects run entirely offline by design: no server, no telemetry, nothing to leak.",
+        "journey_desc2": "Most of what I know I learned by shipping. I write Rust when a program has to be correct and small (an encryption core, a language interpreter, firmware on an Arduino Uno), and TypeScript when it has to reach people. Several of my projects run entirely offline by design: no server, no telemetry, nothing to leak.",
         "journey_desc2_mobile": "I write Rust where correctness matters and TypeScript where reach does. Several projects run fully offline by design.",
         "key_coursework": "Key Coursework:",
         "courses": [
@@ -53,8 +53,8 @@
         "drives": [
             {
                 "title": "Software That Works Offline",
-                "description": "Stegno and the Bible app ship with no server and no network calls at all. If a tool handles something private, the safest architecture is one where the data never leaves the device — there is nothing to breach and nothing to subpoena.",
-                "description_mobile": "Tools that ship with no server and no network calls — nothing leaves the device."
+                "description": "Stegno and the Bible app ship with no server and no network calls at all. If a tool handles something private, the safest architecture is one where the data never leaves the device. There is nothing to breach and nothing to subpoena.",
+                "description_mobile": "Tools that ship with no server and no network calls. Nothing leaves the device."
             },
             {
                 "title": "One Core, Many Front Ends",
@@ -76,7 +76,7 @@
         "interests": [
             {
                 "title": "Computer Networking",
-                "description": "Switches, routers, IPv4/IPv6 addressing, DNS and DHCP — and reading the capture when the diagram and reality disagree."
+                "description": "Switches, routers, IPv4/IPv6 addressing, DNS and DHCP, and reading the capture when the diagram and reality disagree."
             },
             {
                 "title": "Applied Cryptography",
@@ -92,7 +92,7 @@
             },
             {
                 "title": "Desktop Applications",
-                "description": "Tauri 2 with a Rust backend and a React front end — small binaries, native performance, and no browser engine shipped per app."
+                "description": "Tauri 2 with a Rust backend and a React front end: small binaries, native performance, and no browser engine shipped per app."
             },
             {
                 "title": "Language Implementation",
@@ -155,14 +155,14 @@
     "projects": {
         "title": "Featured",
         "subtitle": "Projects",
-        "description": "Things I have actually finished and put in front of people — on the Microsoft Store, the Arch User Repository, the web, and one on a 230 V wall socket.",
+        "description": "Things I have actually finished and put in front of people: on the Microsoft Store, the Arch User Repository, the web, and one on a 230 V wall socket.",
         "view_github": "View All Projects on GitHub",
         "key_features": "Key Features:",
         "items": [
             {
                 "title": "Stegno",
                 "shortTitle": "Stegno",
-                "description": "An offline steganography toolkit that hides encrypted data inside ordinary files. All the cryptography and byte handling lives in one Rust crate, and both front ends — a Tauri desktop app and a native Android app in Kotlin and Jetpack Compose — call into it through UniFFI, so the sensitive code is written once rather than reimplemented per platform. No network, no telemetry, no server.",
+                "description": "An offline steganography toolkit that hides encrypted data inside ordinary files. All the cryptography and byte handling lives in one Rust crate, and both front ends (a Tauri desktop app and a native Android app in Kotlin and Jetpack Compose) call into it through UniFFI, so the sensitive code is written once rather than reimplemented per platform. No network, no telemetry, no server.",
                 "shortDesc": "Offline steganography toolkit with one Rust core behind desktop and Android.",
                 "features": [
                     "Argon2id key derivation with AES-256-GCM payloads",
@@ -177,7 +177,7 @@
             {
                 "title": "Gear",
                 "shortTitle": "Gear",
-                "description": "A developer terminal built on Tauri 2 with a Rust backend and a React 19 front end. Multi-tab and split-pane terminals, a CodeMirror 6 editor with Vim mode, a git panel with diffs and stashes, a file explorer, and an embedded preview browser for local dev servers — plus AI chat and inline completion wired to several providers. Around 300 commits.",
+                "description": "A developer terminal built on Tauri 2 with a Rust backend and a React 19 front end. Multi-tab and split-pane terminals, a CodeMirror 6 editor with Vim mode, a git panel with diffs and stashes, a file explorer, and an embedded preview browser for local dev servers, plus AI chat and inline completion wired to several providers. Around 300 commits.",
                 "shortDesc": "A Tauri 2 developer terminal with editor, git panel and AI built in.",
                 "features": [
                     "Multi-tab terminals with horizontal and vertical splits",
@@ -195,7 +195,7 @@
                 "description": "End-to-end encrypted messaging built on a RAM-only server: nothing is written to disk, so there is no database to seize and no history to leak. Layered HPKE-based cryptography, message size-bucket padding to blunt traffic analysis, and voice and video alongside text. My largest project at around 790 commits.",
                 "shortDesc": "End-to-end encrypted chat on a RAM-only, zero-persistence server.",
                 "features": [
-                    "Zero-persistence server — nothing touches disk",
+                    "Zero-persistence server, nothing touches disk",
                     "Layered end-to-end encryption built on HPKE",
                     "Message size-bucket padding against traffic analysis",
                     "Voice and video calls, not just text",
@@ -207,7 +207,7 @@
             {
                 "title": "Smart Socket with Adaptive Scheduling",
                 "shortTitle": "Smart Socket",
-                "description": "Arduino Uno firmware that cuts wall power once a charging device is full, so it never sits trickle-charging overnight. It watches the current draw for the taper that means the battery is done, then opens the relay — no app and no phone needed for the safety-critical path. Companion Windows and Android apps add the one thing the socket cannot know on its own: what percentage that taper happened at, so you can stop at 80% instead.",
+                "description": "Arduino Uno firmware that cuts wall power once a charging device is full, so it never sits trickle-charging overnight. It watches the current draw for the taper that means the battery is done, then opens the relay, with no app and no phone needed for the safety-critical path. Companion Windows and Android apps add the one thing the socket cannot know on its own: what percentage that taper happened at, so you can stop at 80% instead.",
                 "shortDesc": "Arduino firmware that cuts 230 V mains when a device finishes charging.",
                 "features": [
                     "Detects end-of-charge from the current taper",
@@ -223,7 +223,7 @@
             {
                 "title": "Bible App",
                 "shortTitle": "Bible App",
-                "description": "An offline desktop app for churches: look up a reference and project it onto a second monitor on a black background. Rust backend on Tauri with the text in SQLite, a React front end, and no cloud dependency — it works in a building with no internet, which is the point.",
+                "description": "An offline desktop app for churches: look up a reference and project it onto a second monitor on a black background. Rust backend on Tauri with the text in SQLite, a React front end, and no cloud dependency, so it works in a building with no internet, which is the point.",
                 "shortDesc": "Offline Tauri desktop app that projects scripture to a second monitor.",
                 "features": [
                     "Second-monitor projection with instant blank",
@@ -238,7 +238,7 @@
             {
                 "title": "UniMatch Ghana",
                 "shortTitle": "UniMatch",
-                "description": "A team project that takes a Ghanaian student's WASSCE grades and shows every university programme they qualify for — and where they fall short, exactly which grade would change the answer. Cut-off points, university profiles and programme pages are all browsable without an account, because students search for cut-offs long before they are ready to enter eight grades.",
+                "description": "A team project that takes a Ghanaian student's WASSCE grades and shows every university programme they qualify for, and where they fall short, exactly which grade would change the answer. Cut-off points, university profiles and programme pages are all browsable without an account, because students search for cut-offs long before they are ready to enter eight grades.",
                 "shortDesc": "Matches Ghanaian WASSCE grades against every university programme.",
                 "features": [
                     "Eligibility ranked with the reason for each result",
@@ -253,7 +253,7 @@
             {
                 "title": "Ephemeral Drops",
                 "shortTitle": "Eph. Drops",
-                "description": "Encrypted, self-destructing drops — text, images, audio or files — addressed to specific recipients and gone after viewing or expiry. Encryption happens in the browser with AES-256-GCM, so the server only ever stores ciphertext it cannot read. Extracted from Ephemeral Chat into a standalone app and deployed as a container.",
+                "description": "Encrypted, self-destructing drops (text, images, audio or files) addressed to specific recipients and gone after viewing or expiry. Encryption happens in the browser with AES-256-GCM, so the server only ever stores ciphertext it cannot read. Extracted from Ephemeral Chat into a standalone app and deployed as a container.",
                 "shortDesc": "Client-side encrypted, self-destructing file and message drops.",
                 "features": [
                     "AES-256-GCM encryption performed client-side",
@@ -283,7 +283,7 @@
             {
                 "title": "Custom Language Interpreter",
                 "shortTitle": "Lang Interpreter",
-                "description": "A tree-walking interpreter for a small language, written in Rust — lexer, parser, AST and evaluator, with a REPL. Handles numbers, strings, booleans, arrays, `let` bindings, if/else, while loops, functions and recursion, and checks typed parameters against a conformance test suite run in CI.",
+                "description": "A tree-walking interpreter for a small language, written in Rust: lexer, parser, AST and evaluator, with a REPL. Handles numbers, strings, booleans, arrays, `let` bindings, if/else, while loops, functions and recursion, and checks typed parameters against a conformance test suite run in CI.",
                 "shortDesc": "A tree-walking interpreter for a small language, written in Rust.",
                 "features": [
                     "Hand-written lexer, parser and AST in Rust",
@@ -296,9 +296,9 @@
                 "category": "Programming Languages"
             },
             {
-                "title": "Looply — Food Delivery App (CodeFest '25)",
+                "title": "Looply: Food Delivery App (CodeFest '25)",
                 "shortTitle": "Looply",
-                "description": "1st Runner-up at CodeFest 2025, run by the KNUST Department of Computer Science. I was the lead frontend developer on a four-person team, building a food delivery app in React Native — browsing, cart, checkout and order tracking — from nothing to a working prototype inside the competition window.",
+                "description": "1st Runner-up at CodeFest 2025, run by the KNUST Department of Computer Science. I was the lead frontend developer on a four-person team, building a food delivery app in React Native (browsing, cart, checkout and order tracking), from nothing to a working prototype inside the competition window.",
                 "shortDesc": "React Native food delivery app that placed 1st Runner-up at CodeFest 2025.",
                 "features": [
                     "1st Runner-up, KNUST CodeFest 2025",
@@ -351,7 +351,7 @@
         "description": "I read everything that arrives here. If you have an internship, a project, or a question about anything on this site, write to me.",
         "email_href": "mailto:kyereboatengcaleb@gmail.com",
         "conversation_title": "Let's Start a Conversation",
-        "conversation_desc": "I am looking for an internship in networking or security — somewhere I would be reading captures, hardening infrastructure, or writing systems code. If you want the source for anything here, or think I got something wrong, that is a welcome message too.",
+        "conversation_desc": "I am looking for an internship in networking or security, somewhere I would be reading captures, hardening infrastructure, or writing systems code. If you want the source for anything here, or think I got something wrong, that is a welcome message too.",
         "follow_me": "Follow Me",
         "form_title": "Send a Message",
         "name_label": "Name",

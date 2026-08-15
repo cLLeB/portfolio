@@ -31,7 +31,7 @@ const Projects = () => {
   }, [])
 
   // Static config for icons and links. Order must match projects.items in the
-  // translation files — the two arrays are zipped by index below.
+  // translation files. The two arrays are zipped by index below.
   const projectConfig = [
     {
       icon: EyeOff,
@@ -71,6 +71,7 @@ const Projects = () => {
     {
       icon: GraduationCap,
       github: 'https://github.com/EnamAbra/Unimatch',
+      demo: 'https://unimatchgh.app',
       technologies: ['React', 'TypeScript', 'Vite', 'Supabase', 'Playwright'],
       image: '/projects/unimatch.png'
     },

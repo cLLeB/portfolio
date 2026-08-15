@@ -13,7 +13,7 @@ interface ImageModalProps {
 }
 
 /**
- * Responsive image modal. This is a dispatcher only — it owns no scroll-lock or
+ * Responsive image modal. This is a dispatcher only. It owns no scroll-lock or
  * body state of its own. Each variant is a separate component so that only one
  * set of scroll-lock effects is ever mounted; two locks running together
  * overwrite each other's saved scroll offset and dump the page at the top.
