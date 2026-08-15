@@ -5,9 +5,7 @@ import About from '@/components/About'
 import Experience from '@/components/Experience'
 import Certifications from '@/components/Certifications'
 import Projects from '@/components/Projects'
-import InterestsCarousel from '@/components/InterestsCarousel'
 import Skills from '@/components/Skills'
-
 import TouchOptimizedSkills from '@/components/TouchOptimizedSkills'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -29,12 +27,9 @@ export default function Home() {
       <About />
       <Experience />
       <Certifications />
-
       <Projects />
 
-
       <div id="skills">
-
         <div className="hidden md:block">
           <Skills />
         </div>

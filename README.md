@@ -1,174 +1,58 @@
-# Caleb Kyere Boateng's Portfolio
+# Portfolio — Caleb Kyere Boateng
 
-A modern, responsive, and highly interactive portfolio website built with Next.js, TypeScript, and Framer Motion. Designed to showcase my professional journey, projects, and skills with a focus on performance and user experience.
+My personal portfolio site. Computer Science student at KNUST, focused on computer networking, security, and programming language design.
 
-## ✨ Features
+Live: https://portfolio-chi-nine-93.vercel.app/
 
-- **Advanced UI/UX**:
-  - **Dark/Light Mode**: Seamless theme switching with system preference detection
-  - **Custom Cursor**: Interactive cursor with hover effects
-  - **Glitch Text Effects**: Dynamic text animations for headings
-  - **Glassmorphism**: Modern frosted glass effects on cards and navigation
-  - **Responsive Image Gallery**: Optimized image viewing experience across all devices
-  
-- **Mobile-First Architecture**:
-  - **Dedicated Mobile Views**: Optimized components for mobile devices
-  - **Touch-Friendly Navigation**: Smooth scrolling and touch interactions
-  - **Adaptive Layouts**: Perfect display on any screen size
+## Running it locally
 
-- **Rich Content Sections**:
-  - **Interactive Hero**: Engaging introduction with animated elements
-  - **Professional Experience**: Timeline of work history and achievements
-  - **Certifications**: Showcase of professional certifications with previews
-  - **Project Showcase**: Detailed case studies with live demos
-  - **Skills Matrix**: Visual representation of technical proficiencies
-  - **Contact Form**: Easy way to get in touch
-
-- **Performance Optimized**:
-  - **Next.js 14**: Leveraging the latest React features
-  - **Image Optimization**: Automatic optimization with `next/image`
-  - **Lazy Loading**: Fast initial load times
-  - **SEO Optimized**: Meta tags and structured data
-
-## 🛠️ Tech Stack
-
-- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Theming**: [next-themes](https://github.com/pacocoursey/next-themes)
-- **Forms**: [React Hook Form](https://react-hook-form.com/) (Ready for integration)
-
-## 📁 Project Structure
-
-```
-portfolio-website/
-├── src/
-│   ├── app/
-│   │   ├── globals.css          # Global styles & Tailwind imports
-│   │   ├── layout.tsx           # Root layout with Providers
-│   │   └── page.tsx             # Main landing page
-│   ├── components/
-│   │   ├── ui/                  # Reusable UI components (Buttons, Modals, etc.)
-│   │   ├── EnhancedHero.tsx     # Desktop Hero section
-│   │   ├── MobileOptimizedHero.tsx # Mobile Hero section
-│   │   ├── Projects.tsx         # Desktop Projects grid
-│   │   ├── MobileProjectCards.tsx # Mobile Projects view
-│   │   ├── Skills.tsx           # Desktop Skills section
-│   │   ├── TouchOptimizedSkills.tsx # Mobile Skills section
-│   │   ├── ResponsiveNavigation.tsx # Main Navigation
-│   │   ├── Certifications.tsx   # Certifications section
-│   │   ├── Experience.tsx       # Experience timeline
-│   │   └── ...
-│   └── utils/                   # Utility functions
-├── public/                      # Static assets (images, icons)
-├── docs/                        # Documentation
-└── ...
+```bash
+npm install
+npm run dev
 ```
 
-## 🚀 Quick Start
+Then open http://localhost:3000.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/cLLeB/portfolio.git
-   cd portfolio
-   ```
+Other scripts: `npm run build`, `npm run type-check`, `npm run lint`.
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
+## Stack
 
-3. **Start development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
+- Next.js 15 (App Router) + TypeScript
+- Tailwind CSS
+- Framer Motion for animation
+- next-themes for dark/light mode
+- lucide-react and react-icons for icons
 
-4. **Open your browser**
-   The application will be available at [http://localhost:3000](http://localhost:3000)
+## How it's organised
 
-## 🎨 Customization
-
-### Personal Information
-1. **Update Profile**:
-   - Edit `src/components/EnhancedHero.tsx` for desktop view
-   - Update `src/components/MobileOptimizedHero.tsx` for mobile view
-   - Modify `src/components/About.tsx` for your personal bio
-
-2. **Update Professional Details**:
-   - Work experience in `src/components/Experience.tsx`
-   - Certifications in `src/components/Certifications.tsx`
-   - Projects in `src/components/Projects.tsx` and `src/components/MobileProjectCards.tsx`
-   - Skills in `src/components/Skills.tsx`
-
-### Images
-- Place your images in the `public/` directory:
-  - Profile picture: `/public/dp/me.jpg`
-  - Project screenshots: `/public/projects/`
-  - Certifications: `/public/certs/`
-  - Other assets: `/public/assets/`
-
-### Styling
-- Global styles: `src/app/globals.css`
-- Color scheme: Update the Tailwind config in `tailwind.config.js`
-- Animations: Modify in `src/components/Animations.tsx`
-
-## 🌐 Deployment
-
-This project is optimized for deployment on **Vercel**, **Netlify**, or **GitHub Pages**.
-
-### Vercel (Recommended)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FcLLeB%2Fportfolio)
-
-### Manual Deployment
-1. Build the project:
-   ```bash
-   npm run build
-   ```
-2. The output will be in the `.next` directory
-3. Deploy the contents to your preferred hosting service
-
-### Environment Variables
-Create a `.env.local` file with the following variables:
 ```
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-# Add other environment variables as needed
+src/
+├── app/              # layout, page, global CSS
+├── components/       # section components (Hero, About, Experience, ...)
+│   └── ui/           # Button, LoadingSpinner, image modals
+├── context/          # LanguageContext (EN/FR switching)
+├── hooks/            # useMobileScrollLock
+├── styles/           # design-system.css
+├── translations/     # en.json, fr.json — all site copy lives here
+└── utils/            # contactForm.ts
 ```
 
-## 🤝 Contributing
+Two things worth knowing before editing:
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to:
-1. Open an issue
-2. Fork the repository
-3. Create a new branch
-4. Submit a pull request
+**Copy is not in the components.** Every string comes from `src/translations/en.json` and `fr.json` via the `t()` helper from `LanguageContext`. Change the JSON, not the JSX, and change both files or the French build falls back to keys.
 
-## 📄 License
+**Some sections have separate desktop and mobile components** rather than one responsive component — `EnhancedHero`/`MobileOptimizedHero`, `Skills`/`TouchOptimizedSkills`, and `DesktopImageModal`/`MobileImageModal`. `page.tsx` picks between them with `hidden md:block` / `md:hidden`, and `ImageModal` picks between the two modals at a 768px media query. If you change one, check its counterpart.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The mobile image modal is portaled to `document.body` and relies on `position: fixed` resolving against the viewport. Do not add a `transform` to a broad selector in `globals.css` — a transform makes an element the containing block for its fixed descendants, which anchors the modal to the document instead of the viewport and pushes it off-screen.
 
-## 🙏 Acknowledgments
+## Deployment
 
-- **Next.js** for the amazing React framework
-- **Tailwind CSS** for the utility-first CSS framework
-- **Framer Motion** for beautiful animations
-- **Lucide** for the clean icons
-- **The open-source community** for continuous inspiration
+Vercel builds `main` automatically and serves the live site.
 
-## 📬 Contact
+`.github/workflows/deploy.yml` also publishes to GitHub Pages on push to `main`. That path sets `GITHUB_ACTIONS=true`, which switches `next.config.js` to `output: 'export'` and applies the `/portfolio` basePath — the site is static there, so anything needing a server won't work on that deployment.
 
-- **Email**: calebkyereboateng@gmail.com
-- **LinkedIn**: [Caleb Kyere Boateng](https://linkedin.com/in/caleb-kyere-boateng-8a5b5b1b0/)
-- **GitHub**: [cLLeB](https://github.com/cLLeB)
+## Contact
 
----
-
+- Email: kyereboatengcaleb@gmail.com
+- LinkedIn: https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4
+- GitHub: https://github.com/cLLeB
