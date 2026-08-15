@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart, Store } from 'lucide-react'
+import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart, Store, Download } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import ImageModal from './ui/ImageModal'
@@ -37,6 +37,7 @@ const Projects = () => {
       icon: EyeOff,
       github: 'https://github.com/cLLeB/stegno',
       store: 'https://apps.microsoft.com/detail/9phgxx54j7s8',
+      demo: 'https://stegno-omega.vercel.app',
       technologies: ['Rust', 'Tauri', 'Kotlin', 'Jetpack Compose', 'UniFFI', 'AES-256-GCM'],
       image: '/projects/stegno.png'
     },
@@ -45,12 +46,14 @@ const Projects = () => {
       github: 'https://github.com/cLLeB/gear',
       store: 'https://apps.microsoft.com/detail/9p479wc1krqf',
       demo: 'https://gear.kyere.me',
+      releases: 'https://github.com/cLLeB/gear/releases',
       technologies: ['Rust', 'Tauri 2', 'React 19', 'TypeScript', 'CodeMirror 6'],
       image: '/projects/gear.png'
     },
     {
       icon: MessageCircle,
       github: 'https://github.com/cLLeB/ephemeral-chat',
+      store: 'https://apps.microsoft.com/detail/9nbpvp9xjwhw',
       demo: 'https://chat.kyere.me',
       technologies: ['React', 'Node.js', 'Express', 'Rust', 'WebSockets', 'HPKE'],
       image: '/awards/chat.png'
@@ -59,18 +62,20 @@ const Projects = () => {
       icon: Plug,
       github: 'https://github.com/cLLeB/embedded-system',
       store: 'https://apps.microsoft.com/detail/9nbjqfff14lv',
+      releases: 'https://github.com/cLLeB/embedded-system/releases',
       technologies: ['C++', 'Arduino Uno', 'Kotlin', 'Bluetooth', 'Relay Control', 'Embedded Testing'],
       image: '/projects/smart-socket.jpeg'
     },
     {
       icon: BookOpen,
       github: 'https://github.com/cLLeB/bible-app',
+      releases: 'https://github.com/cLLeB/bible-app/releases',
       technologies: ['Rust', 'Tauri', 'React', 'SQLite', 'Zustand'],
       image: '/projects/bible-app.png'
     },
     {
       icon: GraduationCap,
-      github: 'https://github.com/EnamAbra/Unimatch',
+      github: 'https://github.com/cLLeB/Unimatch',
       demo: 'https://unimatchgh.app',
       technologies: ['React', 'TypeScript', 'Vite', 'Supabase', 'Playwright'],
       image: '/projects/unimatch.png'
@@ -78,6 +83,7 @@ const Projects = () => {
     {
       icon: Package,
       github: 'https://github.com/cLLeB/ephdrops',
+      store: 'https://apps.microsoft.com/detail/9ndrpq0zd8kt',
       demo: 'https://beternow-ephdrops.hf.space',
       technologies: ['AES-256-GCM', 'Docker', 'Hugging Face Spaces'],
       image: '/projects/ephemeral-drops.png'
@@ -90,6 +96,7 @@ const Projects = () => {
     {
       icon: Code,
       github: 'https://github.com/cLLeB/custom-lang-interpreter',
+      releases: 'https://github.com/cLLeB/custom-lang-interpreter/releases',
       demo: 'https://drive.google.com/file/d/1JyCnuFcxy1rQczPMszvznoTu3jDlsswy/view',
       technologies: ['Rust', 'Lexer', 'Parser', 'AST', 'Tree-Walking Interpreter', 'REPL'],
       image: '/awards/custom-lang.png'
@@ -306,6 +313,19 @@ const Projects = () => {
                               whileTap={{ scale: 0.9 }}
                             >
                               <Store size={18} />
+                            </motion.a>
+                          )}
+                          {project.releases && (
+                            <motion.a
+                              href={project.releases}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${project.title} downloads and release notes`}
+                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.9 }}
+                            >
+                              <Download size={18} />
                             </motion.a>
                           )}
                           {project.demo && (
