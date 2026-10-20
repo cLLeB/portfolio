@@ -205,8 +205,8 @@
                 "category": "Real-Time Application"
             },
             {
-                "title": "Biometric Verify",
-                "shortTitle": "Biometric Verify",
+                "title": "Contactless Verification System",
+                "shortTitle": "Contactless Verification System",
                 "description": "Proves who someone is with nothing but a phone camera, by face or by palm, so people with worn fingerprints are never turned away. It confirms a claimed identity or finds who a person is, checks liveness, and works fully offline for clinics and field sites with no signal. Only an encrypted, irreversible template is kept, never the photo. Ships as an API, an Android app and ready-made integrations.",
                 "shortDesc": "Face and palm identity checks with any phone camera, even offline.",
                 "features": [

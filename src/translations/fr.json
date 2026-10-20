@@ -205,8 +205,8 @@
                 "category": "Application temps réel"
             },
             {
-                "title": "Biometric Verify",
-                "shortTitle": "Biometric Verify",
+                "title": "Contactless Verification System",
+                "shortTitle": "Contactless Verification System",
                 "description": "Prouve l'identité d'une personne avec une simple caméra de téléphone, par le visage ou la paume, pour que personne ne soit refusé à cause d'empreintes usées. Il confirme une identité déclarée ou retrouve qui est la personne, vérifie qu'elle est bien vivante et fonctionne entièrement hors ligne, pour les cliniques et les sites sans réseau. Seul un gabarit chiffré et irréversible est conservé, jamais la photo. Disponible en API, en application Android et en intégrations prêtes à l'emploi.",
                 "shortDesc": "Contrôle d'identité par le visage ou la paume avec n'importe quel téléphone, même hors ligne.",
                 "features": [
