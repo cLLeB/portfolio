@@ -51,7 +51,7 @@ const Projects = () => {
     },
     {
       icon: MessageCircle,
-      github: 'https://github.com/cLLeB/ephemeral-chat',
+      github: 'https://github.com/1iammyself/ephemeral-chat',
       store: 'https://apps.microsoft.com/detail/9nbpvp9xjwhw',
       demo: 'https://chat.kyere.me',
       technologies: ['React', 'Node.js', 'Express', 'Rust', 'WebSockets', 'HPKE'],
