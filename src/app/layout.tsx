@@ -6,9 +6,9 @@ import { Providers } from './providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Caleb Kyere Boateng | Computer Science Student Portfolio',
-  description: 'Computer Science student at KNUST specializing in programming language design, computer networking, and full-stack development. Seeking internship opportunities.',
-  keywords: ['Computer Science', 'Software Engineer', 'Computer Networking', 'Programming Languages', 'Full Stack Developer', 'React', 'Node.js', 'Python', 'KNUST'],
+  title: 'Caleb Kyere Boateng | Software, Security & Embedded Systems',
+  description: 'Master’s student in Electrical, Embedded Systems and Nanotechnology at JUNIA in Lille. Software, network security and embedded systems. Open to internships.',
+  keywords: ['Computer Science', 'Software Engineer', 'Computer Networking', 'Programming Languages', 'Full Stack Developer', 'React', 'Node.js', 'Python', 'Embedded Systems', 'Rust', 'JUNIA', 'KNUST'],
   authors: [{ name: 'Caleb Kyere Boateng' }],
   creator: 'Caleb Kyere Boateng',
   publisher: 'Caleb Kyere Boateng',
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL('https://portfolio.kyere.me/'),
   openGraph: {
-    title: 'Caleb Kyere Boateng | Computer Science Student Portfolio',
-    description: 'Computer Science student at KNUST specializing in programming language design and computer networking.',
+    title: 'Caleb Kyere Boateng | Software, Security & Embedded Systems',
+    description: 'Master’s student in embedded systems at JUNIA in Lille. Software, network security and embedded systems.',
     url: 'https://portfolio.kyere.me/',
     siteName: 'Caleb Kyere Boateng Portfolio',
     images: [
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Caleb Kyere Boateng | Computer Science Student Portfolio',
-    description: 'Computer Science student at KNUST specializing in programming language design and computer networking.',
+    title: 'Caleb Kyere Boateng | Software, Security & Embedded Systems',
+    description: 'Master’s student in embedded systems at JUNIA in Lille. Software, network security and embedded systems.',
     images: ['/og-image.jpeg'],
   },
   robots: {

@@ -273,7 +273,7 @@ const EnhancedHero = () => {
             },
             {
               icon: Mail,
-              href: 'mailto:kyereboatengcaleb@gmail.com',
+              href: 'mailto:caleb-kwabena.kyere@student.junia.com',
               label: 'Email',
               color: 'hover:text-teal-400'
             }

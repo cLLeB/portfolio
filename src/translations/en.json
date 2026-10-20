@@ -10,15 +10,15 @@
     },
     "hero": {
         "available": "Available for Opportunities",
-        "based_in": "Based in Ghana",
+        "based_in": "Based in Lille, France",
         "hello": "Hello, I am",
         "roles": [
-            "Computer Science Student",
+            "Embedded Systems Master's Student",
             "Network Security",
             "Systems Programmer",
             "Rust & TypeScript"
         ],
-        "description": "Computer Science student at KNUST. I analyse network traffic with Wireshark and Nmap, and build offline-first tools in Rust and TypeScript: a steganography toolkit, a developer terminal, and firmware that cuts mains power when your battery is full.",
+        "description": "Master's student in Electrical, Embedded Systems and Nanotechnology at JUNIA in Lille. I analyse network traffic with Wireshark and Nmap, and I build tools that work offline in Rust and TypeScript: a steganography toolkit, a developer terminal, and firmware that cuts mains power when a battery is full.",
         "view_work": "View My Work",
         "download_resume": "Download Resume",
         "discover_more": "Discover More",
@@ -27,9 +27,9 @@
     "about": {
         "title": "About",
         "me": "Me",
-        "journey_title": "Computer Science Journey",
-        "journey_desc1": "I study Computer Science at Kwame Nkrumah University of Science and Technology (KNUST). During my internship with the university's Information Security and Technology Assurance Division I analysed student portal traffic in Wireshark to find anomalies, ran Nmap scans for host discovery, and wrote up what we found. That work is where the abstract security material from lectures turned into something I could actually check.",
-        "journey_desc1_mobile": "CS student at KNUST. Analysed student portal traffic in Wireshark and ran Nmap scans during a security internship there.",
+        "journey_title": "From Computer Science to Embedded Systems",
+        "journey_desc1": "I am studying for a Master's in Electrical, Embedded Systems and Nanotechnology at JUNIA in Lille, after studying Computer Science at Kwame Nkrumah University of Science and Technology (KNUST) in Ghana. During my internship with KNUST's Information Security and Technology Assurance Division, I analysed student portal traffic in Wireshark to find anomalies, ran Nmap scans for host discovery, and wrote up what we found. That work is where the abstract security material from lectures turned into something I could actually check.",
+        "journey_desc1_mobile": "Master's student at JUNIA in Lille, after Computer Science at KNUST. During a security internship at KNUST, I analysed student portal traffic in Wireshark and ran Nmap scans.",
         "journey_desc2": "Most of what I know I learned by shipping. I write Rust when a program has to be correct and small (an encryption core, a language interpreter, firmware on an Arduino Uno), and TypeScript when it has to reach people. Several of my projects run entirely offline by design: no server, no telemetry, nothing to leak.",
         "journey_desc2_mobile": "I write Rust where correctness matters and TypeScript where reach does. Several projects run fully offline by design.",
         "key_coursework": "Key Coursework:",
@@ -107,14 +107,14 @@
             {
                 "role": "Student Researcher",
                 "company": "Computer Science Society | KNUST, Kumasi",
-                "period": "2025 - JULY 2026",
+                "period": "2025 TO JULY 2026",
                 "description": "Conducted applied research within the Computer Science Society at KNUST, Ghana, contributing to collaborative projects aligned with emerging computer science trends. Supported project design, documentation, and peer knowledge sharing while maintaining ethical and academic research standards. Helped build a research environment that strengthened student participation and technical skill development.",
                 "description_mobile": "Researcher at KNUST, project support, docs, and student collaboration."
             },
             {
                 "role": "Security Intern",
                 "company": "Information Security and Technology Assurance Division | KNUST, Kumasi",
-                "period": "SEPTEMBER 2025 - NOVEMBER 2025",
+                "period": "SEPTEMBER TO NOVEMBER 2025",
                 "description": "Performed network security analysis to safeguard university digital assets within the Information Security and Technology Assurance Division at KNUST. Analyzed student portal traffic using Wireshark to detect anomalies and used Nmap for port scanning and host discovery to identify potential vulnerabilities. Supported vulnerability assessment, penetration testing activities, and security policy documentation.",
                 "description_mobile": "Security intern, network analysis, vulnerability scanning, and assessments."
             }
@@ -364,7 +364,7 @@
         "title_start": "Get In",
         "title_end": "Touch",
         "description": "I read everything that arrives here. If you have an internship, a project, or a question about anything on this site, write to me.",
-        "email_href": "mailto:kyereboatengcaleb@gmail.com",
+        "email_href": "mailto:caleb-kwabena.kyere@student.junia.com",
         "conversation_title": "Let's Start a Conversation",
         "conversation_desc": "I am looking for an internship in networking or security, somewhere I would be reading captures, hardening infrastructure, or writing systems code. If you want the source for anything here, or think I got something wrong, that is a welcome message too.",
         "follow_me": "Follow Me",
@@ -389,7 +389,7 @@
         }
     },
     "footer": {
-        "description": "Computer Science student at KNUST. Network security, Rust, and tools that work without a server.",
+        "description": "Master's student in embedded systems at JUNIA in Lille. Network security, Rust, and tools that work without a server.",
         "quick_links": "Quick Links",
         "get_in_touch": "Get In Touch",
         "made_with": "Made with",

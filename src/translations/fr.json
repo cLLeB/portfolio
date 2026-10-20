@@ -10,15 +10,15 @@
     },
     "hero": {
         "available": "Disponible pour opportunités",
-        "based_in": "Basé au Ghana",
+        "based_in": "Basé à Lille, France",
         "hello": "Bonjour, je suis",
         "roles": [
-            "Étudiant en informatique",
+            "Étudiant en master systèmes embarqués",
             "Sécurité réseau",
             "Programmeur système",
             "Rust & TypeScript"
         ],
-        "description": "Étudiant en informatique à KNUST. J'analyse le trafic réseau avec Wireshark et Nmap, et je construis des outils hors ligne en Rust et TypeScript : une boîte à outils de stéganographie, un terminal pour développeurs, et un firmware qui coupe le secteur quand la batterie est pleine.",
+        "description": "Étudiant en master génie électrique, systèmes embarqués et nanotechnologies à JUNIA, à Lille. J'analyse le trafic réseau avec Wireshark et Nmap, et je construis des outils hors ligne en Rust et TypeScript : une boîte à outils de stéganographie, un terminal pour développeurs, et un firmware qui coupe le secteur quand la batterie est pleine.",
         "view_work": "Voir mon travail",
         "download_resume": "Télécharger mon CV",
         "discover_more": "Découvrir plus",
@@ -27,9 +27,9 @@
     "about": {
         "title": "À propos de",
         "me": "Moi",
-        "journey_title": "Parcours en informatique",
-        "journey_desc1": "J'étudie l'informatique à l'Université des sciences et technologies Kwame Nkrumah (KNUST). Pendant mon stage à la Division de la sécurité de l'information et de l'assurance technologique de l'université, j'ai analysé le trafic du portail étudiant dans Wireshark pour détecter des anomalies, lancé des scans Nmap pour la découverte d'hôtes, et rédigé nos conclusions. C'est là que la sécurité vue en cours est devenue quelque chose que je pouvais vérifier moi-même.",
-        "journey_desc1_mobile": "Étudiant en informatique à KNUST. Analyse du trafic du portail étudiant avec Wireshark et scans Nmap lors d'un stage en sécurité.",
+        "journey_title": "De l'informatique aux systèmes embarqués",
+        "journey_desc1": "Je prépare un master en génie électrique, systèmes embarqués et nanotechnologies à JUNIA, à Lille, après des études d'informatique à l'Université des sciences et technologies Kwame Nkrumah (KNUST) au Ghana. Pendant mon stage à la Division de la sécurité de l'information et de l'assurance technologique de l'université, j'ai analysé le trafic du portail étudiant dans Wireshark pour détecter des anomalies, lancé des scans Nmap pour la découverte d'hôtes, et rédigé nos conclusions. C'est là que la sécurité vue en cours est devenue quelque chose que je pouvais vérifier moi-même.",
+        "journey_desc1_mobile": "Étudiant en master à JUNIA, à Lille, après des études d'informatique à KNUST. Pendant un stage en sécurité à KNUST, j'ai analysé le trafic du portail étudiant avec Wireshark et lancé des scans Nmap.",
         "journey_desc2": "J'ai surtout appris en livrant. J'écris en Rust quand un programme doit être petit et correct (un cœur de chiffrement, un interpréteur, un firmware sur Arduino Uno), et en TypeScript quand il doit toucher des gens. Plusieurs de mes projets fonctionnent entièrement hors ligne par conception : pas de serveur, pas de télémétrie, rien à divulguer.",
         "journey_desc2_mobile": "Rust quand la justesse compte, TypeScript quand la portée compte. Plusieurs projets fonctionnent hors ligne par conception.",
         "key_coursework": "Cours clés :",
@@ -107,14 +107,14 @@
             {
                 "role": "Étudiant Chercheur",
                 "company": "Société d'Informatique | KNUST, Kumasi",
-                "period": "2025 - JUILLET 2026",
+                "period": "DE 2025 À JUILLET 2026",
                 "description": "Recherches appliquées menées au sein de la Société d'Informatique de KNUST, Ghana, avec une contribution à des projets collaboratifs alignés sur les tendances émergentes de l'informatique. Soutien à la conception de projets, à la documentation et au partage des connaissances entre pairs, dans le respect des normes de recherche éthiques et académiques. Participation à la construction d'un environnement de recherche qui a renforcé l'engagement des étudiants et le développement des compétences techniques.",
                 "description_mobile": "Chercheur à KNUST, soutien de projets, documentation et collaboration étudiante."
             },
             {
                 "role": "Stagiaire en sécurité",
                 "company": "Division de la sécurité de l'information et de l'assurance technologique | KNUST, Kumasi",
-                "period": "SEPTEMBRE 2025 - NOVEMBRE 2025",
+                "period": "DE SEPTEMBRE À NOVEMBRE 2025",
                 "description": "Analyse de la sécurité du réseau pour protéger les actifs numériques de l'université au sein de la Division de la sécurité de l'information et de l'assurance technologique de KNUST. Analyse du trafic du portail étudiant à l'aide de Wireshark pour détecter les anomalies et utilisation de Nmap pour le balayage des ports et la découverte d'hôtes afin d'identifier les vulnérabilités potentielles. Soutien à l'évaluation des vulnérabilités, aux tests d'intrusion et à la documentation des politiques de sécurité.",
                 "description_mobile": "Stagiaire en sécurité, analyse réseau, scan de vulnérabilités et évaluations."
             }
@@ -364,7 +364,7 @@
         "title_start": "Entrer en",
         "title_end": "Contact",
         "description": "Je lis tout ce qui arrive ici. Si vous avez un stage, un projet, ou une question sur quoi que ce soit sur ce site, écrivez-moi.",
-        "email_href": "mailto:kyereboatengcaleb@gmail.com",
+        "email_href": "mailto:caleb-kwabena.kyere@student.junia.com",
         "conversation_title": "Commençons une conversation",
         "conversation_desc": "Je cherche un stage en réseaux ou en sécurité, quelque part où je lirais des captures, durcirais une infrastructure, ou écrirais du code système. Si vous voulez les sources de quoi que ce soit ici, ou si vous pensez que je me suis trompé, c'est aussi un message bienvenu.",
         "follow_me": "Suivez-moi",
@@ -389,7 +389,7 @@
         }
     },
     "footer": {
-        "description": "Étudiant en informatique à KNUST. Sécurité réseau, Rust, et des outils qui marchent sans serveur.",
+        "description": "Étudiant en master systèmes embarqués à JUNIA, à Lille. Sécurité réseau, Rust, et des outils qui marchent sans serveur.",
         "quick_links": "Liens rapides",
         "get_in_touch": "Entrer en contact",
         "made_with": "Fait avec",

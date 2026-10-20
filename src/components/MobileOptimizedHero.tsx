@@ -247,7 +247,7 @@ const MobileOptimizedHero = () => {
           {[
             { icon: Github, href: 'https://github.com/cLLeB', label: 'GitHub' },
             { icon: Linkedin, href: 'https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:kyereboatengcaleb@gmail.com', label: 'Email' }
+            { icon: Mail, href: 'mailto:caleb-kwabena.kyere@student.junia.com', label: 'Email' }
           ].map(({ icon: Icon, href, label }) => (
             <motion.a
               key={label}

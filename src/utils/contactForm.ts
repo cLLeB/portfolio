@@ -30,7 +30,7 @@ ${formData.message}
 ---
 Sent from Caleb Kyere Boateng's Portfolio Website`)
 
-    const mailtoLink = `mailto:kyereboatengcaleb@gmail.com?subject=${subject}&body=${body}`
+    const mailtoLink = `mailto:caleb-kwabena.kyere@student.junia.com?subject=${subject}&body=${body}`
     
     // Try to open email client
     window.open(mailtoLink, '_blank')
@@ -150,7 +150,7 @@ const showNotification = (type: 'success' | 'error', message: string) => {
 
 // Alternative function for direct WhatsApp contact
 export const contactViaWhatsApp = (message?: string) => {
-  const phoneNumber = '+233204185163' // Your phone number
+  const phoneNumber = '233204185163' // Your phone number
   const defaultMessage = message || 'Hello Caleb! I found your portfolio and would like to get in touch.'
   const encodedMessage = encodeURIComponent(defaultMessage)
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
@@ -160,7 +160,7 @@ export const contactViaWhatsApp = (message?: string) => {
 
 // Function to copy email to clipboard
 export const copyEmailToClipboard = () => {
-  const email = 'kyereboatengcaleb@gmail.com'
+  const email = 'caleb-kwabena.kyere@student.junia.com'
   
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(email).then(() => {

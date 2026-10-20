@@ -25,17 +25,17 @@ const Footer = () => {
     },
     {
       icon: Mail,
-      href: t('contact.email_href') || 'mailto:kyereboatengcaleb@gmail.com',
+      href: t('contact.email_href') || 'mailto:caleb-kwabena.kyere@student.junia.com',
       label: 'Email'
     },
     {
       icon: Phone,
-      href: 'tel:+233537270382',
+      href: 'tel:+33752902500',
       label: 'Phone'
     },
     {
       icon: MapPin,
-      href: 'https://maps.google.com/?q=Kumasi,Ghana',
+      href: 'https://maps.google.com/?q=Lille,France',
       label: 'Location'
     }
   ]

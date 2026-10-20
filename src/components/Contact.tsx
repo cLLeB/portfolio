@@ -82,19 +82,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: t('contact.info.email'),
-      value: 'kyereboatengcaleb@gmail.com',
-      href: 'mailto:kyereboatengcaleb@gmail.com'
+      value: 'caleb-kwabena.kyere@student.junia.com',
+      href: 'mailto:caleb-kwabena.kyere@student.junia.com'
     },
     {
       icon: Phone,
       title: t('contact.info.call'),
       value: (
         <div className="flex flex-row space-x-4">
-          <a href="tel:+233204185163" className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-300">
-            +233 20 418 5163
+          <a href="tel:+33752902500" className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-300">
+            +33 7 52 90 25 00
           </a>
-          <a href="tel:+233537270382" className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-300">
-            +233 53 727 0382
+          <a href="https://wa.me/233204185163" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-300">
+            WhatsApp +233 20 418 5163
           </a>
         </div>
       ),
@@ -103,8 +103,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: t('contact.info.location'),
-      value: 'Kumasi, Ghana',
-      href: 'https://www.knust.edu.gh/about/knust/maps'
+      value: 'Lille, France',
+      href: 'https://maps.google.com/?q=Lille,France'
     }
   ]
 
@@ -124,19 +124,19 @@ const Contact = () => {
     {
       icon: Mail,
       name: 'Email',
-      href: 'mailto:kyereboatengcaleb@gmail.com',
+      href: 'mailto:caleb-kwabena.kyere@student.junia.com',
       color: 'hover:text-teal-600'
     },
     {
       icon: Phone,
       name: 'Phone',
-      href: 'tel:+233537270382',
+      href: 'tel:+33752902500',
       color: 'hover:text-teal-600'
     },
     {
       icon: MapPin,
       name: 'Location',
-      href: 'https://maps.google.com/?q=Kumasi,Ghana',
+      href: 'https://maps.google.com/?q=Lille,France',
       color: 'hover:text-teal-500'
     }
   ]
