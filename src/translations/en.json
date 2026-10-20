@@ -205,6 +205,21 @@
                 "category": "Real-Time Application"
             },
             {
+                "title": "Biometric Verify",
+                "shortTitle": "Biometric Verify",
+                "description": "Proves who someone is with nothing but a phone camera, by face or by palm, so people with worn fingerprints are never turned away. It confirms a claimed identity or finds who a person is, checks liveness, and works fully offline for clinics and field sites with no signal. Only an encrypted, irreversible template is kept, never the photo. Ships as an API, an Android app and ready-made integrations.",
+                "shortDesc": "Face and palm identity checks with any phone camera, even offline.",
+                "features": [
+                    "Face or palm, so no one is excluded by worn fingerprints",
+                    "Verify a claimed identity or identify an unknown person",
+                    "Active liveness checks against photos and replays",
+                    "Works fully offline on ordinary phones",
+                    "Keeps only an encrypted, irreversible template, never the photo",
+                    "API, Android app and integrations for attendance, exams, clinics and welfare"
+                ],
+                "category": "Security & Identity"
+            },
+            {
                 "title": "Smart Socket with Adaptive Scheduling",
                 "shortTitle": "Smart Socket",
                 "description": "Arduino Uno firmware that cuts wall power once a charging device is full, so it never sits trickle-charging overnight. It watches the current draw for the taper that means the battery is done, then opens the relay, with no app and no phone needed for the safety-critical path. Companion Windows and Android apps add the one thing the socket cannot know on its own: what percentage that taper happened at, so you can stop at 80% instead.",

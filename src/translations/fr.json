@@ -205,6 +205,21 @@
                 "category": "Application temps réel"
             },
             {
+                "title": "Biometric Verify",
+                "shortTitle": "Biometric Verify",
+                "description": "Prouve l'identité d'une personne avec une simple caméra de téléphone, par le visage ou la paume, pour que personne ne soit refusé à cause d'empreintes usées. Il confirme une identité déclarée ou retrouve qui est la personne, vérifie qu'elle est bien vivante et fonctionne entièrement hors ligne, pour les cliniques et les sites sans réseau. Seul un gabarit chiffré et irréversible est conservé, jamais la photo. Disponible en API, en application Android et en intégrations prêtes à l'emploi.",
+                "shortDesc": "Contrôle d'identité par le visage ou la paume avec n'importe quel téléphone, même hors ligne.",
+                "features": [
+                    "Visage ou paume : personne n'est exclu à cause d'empreintes usées",
+                    "Vérifie une identité déclarée ou identifie une personne inconnue",
+                    "Détection active du vivant contre les photos et les rejeux",
+                    "Fonctionne entièrement hors ligne sur des téléphones ordinaires",
+                    "Ne garde qu'un gabarit chiffré et irréversible, jamais la photo",
+                    "API, application Android et intégrations pour présences, examens, cliniques et aides sociales"
+                ],
+                "category": "Sécurité et identité"
+            },
+            {
                 "title": "Prise intelligente à programmation adaptative",
                 "shortTitle": "Prise intelligente",
                 "description": "Un firmware Arduino Uno qui coupe le secteur dès qu'un appareil est chargé, pour qu'il ne reste pas en charge d'entretien toute la nuit. Il surveille le courant appelé jusqu'à la décroissance qui signale la fin de charge, puis ouvre le relais, sans application ni téléphone pour le chemin critique. Des applications Windows et Android ajoutent ce que la prise ne peut pas savoir seule : à quel pourcentage cette décroissance a eu lieu, pour s'arrêter à 80 % si on préfère.",

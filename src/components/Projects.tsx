@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart, Store, Download } from 'lucide-react'
+import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart, Store, Download, ScanFace } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import ImageModal from './ui/ImageModal'
@@ -56,6 +56,14 @@ const Projects = () => {
       demo: 'https://chat.kyere.me',
       technologies: ['React', 'Node.js', 'Express', 'Rust', 'WebSockets', 'HPKE'],
       image: '/awards/chat.png'
+    },
+    {
+      icon: ScanFace,
+      github: 'https://github.com/cLLeB/verification-system',
+      demo: 'https://verify.kyere.me',
+      releases: 'https://github.com/cLLeB/verification-system/releases',
+      technologies: ['Python', 'Flask', 'InsightFace', 'MediaPipe', 'ONNX Runtime', 'Kotlin'],
+      image: '/projects/biometric-verify.png'
     },
     {
       icon: Plug,
