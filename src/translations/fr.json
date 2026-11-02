@@ -13,12 +13,12 @@
         "based_in": "Basé à Lille, France",
         "hello": "Bonjour, je suis",
         "roles": [
-            "Étudiant en master systèmes embarqués",
-            "Sécurité réseau",
-            "Programmeur système",
-            "Rust & TypeScript"
+            "Étudiant ingénieur en systèmes embarqués",
+            "Électronique et microélectronique",
+            "Conception de PCB et firmware",
+            "Conception analogique et CMOS"
         ],
-        "description": "Étudiant en master génie électrique, systèmes embarqués et nanotechnologies à JUNIA, à Lille. J'analyse le trafic réseau avec Wireshark et Nmap, et je construis des outils hors ligne en Rust et TypeScript : une boîte à outils de stéganographie, un terminal pour développeurs, et un firmware qui coupe le secteur quand la batterie est pleine.",
+        "description": "Étudiant en Master Systèmes Embarqués et Nanotechnologies à JUNIA ISEN à Lille, après une formation en informatique. Je mène des systèmes électroniques de la simulation de circuits et de la conception de PCB jusqu'à l'assemblage, au firmware et aux tests : un contrôleur de charge USB-C intelligent sur ESP32-C3, un amplificateur optique à détection synchrone et un amplificateur CMOS conçu au niveau transistor sous Cadence Virtuoso.",
         "view_work": "Voir mon travail",
         "download_resume": "Télécharger mon CV",
         "discover_more": "Découvrir plus",
@@ -28,75 +28,75 @@
         "title": "À propos de",
         "me": "Moi",
         "journey_title": "De l'informatique aux systèmes embarqués",
-        "journey_desc1": "Je prépare un master en génie électrique, systèmes embarqués et nanotechnologies à JUNIA, à Lille, après des études d'informatique à l'Université des sciences et technologies Kwame Nkrumah (KNUST) au Ghana. Pendant mon stage à la Division de la sécurité de l'information et de l'assurance technologique de l'université, j'ai analysé le trafic du portail étudiant dans Wireshark pour détecter des anomalies, lancé des scans Nmap pour la découverte d'hôtes, et rédigé nos conclusions. C'est là que la sécurité vue en cours est devenue quelque chose que je pouvais vérifier moi-même.",
-        "journey_desc1_mobile": "Étudiant en master à JUNIA, à Lille, après des études d'informatique à KNUST. Pendant un stage en sécurité à KNUST, j'ai analysé le trafic du portail étudiant avec Wireshark et lancé des scans Nmap.",
-        "journey_desc2": "J'ai surtout appris en livrant. J'écris en Rust quand un programme doit être petit et correct (un cœur de chiffrement, un interpréteur, un firmware sur Arduino Uno), et en TypeScript quand il doit toucher des gens. Plusieurs de mes projets fonctionnent entièrement hors ligne par conception : pas de serveur, pas de télémétrie, rien à divulguer.",
-        "journey_desc2_mobile": "Rust quand la justesse compte, TypeScript quand la portée compte. Plusieurs projets fonctionnent hors ligne par conception.",
+        "journey_desc1": "Je suis en Master Systèmes Embarqués et Nanotechnologies à JUNIA ISEN à Lille, après des études d'informatique à la Kwame Nkrumah University of Science and Technology (KNUST) au Ghana. C'est ce parcours logiciel qui m'a amené vers le matériel qui le fait tourner. La plupart de mes projets suivent maintenant le même chemin : simuler le circuit, router le PCB sous KiCad, souder, écrire le firmware, puis tester et déboguer jusqu'à ce que la carte se comporte sur le banc comme à l'écran.",
+        "journey_desc1_mobile": "Étudiant en Master à JUNIA ISEN à Lille, après l'informatique à la KNUST. Je mène un circuit de la simulation et du routage jusqu'à une carte soudée et testée.",
+        "journey_desc2": "Avant l'électronique, j'ai travaillé sur la sécurité réseau. Pendant mon stage à la Information Security and Technology Assurance Division de la KNUST, j'ai analysé le trafic du portail étudiant avec Wireshark et lancé des scans Nmap pour la découverte d'hôtes et de ports. Aujourd'hui, ce qui m'intéresse le plus, ce sont les systèmes embarqués, la conception électronique et la microélectronique.",
+        "journey_desc2_mobile": "Un stage en sécurité à la KNUST d'abord. Aujourd'hui : systèmes embarqués, conception électronique et microélectronique.",
         "key_coursework": "Cours clés :",
         "courses": [
-            "Sécurité réseau",
+            "Microélectronique",
+            "Circuits analogiques et amplificateurs",
+            "Transistors MOS",
+            "Systèmes embarqués",
+            "Conception électronique",
             "Réseaux informatiques",
-            "Cryptographie",
-            "Systèmes d'exploitation",
-            "Systèmes de bases de données",
-            "Structures de données et algorithmes",
-            "Protocoles de réseau",
-            "Administration Linux"
+            "Sécurité réseau",
+            "Systèmes d'exploitation"
         ],
         "traits": [
-            "Analyse de trafic",
-            "Rust",
-            "Conception hors ligne",
-            "Cryptographie appliquée"
+            "Systèmes embarqués",
+            "Conception de PCB",
+            "Électronique analogique",
+            "Conception CMOS"
         ],
         "drives_title": "Ce sur quoi je travaille",
         "drives": [
             {
-                "title": "Des logiciels qui marchent hors ligne",
-                "description": "Stegno et l'application biblique fonctionnent sans serveur et sans le moindre appel réseau. Quand un outil manipule quelque chose de privé, l'architecture la plus sûre est celle où les données ne quittent jamais l'appareil : rien à compromettre, rien à réquisitionner.",
-                "description_mobile": "Des outils sans serveur ni appel réseau. Rien ne quitte l'appareil."
+                "title": "De la simulation à la carte qui fonctionne",
+                "description": "Chaque carte commence dans LTspice ou ngspice. L'amplificateur à détection synchrone a été simulé avec un modèle d'ampli op générique, puis avec le modèle de Microchip, qui a révélé des pics de commutation que le premier cachait. Ensuite seulement : KiCad, PCBWay et le banc.",
+                "description_mobile": "Simuler d'abord, puis KiCad, puis le banc. Les vrais modèles révèlent ce que les génériques cachent."
             },
             {
-                "title": "Un seul cœur, plusieurs interfaces",
-                "description": "Le chiffrement de Stegno vit dans une seule caisse Rust. L'application de bureau Tauri et l'application Android native l'appellent toutes deux via UniFFI : la cryptographie est écrite et auditée une fois, au lieu d'être réimplémentée par plateforme.",
-                "description_mobile": "La crypto de Stegno tient dans une caisse Rust ; bureau et Android l'appellent via UniFFI."
+                "title": "Un firmware qui communique",
+                "description": "Le contrôleur de charge ESP32-C3 fait tourner un firmware C++ avec contrôle sans fil par Wi-Fi et Bluetooth, et reçoit ses mises à jour à distance : une carte dans son boîtier n'a jamais besoin d'en sortir pour être mise à jour.",
+                "description_mobile": "Du C++ sur ESP32-C3, piloté par Wi-Fi et Bluetooth, mis à jour à distance."
             },
             {
-                "title": "Lire ce qui circule vraiment",
-                "description": "Une capture de paquets tranche les débats. Mon stage a surtout consisté à utiliser Wireshark et Nmap sur un portail étudiant en production, et je détiens la CNSP ainsi que le parcours Cisco Network Technician (IPv4/IPv6, DNS/DHCP, sans-fil, dépannage).",
-                "description_mobile": "Wireshark et Nmap sur un portail en production, plus la CNSP et le parcours Cisco."
+                "title": "Chaînes de signal analogiques",
+                "description": "Un amplificateur transimpédance, du filtrage et du gain, une démodulation synchrone et une sortie passe bas, pour extraire une LED modulée de la lumière ambiante avec une photodiode BPW34. C'est en analogique que les chiffres sur le papier rencontrent le bruit de la pièce.",
+                "description_mobile": "De la photodiode à une sortie propre : TIA, filtres, gain et démodulation synchrone."
             },
             {
-                "title": "Terminer les choses",
-                "description": "La prise intelligente fonctionne sur du 230 V réel, avec 123 tests sur 123 qui passent, dans 41 % de la flash de l'Uno. Gear est distribué sur l'Arch User Repository et le Microsoft Store. Livré et contraint vaut mieux qu'astucieux et inachevé.",
-                "description_mobile": "Prise sur 230 V réel, 123/123 tests. Gear distribué sur l'AUR et le Microsoft Store."
+                "title": "Jusqu'au transistor",
+                "description": "Sous Cadence Virtuoso, en technologie 45 nm, j'ai dimensionné et polarisé chaque transistor d'un amplificateur CMOS pour atteindre 85 dB de gain et 66 dB de CMRR en simulation, avec une consommation inférieure à 70 µW.",
+                "description_mobile": "Un amplificateur CMOS 45 nm : 85 dB de gain, 66 dB de CMRR, moins de 70 µW en simulation."
             }
         ],
         "interests_title": "Domaines d'intérêt",
         "interests": [
             {
-                "title": "Réseaux informatiques",
-                "description": "Commutateurs, routeurs, adressage IPv4/IPv6, DNS et DHCP, et lire la capture quand le schéma et la réalité divergent."
-            },
-            {
-                "title": "Cryptographie appliquée",
-                "description": "Argon2id pour la dérivation de clé et AES-256-GCM pour la charge utile, chiffrée côté client pour que le serveur ne détienne que du chiffré."
-            },
-            {
-                "title": "Stéganographie",
-                "description": "LSB et PVD dans les images, ondelettes de Haar entières, méthodes DCT JPEG dont F5 et OutGuess, caractères de largeur nulle dans le texte, et LSB dans l'audio WAV."
-            },
-            {
                 "title": "Systèmes embarqués",
-                "description": "Firmware Arduino en C++ sous contraintes réelles : détecter la fin de charge, commuter un relais sur 230 V, et tenir dans 32 Ko de flash."
+                "description": "Du firmware C++ sur ESP32-C3, avec contrôle sans fil par Wi-Fi et Bluetooth et mises à jour à distance."
             },
             {
-                "title": "Applications de bureau",
-                "description": "Tauri 2 avec un backend Rust et une interface React : binaires légers, performances natives, sans embarquer un moteur de navigateur par application."
+                "title": "Conception électronique",
+                "description": "Schémas et PCB sous KiCad, vérifiés par ERC et contrôle de netlist avant toute fabrication."
             },
             {
-                "title": "Implémentation de langages",
-                "description": "Un interpréteur à parcours d'arbre en Rust : lexeur, parseur, AST et évaluateur, avec vérification des paramètres typés couverte par des tests de conformité."
+                "title": "Électronique analogique",
+                "description": "Amplificateurs transimpédance, filtrage, étages de gain et démodulation synchrone pour mesurer de petits signaux."
+            },
+            {
+                "title": "Microélectronique",
+                "description": "Conception CMOS au niveau transistor sous Cadence Virtuoso : dimensionnement, polarisation, gain, CMRR et consommation en simulation."
+            },
+            {
+                "title": "Simulation de circuits",
+                "description": "LTspice et ngspice pour évaluer sensibilité, bruit, offset et ondulation avant de commander une carte."
+            },
+            {
+                "title": "Sécurité réseau",
+                "description": "Captures Wireshark et scans Nmap pendant mon stage, et les certifications CNSP et CCEP."
             }
         ]
     },
@@ -105,18 +105,11 @@
         "subtitle": "Professionnelle",
         "jobs": [
             {
-                "role": "Étudiant Chercheur",
-                "company": "Société d'Informatique | KNUST, Kumasi",
-                "period": "DE 2025 À JUILLET 2026",
-                "description": "Recherches appliquées menées au sein de la Société d'Informatique de KNUST, Ghana, avec une contribution à des projets collaboratifs alignés sur les tendances émergentes de l'informatique. Soutien à la conception de projets, à la documentation et au partage des connaissances entre pairs, dans le respect des normes de recherche éthiques et académiques. Participation à la construction d'un environnement de recherche qui a renforcé l'engagement des étudiants et le développement des compétences techniques.",
-                "description_mobile": "Chercheur à KNUST, soutien de projets, documentation et collaboration étudiante."
-            },
-            {
                 "role": "Stagiaire en sécurité",
-                "company": "Division de la sécurité de l'information et de l'assurance technologique | KNUST, Kumasi",
-                "period": "DE SEPTEMBRE À NOVEMBRE 2025",
-                "description": "Analyse de la sécurité du réseau pour protéger les actifs numériques de l'université au sein de la Division de la sécurité de l'information et de l'assurance technologique de KNUST. Analyse du trafic du portail étudiant à l'aide de Wireshark pour détecter les anomalies et utilisation de Nmap pour le balayage des ports et la découverte d'hôtes afin d'identifier les vulnérabilités potentielles. Soutien à l'évaluation des vulnérabilités, aux tests d'intrusion et à la documentation des politiques de sécurité.",
-                "description_mobile": "Stagiaire en sécurité, analyse réseau, scan de vulnérabilités et évaluations."
+                "company": "Information Security and Technology Assurance Division | KNUST, Kumasi",
+                "period": "SEPTEMBRE À NOVEMBRE 2025",
+                "description": "Inspection et analyse du trafic réseau du portail étudiant avec Wireshark, et utilisation de Nmap pour la découverte d'hôtes et le scan de ports. Participation à l'évaluation des vulnérabilités et aux tests d'intrusion, et à la rédaction de la documentation de politique de sécurité de l'information.",
+                "description_mobile": "Analyse de trafic Wireshark, scans Nmap, évaluation de vulnérabilités et documentation de sécurité."
             }
         ]
     },
@@ -125,16 +118,16 @@
         "subtitle": "Licences",
         "items": [
             {
-                "name": "Praticien certifié en sécurité réseau (CNSP)",
+                "name": "Certified Network Security Practitioner (CNSP)",
                 "issuer": "The SecOps Group",
-                "date": "Délivré nov. 2025",
-                "focus": "Sécurité défensive, protocole réseau et analyse du trafic"
+                "date": "Délivré en nov. 2025",
+                "focus": "Sécurité défensive, protocoles réseau et analyse de trafic"
             },
             {
-                "name": "Professionnel certifié éducateur en cybersécurité (CCEP)",
+                "name": "Certified Cybersecurity Educator Professional (CCEP)",
                 "issuer": "Red Team Leaders",
-                "date": "Délivré nov. 2025",
-                "focus": "Sécurité réseau, architecture de sécurité de l'information"
+                "date": "Délivré en nov. 2025",
+                "focus": "Sécurité réseau, architecture de la sécurité de l'information"
             },
             {
                 "name": "Méthodologies de recherche en stratégie et développement de produits",
@@ -155,10 +148,53 @@
     "projects": {
         "title": "Projets",
         "subtitle": "En vedette",
-        "description": "Ce que j'ai réellement terminé et mis entre les mains des gens : sur le Microsoft Store, l'Arch User Repository, le web, et un sur une prise murale en 230 V.",
+        "description": "D'abord les projets d'ingénierie : deux cartes que j'ai conçues, soudées et testées, et un amplificateur CMOS conçu au niveau transistor. Ensuite, les logiciels que j'ai réalisés avant de passer à l'électronique.",
         "view_github": "Voir tous les projets sur GitHub",
         "key_features": "Fonctionnalités clés :",
         "items": [
+            {
+                "title": "Contrôleur de charge USB-C intelligent sur ESP32-C3",
+                "shortTitle": "Chargeur USB-C intelligent",
+                "description": "Un contrôleur de charge USB-C intelligent et fonctionnel construit autour de l'ESP32-C3, intégrant le matériel électronique, un PCB sur mesure et le firmware embarqué. J'ai conçu le PCB sous KiCad, assemblé et soudé le matériel, puis testé et débogué le système complet jusqu'à un fonctionnement fiable en conditions réelles. Un développement complet de produit embarqué : choix des composants, intégration du circuit, conception du PCB, firmware et intégration dans un boîtier.",
+                "shortDesc": "Contrôleur de charge ESP32-C3 avec son PCB, un firmware C++ et des mises à jour OTA.",
+                "features": [
+                    "Firmware C++ avec contrôle sans fil par Wi-Fi et Bluetooth",
+                    "Mises à jour du firmware à distance (OTA)",
+                    "PCB sur mesure conçu sous KiCad",
+                    "Assemblé, soudé, testé et débogué par mes soins",
+                    "Du choix des composants à l'intégration dans un boîtier"
+                ],
+                "category": "Systèmes embarqués"
+            },
+            {
+                "title": "Amplificateur optique à détection synchrone pour photodiode",
+                "shortTitle": "Amplificateur lock-in",
+                "description": "Un amplificateur optique à détection synchrone (lock-in) complet qui détecte une LED modulée avec une photodiode BPW34 en présence de lumière ambiante et de perturbations basse fréquence. Je l'ai conçu, simulé, fabriqué et assemblé. La chaîne de signal comprend un amplificateur transimpédance, des étages de filtrage et de gain, une démodulation synchrone et un étage de sortie passe bas, avec une référence à 1 024 Hz issue d'un quartz à 32,768 kHz.",
+                "shortDesc": "Extrait une LED modulée de la lumière ambiante avec une photodiode BPW34.",
+                "features": [
+                    "Amplificateur transimpédance, étages de filtrage et de gain",
+                    "Démodulation synchrone avec une référence à quartz de 1 024 Hz",
+                    "Simulé sous LTspice et ngspice : environ 0,522 mV/nA",
+                    "Sortie de 5,22 mV pour 10 nA en entrée en simulation",
+                    "PCB double couche sous KiCad, vérifié par ERC et netlist",
+                    "Assemblé, puis testé et débogué"
+                ],
+                "category": "Électronique analogique"
+            },
+            {
+                "title": "Conception d'un amplificateur CMOS basse consommation",
+                "shortTitle": "Amplificateur CMOS",
+                "description": "Un amplificateur CMOS analogique conçu au niveau transistor sous Cadence Virtuoso en technologie 45 nm : schéma, dimensionnement des transistors, polarisation, simulation et vérification des performances. J'ai utilisé l'analyse de circuit et la simulation pour vérifier le gain, le CMRR et la consommation face au cahier des charges.",
+                "shortDesc": "Amplificateur CMOS 45 nm : 85 dB de gain, 66 dB de CMRR, moins de 70 µW.",
+                "features": [
+                    "Gain en tension de 85 dB en simulation",
+                    "CMRR de 66 dB en simulation",
+                    "Consommation inférieure à 70 µW",
+                    "Dimensionnement et polarisation des transistors à la main",
+                    "Conçu sous Cadence Virtuoso, CMOS 45 nm"
+                ],
+                "category": "Microélectronique"
+            },
             {
                 "title": "Stegno",
                 "shortTitle": "Stegno",
@@ -333,40 +369,40 @@
         "description": "Ce vers quoi je me tourne, et à peu près combien je m'en suis servi.",
         "avg_level": "Niveau moyen",
         "categories": {
-            "programming": "Langages de programmation",
-            "frontend": "Technologies Frontend",
-            "backend": "Backend & APIs",
+            "programming": "Systèmes embarqués",
+            "frontend": "Électronique et matériel",
+            "backend": "CAO et simulation",
             "network": "Réseau",
-            "devops": "DevOps & Cloud",
-            "tools": "Outils & Autres"
+            "devops": "Programmation",
+            "tools": "Outils de labo"
         },
         "additional_title": "Compétences supplémentaires",
         "competencies": [
             {
+                "title": "La simulation avant le matériel",
+                "description": "LTspice et ngspice pour la sensibilité, le bruit et l'ondulation"
+            },
+            {
+                "title": "Mise en route de cartes",
+                "description": "Soudure par étapes, avec une mesure après chacune"
+            },
+            {
+                "title": "Conception au niveau transistor",
+                "description": "Dimensionnement et polarisation sous Cadence Virtuoso en 45 nm"
+            },
+            {
                 "title": "Analyse de trafic",
-                "description": "Captures Wireshark, découverte d'hôtes et scans Nmap"
-            },
-            {
-                "title": "Cœurs multiplateformes",
-                "description": "Une caisse Rust derrière le bureau et Android via UniFFI"
-            },
-            {
-                "title": "Tester sous contraintes",
-                "description": "123/123 tests de firmware dans 41 % de la flash d'un Uno"
-            },
-            {
-                "title": "Rédaction technique",
-                "description": "Guides de montage et documentation de sécurité réutilisables"
+                "description": "Captures Wireshark, découverte d'hôtes et scans de ports avec Nmap"
             }
         ]
     },
     "contact": {
         "title_start": "Entrer en",
         "title_end": "Contact",
-        "description": "Je lis tout ce qui arrive ici. Si vous avez un stage, un projet, ou une question sur quoi que ce soit sur ce site, écrivez-moi.",
+        "description": "Je lis tout ce qui arrive ici. Si vous avez un stage, un projet ou une question sur ce site, écrivez moi.",
         "email_href": "mailto:caleb-kwabena.kyere@student.junia.com",
         "conversation_title": "Commençons une conversation",
-        "conversation_desc": "Je cherche un stage en réseaux ou en sécurité, quelque part où je lirais des captures, durcirais une infrastructure, ou écrirais du code système. Si vous voulez les sources de quoi que ce soit ici, ou si vous pensez que je me suis trompé, c'est aussi un message bienvenu.",
+        "conversation_desc": "Je cherche un stage en systèmes embarqués, en conception électronique ou en microélectronique, pour concevoir des cartes, écrire du firmware ou simuler des circuits. Si vous voulez les fichiers d'un projet, ou si vous pensez que je me suis trompé quelque part, votre message est aussi le bienvenu.",
         "follow_me": "Suivez-moi",
         "form_title": "Envoyer un message",
         "name_label": "Nom",
@@ -389,7 +425,7 @@
         }
     },
     "footer": {
-        "description": "Étudiant en master systèmes embarqués à JUNIA, à Lille. Sécurité réseau, Rust, et des outils qui marchent sans serveur.",
+        "description": "Étudiant ingénieur en systèmes embarqués à JUNIA ISEN à Lille. Électronique, microélectronique et le firmware qui les fait tourner.",
         "quick_links": "Liens rapides",
         "get_in_touch": "Entrer en contact",
         "made_with": "Fait avec",

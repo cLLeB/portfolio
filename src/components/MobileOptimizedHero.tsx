@@ -84,13 +84,13 @@ const MobileOptimizedHero = () => {
         style={{ y }}
       >
         {/* Simplified mobile background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-100/30 via-teal-100/30 to-teal-100/30 dark:from-teal-900/30 dark:via-teal-900/30 dark:to-teal-900/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-100/30 via-accent-100/30 to-accent-100/30 dark:from-accent-900/30 dark:via-accent-900/30 dark:to-accent-900/30" />
 
         {/* Mobile floating particles */}
         {particles.map((particle, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-teal-400/40 rounded-full"
+            className="absolute w-2 h-2 bg-accent-400/40 rounded-full"
             style={{
               left: particle.left,
               top: particle.top,
@@ -126,7 +126,7 @@ const MobileOptimizedHero = () => {
               animate={{
                 textShadow: [
                   '0 0 20px rgba(255, 255, 255, 0.5)',
-                  '0 0 40px rgba(59, 130, 246, 0.8)',
+                  '0 0 40px rgba(102, 120, 141, 0.8)',
                   '0 0 20px rgba(255, 255, 255, 0.5)'
                 ]
               }}
@@ -143,7 +143,7 @@ const MobileOptimizedHero = () => {
 
           {/* Mobile-Optimized Role Display */}
           <motion.div
-            className="text-lg sm:text-2xl md:text-3xl text-teal-600 dark:text-teal-300 mb-3 sm:mb-8 h-8 sm:h-12 flex items-center justify-center font-mono px-4"
+            className="text-lg sm:text-2xl md:text-3xl text-accent-600 dark:text-accent-300 mb-3 sm:mb-8 h-8 sm:h-12 flex items-center justify-center font-mono px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -152,9 +152,9 @@ const MobileOptimizedHero = () => {
               className="drop-shadow-lg text-center"
               animate={{
                 textShadow: [
-                  '0 0 10px rgba(6, 182, 212, 0.8)',
-                  '0 0 20px rgba(6, 182, 212, 1)',
-                  '0 0 10px rgba(6, 182, 212, 0.8)'
+                  '0 0 10px rgba(102, 120, 141, 0.8)',
+                  '0 0 20px rgba(102, 120, 141, 1)',
+                  '0 0 10px rgba(102, 120, 141, 0.8)'
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -162,13 +162,13 @@ const MobileOptimizedHero = () => {
               {displayText}
             </motion.span>
             <motion.span
-              className="ml-1 text-teal-600 dark:text-teal-400"
+              className="ml-1 text-accent-600 dark:text-accent-400"
               animate={{
                 opacity: isTyping ? [1, 0] : 1,
                 textShadow: [
-                  '0 0 5px rgba(34, 211, 238, 1)',
-                  '0 0 15px rgba(34, 211, 238, 1)',
-                  '0 0 5px rgba(34, 211, 238, 1)'
+                  '0 0 5px rgba(102, 120, 141, 1)',
+                  '0 0 15px rgba(102, 120, 141, 1)',
+                  '0 0 5px rgba(102, 120, 141, 1)'
                 ]
               }}
               transition={{
@@ -200,10 +200,10 @@ const MobileOptimizedHero = () => {
         >
           <motion.button
             onClick={() => scrollToSection('projects')}
-            className="w-full sm:w-auto magnetic-button bg-teal-700 dark:bg-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:shadow-2xl relative overflow-hidden"
+            className="w-full sm:w-auto magnetic-button bg-accent-700 dark:bg-accent-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:shadow-2xl relative overflow-hidden"
             whileHover={{
               scale: 1.05,
-              boxShadow: "0 0 25px rgba(59, 130, 246, 0.6)"
+              boxShadow: "0 0 25px rgba(102, 120, 141, 0.6)"
             }}
             whileTap={{ scale: 0.95 }}
           >
@@ -217,7 +217,7 @@ const MobileOptimizedHero = () => {
             href={language === 'fr' ? "/resume-fr.pdf" : "/resume.pdf"}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto magnetic-button border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden group"
+            className="w-full sm:w-auto magnetic-button border-2 border-accent-600 text-accent-600 hover:bg-accent-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden group"
             whileHover={{
               scale: 1.05,
               borderColor: "#2563eb"
@@ -228,7 +228,7 @@ const MobileOptimizedHero = () => {
             <Download size={18} className="relative z-10" />
             <span className="relative z-10">{t('hero.download_resume')}</span>
             <motion.div
-              className="absolute inset-0 bg-teal-700 dark:bg-teal-600"
+              className="absolute inset-0 bg-accent-700 dark:bg-accent-600"
               initial={{ scale: 0 }}
               whileHover={{ scale: 1 }}
               transition={{ duration: 0.3 }}
@@ -246,7 +246,7 @@ const MobileOptimizedHero = () => {
         >
           {[
             { icon: Github, href: 'https://github.com/cLLeB', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4', label: 'LinkedIn' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/caleb-kyere-boateng', label: 'LinkedIn' },
             { icon: Mail, href: 'mailto:caleb-kwabena.kyere@student.junia.com', label: 'Email' }
           ].map(({ icon: Icon, href, label }) => (
             <motion.a
@@ -273,7 +273,7 @@ const MobileOptimizedHero = () => {
         >
           <motion.button
             onClick={() => scrollToSection('about')}
-            className="flex flex-col items-center text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-300"
+            className="flex flex-col items-center text-gray-600 dark:text-gray-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors duration-300"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             aria-label="Scroll to about section"

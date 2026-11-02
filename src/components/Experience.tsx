@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Briefcase, Shield, Search } from 'lucide-react'
+import { Briefcase, Shield } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import ImageModal from './ui/ImageModal'
@@ -35,15 +35,6 @@ const Experience = () => {
       period: t('experience.jobs.0.period'),
       description: t('experience.jobs.0.description'),
       description_mobile: t('experience.jobs.0.description_mobile'),
-      icon: Search,
-      image: '/exp/css.png'
-    },
-    {
-      role: t('experience.jobs.1.role'),
-      company: t('experience.jobs.1.company'),
-      period: t('experience.jobs.1.period'),
-      description: t('experience.jobs.1.description'),
-      description_mobile: t('experience.jobs.1.description_mobile'),
       icon: Shield,
       image: '/exp/istad.jpeg'
     }
@@ -92,7 +83,7 @@ const Experience = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:border-teal-500/50 transition-all duration-300 shadow-lg dark:shadow-none"
+                className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:border-accent-500/50 transition-all duration-300 shadow-lg dark:shadow-none"
               >
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="flex-shrink-0">
@@ -113,7 +104,7 @@ const Experience = () => {
                         />
                       </div>
                     ) : (
-                      <div className="p-4 bg-teal-500/20 rounded-xl text-teal-400 w-16 h-16 flex items-center justify-center">
+                      <div className="p-4 bg-accent-500/20 rounded-xl text-accent-400 w-16 h-16 flex items-center justify-center">
                         <exp.icon size={32} />
                       </div>
                     )}
@@ -122,7 +113,7 @@ const Experience = () => {
                     <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{exp.role}</h3>
-                        <p className="text-teal-500 dark:text-teal-400 font-medium">{exp.company}</p>
+                        <p className="text-accent-500 dark:text-accent-400 font-medium">{exp.company}</p>
                       </div>
                       <span className="mt-2 md:mt-0 px-4 py-1 bg-gray-100 dark:bg-white/10 rounded-full text-sm text-gray-600 dark:text-gray-300 whitespace-nowrap">
                         {exp.period}
@@ -184,14 +175,14 @@ const Experience = () => {
                           <Image src={exp.image} alt={exp.company} width={80} height={80} className="object-cover w-full h-full rounded-md" />
                         </button>
                       ) : (
-                        <div className="w-20 h-20 bg-teal-500/20 rounded-md flex items-center justify-center">
+                        <div className="w-20 h-20 bg-accent-500/20 rounded-md flex items-center justify-center">
                           <exp.icon size={28} />
                         </div>
                       )}
                     </div>
                     <div className="px-1">
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 line-clamp-2">{exp.role}</h3>
-                      <p className="text-sm text-teal-500 dark:text-teal-400 mb-2">{exp.company}</p>
+                      <p className="text-sm text-accent-500 dark:text-accent-400 mb-2">{exp.company}</p>
                       <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{exp.period}</p>
                       <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">{isMobile ? (exp.description_mobile || exp.description) : exp.description}</p>
                     </div>

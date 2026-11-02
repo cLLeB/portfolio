@@ -1,8 +1,8 @@
 # Portfolio: Caleb Kyere Boateng
 
-My personal portfolio site. Computer Science student at KNUST, focused on computer networking, security, and programming language design.
+My personal portfolio site. Embedded systems engineering student at JUNIA ISEN in Lille, working on electronics, microelectronics, PCB design and firmware.
 
-Live: https://portfolio.kyere.me/
+Live: https://www.kyere.tech/
 
 ## Running it locally
 
@@ -53,6 +53,6 @@ Vercel builds `main` automatically and serves the live site.
 
 ## Contact
 
-- Email: kyereboatengcaleb@gmail.com
-- LinkedIn: https://www.linkedin.com/in/caleb-kyere-boateng-6736092b4
+- Email: caleb-kwabena.kyere@student.junia.com
+- LinkedIn: https://www.linkedin.com/in/caleb-kyere-boateng
 - GitHub: https://github.com/cLLeB

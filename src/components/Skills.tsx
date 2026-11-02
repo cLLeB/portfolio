@@ -30,33 +30,33 @@ const Skills = () => {
       title: t('skills.categories.programming'),
       icon: Code,
       skills: [
-        { name: 'JavaScript/TypeScript', level: 15 },
-        { name: 'Python', level: 18 },
-        { name: 'Java', level: 12 },
-        { name: 'C++', level: 14 },
-        { name: 'PHP', level: 10 }
+        { name: 'ESP32-C3', level: 20 },
+        { name: 'C++ Firmware', level: 18 },
+        { name: 'Wi-Fi', level: 16 },
+        { name: 'Bluetooth', level: 16 },
+        { name: 'OTA Updates', level: 14 }
       ]
     },
     {
       title: t('skills.categories.frontend'),
       icon: Smartphone,
       skills: [
-        { name: 'React/Next.js', level: 16 },
-        { name: 'HTML5/CSS3', level: 20 },
-        { name: 'Tailwind CSS', level: 12 },
-        { name: 'Bootstrap', level: 10 },
-        { name: 'React Native', level: 14 }
+        { name: 'Analog Circuit Design', level: 18 },
+        { name: 'PCB Design', level: 20 },
+        { name: 'Soldering', level: 22 },
+        { name: 'Prototyping', level: 21 },
+        { name: 'Signal Conditioning', level: 15 }
       ]
     },
     {
       title: t('skills.categories.backend'),
       icon: Server,
       skills: [
-        { name: 'Node.js/Express', level: 12 },
-        { name: 'RESTful APIs', level: 18 },
-        { name: 'FastAPI/Flask', level: 10 },
-        { name: 'Socket.io', level: 8 },
-        { name: 'JWT Authentication', level: 11 }
+        { name: 'KiCad', level: 22 },
+        { name: 'LTspice', level: 21 },
+        { name: 'ngspice', level: 17 },
+        { name: 'Cadence Virtuoso', level: 18 },
+        { name: 'Spectre', level: 14 }
       ]
     },
     {
@@ -75,22 +75,22 @@ const Skills = () => {
       title: t('skills.categories.devops'),
       icon: Cloud,
       skills: [
-        { name: 'Git/GitHub', level: 20 },
-        { name: 'Docker', level: 15 },
-        { name: 'Linux', level: 22 },
-        { name: 'CI/CD', level: 12 },
-        { name: 'Nginx', level: 14 }
+        { name: 'C++', level: 14 },
+        { name: 'Python', level: 18 },
+        { name: 'JavaScript/TypeScript', level: 15 },
+        { name: 'Java', level: 12 },
+        { name: 'Git/GitHub', level: 20 }
       ]
     },
     {
       title: t('skills.categories.tools'),
       icon: Settings,
       skills: [
-        { name: 'VS Code', level: 25 },
-        { name: 'Postman', level: 15 },
-        { name: 'Jest/Testing', level: 10 },
-        { name: 'Figma', level: 12 },
-        { name: 'ANTLR', level: 11 }
+        { name: 'Digital Multimeter', level: 22 },
+        { name: 'Soldering Station', level: 22 },
+        { name: 'Function Generator', level: 14 },
+        { name: '3D Printing', level: 12 },
+        { name: 'VS Code', level: 25 }
       ]
     }
   ]
@@ -164,7 +164,7 @@ const Skills = () => {
             {skill.name}
           </span>
           <span
-            className="text-sm text-teal-600 dark:text-teal-300 relative z-20"
+            className="text-sm text-accent-600 dark:text-accent-300 relative z-20"
             style={{
               textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
             }}
@@ -184,7 +184,7 @@ const Skills = () => {
           </motion.div>
           {/* Filled bar */}
           <motion.div
-            className="bg-teal-700 dark:bg-teal-600 h-2 rounded-full"
+            className="bg-accent-700 dark:bg-accent-600 h-2 rounded-full"
             style={{ zIndex: 2, position: 'relative' }}
             initial={{ width: 0 }}
             animate={{ width: `${skill.level}%` }}
@@ -200,8 +200,8 @@ const Skills = () => {
   return (
     <section className="py-20 bg-gray-50 dark:bg-black/90 backdrop-blur-sm relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-900/5 via-teal-900/5 to-teal-900/5 dark:from-teal-900/20 dark:via-teal-900/20 dark:to-teal-900/20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.05),transparent_60%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-900/5 via-accent-900/5 to-accent-900/5 dark:from-accent-900/20 dark:via-accent-900/20 dark:to-accent-900/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(102, 120, 141,0.05),transparent_60%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(102, 120, 141,0.1),transparent_60%)]"></div>
       <motion.div
         ref={ref}
         className="container mx-auto px-6 relative z-10"
@@ -274,10 +274,10 @@ const Skills = () => {
                 }}
               >
                 <motion.div
-                  className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-teal-500/30 shadow-xl transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
+                  className="bg-white dark:bg-black/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-accent-500/30 shadow-xl transition-all duration-300 relative z-10 dark:bg-gradient-to-br dark:from-black/80 dark:to-slate-900/60"
                 >
                   <div className="flex items-center justify-center mb-8">
-                    <div className="w-16 h-16 bg-teal-700 dark:bg-teal-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                    <div className="w-16 h-16 bg-accent-700 dark:bg-accent-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                       <currentCategory.icon size={32} className="text-white" />
                     </div>
                     <h3
@@ -307,7 +307,7 @@ const Skills = () => {
                 key={i}
                 onClick={() => paginate(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i
-                  ? 'w-10 bg-teal-700 dark:bg-teal-600'
+                  ? 'w-10 bg-accent-700 dark:bg-accent-600'
                   : 'w-2 bg-gray-300 dark:bg-white/20 hover:bg-gray-400 dark:hover:bg-white/40'
                   }`}
                 whileHover={{ scale: 1.2 }}

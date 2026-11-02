@@ -9,6 +9,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // The site's single accent: a muted slate blue. Change it here to retint everything.
+        accent: {
+          50: '#f4f6f8',
+          100: '#e6eaef',
+          200: '#cdd5de',
+          300: '#a9b6c4',
+          400: '#8494a7',
+          500: '#66788d',
+          600: '#536275',
+          700: '#44505f',
+          800: '#3a434f',
+          900: '#333a44',
+        },
         primary: {
           50: '#f0f9ff',
           100: '#e0f2fe',

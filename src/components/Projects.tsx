@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart, Store, Download, ScanFace } from 'lucide-react'
+import { Github, ExternalLink, Smartphone, Code, MessageCircle, ChevronLeft, ChevronRight, EyeOff, Terminal, Plug, BookOpen, GraduationCap, Package, ShoppingCart, Store, Download, ScanFace, BatteryCharging, Activity, Cpu } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import ImageModal from './ui/ImageModal'
@@ -33,6 +33,23 @@ const Projects = () => {
   // Static config for icons and links. Order must match projects.items in the
   // translation files. The two arrays are zipped by index below.
   const projectConfig = [
+    {
+      icon: BatteryCharging,
+      github: 'https://github.com/cLLeB/usb-c-charge-controller',
+      technologies: ['ESP32-C3', 'C++', 'KiCad', 'PCB Prototyping', 'Wi-Fi', 'Bluetooth'],
+      image: '/projects/charger-board.jpg'
+    },
+    {
+      icon: Activity,
+      github: 'https://github.com/cLLeB/lock-in-amplifier',
+      technologies: ['Analog Electronics', 'KiCad', 'LTspice', 'ngspice'],
+      image: '/projects/lockin-board.jpg'
+    },
+    {
+      icon: Cpu,
+      technologies: ['Cadence Virtuoso', '45 nm CMOS'],
+      image: '/projects/cmos-schematic.png'
+    },
     {
       icon: EyeOff,
       github: 'https://github.com/cLLeB/stegno',
@@ -182,7 +199,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-black/90 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-900/5 via-teal-900/5 to-teal-900/5 dark:from-teal-900/20 dark:via-teal-900/20 dark:to-teal-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-900/5 via-accent-900/5 to-accent-900/5 dark:from-accent-900/20 dark:via-accent-900/20 dark:to-accent-900/20"></div>
 
       <motion.div
         ref={ref}
@@ -253,11 +270,11 @@ const Projects = () => {
                 {visibleProjects.map((project, index) => (
                   <motion.div
                     key={`${currentIndex}-${index}`}
-                    className="group relative bg-white dark:bg-black/60 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-teal-500/30 hover:border-teal-500/50 transition-all duration-500 shadow-xl flex flex-col h-full overflow-hidden"
+                    className="group relative bg-white dark:bg-black/60 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-accent-500/30 hover:border-accent-500/50 transition-all duration-500 shadow-xl flex flex-col h-full overflow-hidden"
                     whileHover={{ y: -5 }}
                   >
                     {/* Glassmorphism Highlight */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-teal-600/5 rounded-3xl pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-accent-600/5 rounded-3xl pointer-events-none"></div>
 
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-center justify-between mb-8">
@@ -279,15 +296,15 @@ const Projects = () => {
                               />
                             </div>
                           ) : (
-                            <div className="w-12 h-12 bg-teal-700 dark:bg-teal-600 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-md flex-shrink-0">
+                            <div className="w-12 h-12 bg-accent-700 dark:bg-accent-600 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-md flex-shrink-0">
                               {project.icon && <project.icon size={24} className="text-white" />}
                             </div>
                           )}
                           <div className="min-w-0">
-                            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
+                            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors duration-300">
                               {isMobile ? (project.shortTitle || project.title) : project.title}
                             </h3>
-                            <span className="text-xs sm:text-sm text-teal-600 dark:text-teal-400 font-medium tracking-wider uppercase">
+                            <span className="text-xs sm:text-sm text-accent-600 dark:text-accent-400 font-medium tracking-wider uppercase">
                               {project.category}
                             </span>
                           </div>
@@ -301,7 +318,7 @@ const Projects = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={`${project.title} source on GitHub`}
-                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400"
+                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-accent-600 dark:hover:text-accent-400"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                             >
@@ -314,7 +331,7 @@ const Projects = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={`${project.title} on the Microsoft Store`}
-                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400"
+                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-accent-600 dark:hover:text-accent-400"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                             >
@@ -340,7 +357,7 @@ const Projects = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={`${project.title} live site`}
-                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400"
+                              className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-400 hover:text-accent-600 dark:hover:text-accent-400"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                             >
@@ -360,7 +377,7 @@ const Projects = () => {
                         <ul className="space-y-2">
                           {Array.isArray(project.features) && project.features.slice(0, 3).map((feature: string, featureIndex: number) => (
                             <li key={featureIndex} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                              <div className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></div>
+                              <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></div>
                               <span className="line-clamp-2">{feature}</span>
                             </li>
                           ))}
@@ -391,7 +408,7 @@ const Projects = () => {
                 key={i}
                 onClick={() => paginate(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i
-                  ? 'w-8 sm:w-12 bg-teal-700 dark:bg-teal-600'
+                  ? 'w-8 sm:w-12 bg-accent-700 dark:bg-accent-600'
                   : 'w-2 sm:w-3 bg-gray-300 dark:bg-white/20 hover:bg-gray-400 dark:hover:bg-white/40'
                   }`}
                 whileHover={{ scale: 1.2 }}
@@ -415,7 +432,7 @@ const Projects = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Github size={22} className="group-hover:text-teal-500 transition-colors" />
+            <Github size={22} className="group-hover:text-accent-500 transition-colors" />
             <span>{t('projects.view_github')}</span>
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </motion.a>

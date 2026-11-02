@@ -42,9 +42,9 @@ const Button = ({
 
   const variantClasses = {
     primary: `
-      bg-teal-700 dark:bg-teal-600
+      bg-accent-700 dark:bg-accent-600
       text-white shadow-lg hover:shadow-xl
-      hover:shadow-teal-500/25
+      hover:shadow-accent-500/25
     `,
     secondary: `
   bg - white / 10 backdrop - blur - sm border border - white / 20

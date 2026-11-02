@@ -6,9 +6,9 @@ import { Providers } from './providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Caleb Kyere Boateng | Software, Security & Embedded Systems',
-  description: 'Master’s student in Electrical, Embedded Systems and Nanotechnology at JUNIA in Lille. Software, network security and embedded systems. Open to internships.',
-  keywords: ['Computer Science', 'Software Engineer', 'Computer Networking', 'Programming Languages', 'Full Stack Developer', 'React', 'Node.js', 'Python', 'Embedded Systems', 'Rust', 'JUNIA', 'KNUST'],
+  title: 'Caleb Kwabena Kyere Boateng | Embedded Systems, Electronics & Microelectronics',
+  description: 'Embedded systems engineering student at JUNIA ISEN in Lille. Circuit simulation, PCB design, firmware and testing: an ESP32-C3 smart USB-C charge controller, an optical lock-in amplifier and a CMOS amplifier in Cadence Virtuoso.',
+  keywords: ['Embedded Systems', 'Electronics', 'Microelectronics', 'ESP32-C3', 'KiCad', 'LTspice', 'ngspice', 'Cadence Virtuoso', 'PCB Design', 'Analog Design', 'CMOS', 'JUNIA ISEN', 'Lille'],
   authors: [{ name: 'Caleb Kyere Boateng' }],
   creator: 'Caleb Kyere Boateng',
   publisher: 'Caleb Kyere Boateng',
@@ -17,18 +17,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://portfolio.kyere.me/'),
+  metadataBase: new URL('https://www.kyere.tech/'),
   openGraph: {
-    title: 'Caleb Kyere Boateng | Software, Security & Embedded Systems',
-    description: 'Master’s student in embedded systems at JUNIA in Lille. Software, network security and embedded systems.',
-    url: 'https://portfolio.kyere.me/',
+    title: 'Caleb Kwabena Kyere Boateng | Embedded Systems, Electronics & Microelectronics',
+    description: 'Embedded systems engineering student at JUNIA ISEN in Lille. Electronics, microelectronics, PCB design and firmware.',
+    url: 'https://www.kyere.tech/',
     siteName: 'Caleb Kyere Boateng Portfolio',
     images: [
       {
         url: '/og-image.jpeg',
         width: 1200,
         height: 630,
-        alt: 'CS Portfolio Preview',
+        alt: 'Caleb Kwabena Kyere Boateng Portfolio Preview',
       },
     ],
     locale: 'en_US',
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Caleb Kyere Boateng | Software, Security & Embedded Systems',
-    description: 'Master’s student in embedded systems at JUNIA in Lille. Software, network security and embedded systems.',
+    title: 'Caleb Kwabena Kyere Boateng | Embedded Systems, Electronics & Microelectronics',
+    description: 'Embedded systems engineering student at JUNIA ISEN in Lille. Electronics, microelectronics, PCB design and firmware.',
     images: ['/og-image.jpeg'],
   },
   robots: {
