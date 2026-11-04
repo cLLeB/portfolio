@@ -12,7 +12,6 @@ const ResponsiveNavigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
-  const [isMobile, setIsMobile] = useState(false)
   const { theme, setTheme } = useTheme()
   const { language, toggleLanguage, t } = useLanguage()
   const [mounted, setMounted] = useState(false)
@@ -20,13 +19,6 @@ const ResponsiveNavigation = () => {
 
   useEffect(() => {
     setMounted(true)
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024)
-    }
-
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
   useEffect(() => {
@@ -129,9 +121,9 @@ const ResponsiveNavigation = () => {
                     src="/dp/me.jpg"
                     alt="Caleb Kyere Boateng"
                     fill
-                    sizes="40px"
+                    sizes="80px"
                     priority
-                    className="object-cover"
+                    className="object-cover object-[50%_38%] scale-[1.7]"
                   />
                 </motion.div>
               </motion.button>
@@ -144,8 +136,10 @@ const ResponsiveNavigation = () => {
                 whileTap={{ scale: 0.98 }}
                 aria-label="Go to Home"
               >
-                <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
-                  {isMobile ? 'CKB' : 'Caleb Kyere Boateng'}
+                {/* Initials until the bar is wide enough for the full name next to every nav item */}
+                <span className="whitespace-nowrap text-lg sm:text-xl font-bold text-gray-900 dark:text-white drop-shadow-lg hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                  <span className="xl:hidden">CKB</span>
+                  <span className="hidden xl:inline">Caleb Kyere Boateng</span>
                 </span>
               </motion.button>
             </div>
