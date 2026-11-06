@@ -54,6 +54,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://www.kyere.tech/'),
+  // Ownership proof for Google Search Console; keep it, or the site loses its verified status.
+  verification: { google: 'abuiimAtTPBlUMXcM5tFCY_as0h7x1VbFhpMFbYRzbY' },
   openGraph: {
     title: 'Caleb Kwabena Kyere Boateng | Embedded Systems, Electronics & Microelectronics',
     description: 'Embedded systems engineering student at JUNIA ISEN in Lille. Electronics, microelectronics, PCB design and firmware.',
