@@ -5,6 +5,42 @@ import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
+// Tells search engines who this site belongs to, so a search for the name can show a profile card.
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Caleb Kwabena Kyere Boateng',
+  alternateName: 'Caleb Kyere Boateng',
+  url: 'https://www.kyere.tech/',
+  image: 'https://www.kyere.tech/dp/me.jpg',
+  jobTitle: 'Embedded Systems Engineering Student',
+  description:
+    'Embedded systems engineering student at JUNIA ISEN in Lille, working on electronics, microelectronics, PCB design and firmware.',
+  email: 'mailto:caleb-kwabena.kyere@student.junia.com',
+  address: { '@type': 'PostalAddress', addressLocality: 'Lille', addressCountry: 'FR' },
+  affiliation: { '@type': 'CollegeOrUniversity', name: 'JUNIA ISEN', url: 'https://www.junia.com/' },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Kwame Nkrumah University of Science and Technology',
+    url: 'https://www.knust.edu.gh/',
+  },
+  knowsAbout: [
+    'Embedded systems',
+    'Electronics',
+    'Microelectronics',
+    'PCB design',
+    'Analog circuit design',
+    'CMOS design',
+    'ESP32',
+    'KiCad',
+    'LTspice',
+    'Cadence Virtuoso',
+    'Network security',
+  ],
+  knowsLanguage: ['English', 'French'],
+  sameAs: ['https://www.linkedin.com/in/caleb-kyere-boateng', 'https://github.com/cLLeB'],
+}
+
 export const metadata: Metadata = {
   title: 'Caleb Kwabena Kyere Boateng | Embedded Systems, Electronics & Microelectronics',
   description: 'Embedded systems engineering student at JUNIA ISEN in Lille. Circuit simulation, PCB design, firmware and testing: an ESP32-C3 smart USB-C charge controller, an optical lock-in amplifier and a CMOS amplifier in Cadence Virtuoso.',
@@ -22,7 +58,7 @@ export const metadata: Metadata = {
     title: 'Caleb Kwabena Kyere Boateng | Embedded Systems, Electronics & Microelectronics',
     description: 'Embedded systems engineering student at JUNIA ISEN in Lille. Electronics, microelectronics, PCB design and firmware.',
     url: 'https://www.kyere.tech/',
-    siteName: 'Caleb Kyere Boateng Portfolio',
+    siteName: 'Caleb Kwabena Kyere Boateng',
     images: [
       {
         url: '/og-image.jpeg',
@@ -69,6 +105,10 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
         <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
         <link rel="manifest" href="/site.webmanifest" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body className={`${inter.className} antialiased`}>
         <Providers>

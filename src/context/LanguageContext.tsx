@@ -1,6 +1,7 @@
 'use client'
 
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useEffect } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import en from '../translations/en.json'
 import fr from '../translations/fr.json'
 
@@ -16,26 +17,35 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
+// The language comes from the address: /fr is French, everything else English.
+// Each language has its own URL so search engines can index both.
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-    const [language, setLanguage] = useState<Language>('en')
-    const [mounted, setMounted] = useState(false)
+    const pathname = usePathname()
+    const router = useRouter()
+    const language: Language = pathname?.startsWith('/fr') ? 'fr' : 'en'
 
     useEffect(() => {
-        const savedLang = localStorage.getItem('language') as Language
-        if (savedLang && (savedLang === 'en' || savedLang === 'fr')) {
-            setLanguage(savedLang)
+        document.documentElement.lang = language
+    }, [language])
+
+    // A visitor who chose French before lands on the English address: send them to /fr.
+    useEffect(() => {
+        if (language === 'en' && localStorage.getItem('language') === 'fr') {
+            router.replace('/fr', { scroll: false })
         }
-        setMounted(true)
+        // Only on first load, so choosing English later is respected.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    useEffect(() => {
-        if (mounted) {
-            localStorage.setItem('language', language)
+    const setLanguage = (lang: Language) => {
+        localStorage.setItem('language', lang)
+        if (lang !== language) {
+            router.push(lang === 'fr' ? '/fr' : '/', { scroll: false })
         }
-    }, [language, mounted])
+    }
 
     const toggleLanguage = () => {
-        setLanguage((prev) => (prev === 'en' ? 'fr' : 'en'))
+        setLanguage(language === 'en' ? 'fr' : 'en')
     }
 
     const t = (path: string) => {

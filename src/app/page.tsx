@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import ResponsiveNavigation from '@/components/ResponsiveNavigation'
 import EnhancedHero from '@/components/EnhancedHero'
 import MobileOptimizedHero from '@/components/MobileOptimizedHero'
@@ -9,6 +10,14 @@ import Skills from '@/components/Skills'
 import TouchOptimizedSkills from '@/components/TouchOptimizedSkills'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+
+// English is the default; the French copy of this page lives at /fr (see app/fr/page.tsx).
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+    languages: { en: '/', fr: '/fr/', 'x-default': '/' },
+  },
+}
 
 export default function Home() {
   return (

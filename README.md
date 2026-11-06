@@ -39,7 +39,7 @@ src/
 
 Two things worth knowing before editing:
 
-**Copy is not in the components.** Every string comes from `src/translations/en.json` and `fr.json` via the `t()` helper from `LanguageContext`. Change the JSON, not the JSX, and change both files or the French build falls back to keys.
+**Copy is not in the components.** Every string comes from `src/translations/en.json` and `fr.json` via the `t()` helper from `LanguageContext`. Change the JSON, not the JSX, and change both files or the French build falls back to keys. The language comes from the address: `/` is English and `/fr` is French (`src/app/fr/page.tsx` reuses the home page), so search engines index both.
 
 **Some sections have separate desktop and mobile components** rather than one responsive component: `EnhancedHero`/`MobileOptimizedHero`, `Skills`/`TouchOptimizedSkills`, and `DesktopImageModal`/`MobileImageModal`. `page.tsx` picks between them with `hidden md:block` / `md:hidden`, and `ImageModal` picks between the two modals at a 768px media query. If you change one, check its counterpart.
 
